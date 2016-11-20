@@ -291,10 +291,12 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>window.jQuery || document.write("<script src='{{ asset('components/js/libs/jquery-1.11.3.min.js') }}'>\x3C/script>")</script>
 
+<script src="{{ asset('components/js/libs/select2.min.js') }}"></script>
+
 <!-- this is where we put our custom functions -->
 <!-- don't forget to concatenate and minify for production -->
 <script src="{{ asset('components/js/functions.js') }}"></script>
-<script>$(document).ready(initPage);</script>
+{{--<script>$(document).ready(initPage);</script>--}}
 
 <!-- Asynchronous google analytics; this is the official snippet.
 	 Replace UA-XXXXXX-XX with your site's ID and uncomment to enable.
@@ -311,31 +313,10 @@
 </script>
 -->
 
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/plugins/mortgage-calculator/js/mortgage-calculator.js?ver=1.0.0'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/themes/inspiry-real-places/js/flexslider/jquery.flexslider-min.js?ver=2.4.0'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/themes/inspiry-real-places/js/owl.carousel/owl.carousel.min.js?ver=1.3.2'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/themes/inspiry-real-places/js/swipebox/js/jquery.swipebox.min.js?ver=1.3.0'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/themes/inspiry-real-places/js/select2/select2.min.js?ver=4.0.0'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-includes/js/hoverIntent.min.js?ver=1.8.1'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/themes/inspiry-real-places/js/jquery.validate.min.js?ver=1.13.1'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/themes/inspiry-real-places/js/jquery.form.js?ver=3.51.0'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/themes/inspiry-real-places/js/transition.js?ver=3.3.1'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/themes/inspiry-real-places/js/jquery.appear.js?ver=0.3.4'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/themes/inspiry-real-places/js/modal.js?ver=3.3.4'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/themes/inspiry-real-places/js/meanmenu/jquery.meanmenu.min.js?ver=2.0.8'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/themes/inspiry-real-places/js/jquery.placeholder.min.js?ver=2.1.2'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-includes/js/jquery/ui/widget.min.js?ver=1.11.4'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-includes/js/jquery/ui/position.min.js?ver=1.11.4'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-includes/js/jquery/ui/menu.min.js?ver=1.11.4'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-includes/js/wp-a11y.min.js?ver=4.6.1'></script>
 
 
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/themes/inspiry-real-places/js/inspiry-search-form.js?ver=1.3.2'></script>
-<script type='text/javascript' src='//www.google.com/recaptcha/api.js?render=explicit&#038;onload=loadInspiryReCAPTCHA&#038;hl=en&#038;ver=1.3.2'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/themes/inspiry-real-places/js/custom.js?ver=1.3.2'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-includes/js/wp-embed.min.js?ver=4.6.1'></script>
-<script type='text/javascript' src='http://realplaces.inspirythemes.biz/wp-content/plugins/dsidxpress/js/autocomplete.js?ver=2.1.42'></script>
+
+
 
 </body>
 </html>
