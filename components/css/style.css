@@ -5,11 +5,11 @@ body {
 
 @font-face {
 	font-family: 'tavirajlight';
-	src: url('../font/taviraj/taviraj-light-webfont.eot');
-	src: url('../font/taviraj/taviraj-light-webfont.eot?#iefix') format('embedded-opentype'),
-		url('../font/taviraj/taviraj-light-webfont.woff2') format('woff2'),
-		url('../font/taviraj/taviraj-light-webfont.woff') format('woff'),
-		url('../font/taviraj/taviraj-light-webfont.svg#tavirajlight') format('svg');
+	src: url('../fonts/taviraj/taviraj-light-webfont.eot');
+	src: url('../fonts/taviraj/taviraj-light-webfont.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/taviraj/taviraj-light-webfont.woff2') format('woff2'),
+		url('../fonts/taviraj/taviraj-light-webfont.woff') format('woff'),
+		url('../fonts/taviraj/taviraj-light-webfont.svg#tavirajlight') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -60,7 +60,7 @@ body {
 .wrapper {
 	min-height: 100%;
 	/*position: relative;*/
-	margin-top: 130px;
+	margin-top: 65px;
 	padding-bottom: 82px;
 }
 .footer {
@@ -81,6 +81,9 @@ body {
 	-o-transition: height 0.3s;
 	-webkit-transition: height 0.3s;
 	transition: height 0.3s;
+}
+.page{
+	margin-top: 35px;
 }
 
 
