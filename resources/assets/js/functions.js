@@ -772,7 +772,7 @@
 	});
 
 
-    $('li > ul').each(function(i) {
+    $('.bs-docs-sidebar li > ul').each(function(i) {
         // Find this list's parent list item.
         var parentLi = $(this).parent('li');
 
@@ -791,6 +791,6 @@
     });
 
     // Hide all lists except the outermost.
-    $('ul ul').hide();
+    $('.bs-docs-sidebar ul ul').hide();
 
 })(jQuery);

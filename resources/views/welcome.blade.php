@@ -16,62 +16,115 @@
                 <div class="col-md-9">
                     <div class="row">
 
-                        <div class="col-md-6 article-wrapper">
-                            <article>
-                                <div class="img-wrapper">
-                                    <img src="http://lorempixel.com/150/150/fashion" alt="" />
-                                </div>
-                                <h1>Lorem ipsum dolor.</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Amet ducimus totam quasi nam porro sed.</p>
-                            </article>
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                            	<div class="photo photo1"></div>
+                            	<ul class="details">
+                                	<li class="author"><a href="#">Angel Real Estate Consultancy Co.,Ltd (ARE)</a></a></li>
+                                	<li class="phone"><a href="#">กดเพื่อดูเบอร์</a></li>
+                                	<li class="share">
+                                		<ul>
+                                			<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                			<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                			<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                		</ul>
+                                	</li>
+                            	</ul>
+                            	<div class="description">
+                            		<h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
+                            		<h2>356,000,000 ฿ / ขาย / <a href="#">คอนโด</a></h2>
+                            		<h3>34 ไร่ 3 งาน 100 ตารางวา / 125 ฿ : ตารางเมตร</a></h3>
+                            		<p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
+                                	<div class="card-media-body-supporting-bottom">
+                                        <!--<span class="card-media-body-supporting-bottom-text subtle">Mezzanine, San Francisco, CA</span>-->
+                                        <span class="card-media-body-supporting-bottom-text subtle u-float-right">1 ชั่วโมง ที่แล้ว</span>
+                                    </div>
+                                    <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
+                                        <span class="card-media-body-supporting-bottom-text subtle">ดู 256,802 ครั้ง</span>
+                                        <a href="#/" class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>
+                                    </div>
+                            	</div>
+                            </div>      
                         </div>
-                        <div class="col-md-6 article-wrapper">
-                            <article>
-                                <div class="img-wrapper">
-                                    <img src="http://lorempixel.com/150/150/city" alt="" />
-                                </div>
-                                <h1>Dignissimos perferendis quae.</h1>
-                                <p>Numquam dolorem sed quae placeat iusto! Quibusdam
-                                    doloremque enim assumenda aliquam impedit earum alias labore.</p>
-                            </article>
+
+                        
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                            	<div class="photo photo1"></div>
+                            		<ul class="details">
+                                		<li class="author"><a href="#">John Doe</a></li>
+                                		<li class="date">Aug. 24, 2015</li>
+                                		<li class="tags">
+                                			<ul>
+                                				<li><a href="#">Learn</a></li>
+                                				<li><a href="#">Code</a></li>
+                                				<li><a href="#">HTML</a></li>
+                                				<li><a href="#">CSS</a></li>
+                                			</ul>
+                                		</li>
+                                	</ul>
+                            	<div class="description">
+                            		<h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
+                            		<h2>ขาย || <a href="#">คอนโด</a></h2>
+                            		<p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
+                            	</div>
+                            </div>      
                         </div>
-                        <div class="col-md-6 article-wrapper">
-                            <article>
-                                <div class="img-wrapper">
-                                    <img src="http://lorempixel.com/150/150/food" alt="" />
-                                </div>
-                                <h1>Quisquam deserunt cumque!</h1>
-                                <p>Dolor tempora nihil facere explicabo qui mollitia deleniti
-                                    quam quia iure nisi voluptate voluptatibus cum.</p>
-                            </article>
+
+
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                            	<div class="photo photo1"></div>
+                            		<ul class="details">
+                                		<li class="author"><a href="#">John Doe</a></li>
+                                		<li class="date">Aug. 24, 2015</li>
+                                		<li class="share">
+                                			<ul>
+                                				<li><a href="#">Learn</a></li>
+                                				<li><a href="#">Code</a></li>
+                                				<li><a href="#">HTML</a></li>
+                                				<li><a href="#">CSS</a></li>
+                                			</ul>
+                                		</li>
+                                	</ul>
+                            	<div class="description">
+                            		<h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
+                            		<h2>ขาย || <a href="#">คอนโด</a></h2>
+                            		<p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
+                            	</div>
+                            </div>      
                         </div>
-                        <div class="col-md-6 article-wrapper">
-                            <article>
-                                <div class="img-wrapper">
-                                    <img src="http://lorempixel.com/150/150/nature" alt="" />
-                                </div>
-                                <h1>Velit natus possimus.</h1>
-                                <p>Illum voluptates nisi asperiores temporibus illo maiores
-                                    qui aliquid corporis exercitationem libero dolor tenetur.
-                                    Doloremque!</p>
-                            </article>
+
+
+                        <div class="col-md-6">
+                            <div class="blog-card">
+                            	<div class="photo photo1"></div>
+                            		<ul class="details">
+                                		<li class="author"><a href="#">John Doe</a></li>
+                                		<li class="date">Aug. 24, 2015</li>
+                                		<li class="tags">
+                                			<ul>
+                                				<li><a href="#">Learn</a></li>
+                                				<li><a href="#">Code</a></li>
+                                				<li><a href="#">HTML</a></li>
+                                				<li><a href="#">CSS</a></li>
+                                			</ul>
+                                		</li>
+                                	</ul>
+                            	<div class="description">
+                            		<h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
+                            		<h2>ขาย || <a href="#">คอนโด</a></h2>
+                            		<p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
+                            	</div>
+                            </div>      
                         </div>
-                        <div class="col-md-6 article-wrapper">
-                            <article>
-                                <div class="img-wrapper">
-                                    <img src="http://lorempixel.com/150/150/abstract" alt="" />
-                                </div>
-                                <h1>Atque quo maxime.</h1>
-                                <p>Sed eveniet iste magni possimus ipsum dolore ea nesciunt
-                                    eligendi id. Eum quos voluptatibus ullam.</p>
-                            </article>
-                        </div>
+
+
                     </div>
                 </div>
                 <div class="col-md-3">
 
-                    <div class="side-panel .bs-docs-sidebar">
+                    <div class="side-panel bs-docs-sidebar">
 
                         <div class="topic">
                             <span>New Posts</span>
