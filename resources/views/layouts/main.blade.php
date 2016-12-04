@@ -77,13 +77,20 @@
 <nav id="main-nav" class="clearfix bg">
     <div class="container">
         <a href="#home" id="nav-logo" title="siam planet">Siam Planet</a>
-        <ul class="unstyled">
-            <li><a href="#about">กกก</a></li>
-            <li><a href="#event-highlights">���Թ</a></li>
-            <li><a href="#schedule">��ҹ</a></li>
-            <li><a href="#travel">�͹�</a></li>
-            <li><a href="#register" class="maia-button">��С�ȿ��</a></li>
+        <ul class="nav-menu unstyled">
+            <li><a href="#about">ลงประกาศ <span class="yellow">ฟรี!</span></a></li>
+            <li><a href="#event-highlights">ที่ดิน</a></li>
+            <li><a href="#travel">บ้าน</a></li>
+            <li><a href="#schedule">คอนโด</a></li>
+            <li><a href="#register" class="maia-button">เข้าสู่ระบบ</a></li>
         </ul>
+        <button class="toggle-menu">
+            <a href="#0" class="navicon menu1">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </button>
     </div>
 </nav>
 
@@ -97,12 +104,12 @@
                 <div class="inline-fields clearfix">
                     <div class="option-bar property-location">
                         <select name="location" id="location" data-title="Location" class="search-select">
-                            <option value="any">Vị trí (tất cả)</option>
+                            <option value="any">จังหวัด ทั้งหมด</option>
                         </select>
                     </div>
                     <div class="option-bar property-type">
                         <select name="type" id="select-property-type" class="search-select">
-                            <option value="any" selected="selected">Dự án (Any)</option>
+                            <option value="any" selected="selected">ประเภท ทั้งหมด</option>
                             <option value="commercial"> Commercial</option>
                             <option value="office">-  Office</option>
                             <option value="shop">-  Shop</option>
@@ -116,7 +123,7 @@
                     </div>
                     <div class="option-bar property-status">
                         <select name="status" id="select-status" class="search-select">
-                            <option value="any" selected="selected">Loại dự án (Any)</option>
+                            <option value="any" selected="selected">ราคา ทั้งหมด</option>
                             <option value="for-rent"> Căn hộ</option>
                             <option value="for-sale"> Biệt thư</option>
                             <option value="for-sale"> Chung cư</option>
@@ -125,87 +132,80 @@
                     <div class="option-bar form-control-buttons">
                         <a class="hidden-fields-reveal-btn" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon-plus-container" width="20" height="20" viewBox="0 0 20 20">
-                                <g fill="#C15302">
+                                <g>
                                     <path class="icon icon-minus" d="M10.035 20.035c-2.092 0-4.313-.563-5.688-1.938-.406-.406-.688-.73-.688-1.141 0-.424.266-.859.891-.797.257.025.585.172.75.347 1.327.969 2.967 1.529 4.735 1.529 4.437 0 8.001-3.564 8.001-8.001 0-4.436-3.564-8-8.001-8-4.436 0-8 3.564-8 8 0 1.226.337 2.306.829 3.344 0 .001.277.495.313.938.04.491-.234.703-.656.875-.377.153-.859-.109-1.083-.452-.87-1.335-1.403-2.999-1.403-4.704 0-5.414 4.586-10 10-10 5.413 0 10 4.586 10 10 0 5.413-4.587 10-10 10zm-12-14v8-8zm16 5h-8c-.553 0-1-.447-1-1 0-.553.447-1 1-1h8c.553 0 1 .447 1 1 0 .553-.447 1-1 1z"/>
                                     <path class="icon icon-plus" d="M10.226 15.035c-.553 0-1-.447-1-1v-8c0-.553.447-1 1-1 .553 0 1 .447 1 1v8c0 .553-.447 1-1 1z"/>
                                 </g>
                             </svg>
                         </a>
-                        <input type="submit" value="Tìm dự án" class="form-submit-btn">
+                        <input type="submit" value="ค้นหา กด ตรง นี้!" class="form-submit-btn">
                     </div>
                 </div>
                 <!-- .inline-fields -->
                 <div class="hidden-fields clearfix">
                     <div class="option-bar property-bedrooms">
                         <select name="bedrooms" id="select-bedrooms" class="search-select">
-                            <option value="any" selected="selected">Min Beds (Any)</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                    <div class="option-bar property-bathrooms">
-                        <select name="bathrooms" id="select-bathrooms" class="search-select">
-                            <option value="any" selected="selected">Min Baths (Any)</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
+                            <option value="any" selected="selected">ประกาศ ทั้งหมด</option>
+                            <option value="1">ขาย</option>
+                            <option value="2">เช่า</option>
                         </select>
                     </div>
                     <div class="option-bar property-min-price">
                         <select name="min-price" id="select-min-price" class="search-select">
-                            <option value="any" selected="selected">Min Price (Any)</option>
+                            <option value="any" selected="selected">ขนาดพื้นที่ ทั้งหมด</option>
                             <option value="1000">$1,000</option>
+                        </select>
+                    </div>
+                    <div class="option-bar property-bathrooms">
+                        <select name="bathrooms" id="select-bathrooms" class="search-select">
+                            <option value="any" selected="selected">โฉนด ทั้งหมด</option>
+                            <option value="1">ประกาศเก่า</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
                         </select>
                     </div>
                     <div class="option-bar property-max-price">
                         <select name="max-price" id="select-max-price" class="search-select">
-                            <option value="any" selected="selected">Max Price (Any)</option>
+                            <option value="any" selected="selected">ประกาศล่าสุด</option>
                             <option value="5000">$5,000</option>
                             <option value="10000">$10,000</option>
                             <option value="50000">$50,000</option>
                             <option value="100000">$100,000</option>
                             <option value="200000">$200,000</option>
                             <option value="300000">$300,000</option>
-                            <option value="400000">$400,000</option>
-                            <option value="500000">$500,000</option>
-                            <option value="600000">$600,000</option>
-                            <option value="700000">$700,000</option>
-                            <option value="800000">$800,000</option>
-                            <option value="900000">$900,000</option>
-                            <option value="1000000">$1,000,000</option>
-                            <option value="1500000">$1,500,000</option>
-                            <option value="2000000">$2,000,000</option>
-                            <option value="2500000">$2,500,000</option>
-                            <option value="5000000">$5,000,000</option>
-                            <option value="10000000">$10,000,000</option>
+                        </select>
+                    </div>
+                    <div class="option-bar property-max-price">
+                        <select name="max-price" id="select-max-price" class="search-select">
+                            <option value="any" selected="selected">ห้องนอน ทั้งหมด</option>
+                            <option value="5000">$5,000</option>
+                            <option value="10000">$10,000</option>
+                            <option value="50000">$50,000</option>
+                        </select>
+                    </div>
+                    <div class="option-bar property-max-price">
+                        <select name="max-price" id="select-max-price" class="search-select">
+                            <option value="any" selected="selected">ห้องนอน ทั้งหมด</option>
+                            <option value="5000">$5,000</option>
+                            <option value="10000">$10,000</option>
+                        </select>
+                    </div>
+                    <div class="option-bar property-max-price">
+                        <select name="max-price" id="select-max-price" class="search-select">
+                            <option value="any" selected="selected">เฟอร์นิเจอร์ ทั้งหมด</option>
+                            <option value="5000">$5,000</option>
+                            <option value="10000">$10,000</option>
                         </select>
                     </div>
                     <div class="option-bar property-keyword">
-                        <input type="text" name="keyword" id="keyword-txt" value="" placeholder="Keyword" />
-                    </div>
-                    <div class="option-bar property-id">
-                        <input type="text" name="property-id" id="property-id-txt" value="" placeholder="Property ID" />
-                    </div>
-                    <div class="option-bar property-min-area">
-                        <input type="text" name="min-area" id="min-area" pattern="[0-9]+" value="" placeholder="Min Area (sq ft)" title="Please only provide digits!" />
-                    </div>
-                    <div class="option-bar property-max-area">
-                        <input type="text" name="max-area" id="max-area" pattern="[0-9]+" value="" placeholder="Max Area (sq ft)" title="Please only provide digits!" />
+                        <input type="text" name="keyword" id="keyword-txt" value="" placeholder="คำค้นหา (Keyword)" title="Please only provide digits!" />
                     </div>
                 </div>
                 <!-- .hidden-fields -->

@@ -1,6 +1,7 @@
 /* A Linux- and Windows-friendly sans-serif font stack: http://prospects.mhurrell.co.uk/post/updating-the-helvetica-font-stack */
 body {
 	font-family: 'tavirajlight';
+	font-size: 14px;
 }
 
 @font-face {
@@ -60,7 +61,7 @@ body {
 .wrapper {
 	min-height: 100%;
 	/*position: relative;*/
-	margin-top: 65px;
+	margin-top: 50px;
 	padding-bottom: 82px;
 }
 .footer {

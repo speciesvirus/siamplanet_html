@@ -6,14 +6,14 @@
 }
 
 #main-nav {
-    border-bottom: 1px solid #c5c5c5;
+    /*border-bottom: 1px solid #4173c9;*/
 }
 
 #main-nav {
     width: 100%;
     float: left;
     position: absolute;
-    background-color: #1c2126;
+    background-color: #003561;
     -moz-box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.3);
@@ -27,7 +27,7 @@
 #main-nav li {
     float: left;
     text-transform: uppercase;
-    line-height: 65px;
+    line-height: 50px;
     margin-left: 40px;
 }
 
@@ -43,19 +43,22 @@
 a:link {
     -webkit-tap-highlight-color: #fcd700;
 }
+.yellow{
+    color: #fcd700;
+}
 
 .maia-button {
-    /*background-color: #4173c9;*/
-    /*background-image: -moz-linear-gradient(top, #5e8ee4, #4173c9);*/
-    /*background-image: -webkit-linear-gradient(top, #5e8ee4, #4173c9);*/
-    /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #5e8ee4), color-stop(1, #4173c9));*/
-    /*background-image: linear-gradient(top, #5e8ee4, #4173c9);*/
+    background-color: #4173c9;
+    background-image: -moz-linear-gradient(top, #5e8ee4, #4173c9);
+    background-image: -webkit-linear-gradient(top, #5e8ee4, #4173c9);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #5e8ee4), color-stop(1, #4173c9));
+    background-image: linear-gradient(top, #5e8ee4, #4173c9);
     
-    background-color: #005437;
-    background-image: -moz-linear-gradient(top, #0A6E4B, #005437);
-    background-image: -webkit-linear-gradient(top, #0A6E4B, #005437);
-    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0A6E4B), color-stop(1, #005437));
-    background-image: linear-gradient(top, #0A6E4B, #005437);
+    /*background-color: #005437;*/
+    /*background-image: -moz-linear-gradient(top, #0A6E4B, #005437);*/
+    /*background-image: -webkit-linear-gradient(top, #0A6E4B, #005437);*/
+    /*background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0A6E4B), color-stop(1, #005437));*/
+    /*background-image: linear-gradient(top, #0A6E4B, #005437);*/
     
     
     
@@ -81,7 +84,7 @@ a.maia-button {
 }
 
 #main-nav a {
-    color: #666;
+    color: #fff;
 }
 
 h1#header {
@@ -92,7 +95,157 @@ h1#header {
 }
 
 
+/* mobile menu */
 
+/*! ============================================================
+ * Based entirely on Animated Navicons by Hugo Darby-Brown:
+ * http://codepen.io/hugo/pen/LmJsf
+ * ============================================================ */
+/* ========= Menu Icon Base ======== */
+.menu1, .menu2, .menu3, .menu4, .menu5, .menu6 {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 5px;
+    height: 4em;
+    position: relative;
+    width: 4em;
+    -webkit-tap-highlight-color: transparent;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+.menu1 span, .menu2 span, .menu3 span, .menu4 span, .menu5 span, .menu6 span {
+    display: block;
+    background: #fff;
+    -moz-border-radius: 2em;
+    -webkit-border-radius: 2em;
+    border-radius: 2em;
+    backface-visibility: hidden;
+    height: 0.8em;
+    position: absolute;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ============ Menu1 ============ */
+.menu1 span {
+    left: 0;
+}
+.menu1 span:nth-child(1) {
+    top: 1em;
+}
+.menu1 span:nth-child(2) {
+    top: 2.2em;
+}
+.menu1 span:nth-child(3) {
+    top: 3.4em;
+}
+.menu1.open span:nth-child(1) {
+    -moz-transform: rotate(40deg) translate(0.9em, 0.9em);
+    -ms-transform: rotate(40deg) translate(0.9em, 0.9em);
+    -webkit-transform: rotate(40deg) translate(0.9em, 0.9em);
+    transform: rotate(40deg) translate(0.9em, 0.9em);
+}
+.menu1.open span:nth-child(2) {
+    opacity: 0;
+    -moz-transition: none;
+    -o-transition: none;
+    -webkit-transition: none;
+    transition: none;
+}
+.menu1.open span:nth-child(3) {
+    -moz-transform: rotate(-40deg) translate(0.8em, -0.8em);
+    -ms-transform: rotate(-40deg) translate(0.8em, -0.8em);
+    -webkit-transform: rotate(-40deg) translate(0.8em, -0.8em);
+    transform: rotate(-40deg) translate(0.8em, -0.8em);
+}
+
+/*!
+ * Animated navicon credit to @hugo - http://codepen.io/hugo/pen/LmJsf
+ * My fork (attached as an external resource):
+ * http://codepen.io/jreece/pen/fIdqg
+*/
+.menu {
+    position: fixed;
+    overflow-y: auto;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(237, 225, 204, 0.9);
+    border-top: 1px solid #3D3527;
+    -moz-transition: opacity 800ms;
+    -o-transition: opacity 800ms;
+    -webkit-transition: opacity 800ms;
+    transition: opacity 800ms;
+}
+.menu.off {
+    opacity: 0;
+    z-index: -1;
+    -moz-transition: opacity 0;
+    -o-transition: opacity 0;
+    -webkit-transition: opacity 0;
+    transition: opacity 0;
+}
+.menu .nav, .menu .nav li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+.menu .nav a {
+    display: block;
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    background: transparent;
+    border-bottom: 1px solid #3D3527;
+    color: #3D3527;
+    font-size: 300%;
+    letter-spacing: 1vw;
+    line-height: 33.33333vh;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.menu .nav a:hover, .menu .nav a:focus {
+    background: rgba(61, 53, 39, 0.9);
+    color: #EDE1CC;
+    -moz-transition-property: background-color, color;
+    -o-transition-property: background-color, color;
+    -webkit-transition-property: background-color, color;
+    transition-property: background-color, color;
+    -moz-transition-duration: 800ms;
+    -o-transition-duration: 800ms;
+    -webkit-transition-duration: 800ms;
+    transition-duration: 800ms;
+}
+
+.menu-toggle {
+    z-index: 2;
+    right: 0;
+    top: 0;
+}
+.menu-toggle > span {
+    background: #EDE1CC;
+}
+.menu-toggle.open {
+    background: #3D3527;
+}
+
+@media (max-width: 700px) {
+    .nav-menu{
+        display: none;
+    }
+    .toggle-menu{
+        line-height: 50px;
+        margin-left: 40px;
+    }
+}
+/* end mobile menu*/
 
 
 @media screen and (min-width: 480px) {
@@ -532,8 +685,8 @@ left: 0;
 }
 .header-advance-search .form-submit-btn {
     width: 75%;
-    padding-left: 50px;
-    text-align: left;
+    /*padding-left: 50px;*/
+    /*text-align: left;*/
 }
 .form-submit-btn {
     border: none;
@@ -604,10 +757,12 @@ left: 0;
 
 
 .hidden-fields-reveal-btn {
-    background-color: #f4903f;
+    /*background-color: #f4903f;*/
+    background-color: #ec6d05;
 }
 .hidden-fields-reveal-btn:hover {
-    background-color: #0dbae8;
+    /*background-color: #0dbae8;*/
+    background-color: #fcd700;
 }
 /*
 * 11.0 Select2 Module
@@ -664,11 +819,31 @@ left: 0;
     background-color: #dfe7ee;
 }
 .header-advance-search .form-submit-btn {
-    background-image: url('../images/svg/icon-search.svg');
-    background-repeat: no-repeat;
-    background-position: 17px center;
-    background-size: 20px;
+    /*background-image: url('../images/svg/icon-search.svg');*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: 17px center;*/
+    /*background-size: 20px;*/
+    color: #fff;
+    background-color: #0075c2;
 }
+.header-advance-search input[type="text"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #AFAFAF;
+}
+.header-advance-search input[type="text"]::-moz-placeholder { /* Firefox 19+ */
+    color: #AFAFAF;
+}
+.header-advance-search input[type="text"]:-ms-input-placeholder { /* IE 10+ */
+    color: #AFAFAF;
+}
+.header-advance-search input[type="text"]:-moz-placeholder { /* Firefox 18- */
+    color: #AFAFAF;
+}
+.icon-plus-container{
+    fill: #fff;
+    /*fill: #C15302;*/
+}
+
+
 
 .site-footer-one .widget_mortgage-calculator input[type="number"],
 .site-footer-one .widget_lidd_mc_widget input[type="text"],
@@ -687,15 +862,14 @@ left: 0;
 .side-panel {
     margin: 0 auto;
     background: #FFF;
-    /*text-align: center;*/
-    /*min-width: 320px;*/
-
-    border: 1px solid #E5E5E5;
+    /* text-align: center; */
+    /* min-width: 320px; */
+    /* border: 1px solid #E5E5E5; */
     margin-bottom: 15px;
-    padding: 15px;
+    /* padding: 15px; */
 }
 .side-panel .topic{
-    padding-bottom: 9px;
+    padding-bottom: 3px;
     margin-bottom: 12px;
     border-bottom: 1px solid #e5e5e5;
     color: #9197a3;
