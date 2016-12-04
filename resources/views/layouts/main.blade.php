@@ -30,6 +30,14 @@
     maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width (wrong for most sites)
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <meta name="theme-color" content="#003561">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#003561">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#003561">
+    
 @yield('meta')
     <!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
     <link rel="shortcut icon" href="favicon.ico" />
