@@ -3,6 +3,7 @@
     top: 0;
     z-index: 9999;
     zoom: 1;
+    left: 0;
 }
 
 #main-nav {
@@ -18,7 +19,13 @@
     -webkit-box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.3);
 }
-
+#main-nav .container{
+    display: table;
+}
+#main-nav .container > *{
+    display: table-cell;
+    vertical-align: middle;
+}
 #main-nav ul {
     margin-bottom: 0;
     float: right;
@@ -223,16 +230,18 @@ h1#header {
     -webkit-transition-duration: 800ms;
     transition-duration: 800ms;
 }
-
-.menu-toggle {
+.toggle-menu {
     z-index: 2;
     right: 0;
     top: 0;
+    /*float: right;*/
+    /*line-height: 50px;*/
+    /*margin-left: 40px;*/
 }
-.menu-toggle > span {
+.toggle-menu > span {
     background: #EDE1CC;
 }
-.menu-toggle.open {
+.toggle-menu.open {
     background: #3D3527;
 }
 
@@ -241,10 +250,70 @@ h1#header {
         display: none;
     }
     .toggle-menu{
-        line-height: 50px;
-        margin-left: 40px;
+
     }
 }
+
+
+
+
+
+
+
+@media (max-width: 989px){
+    #main-nav .navigation {
+        background-color: #556;
+        height: 100%;
+        min-height: 100%;
+        left: -320px;
+        position: fixed;
+        top: 0;
+        width: 320px;
+        min-width: 320px;
+        max-width: 70%;
+        margin: 0;
+        padding: 0;
+        display: block;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #wrapper, #main-nav .navigation, .users-tools {
+        -webkit-transition: left .3s ease-in;
+        -o-transition: left .3s ease-in;
+        transition: left .3s ease-in;
+    }
+    .nav-open #main-nav .navigation {
+        left: 0;
+    }
+    body.nav-open .wrapper, #main-nav {
+        position: relative;
+        left: 320px;
+    }
+}
+@media (max-width: 767px){
+    .navbar-toggle, #wrapper, .header-nav .navigation, .users-tools, .header-bg>.container {
+        -webkit-transition: none;
+        -o-transition: none;
+        transition: none;
+    }
+    #main-nav .navigation {
+        left: -260px;
+        width: 260px;
+        min-width: 260px;
+        max-width: 260px;
+    }
+    #main-nav{
+
+    }
+    body.nav-open .wrapper {
+        position: relative;
+        left: 260px;
+    }
+
+}
+
+
 /* end mobile menu*/
 
 

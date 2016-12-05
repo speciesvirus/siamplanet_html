@@ -795,12 +795,14 @@
 
 
     //*!toggle mobile menu
-    $('.menu-toggle').on('click', function(e){
-        e.preventDefault();
-        $('.menu').toggleClass('off');
-    });
+    // $('.menu-toggle').on('click', function(e){
+    //     e.preventDefault();
+    //     $('.menu').toggleClass('off');
+    // });
 
     $('.navicon').on('click', function() {
-        $(this).toggleClass('open');
+    	var $this = $(this);
+    	$('body').toggleClass('nav-open');
+        $this.find('a').toggleClass('open');
     });
 })(jQuery);
