@@ -988,92 +988,63 @@
 
 @section('third-content')
                 <div class="col-md-9">
-                    <div class="row">
+                    <h2>Review</h2>
+                    <div class="blog-card review">
+                        <div class="photo photo1"></div>
+                        <div class="description">
+                            <h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
+                            <p>ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
 
-                            <div class="blog-card">
-                            	<div class="photo photo1"></div>
-                            	<ul class="details">
-                                	<li class="author"><a href="#">Angel Real Estate Consultancy Co.,Ltd (ARE)</a></a></li>
-                                	<li class="phone"><a href="#">กดเพื่อดูเบอร์</a></li>
-                                	<li class="share">
-                                		<ul>
-                                			<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                			<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                			<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-                                		</ul>
-                                	</li>
-                            	</ul>
-                            	<div class="description">
-                            		<h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
-                            		<h2>356,000,000 ฿ / ขาย / <a href="#">คอนโด</a></h2>
-                            		<h3>34 ไร่ 3 งาน 100 ตารางวา / 125 ฿ : ตารางเมตร</a></h3>
-                            		<p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
-                                	<div class="card-media-body-supporting-bottom">
-                                        <!--<span class="card-media-body-supporting-bottom-text subtle">Mezzanine, San Francisco, CA</span>-->
-                                        <span class="card-media-body-supporting-bottom-text subtle u-float-right">1 ชั่วโมง ที่แล้ว</span>
-                                    </div>
-                                    <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
-                                        <span class="card-media-body-supporting-bottom-text subtle">ดู 256,802 ครั้ง</span>
-                                        <a href="#/" class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>
-                                    </div>
-                            	</div>
-                            </div>  
-                            <div class="blog-card">
-                            	<div class="photo photo1"></div>
-                            	<ul class="details">
-                                	<li class="author"><a href="#">Angel Real Estate Consultancy Co.,Ltd (ARE)</a></a></li>
-                                	<li class="phone"><a href="#">กดเพื่อดูเบอร์</a></li>
-                                	<li class="share">
-                                		<ul>
-                                			<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                			<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                			<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-                                		</ul>
-                                	</li>
-                            	</ul>
-                            	<div class="description">
-                            		<h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
-                            		<h2>356,000,000 ฿ / ขาย / <a href="#">คอนโด</a></h2>
-                            		<h3>34 ไร่ 3 งาน 100 ตารางวา / 125 ฿ : ตารางเมตร</a></h3>
-                            		<p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
-                                	<div class="card-media-body-supporting-bottom">
-                                        <!--<span class="card-media-body-supporting-bottom-text subtle">Mezzanine, San Francisco, CA</span>-->
-                                        <span class="card-media-body-supporting-bottom-text subtle u-float-right">1 ชั่วโมง ที่แล้ว</span>
-                                    </div>
-                                    <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
-                                        <span class="card-media-body-supporting-bottom-text subtle">ดู 256,802 ครั้ง</span>
-                                        <a href="#/" class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>
-                                    </div>
-                            	</div>
-                            </div>  
-                                                        <div class="blog-card">
-                            	<div class="photo photo1"></div>
-                            	<ul class="details">
-                                	<li class="author"><a href="#">Angel Real Estate Consultancy Co.,Ltd (ARE)</a></a></li>
-                                	<li class="phone"><a href="#">กดเพื่อดูเบอร์</a></li>
-                                	<li class="share">
-                                		<ul>
-                                			<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                			<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                			<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-                                		</ul>
-                                	</li>
-                            	</ul>
-                            	<div class="description">
-                            		<h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
-                            		<h2>356,000,000 ฿ / ขาย / <a href="#">คอนโด</a></h2>
-                            		<h3>34 ไร่ 3 งาน 100 ตารางวา / 125 ฿ : ตารางเมตร</a></h3>
-                            		<p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
-                                	<div class="card-media-body-supporting-bottom">
-                                        <!--<span class="card-media-body-supporting-bottom-text subtle">Mezzanine, San Francisco, CA</span>-->
-                                        <span class="card-media-body-supporting-bottom-text subtle u-float-right">1 ชั่วโมง ที่แล้ว</span>
-                                    </div>
-                                    <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
-                                        <span class="card-media-body-supporting-bottom-text subtle">ดู 256,802 ครั้ง</span>
-                                        <a href="#/" class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>
-                                    </div>
-                            	</div>
-                            </div>  
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                            </p>
+                        </div>
+                    </div>
+                    <div class="blog-card review">
+                        <div class="photo photo1"></div>
+                        <div class="description">
+                            <h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
+                            <p>ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                            </p>
+                        </div>
+                    </div>
+                    <div class="blog-card review">
+                        <div class="photo photo1"></div>
+                        <div class="description">
+                            <h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
+                            <p>ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+
+                                ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาสขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส
+                            </p>
+                        </div>
                     </div>
                 </div>
 @stop

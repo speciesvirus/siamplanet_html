@@ -366,10 +366,12 @@
 
     <footer class="footer">
 
-        <p>
-            <small>&copy; Copyright Your Name Here {{ Carbon\Carbon::now()->format('Y') }}. All Rights
-                Reserved.</small>
-        </p>
+        <div class="container">
+            <p>
+                <small>&copy; Copyright Your Name Here {{ Carbon\Carbon::now()->format('Y') }}. All Rights
+                    Reserved.</small>
+            </p>
+        </div>
 
     </footer>
 
