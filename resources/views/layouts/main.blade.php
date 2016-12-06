@@ -328,23 +328,46 @@
     <!-- .header-bottom -->
 
     <div class="page">
-        <div class="container list-article">
-            <div class="row">
-
-@yield('content')
-
-
-
+        <section class="first-section">
+            <div class="container list-article">
+                <div class="row">
+                    
+                @yield('first-content')
+    
+                </div>
+    
             </div>
-
-        </div>
+        </section>
+    
+        <section class="second-section">
+            <div class="container list-article">
+                <div class="row">
+    
+                @yield('second-content')
+    
+                </div>
+    
+            </div>
+        </section>
+        
+        <section class="third-section">
+            <div class="container list-article">
+                <div class="row">
+    
+                @yield('third-content')
+    
+                </div>
+    
+            </div>
+        </section>
+        
     </div>
 
 
     <footer class="footer">
 
         <p>
-            <small>&copy; Copyright Your Name Here 2014. All Rights
+            <small>&copy; Copyright Your Name Here {{ Carbon\Carbon::now()->format('Y') }}. All Rights
                 Reserved.</small>
         </p>
 

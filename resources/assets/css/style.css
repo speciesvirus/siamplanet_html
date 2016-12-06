@@ -19,7 +19,7 @@ body {
 /* We like off-black for text. */
 body, select, input, textarea {color: #666;}
 
-a {color: #03f;}
+a {color: #007aff;}
 a:hover {color: #69f;}
 
 /* Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301) */
@@ -83,10 +83,17 @@ body {
 	-webkit-transition: height 0.3s;
 	transition: height 0.3s;
 }
-.page{
-	margin-top: 35px;
+.page {
+	padding-top: 35px;
 }
-
+.page section {
+	margin: 30px 0;
+	padding: 25px 0;
+}
+.page section:first-child{
+	margin-top: 0;
+	padding-top: 0;
+}
 
 /* Media queries
 -------------------------------------------------------------------------------*/

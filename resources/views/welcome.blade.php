@@ -12,7 +12,7 @@
 
 @stop
 
-@section('content')
+@section('first-content')
                 <div class="col-md-9">
                     <div class="row">
 
@@ -928,5 +928,152 @@
 
                     {{--</div>--}}
 
+                </div>
+@stop
+
+@section('second-content')
+
+<div class="col-md-9">
+    <div class="list-container">
+        <h2>ประกาศล่าสุด</h2>
+    <ul class="list">
+        <li>
+            <span class="list-badge"><a href="#">คอนโด</a></span>
+            <span class="list-article-summary">
+                <h2 class="list-title">An example article</h2>
+                <span class="list-author">Chris Macrae</span>
+            </span>
+        </li>
+                <li>
+            <span class="list-badge">บ้าน</span>
+            <span class="list-article-summary">
+                <h2 class="list-title">An example article</h2>
+                <span class="list-author">Chris Macrae</span>
+            </span>
+        </li>
+                <li>
+            <span class="list-badge">ที่ดิน</span>
+            <span class="list-article-summary">
+                <h2 class="list-title">An example article</h2>
+                <span class="list-author">Chris Macrae</span>
+            </span>
+        </li>
+                <li>
+            <span class="list-badge">คอนโด</span>
+            <span class="list-article-summary">
+                <h2 class="list-title">An example article</h2>
+                <span class="list-author">Chris Macrae</span>
+            </span>
+        </li>
+                <li>
+            <span class="list-badge">คอนโด</span>
+            <span class="list-article-summary">
+                <h2 class="list-title">An example article</h2>
+                <span class="list-author">Chris Macrae</span>
+            </span>
+        </li>
+                <li>
+            <span class="list-badge">คอนโด</span>
+            <span class="list-article-summary">
+                <h2 class="list-title">An example article</h2>
+                <span class="list-author">Chris Macrae</span>
+            </span>
+        </li>
+        
+    </ul>
+</div>
+</div>
+
+@stop
+
+@section('third-content')
+                <div class="col-md-9">
+                    <div class="row">
+
+                            <div class="blog-card">
+                            	<div class="photo photo1"></div>
+                            	<ul class="details">
+                                	<li class="author"><a href="#">Angel Real Estate Consultancy Co.,Ltd (ARE)</a></a></li>
+                                	<li class="phone"><a href="#">กดเพื่อดูเบอร์</a></li>
+                                	<li class="share">
+                                		<ul>
+                                			<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                			<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                			<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                		</ul>
+                                	</li>
+                            	</ul>
+                            	<div class="description">
+                            		<h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
+                            		<h2>356,000,000 ฿ / ขาย / <a href="#">คอนโด</a></h2>
+                            		<h3>34 ไร่ 3 งาน 100 ตารางวา / 125 ฿ : ตารางเมตร</a></h3>
+                            		<p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
+                                	<div class="card-media-body-supporting-bottom">
+                                        <!--<span class="card-media-body-supporting-bottom-text subtle">Mezzanine, San Francisco, CA</span>-->
+                                        <span class="card-media-body-supporting-bottom-text subtle u-float-right">1 ชั่วโมง ที่แล้ว</span>
+                                    </div>
+                                    <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
+                                        <span class="card-media-body-supporting-bottom-text subtle">ดู 256,802 ครั้ง</span>
+                                        <a href="#/" class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>
+                                    </div>
+                            	</div>
+                            </div>  
+                            <div class="blog-card">
+                            	<div class="photo photo1"></div>
+                            	<ul class="details">
+                                	<li class="author"><a href="#">Angel Real Estate Consultancy Co.,Ltd (ARE)</a></a></li>
+                                	<li class="phone"><a href="#">กดเพื่อดูเบอร์</a></li>
+                                	<li class="share">
+                                		<ul>
+                                			<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                			<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                			<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                		</ul>
+                                	</li>
+                            	</ul>
+                            	<div class="description">
+                            		<h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
+                            		<h2>356,000,000 ฿ / ขาย / <a href="#">คอนโด</a></h2>
+                            		<h3>34 ไร่ 3 งาน 100 ตารางวา / 125 ฿ : ตารางเมตร</a></h3>
+                            		<p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
+                                	<div class="card-media-body-supporting-bottom">
+                                        <!--<span class="card-media-body-supporting-bottom-text subtle">Mezzanine, San Francisco, CA</span>-->
+                                        <span class="card-media-body-supporting-bottom-text subtle u-float-right">1 ชั่วโมง ที่แล้ว</span>
+                                    </div>
+                                    <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
+                                        <span class="card-media-body-supporting-bottom-text subtle">ดู 256,802 ครั้ง</span>
+                                        <a href="#/" class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>
+                                    </div>
+                            	</div>
+                            </div>  
+                                                        <div class="blog-card">
+                            	<div class="photo photo1"></div>
+                            	<ul class="details">
+                                	<li class="author"><a href="#">Angel Real Estate Consultancy Co.,Ltd (ARE)</a></a></li>
+                                	<li class="phone"><a href="#">กดเพื่อดูเบอร์</a></li>
+                                	<li class="share">
+                                		<ul>
+                                			<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                			<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                			<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                		</ul>
+                                	</li>
+                            	</ul>
+                            	<div class="description">
+                            		<h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
+                            		<h2>356,000,000 ฿ / ขาย / <a href="#">คอนโด</a></h2>
+                            		<h3>34 ไร่ 3 งาน 100 ตารางวา / 125 ฿ : ตารางเมตร</a></h3>
+                            		<p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
+                                	<div class="card-media-body-supporting-bottom">
+                                        <!--<span class="card-media-body-supporting-bottom-text subtle">Mezzanine, San Francisco, CA</span>-->
+                                        <span class="card-media-body-supporting-bottom-text subtle u-float-right">1 ชั่วโมง ที่แล้ว</span>
+                                    </div>
+                                    <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
+                                        <span class="card-media-body-supporting-bottom-text subtle">ดู 256,802 ครั้ง</span>
+                                        <a href="#/" class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>
+                                    </div>
+                            	</div>
+                            </div>  
+                    </div>
                 </div>
 @stop

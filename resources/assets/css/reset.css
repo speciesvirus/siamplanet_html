@@ -106,6 +106,7 @@ input[type="checkbox"] {vertical-align: bottom;}
 .ie6 input {vertical-align: text-bottom;}
 
 select, input, textarea {
+	outline:none;
 	/*font: 99% sans-serif;*/
 }
 
