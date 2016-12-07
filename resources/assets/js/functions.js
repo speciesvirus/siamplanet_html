@@ -791,7 +791,7 @@
     });
 
     // Hide all lists except the outermost.
-    $('.bs-docs-sidebar ul ul').hide();
+    $('.bs-docs-sidebar ul ul:not(.open)').hide();
 
 
     //*!toggle mobile menu
