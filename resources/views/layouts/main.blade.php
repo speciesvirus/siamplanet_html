@@ -325,9 +325,19 @@
         </div>
         <!-- .advance-search -->
     </div>
+
+    <div id="breadcrumb" class="breadcrumb-page">
+        <div class="container">
+            <div itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><span class="fa fa-home fa-fw"></span><a href="https://wp-simplicity.com" itemprop="url"><span itemprop="title">ホーム</span></a><span class="sp"><span class="fa fa-angle-right"></span></span></div>
+            <div itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><span class="fa fa-file-o fa-fw"></span><a href="https://wp-simplicity.com/downloads/" itemprop="url"><span itemprop="title">Simplicityのダウンロード</span></a></div>
+        </div>
+    </div>
     <!-- .header-bottom -->
 
+
+
     <div class="page">
+
         <section class="first-section">
             <div class="container list-article">
                 <div class="row">
@@ -367,10 +377,15 @@
     <footer class="footer">
 
         <div class="container">
-            <p>
-                <small>&copy; Copyright Your Name Here {{ Carbon\Carbon::now()->format('Y') }}. All Rights
-                    Reserved.</small>
-            </p>
+            <div class="col-md-6"><span id="fsl">&copy; Copyright Siam Planet. All Rights Reserved.</span></div>
+            <div class="col-md-6">
+                <span id="fsr">
+                    <a class="_Gs" href="//www.google.co.th/intl/th/policies/privacy/?fg=1">ความเป็นส่วนตัว</a>
+                    <a class="_Gs" href="//www.google.co.th/intl/th/policies/terms/?fg=1">ข้อกำหนด</a>
+                    <a class="_Gs" href="//www.google.co.th/intl/th/policies/terms/?fg=1">ข้อกำหนด</a>
+                </span>
+            </div>
+
         </div>
 
     </footer>
