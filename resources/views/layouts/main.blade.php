@@ -328,8 +328,23 @@
 
     <div id="breadcrumb" class="breadcrumb-page">
         <div class="container">
-            <div itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><span class="fa fa-home fa-fw"></span><a href="https://wp-simplicity.com" itemprop="url"><span itemprop="title">ホーム</span></a><span class="sp"><span class="fa fa-angle-right"></span></span></div>
-            <div itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><span class="fa fa-file-o fa-fw"></span><a href="https://wp-simplicity.com/downloads/" itemprop="url"><span itemprop="title">Simplicityのダウンロード</span></a></div>
+            <div itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="">
+                <span class="fa fa-home fa-fw"></span>
+                <a href="https://wp-simplicity.com" itemprop="url">
+                    <span itemprop="title">หน้าหลัก</span>
+                </a>
+            </div>
+            
+            <span class="sp">
+                    <span class="fa fa-angle-right"></span>
+            </span>
+                
+            <div itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="">
+                <span class="fa fa-file-o fa-fw"></span>
+                <a href="https://wp-simplicity.com/downloads/" itemprop="url">
+                    <span itemprop="title">Simplicityのダウンロード</span>
+                </a>
+            </div>
         </div>
     </div>
     <!-- .header-bottom -->

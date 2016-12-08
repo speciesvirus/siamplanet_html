@@ -1,0 +1,25 @@
+.slick-initialized .slick-slide {
+    text-align: center;
+    background-color: #222;
+}
+.slick-slide img {
+    margin: auto;
+}
+.project-strip {
+    padding: 15px 0 10px 0;
+    height: 80px !important;
+    width: 100%;
+    background-color: #111;
+}
+.project-strip .slick-slide {
+    width: 80px;
+    margin: 0 5px;
+}
+
+.project-strip .slick-slide img {
+   width: 80px;
+}
+.project-strip .slick-current{
+    border: 3px solid rgb(255, 255, 255);
+opacity: 1;
+}
