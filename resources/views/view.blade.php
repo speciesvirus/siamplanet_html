@@ -11,7 +11,7 @@
 @section('script')
 <!--<script src="{{ asset('/resources/assets/slick-carousel/slick/slick.min.js') }}"></script>-->
 <script src="resources/assets/slick-carousel/slick/slick.min.js"></script>
-<link rel="stylesheet" href="/resources/assets/slick-carousel/slick/slick.css" />
+<link rel="stylesheet" href="resources/assets/slick-carousel/slick/slick.css" />
 <link rel="stylesheet" href="resources/assets/css/post.css" />
 
 <script type="text/javascript">
