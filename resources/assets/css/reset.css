@@ -34,6 +34,7 @@ html {
 *:before,
 *:after {
 	box-sizing: inherit;
+	outline:none;
 }
 
 /* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
@@ -106,7 +107,6 @@ input[type="checkbox"] {vertical-align: bottom;}
 .ie6 input {vertical-align: text-bottom;}
 
 select, input, textarea {
-	outline:none;
 	/*font: 99% sans-serif;*/
 }
 

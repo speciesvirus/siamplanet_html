@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 
-<!--[if lt IE 7 ]> <html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
-<!--[if IE 9 ]>    <html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!--[if lt IE 7 ]>
+<html class="ie ie6 ie-lt10 ie-lt9 ie-lt8 ie-lt7 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7 ie-lt10 ie-lt9 ie-lt8 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8 ie-lt10 ie-lt9 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="ie ie9 ie-lt10 no-js" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en"><!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
@@ -14,14 +19,14 @@
 
     <!-- Important stuff for SEO, don't neglect. (And don't dupicate values across your site!) -->
     <title>@yield('title')</title>
-    <meta name="author" content="" />
-    <meta name="description" content="" />
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
 
     <!-- Don't forget to set your site up: http://google.com/webmasters -->
-    <meta name="google-site-verification" content="" />
+    <meta name="google-site-verification" content=""/>
 
     <!-- Who owns the content of this site? -->
-    <meta name="Copyright" content="" />
+    <meta name="Copyright" content=""/>
 
     <!--  Mobile Viewport
     http://j.mp/mobileviewport & http://davidbcalhoun.com/2010/viewport-metatag
@@ -30,40 +35,40 @@
     maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width (wrong for most sites)
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
 
     <meta name="theme-color" content="#003561">
     <!-- Windows Phone -->
     <meta name="msapplication-navbutton-color" content="#003561">
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#003561">
-    
+
 @yield('meta')
-    <!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
-    <link rel="shortcut icon" href="favicon.ico" />
+<!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
+    <link rel="shortcut icon" href="favicon.ico"/>
 
     <!-- concatenate and minify for production -->
-    <!--<link rel="stylesheet" href="{{ asset('resources/assets/css/reset.css') }}" />-->
-    <!--<link rel="stylesheet" href="{{ asset('resources/assets/css/style.css') }}" />-->
-    <!--<link rel="stylesheet" href="{{ asset('resources/assets/bootstrap/dist/css/bootstrap.min.css') }}" />-->
-    <!--<link rel="stylesheet" href="{{ asset('resources/assets/font-awesome/css/font-awesome.min.css') }}" />-->
-    <!--<link rel="stylesheet" href="{{ asset('resources/assets/select2/dist/css/select2.min.css') }}" />-->
-    <!--<link rel="stylesheet" href="{{ asset('resources/assets/css/main.css') }}" />-->
-    <link rel="stylesheet" href="resources/assets/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="resources/assets/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="resources/assets/css/reset.css" />
-    <link rel="stylesheet" href="resources/assets/css/style.css" />
+<!--<link rel="stylesheet" href="{{ asset('resources/assets/css/reset.css') }}" />-->
+<!--<link rel="stylesheet" href="{{ asset('resources/assets/css/style.css') }}" />-->
+<!--<link rel="stylesheet" href="{{ asset('resources/assets/bootstrap/dist/css/bootstrap.min.css') }}" />-->
+<!--<link rel="stylesheet" href="{{ asset('resources/assets/font-awesome/css/font-awesome.min.css') }}" />-->
+<!--<link rel="stylesheet" href="{{ asset('resources/assets/select2/dist/css/select2.min.css') }}" />-->
+<!--<link rel="stylesheet" href="{{ asset('resources/assets/css/main.css') }}" />-->
+    <link rel="stylesheet" href="resources/assets/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="resources/assets/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="resources/assets/css/reset.css"/>
+    <link rel="stylesheet" href="resources/assets/css/style.css"/>
 
-    <link rel="stylesheet" href="resources/assets/select2/dist/css/select2.min.css" />
-    <link rel="stylesheet" href="resources/assets/css/main.css" />
+    <link rel="stylesheet" href="resources/assets/select2/dist/css/select2.min.css"/>
+    <link rel="stylesheet" href="resources/assets/css/main.css"/>
 
     <!-- Lea Verou's prefixfree (http://leaverou.github.io/prefixfree/), lets you use un-prefixed properties in your CSS files -->
-    <!--<script src="{{ asset('resources/assets/js/libs/prefixfree.min.js') }}"></script>-->
+<!--<script src="{{ asset('resources/assets/js/libs/prefixfree.min.js') }}"></script>-->
     <script src="resources/assets/js/libs/prefixfree.min.js"></script>
 
     <!-- This is a minimized, base version of Modernizr. (http://modernizr.com)
           You will need to create new builds to get the detects you need. -->
-    <!--<script src="{{ asset('resources/assets/js/libs/modernizr-3.2.0.base.js') }}"></script>-->
+<!--<script src="{{ asset('resources/assets/js/libs/modernizr-3.2.0.base.js') }}"></script>-->
     <script src="resources/assets/js/libs/modernizr-3.2.0.base.js"></script>
 
     <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
@@ -73,10 +78,10 @@
     <meta name="twitter:description" content="">
     <meta name="twitter:url" content="">
     <!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
+    <meta property="og:title" content=""/>
+    <meta property="og:description" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:image" content=""/>
 
 </head>
 
@@ -123,7 +128,8 @@
                         <a href="/รวมประกาศขาย" title="ประกาศขายอสังหาริมทรัพย์ในประเทศไทย" class="main-nav-a">ขาย</a>
                     </li>
                     <li class="">
-                        <a href="/รวมประกาศให้เช่า" title="ประกาศเช่าอสังหาริมทรัพย์ในประเทศไทย" class="main-nav-a">เช่า</a>
+                        <a href="/รวมประกาศให้เช่า" title="ประกาศเช่าอสังหาริมทรัพย์ในประเทศไทย"
+                           class="main-nav-a">เช่า</a>
                     </li>
                     <li class="">
                         <a href="/โครงการ-คอนโด" title="คอนโดในประเทศไทย" class="main-nav-a">โครงการคอนโด</a>
@@ -132,16 +138,19 @@
                         <a href="/รวมโครงการใหม่" title="โครงการใหม่ในประเทศไทย" class="main-nav-a">โครงการใหม่</a>
                     </li>
                     <li class="">
-                        <a href="/อสังหาฯ-เชิงพาณิชย์" title="อสังหาริมทรัพย์เชิงพาณิชย์" class="main-nav-a">เชิงพาณิชย์</a>
+                        <a href="/อสังหาฯ-เชิงพาณิชย์" title="อสังหาริมทรัพย์เชิงพาณิชย์"
+                           class="main-nav-a">เชิงพาณิชย์</a>
                     </li>
                     <li class="">
-                        <a href="/ข่าวอสังหาริมทรัพย์-บทความ" title="ข้อมูลตลาดอสังหาริมทรัพย์ในประเทศไทย" class="main-nav-a">ข่าว</a>
+                        <a href="/ข่าวอสังหาริมทรัพย์-บทความ" title="ข้อมูลตลาดอสังหาริมทรัพย์ในประเทศไทย"
+                           class="main-nav-a">ข่าว</a>
                     </li>
                     <li class=" dropdown">
                         <a href="#" title="เพิ่มเติม" class="main-nav-a dropdown-toggle" data-toggle="dropdown">เพิ่มเติม</a>
                         <ul class="dropdown-menu" role="menu">
                             <li class="">
-                                <a href="/อสังหาริมทรัพย์ในต่างประเทศ" title="อสังหาริมทรัพย์ใน ประเทศไทย">ต่างประเทศ</a>
+                                <a href="/อสังหาริมทรัพย์ในต่างประเทศ"
+                                   title="อสังหาริมทรัพย์ใน ประเทศไทย">ต่างประเทศ</a>
                             </li>
                             <li class="">
                                 <a href="/นายหน้า" title="ค้นหาตัวแทนอสังหาริมทรัพย์ในประเทศไทย">ค้นหาตัวแทน</a>
@@ -156,19 +165,24 @@
                                 <a href="//agentnet.ddproperty.com/ex_listings_active" title="ลงประกาศ">ลงประกาศ</a>
                             </li>
                             <li class=" accordion">
-                                <a href="#" title="แหล่งข้อมูลอสังหาริมทรัพย์ในประเทศไทย" class="collapsed" data-toggle="collapse" data-target="#main-nav-accordion-1">คู่มือซื้อขาย<i class="pgicon pgicon-angle-down"></i><i class="pgicon pgicon-angle-up"></i></a>
+                                <a href="#" title="แหล่งข้อมูลอสังหาริมทรัพย์ในประเทศไทย" class="collapsed"
+                                   data-toggle="collapse" data-target="#main-nav-accordion-1">คู่มือซื้อขาย<i
+                                            class="pgicon pgicon-angle-down"></i><i class="pgicon pgicon-angle-up"></i></a>
                                 <ul class="accordion-menu collapse" id="main-nav-accordion-1">
                                     <li class="">
                                         <a href="/คู่มือซื้อขาย" title="แหล่งข้อมูลอสังหาริมทรัพย์ในประเทศไทย">อ่านทั้งหมด</a>
                                     </li>
                                     <li class="">
-                                        <a href="/คู่มือซื้อขาย/เตรียมตัวก่อนซื้อ" title="ฉันต้องการซื้ออสังหาริมทรัพย์">เตรียมตัวก่อนซื้อ</a>
+                                        <a href="/คู่มือซื้อขาย/เตรียมตัวก่อนซื้อ"
+                                           title="ฉันต้องการซื้ออสังหาริมทรัพย์">เตรียมตัวก่อนซื้อ</a>
                                     </li>
                                     <li class="">
-                                        <a href="/คู่มือซื้อขาย/เตรียมตัวก่อนขาย" title="ฉันต้องการขายอสังหาริมทรัพย์ของฉัน">เตรียมตัวก่อนขาย</a>
+                                        <a href="/คู่มือซื้อขาย/เตรียมตัวก่อนขาย"
+                                           title="ฉันต้องการขายอสังหาริมทรัพย์ของฉัน">เตรียมตัวก่อนขาย</a>
                                     </li>
                                     <li class="">
-                                        <a href="/คู่มือซื้อขาย/ควรรู้ก่อนให้เช่า" title="ฉันต้องการให้เช่าอสังหาริมทรัพย์ของฉัน">ควรรู้ก่อนให้เช่า</a>
+                                        <a href="/คู่มือซื้อขาย/ควรรู้ก่อนให้เช่า"
+                                           title="ฉันต้องการให้เช่าอสังหาริมทรัพย์ของฉัน">ควรรู้ก่อนให้เช่า</a>
                                     </li>
                                     <li class="">
                                         <a href="/คู่มือซื้อขาย/ควรรู้ก่อนเช่า" title="ฉันต้องการเช่าอสังหาริมทรัพย์">ควรรู้ก่อนเช่า</a>
@@ -179,7 +193,9 @@
                                 </ul>
                             </li>
                             <li class=" accordion">
-                                <a href="#" title="สำหรับตัวแทน" class="collapsed" data-toggle="collapse" data-target="#main-nav-accordion-2">สำหรับตัวแทน<i class="pgicon pgicon-angle-down"></i><i class="pgicon pgicon-angle-up"></i></a>
+                                <a href="#" title="สำหรับตัวแทน" class="collapsed" data-toggle="collapse"
+                                   data-target="#main-nav-accordion-2">สำหรับตัวแทน<i
+                                            class="pgicon pgicon-angle-down"></i><i class="pgicon pgicon-angle-up"></i></a>
                                 <ul class="accordion-menu collapse" id="main-nav-accordion-2">
                                     <li class="">
                                         <a href="/ตัวแทน" title="แพ็คเกจสำหรับตัวแทน">แพ็คเกจสำหรับตัวแทน</a>
@@ -208,7 +224,6 @@
 <div class="wrapper">
 
 
-
     <div class="header-search clearfix">
         <div class="advance-search header-advance-search">
             <form class="advance-search-form" action="#" method="get">
@@ -222,14 +237,14 @@
                         <select name="type" id="select-property-type" class="search-select">
                             <option value="any" selected="selected">ประเภท ทั้งหมด</option>
                             <option value="commercial"> Commercial</option>
-                            <option value="office">-  Office</option>
-                            <option value="shop">-  Shop</option>
+                            <option value="office">- Office</option>
+                            <option value="shop">- Shop</option>
                             <option value="residential"> Residential</option>
-                            <option value="apartment">-  Apartment</option>
-                            <option value="apartment-building">-  Apartment Building</option>
-                            <option value="condominium">-  Condominium</option>
-                            <option value="single-family">-  Single Family</option>
-                            <option value="villa">-  Villa</option>
+                            <option value="apartment">- Apartment</option>
+                            <option value="apartment-building">- Apartment Building</option>
+                            <option value="condominium">- Condominium</option>
+                            <option value="single-family">- Single Family</option>
+                            <option value="villa">- Villa</option>
                         </select>
                     </div>
                     <div class="option-bar property-status">
@@ -242,10 +257,13 @@
                     </div>
                     <div class="option-bar form-control-buttons">
                         <a class="hidden-fields-reveal-btn" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-plus-container" width="20" height="20" viewBox="0 0 20 20">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon-plus-container" width="20" height="20"
+                                 viewBox="0 0 20 20">
                                 <g>
-                                    <path class="icon icon-minus" d="M10.035 20.035c-2.092 0-4.313-.563-5.688-1.938-.406-.406-.688-.73-.688-1.141 0-.424.266-.859.891-.797.257.025.585.172.75.347 1.327.969 2.967 1.529 4.735 1.529 4.437 0 8.001-3.564 8.001-8.001 0-4.436-3.564-8-8.001-8-4.436 0-8 3.564-8 8 0 1.226.337 2.306.829 3.344 0 .001.277.495.313.938.04.491-.234.703-.656.875-.377.153-.859-.109-1.083-.452-.87-1.335-1.403-2.999-1.403-4.704 0-5.414 4.586-10 10-10 5.413 0 10 4.586 10 10 0 5.413-4.587 10-10 10zm-12-14v8-8zm16 5h-8c-.553 0-1-.447-1-1 0-.553.447-1 1-1h8c.553 0 1 .447 1 1 0 .553-.447 1-1 1z"/>
-                                    <path class="icon icon-plus" d="M10.226 15.035c-.553 0-1-.447-1-1v-8c0-.553.447-1 1-1 .553 0 1 .447 1 1v8c0 .553-.447 1-1 1z"/>
+                                    <path class="icon icon-minus"
+                                          d="M10.035 20.035c-2.092 0-4.313-.563-5.688-1.938-.406-.406-.688-.73-.688-1.141 0-.424.266-.859.891-.797.257.025.585.172.75.347 1.327.969 2.967 1.529 4.735 1.529 4.437 0 8.001-3.564 8.001-8.001 0-4.436-3.564-8-8.001-8-4.436 0-8 3.564-8 8 0 1.226.337 2.306.829 3.344 0 .001.277.495.313.938.04.491-.234.703-.656.875-.377.153-.859-.109-1.083-.452-.87-1.335-1.403-2.999-1.403-4.704 0-5.414 4.586-10 10-10 5.413 0 10 4.586 10 10 0 5.413-4.587 10-10 10zm-12-14v8-8zm16 5h-8c-.553 0-1-.447-1-1 0-.553.447-1 1-1h8c.553 0 1 .447 1 1 0 .553-.447 1-1 1z"/>
+                                    <path class="icon icon-plus"
+                                          d="M10.226 15.035c-.553 0-1-.447-1-1v-8c0-.553.447-1 1-1 .553 0 1 .447 1 1v8c0 .553-.447 1-1 1z"/>
                                 </g>
                             </svg>
                         </a>
@@ -316,7 +334,8 @@
                         </select>
                     </div>
                     <div class="option-bar property-keyword">
-                        <input type="text" name="keyword" id="keyword-txt" value="" placeholder="คำค้นหา (Keyword)" title="Please only provide digits!" />
+                        <input type="text" name="keyword" id="keyword-txt" value="" placeholder="คำค้นหา (Keyword)"
+                               title="Please only provide digits!"/>
                     </div>
                 </div>
                 <!-- .hidden-fields -->
@@ -334,11 +353,11 @@
                     <span itemprop="title">หน้าหลัก</span>
                 </a>
             </div>
-            
+
             <span class="sp">
                     <span class="fa fa-angle-right"></span>
             </span>
-                
+
             <div itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="">
                 <span class="fa fa-file-o fa-fw"></span>
                 <a href="https://wp-simplicity.com/downloads/" itemprop="url">
@@ -350,42 +369,41 @@
     <!-- .header-bottom -->
 
 
-
     <div class="page">
 
         <section class="first-section">
             <div class="container list-article">
                 <div class="row">
-                    
-                @yield('first-content')
-    
+
+                    @yield('first-content')
+
                 </div>
-    
+
             </div>
         </section>
-    
+
         <section class="second-section">
             <div class="container list-article">
                 <div class="row">
-    
-                @yield('second-content')
-    
+
+                    @yield('second-content')
+
                 </div>
-    
+
             </div>
         </section>
-        
+
         <section class="third-section">
             <div class="container list-article">
                 <div class="row">
-    
-                @yield('third-content')
-    
+
+                    @yield('third-content')
+
                 </div>
-    
+
             </div>
         </section>
-        
+
     </div>
 
 
@@ -435,17 +453,14 @@
 </script>
 -->
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1724713611112155";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-
+<script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1724713611112155";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
 
 </body>
