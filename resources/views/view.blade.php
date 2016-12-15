@@ -98,34 +98,25 @@
         <div class="vertical-tabs">
 
             <ul class="nav">
-                <li class="nav-one"><a href="#filter-mademoiselle" class="">1988-Mademoiselle chante</a></li>
-                <li class="nav-two"><a class="" href="#filter-scene">1990-Scène de Vie</a></li>
-                <li class="nav-three"><a class="" href="#filter-carnets">1991-Carnets de Scène</a></li>
-                <li class="nav-four last"><a class="current" href="#filter-jetedis">1993-Je te dis vous</a></li>
-                <li class="nav-five last"><a class="" href="#filter-tour">1994-Tour de Charme</a></li>
-                <li class="nav-six last"><a class="" href="#filter-dansma">1997-Dans ma chair</a></li>
-                <li class="nav-seven last"><a href="#filter-rendez">1998-Rendez-Vous-Live</a></li>
-                <li class="nav-eight last"><a class="" href="#filter-lemot">1999-Le mot de passe</a></li>
-                <li class="nav-nine last"><a href="#filter-cesera">2000-Ce sera nous</a></li>
-                <li class="nav-ten last"><a class="" href="#filter-pianobar">2002-Piano Bar</a></li>
-                <li class="nav-eleven last"><a href="#filter-sexefort">2003-Sexe Fort</a></li>
-                <li class="nav-twelve last"><a href="#filter-toute">2005-Toute la musique - Live</a></li>
-                <li class="nav-thirteen last"><a href="#filter-kabaret">2008-Kabaret</a></li>
-                <li class="nav-fourteen last"><a class="" href="#filter-kabaretstudio">2009-Kabaret en studio</a></li>
-                <li class="nav-fifteen last"><a href="#filter-kcp">2012-Kaas chante Piaf</a></li>
+                <li class="nav-one"><a href="#filter-mademoiselle" class="">คอนโด </a></li>
+                <li class="nav-two"><a class="" href="#filter-scene">SANSIRI - แสนสิริ จำกัด</a></li>
+                <li class="nav-three"><a class="" href="#filter-carnets">แล้วเสร็จ 2013</a></li>
+                <li class="nav-four last"><a class="current" href="#filter-jetedis">ชั้น 6</a></li>
+                <li class="nav-five last"><a class="" href="#filter-tour">1 hour ago</a></li>
+
             </ul>
 
             <div class="list-wrap" id="listWrap">
+ 	
 
+                <ul id="filter-jetedis" class="hide-shift">
+                    <li><a style="display: block;" href="#!" class="พิ้นที่"
+                           data-country="Duitsland">31 ตารางเมตร </a></li>
+                    <li><a style="display: block;" href="#!" class="all frankrijk active" data-country="ขนาดที่ดิน">2,250,000</a>
+                    </li>
+                    <li><a style="display: block;" href="#!" class="all zwitserland" data-country="Zwitserland">72,581 บาท / ตารางเมตร</a>
+                    </li>
 
-                <ul id="filter-jetedis"
-                    class="hide-shift">
-                    <li><a style="display: block;" href="#!" class="all frankrijk active" data-country="Frankrijk">1-Diamant-1.700.000</a>
-                    </li>
-                    <li><a style="display: block;" href="#!" class="all duitsland"
-                           data-country="Duitsland">11-120.000</a></li>
-                    <li><a style="display: block;" href="#!" class="all zwitserland" data-country="Zwitserland">2-2xPlatinum-100.000</a>
-                    </li>
                     <li><a style="display: block;" href="#!" class="all nederland" data-country="Nederland">83</a></li>
                     <li><a style="display: block;" href="#!" class="all canada" data-country="Canada">Goud-50.000</a>
                     </li>
