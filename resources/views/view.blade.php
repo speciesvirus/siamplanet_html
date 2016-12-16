@@ -107,25 +107,73 @@
             </ul>
 
             <div class="list-wrap" id="listWrap">
- 	
-
+ 
                 <ul id="filter-jetedis" class="hide-shift">
-                    <li><a style="display: block;" href="#!" class="พิ้นที่"
-                           data-country="Duitsland">31 ตารางเมตร </a></li>
-                    <li><a style="display: block;" href="#!" class="all frankrijk active" data-country="ขนาดที่ดิน">2,250,000</a>
+                    <li><a style="display: block;" href="#!" class="all zwitserland" data-country="8,000,000 บาท">ราคา</a>
                     </li>
-                    <li><a style="display: block;" href="#!" class="all zwitserland" data-country="Zwitserland">72,581 บาท / ตารางเมตร</a>
+                    <li><a style="display: block;" href="#!" class="all frankrijk active" data-country="250,141 บาท / ตารางเมตร ">ราคาเฉลี่ย</a>
+                    </li>
+                    <li><a style="display: block;" href="#!" class="all"
+                           data-country="31 ตารางเมตร">พื้นที่</a></li>
+                    <li><a style="display: block;" href="#!" class="all zwitserland" data-country="1 งาน">ขนาดที่ดิน</a>
                     </li>
 
-                    <li><a style="display: block;" href="#!" class="all nederland" data-country="Nederland">83</a></li>
-                    <li><a style="display: block;" href="#!" class="all canada" data-country="Canada">Goud-50.000</a>
-                    </li>
-                    <li><a style="display: block;" href="#!" class="all korea" data-country="Korea">300.000</a></li>
-                    <li><a style="display: block;" href="#!" class="all totaal" data-country="Totaal">3.000.000</a></li>
                 </ul>
 
             </div>
 
+        </div>
+        
+        <div class="bs-docs-section">
+            <h1 class="page-header" id="type">รายละเอียด</h1>
+            <div class="row">
+              <div class="col-md-3">พื้นที่ใกล้เคียง</div>
+              <div class="col-md-9">
+                  
+                  <ul class="essentials-list">
+                                <li data-selenium="facilities-item" class="list-item two-column features-item">
+                                    <div>Utapao International Airport</div>
+                                    <div>31.88 km</div>
+                                </li>
+                                <li data-selenium="facilities-item" class="list-item three-column features-item">
+                                                <i class="ficon ficon-18 ficon-positive"></i>
+                                                <span data-selenium="available-feature">Garden</span>
+                                </li>
+                                <li data-selenium="facilities-item" class="list-item two-column features-item">
+                                                <i class="ficon ficon-18 ficon-positive"></i>
+                                                <span data-selenium="available-feature">Massage</span>
+                                </li>
+                                <li data-selenium="facilities-item" class="list-item two-column features-item">
+                                                <i class="ficon ficon-18 ficon-positive"></i>
+                                                <span data-selenium="available-feature">Private beach</span>
+                                </li>
+                                <li data-selenium="facilities-item" class="list-item two-column features-item">
+                                                <i class="ficon ficon-18 ficon-positive"></i>
+                                                <span data-selenium="available-feature">Sauna</span>
+                                </li>
+                        </ul>
+                        
+              <div class="distance-essential-property">
+                  <div>Utapao International Airport</div>
+                  <div>31.88 km</div>
+              </div>
+              
+              <div class="distance-essential-property">
+                  <div>Utapao International Airport</div>
+                  <div>31.88 km</div>
+              </div>
+              
+              <div class="distance-essential-property">
+                  <div>Utapao International Airport</div>
+                  <div>31.88 km</div>
+              </div>
+              
+              <div class="distance-essential-property">
+                  <div>Utapao International Airport</div>
+                  <div>31.88 km</div>
+              </div>
+              </div>
+            </div>
         </div>
 
     </div>
