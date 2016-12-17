@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="resources/assets/slick-carousel/slick/slick.css"/>
     <link rel="stylesheet" href="resources/assets/css/post.css"/>
 
+    <script src="resources/assets/bootstrap/dist/js/bootstrap.js"></script>
+
     <script type="text/javascript">
 
         var $status = $('.pagingInfo');
@@ -34,13 +36,13 @@
         });
 
         $(".project-strip").slick({
-            slidesToShow: 5,
-            slidesToScroll: 1,
+            slidesToShow: 1,
+            slidesToScroll: 3,
             arrows: false,
             asNavFor: '.project-screen',
             dots: false,
 // 	infinite: true,
-            centerMode: true,
+//            centerMode: true,
             focusOnSelect: true,
             variableWidth: true
         });
@@ -107,11 +109,13 @@
             </ul>
 
             <div class="list-wrap" id="listWrap">
- 
+
                 <ul id="filter-jetedis" class="hide-shift">
-                    <li><a style="display: block;" href="#!" class="all zwitserland" data-country="8,000,000 บาท">ราคา</a>
+                    <li><a style="display: block;" href="#!" class="all zwitserland"
+                           data-country="8,000,000 บาท">ราคา</a>
                     </li>
-                    <li><a style="display: block;" href="#!" class="all frankrijk active" data-country="250,141 บาท / ตารางเมตร ">ราคาเฉลี่ย</a>
+                    <li><a style="display: block;" href="#!" class="all frankrijk active"
+                           data-country="250,141 บาท / ตารางเมตร ">ราคาเฉลี่ย</a>
                     </li>
                     <li><a style="display: block;" href="#!" class="all"
                            data-country="31 ตารางเมตร">พื้นที่</a></li>
@@ -123,56 +127,142 @@
             </div>
 
         </div>
-        
+
         <div class="bs-docs-section">
             <h1 class="page-header" id="type">รายละเอียด</h1>
             <div class="row">
-              <div class="col-md-3">พื้นที่ใกล้เคียง</div>
-              <div class="col-md-9">
-                  
-                  <ul class="essentials-list">
-                                <li data-selenium="facilities-item" class="list-item two-column features-item">
-                                    <div>Utapao International Airport</div>
-                                    <div>31.88 km</div>
-                                </li>
-                                <li data-selenium="facilities-item" class="list-item three-column features-item">
-                                                <i class="ficon ficon-18 ficon-positive"></i>
-                                                <span data-selenium="available-feature">Garden</span>
-                                </li>
-                                <li data-selenium="facilities-item" class="list-item two-column features-item">
-                                                <i class="ficon ficon-18 ficon-positive"></i>
-                                                <span data-selenium="available-feature">Massage</span>
-                                </li>
-                                <li data-selenium="facilities-item" class="list-item two-column features-item">
-                                                <i class="ficon ficon-18 ficon-positive"></i>
-                                                <span data-selenium="available-feature">Private beach</span>
-                                </li>
-                                <li data-selenium="facilities-item" class="list-item two-column features-item">
-                                                <i class="ficon ficon-18 ficon-positive"></i>
-                                                <span data-selenium="available-feature">Sauna</span>
-                                </li>
-                        </ul>
-                        
-              <div class="distance-essential-property">
-                  <div>Utapao International Airport</div>
-                  <div>31.88 km</div>
-              </div>
-              
-              <div class="distance-essential-property">
-                  <div>Utapao International Airport</div>
-                  <div>31.88 km</div>
-              </div>
-              
-              <div class="distance-essential-property">
-                  <div>Utapao International Airport</div>
-                  <div>31.88 km</div>
-              </div>
-              
-              <div class="distance-essential-property">
-                  <div>Utapao International Airport</div>
-                  <div>31.88 km</div>
-              </div>
-              </div>
+                <div class="col-md-3">พื้นที่ใกล้เคียง</div>
+                <div class="col-md-9">
+
+                    <ul class="features-list">
+                        <li class="list-item two-column features-item distance-essential-property">
+                            <div>Utapao International Airport</div>
+                            <div>31.88 km</div>
+                        </li>
+                        <li class="list-item two-column features-item distance-essential-property">
+                            <div>Utapao International Airport</div>
+                            <div>31.88 km</div>
+                        </li>
+                        <li class="list-item two-column features-item distance-essential-property">
+                            <div>Utapao International Airport</div>
+                            <div>31.88 km</div>
+                        </li>
+                        <li class="list-item two-column features-item distance-essential-property">
+                            <div>Utapao International Airport</div>
+                            <div>31.88 km</div>
+                        </li>
+                        <li class="list-item two-column features-item distance-essential-property">
+                            <div>Utapao International Airport</div>
+                            <div>31.88 km</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">สิ่งอำนวยความสะดวก</div>
+                <div class="col-md-9">
+                    <ul class="features-list">
+                        <li class="list-item three-column features-item">
+                            <div class="check">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <span class="f-name">การรักษาความปลอดภัย (24 ชั่วโมง)</span>
+                        </li>
+                        <li class="list-item three-column features-item">
+                            <div class="check active">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <span class="f-name">เช็คอิน/เช็คเอาต์ด่วน</span>
+                        </li>
+                        <li class="list-item three-column features-item">
+                            <div class="check">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <span class="f-name">ทางสำหรับรถเข็น</span>
+                        </li>
+                        <li class="list-item three-column features-item">
+                            <div class="check">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <span class="f-name">นำสัตว์เลี้ยงเข้าพักได้</span>
+                        </li>
+
+
+                        <div class="collapse toggle">
+                            <li class="list-item three-column features-item">
+                                <div class="check">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <span class="f-name">ลิฟ</span>
+                            </li>
+                            <li class="list-item three-column features-item">
+                                <div class="check">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <span class="f-name">นำสัตว์เลี้ยงเข้าพักได้</span>
+                            </li>
+                            <li class="list-item three-column features-item">
+                                <div class="check">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <span class="f-name">Utapao International</span>
+                            </li>
+                        </div>
+
+                        <div class="show-more">
+                            <a href="javascript://" data-toggle="collapse" data-target=".toggle">
+                                <span class="show-less">ดูเพิ่มเติม</span>
+                                <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
+                            </a>
+                        </div>
+
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="bs-docs-section">
+            <div class="listing-details-text">
+                <h1 class="listing-title">ขายคอนโด ห้องจริงสวยมาก เดอะ พีค รัชดา-ห้วยขวาง ใกล้ รถไฟฟ้าใต้ดิน 1 ห้องนอน  (The Peak Ratchada Huaykwang) 1k. m. to MRT</h1>
+
+                ขาย คอนโด เดอะ พีค  1 ห้องนอน 1 ห้องน้ำ พื้นที่ 47.22 ตรม. ห้องอยู่ชั้น 8 หัวมุม ประตูห้องไม่ติดกับใคร พร้อมเฟอร์นิเจอร์ ตกแต่ง Build in ,walk in closet ,เตียง ,โซฟา,โต๊ะทานข้าว, และเครื่องใช้ไฟฟ้า อาทิ แอร์ 2 เครื่อง, TV,เครื่องทำน้ำอุ่น, ที่ดูดควัน, เตาอบ, ไมโครเวฟ ยี่ห้อ Franke พื้นที่ใช้สอยทำอย่างลงตัว มีชั้นเก็บของทั้งห้อง<br>
+                สิ่งอำนวยความสะดวกในโครงการ มินิมาร์ท ร้านซัก อบ รีด ฟิตเนส , ลานจอดรถยนต์และจักรยานยนต์ สวนหย่อมดาดฟ้า ระบบรักษาความปลอดภัย , กล่องวงจรปิด , คีย์การ์ด , wifi , ยิม<br>
+                สามารถจอดรถได้ 1 คัน  <br>
+                ที่ตั้ง ซอยประชาราษฎร์บำเพ็ญ 16 ห่างจาก ถนนประชาราษฎร์บำเพ็ญ ใกล้รถไฟฟ้า MRT ห้วยขวาง<br>
+                <br>
+                ขาย 2,600,000 บาท (ไม่รวมค่าใช้จ่ายที่สำนักงานที่ดิน) ห้องนี้คุ้มสุดๆ บอกเลย<br>
+                สนใจติดต่อ คุณขวัญ 092-551-3003<br>
+                <br>
+                ร้านค้าในบริเวณรอบๆคอนโด:<br>
+                ห้วยขวางเทอร์เรซ ห่างจากคอนโด 1.3 กิโลเมตร (ขับรถ 6 นาที)<br>
+                ห้วยขวางอเวนิว – 1.6 กิโลเมตร (ขับรถ 7 นาที)<br>
+                <br>
+                โรงเรียนที่ใกล้ที่สุดในบริเวณ<br>
+                โรงเรียนอนุบาลโชคชัย (ครูเกียว) ระยะทางประมาณ 530 เมตร เดินทาง (ประมาณ เดิน 6 นาที)<br>
+                โรงเรียนจันทร์หุ่นบำเพ็ญ – 840 เมตร (ขับรถ 3 นาที)<br>
+                โรงเรียนอนุบาลสีชมพู – 970 เมตร (ขับรถ 4 นาที)<br>
+                โรงเรียนนานาชาติเดอะรีเจ้นท์ – 1<br>
+                <br>
+                โรงพยาบาลโกลเด้นเยียส์เนอสซิ่งโฮม เป็นโรงพยาบาลที่ใกล้ที่สุดซึ่งตั้งอยู่ 2.4 กิโลเมตร จากคอนโดมิเนียมจะใช้เวลาประมาณ ขับรถ 8 นาทีไปที่นั่น<br>
+                <br>
+                <br>
+                ทำการตลาดโดย บริษัท เก้า เก้า เก้า เรียลเอสเตท  แอนด์ (เดวิลอปเม้น ไทยแลนด์) บริการรับฝากขาย บ้านที่ดิน
             </div>
         </div>
 

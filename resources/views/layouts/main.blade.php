@@ -63,13 +63,15 @@
     <link rel="stylesheet" href="resources/assets/css/main.css"/>
 
     <!-- Lea Verou's prefixfree (http://leaverou.github.io/prefixfree/), lets you use un-prefixed properties in your CSS files -->
-<!--<script src="{{ asset('resources/assets/js/libs/prefixfree.min.js') }}"></script>-->
-    <script src="resources/assets/js/libs/prefixfree.min.js"></script>
+    {{--<script src="{{ asset('resources/assets/js/libs/prefixfree.min.js') }}"></script>--}}
+    {{-- open --}}
+    {{--<script src="resources/assets/js/libs/prefixfree.min.js"></script>--}}
 
     <!-- This is a minimized, base version of Modernizr. (http://modernizr.com)
           You will need to create new builds to get the detects you need. -->
-<!--<script src="{{ asset('resources/assets/js/libs/modernizr-3.2.0.base.js') }}"></script>-->
-    <script src="resources/assets/js/libs/modernizr-3.2.0.base.js"></script>
+    {{--<script src="{{ asset('resources/assets/js/libs/modernizr-3.2.0.base.js') }}"></script>--}}
+    {{-- open --}}
+    {{--<script src="resources/assets/js/libs/modernizr-3.2.0.base.js"></script>--}}
 
     <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
     <meta name="twitter:card" content="">
@@ -95,6 +97,7 @@
             <li><a href="#event-highlights">ที่ดิน</a></li>
             <li><a href="#travel">บ้าน</a></li>
             <li><a href="#schedule">คอนโด</a></li>
+            <li><a href="#schedule">ข่าว</a></li>
             <li><a href="#register" class="maia-button">เข้าสู่ระบบ</a></li>
         </ul>
 
