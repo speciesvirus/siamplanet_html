@@ -58,16 +58,16 @@
 
     <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
     <!--<script src="//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"></script>-->
-    
+
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet' />
-    
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet'/>
 
 
-    
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJK15zKXhqLtzs6rk-wWZbrwrrDL8xqhc"
-            async defer></script>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGFbK0CvMXKVzCJA_2Fj5B7pItfK0a1QA"></script>
     <script type="text/javascript">
+
         var geojsonFeature = {
             "type": "FeatureCollection",
             "features": [{
@@ -75,16 +75,34 @@
                 "properties": {
                     "head": "",
                     "title": "Leeds and region",
-                    "icon" : "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
+                    "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
                     "description": "<p>First-year students on our BA programmes may have the chance to visit Leeds city centre, where we look at shopping areas and regeneration along the waterfront.</P><p>The trip gives us a chance to compare areas like the Victoria Quarter, Kirkgate Market and the Corn Exchange and discuss how they are branded to attract shoppers.</p><p> We also visit Holbeck Urban Village, which calls itself a “pioneer of urban regeneration”, and Urban Splash’s development in Saxton to explore the issue of gentrification.</p><p>During fieldwork in Leeds you may also have the chance to study:</p> <ul> <li>Clarence Dock and the Royal Armouries</li> <li>Developments near the Centenary Bridge</li> <li>The village of Saltaire, north of Bradford</li> </ul> <p>Field study like this develops important skills of observation, critique and policy analysis, as well as leading into later human geography modules.</p>",
-                    "gallery": [ ]
+                    "gallery": []
                 },
                 "geometry": {
                     "type": "Point",
                     "coordinates": [-1.5449523925781248, 53.80389494430927]
                 }
             },
-
+                {
+                    "type": "Feature",
+                    "properties": {
+                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Scarborough_Header.jpg",
+                        "title": "Ideo Wutthakat",
+                        "description": "<p>In October our first-year physical geography students join staff for an &quot;ice-breaker&quot; field weekend in Scarborough. The trip helps students make friends and teach them the basic skills they’ll need as physical geographers.</p><p>During the first day we tour the countryside to look at geology, glaciation and how the beautiful landscape of the North Yorkshire Moors was formed.</p><p>We make stops at:</p> <ul> <li>Scarp edges at the wolds near Market Weighton</li> <li>Millingtondale</li> <li>The Hole of Horcrum</li> <li>Newtondale</li> </ul> <p>At these stops the students work in small groups to investigate the landscape, discuss ideas of how individual landforms developed and discuss their ideas with a member of staff. This is physical geography at its most traditional, but the approaches and thinking that underpin this work are excellent preparation for the students later in their degree.</p><p> On the second day students work in small groups to explore the land at Jugger Howe. They measure hill slopes and soil saturation as well as investigating the amount of vegetation cover.</p>",
+                        "gallery": [
+                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_1.jpg"],
+                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_2.jpg"],
+                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_4.jpg"],
+                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_5.jpg"],
+                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_8.jpg"]
+                        ]
+                    },
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [13.7146635,100.4654378]
+                    }
+                },
                 {
                     "type": "Feature",
                     "properties": {
@@ -111,7 +129,7 @@
                         "head": "",
                         "title": "Whitby and North York Moors",
                         "description": "<p>Each year we take our first-year BA students to Whitby for a field trip in October.<br> The historic town is on the coast near the North Yorkshire Moors National Park and offers a chance to visit other sites including the former alum mines at Ravenscar and the “Heartbeat country” landscape of Goathland.</p><p>Whitby itself has links with Captain Cook and became world famous after appearing in Dracula. These days it is a thriving fishing and commercial centre that is popular with tourists.</p><p>The North York Moors and the town of Whitby are ideal venues for introducing students to the range of topics covered in our BA Geography and BA Human Geography degree programmes.</p><p>Students can undertake projects on the following topics:</p> <ul> <li>Alternative rural livelihoods in Heartbeat Country</li> <li>Resource extraction and sustainable development at Ravenscar</li> <li>Heritage, identity and place marketing in Whitby</li> <li>Mapping and evaluating urban land use change in Whitby</li> </ul>",
-                        "gallery": [ ]
+                        "gallery": []
                     },
                     "geometry": {
                         "type": "Point",
@@ -146,7 +164,7 @@
                     "properties": {
                         "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Spain_Header2.jpg",
                         "title": "Spain",
-                        "icon" : "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
+                        "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
                         "iconSize": [40, 40],
                         "description": "<p>The week-long fieldtrip to Almería, Spain, is an option for our second year BSc students. The trip took place for the first time in March 2010 and was a roaring success, appealing both to ‘hard-core’ physical geographers and to those interested in natural environments, human land use and its impacts on the environment.</p><p>The Iberian Peninsula is a fascinating, topographically and climatically diverse region which lends itself extraordinarily well to geography fieldtrips.</p> <ul> <li>On the arid southeastern tip of Spain, in the rain shadow of mountain ranges, Almer��a is unique</li> <li>In the badlands of the Sorbas-Tabernas basin, where we stay, you will find some of the most famous marine geology in the world</li> <li>At the coast, the endless sea of plastic greenhouses which now dominates the coastal zone is a major global producer of fruit and vegetables</li> <li>Inland mountain ranges contrast greatly with the rugged and largely unspoilt rural landscapes such as the Filabres and Alhamilla.</li> </ul> <p>The aim is to offer students instruction and experience in a broad range of field research and data collection methods in a region completely unlike their home environment.</p>",
                         "gallery": [
@@ -263,11 +281,11 @@
                         "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/NewYork_Header.jpg",
                         "title": "New York",
                         "description": "<p>New York City is a venue for one of the Department’s third year Human Geography field trips. New York is unlike any other city in the world; its past development and present formation offer unique opportunities to examine historical, social, cultural, political and economic processes. Students spend a week studying, exploring and experiencing this distinctive city.<P></P>Students visit different heritage sites, iconic spaces, and various neighbourhoods – some valued for their historic significance and others for their contemporary use.</p><p>These include visits to:</p> <ul>  <li>the historic immigration station at Ellis Island</li> <li>the Eldridge Street Synagogue on the Lower East Side</li> <li>Chinatown</li> <li>Central Park</li> <li>the former World Trade Center site</li> </ul> <p>And walking tours of:</p> <ul>  <li>the recently-opened High Line</li> <li>an elevated public park in the historic Meat Packing District</li> <li>Brooklyn, including the waterfront area which has a dramatic view of Lower Manhattan</li> </ul> <p>Through these different activities, students can apply some of the geographical concepts they have learnt in their modules to the landscapes of New York.</p><p> During the second part of the week, students work in groups on self-directed research projects. There is a wide choice of themes to work on, because New York offered such a rich and varied research landscape.</p>",
-                        "gallery": [ ]
+                        "gallery": []
                     },
                     "geometry": {
                         "type": "Point",
-                        "coordinates": [-74.01214599609375, 40.72852712420599]
+                        "coordinates": [40.705311,-74.2581879]
                     }
                 }]
         };
@@ -278,15 +296,16 @@
         //     .loadURL('https://s3-us-west-2.amazonaws.com/s.cdpn.io/41294/GEESmaptest_v3.geojson')
         //     .setGeoJSON(geojsonFeature)
         //     .addTo(map);
-            
-            mapboxgl.accessToken = 'pk.eyJ1Ijoia3Jpc2F1YnVjaG9uIiwiYSI6ImNpZjVzcWhhaDBhNDZzeWt1MWVmbnZhcjgifQ.aMXr9Q4RmmLY_KzI-LFW5w';
-            var map = new mapboxgl.Map({
-                container: 'map', // container id
-                    style: 'mapbox://styles/krisaubuchon/cir4yrcgi0007bsm8tv1myves',
-              
-                    center: [50.4520018,-32.207702],
-                zoom: 3
-            });
+
+
+        var latLng = new google.maps.LatLng(13.7146635,100.4654378); //Makes a latlng
+        mapboxgl.accessToken = 'pk.eyJ1Ijoia3Jpc2F1YnVjaG9uIiwiYSI6ImNpZjVzcWhhaDBhNDZzeWt1MWVmbnZhcjgifQ.aMXr9Q4RmmLY_KzI-LFW5w';
+        var map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/krisaubuchon/cir4yrcgi0007bsm8tv1myves',
+            center: [latLng.lng(), latLng.lat()],
+            zoom: 15
+        });
 
         // map.scrollWheelZoom.disable();
 
@@ -297,150 +316,150 @@
         //     });
         // }
 
-//         map.markerLayer.on('ready', function(e) {
+        //         map.markerLayer.on('ready', function(e) {
 
-//             // Grab the Legend
-//             var legend = document.getElementById('map-legend');
+        //             // Grab the Legend
+        //             var legend = document.getElementById('map-legend');
 
-//             // Prepend each location under the legend div
-//             var allPoints = map.markerLayer.eachLayer( function(e) {
-//                 $(legend).prepend('<section class="poi">' + e.feature.properties.title + '</section>');
-//             });
-//             $.each(geojsonFeature, function (key, data) {
-//                 console.log(key);
-//                 if(key == 'features'){
-//                     $.each(data, function (index, data) {
-//                         console.log('index', data.properties.title);
-//                         $(legend).prepend('<section class="poi">' + data.properties.title + '</section>');
-//                     })
-//                 }
-//             });
+        //             // Prepend each location under the legend div
+        //             var allPoints = map.markerLayer.eachLayer( function(e) {
+        //                 $(legend).prepend('<section class="poi">' + e.feature.properties.title + '</section>');
+        //             });
+        //             $.each(geojsonFeature, function (key, data) {
+        //                 console.log(key);
+        //                 if(key == 'features'){
+        //                     $.each(data, function (index, data) {
+        //                         console.log('index', data.properties.title);
+        //                         $(legend).prepend('<section class="poi">' + data.properties.title + '</section>');
+        //                     })
+        //                 }
+        //             });
 
-//             $('.poi').on('click', function() {
+        //             $('.poi').on('click', function() {
 
-//                 $title = $(this).html();
+        //                 $title = $(this).html();
 
-//                 map.markerLayer.eachLayer( function(marker) {
+        //                 map.markerLayer.eachLayer( function(marker) {
 
-//                     if (marker.feature.properties.title === $title ) {
-//                         marker.openPopup();
-//                         map.panTo(marker.getLatLng());
-//                         popupLink();
-//                         console.log(marker.getLatLng());
-//                         alert(marker.getLatLng());
-//                     }
+        //                     if (marker.feature.properties.title === $title ) {
+        //                         marker.openPopup();
+        //                         map.panTo(marker.getLatLng());
+        //                         popupLink();
+        //                         console.log(marker.getLatLng());
+        //                         alert(marker.getLatLng());
+        //                     }
 
-//                     $.each(geojsonFeature, function (key, data) {
-//                         console.log(key);
-//                         if(key == 'features'){
-//                             $.each(data, function (index, data) {
-//                                 console.log('index', data.properties.title);
-//                                 if (data.properties.title === $title ) {
-//                                     marker.openPopup();
-                                    
-//                                     var latLng = new google.maps.LatLng(data.geometry.coordinates[0], data.geometry.coordinates[1]); //Makes a latlng
-//                                     map.panTo(marker2); //Make map global
-// //                                    map.panTo(marker.getLatLng());
-//                                     popupLink();
-//                                 }
-//                             })
-//                         }
-//                     });
+        //                     $.each(geojsonFeature, function (key, data) {
+        //                         console.log(key);
+        //                         if(key == 'features'){
+        //                             $.each(data, function (index, data) {
+        //                                 console.log('index', data.properties.title);
+        //                                 if (data.properties.title === $title ) {
+        //                                     marker.openPopup();
 
-
-//                 });
-//             });
-//         });
+        //                                     var latLng = new google.maps.LatLng(data.geometry.coordinates[0], data.geometry.coordinates[1]); //Makes a latlng
+        //                                     map.panTo(marker2); //Make map global
+        // //                                    map.panTo(marker.getLatLng());
+        //                                     popupLink();
+        //                                 }
+        //                             })
+        //                         }
+        //                     });
 
 
+        //                 });
+        //             });
+        //         });
 
-            // map.on('load', function () {
-            //     map.addSource("points", {
-            //         "type": "geojson",
-            //         "data": geojsonFeature
-            //     });
-            
-            //     map.addLayer({
-            //         "id": "points",
-            //         "type": "symbol",
-            //         "source": "points",
-            //         "layout": {
-            //             "icon-image": "http://www2.hull.ac.uk/science/images/mapbox/headers/Iceland_Header.jpg",
-            //             "text-field": "{title}",
-            //             "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-            //             "text-offset": [0, 0.6],
-            //             "text-anchor": "top"
-            //         }
-            //     });
-            // });
 
-// add markers to map
+        // map.on('load', function () {
+        //     map.addSource("points", {
+        //         "type": "geojson",
+        //         "data": geojsonFeature
+        //     });
 
-var popup = new mapboxgl.Popup({
-    closeButton: false
-});
+        //     map.addLayer({
+        //         "id": "points",
+        //         "type": "symbol",
+        //         "source": "points",
+        //         "layout": {
+        //             "icon-image": "http://www2.hull.ac.uk/science/images/mapbox/headers/Iceland_Header.jpg",
+        //             "text-field": "{title}",
+        //             "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+        //             "text-offset": [0, 0.6],
+        //             "text-anchor": "top"
+        //         }
+        //     });
+        // });
 
-geojsonFeature.features.forEach(function(marker) {
-    
-    // create a DOM element for the marker
-    var el = document.createElement('img');
-    el.className = 'marker';
-    el.src = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png';
-    // el.style.backgroundImage = 'url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png)';
-    el.style.width = '20px';
-    el.style.height = '20px';
+        // add markers to map
 
-    el.addEventListener('click', function() {
-        //window.alert(marker.properties.description);
-        var latLng = new google.maps.LatLng(50.4520018,-32.207702); //Makes a latlng
-        map.panTo(latLng); //Make map global
-    });
-console.log(el);
+        var popup = new mapboxgl.Popup({
+            closeButton: false
+        });
+
+        geojsonFeature.features.forEach(function (marker) {
+
+            // create a DOM element for the marker
+            var el = document.createElement('img');
+            el.className = 'marker';
+            el.src = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png';
+            // el.style.backgroundImage = 'url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png)';
+
+
+            el.addEventListener('click', function () {
+                //window.alert(marker.properties.description);
+                var latLng = new google.maps.LatLng(marker.geometry.coordinates[0],marker.geometry.coordinates[1]); //Makes a latlng
+                var arr = [latLng.lng(), latLng.lat()];
+                var ll = mapboxgl.LngLat.convert(arr);
+                map.panTo(ll); //Make map global
+            });
+            console.log(el);
 
 
             // Grab the Legend
             var legend = document.getElementById('map-legend');
             // Prepend each location under the legend div
             $(legend).prepend('<section class="poi">' + marker.properties.title + '</section>');
-            
-            $('.poi').on('click', function() {
 
-                $title = $(this).html();
-                
 
-            
-                $.each(geojsonFeature, function (key, data) {
-                        console.log(key);
-                        if(key == 'features'){
-                            $.each(data, function (index, data) {
-                                console.log('index', marker.properties.title);
-                                if (marker.properties.title === $title ) {
-                                    
-                                    //alert(marker.properties.title);
-                                    var latLng = new google.maps.LatLng(data.geometry.coordinates[0], data.geometry.coordinates[1]); //Makes a latlng
-                                    map.panTo(marker.geometry.coordinates);
-                                    
-                                    popup.setLngLat(marker.geometry.coordinates)
-                                    .setText(marker.properties.title)
-                                    .addTo(map);
-                                    
-                                }
-                            })
+
+
+            // add marker to map
+            var latLng = new google.maps.LatLng(marker.geometry.coordinates[0], marker.geometry.coordinates[1]); //Makes a latlng
+            var arr = [latLng.lng(), latLng.lat()];
+            var ll = mapboxgl.LngLat.convert(arr);
+            new mapboxgl.Marker(el, {offset: [-20 / 2, -20 / 2]})
+//                .setLngLat({lng: latLng.lng(), lat: latLng.lat()})
+                .setLngLat(ll)
+                .addTo(map);
+        });
+
+        $('.poi').on('click', function () {
+
+            $title = $(this).html();
+
+            $.each(geojsonFeature, function (key, data) {
+                if (key == 'features') {
+                    $.each(data, function (index, value) {
+                        console.log('index', value.properties.title);
+                        if (value.properties.title == $title) {
+                            console.log('index', value);
+                            //alert(marker.properties.title);
+                                var latLng = new google.maps.LatLng(value.geometry.coordinates[0], value.geometry.coordinates[1]); //Makes a latlng
+                                var arr = [latLng.lng(), latLng.lat()];
+                                var ll = mapboxgl.LngLat.convert(arr);
+                                map.panTo(ll);
+
+                            popup.setLngLat(ll)
+                                .setText(value.properties.title)
+                                .addTo(map);
+
                         }
-                });
+                    })
+                }
             });
-            
-            
-            
-    // add marker to map
-    new mapboxgl.Marker(el, {offset: [-20 / 2, -20 / 2]})
-        .setLngLat(marker.geometry.coordinates)
-        .addTo(map);
-});
-
-
-
-
+        });
 
     </script>
 @stop
@@ -551,32 +570,40 @@ console.log(el);
                     <ul class="features-list">
                         <li class="list-item three-column features-item">
                             <div class="check">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
+                                          id="path-1" class="cls-2" fill-rule="evenodd"/>
                                 </svg>
                             </div>
                             <span class="f-name">การรักษาความปลอดภัย (24 ชั่วโมง)</span>
                         </li>
                         <li class="list-item three-column features-item">
                             <div class="check active">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
+                                          id="path-1" class="cls-2" fill-rule="evenodd"/>
                                 </svg>
                             </div>
                             <span class="f-name">เช็คอิน/เช็คเอาต์ด่วน</span>
                         </li>
                         <li class="list-item three-column features-item">
                             <div class="check">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
+                                          id="path-1" class="cls-2" fill-rule="evenodd"/>
                                 </svg>
                             </div>
                             <span class="f-name">ทางสำหรับรถเข็น</span>
                         </li>
                         <li class="list-item three-column features-item">
                             <div class="check">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
+                                          id="path-1" class="cls-2" fill-rule="evenodd"/>
                                 </svg>
                             </div>
                             <span class="f-name">นำสัตว์เลี้ยงเข้าพักได้</span>
@@ -586,24 +613,30 @@ console.log(el);
                         <div class="collapse toggle">
                             <li class="list-item three-column features-item">
                                 <div class="check">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
+                                              id="path-1" class="cls-2" fill-rule="evenodd"/>
                                     </svg>
                                 </div>
                                 <span class="f-name">ลิฟ</span>
                             </li>
                             <li class="list-item three-column features-item">
                                 <div class="check">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
+                                              id="path-1" class="cls-2" fill-rule="evenodd"/>
                                     </svg>
                                 </div>
                                 <span class="f-name">นำสัตว์เลี้ยงเข้าพักได้</span>
                             </li>
                             <li class="list-item three-column features-item">
                                 <div class="check">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
+                                              id="path-1" class="cls-2" fill-rule="evenodd"/>
                                     </svg>
                                 </div>
                                 <span class="f-name">Utapao International</span>
@@ -618,7 +651,6 @@ console.log(el);
                         </div>
 
 
-
                     </ul>
                 </div>
             </div>
@@ -626,11 +658,16 @@ console.log(el);
 
         <div class="bs-docs-section">
             <div class="listing-details-text">
-                <h1 class="listing-title">ขายคอนโด ห้องจริงสวยมาก เดอะ พีค รัชดา-ห้วยขวาง ใกล้ รถไฟฟ้าใต้ดิน 1 ห้องนอน  (The Peak Ratchada Huaykwang) 1k. m. to MRT</h1>
+                <h1 class="listing-title">ขายคอนโด ห้องจริงสวยมาก เดอะ พีค รัชดา-ห้วยขวาง ใกล้ รถไฟฟ้าใต้ดิน 1 ห้องนอน
+                    (The Peak Ratchada Huaykwang) 1k. m. to MRT</h1>
 
-                ขาย คอนโด เดอะ พีค  1 ห้องนอน 1 ห้องน้ำ พื้นที่ 47.22 ตรม. ห้องอยู่ชั้น 8 หัวมุม ประตูห้องไม่ติดกับใคร พร้อมเฟอร์นิเจอร์ ตกแต่ง Build in ,walk in closet ,เตียง ,โซฟา,โต๊ะทานข้าว, และเครื่องใช้ไฟฟ้า อาทิ แอร์ 2 เครื่อง, TV,เครื่องทำน้ำอุ่น, ที่ดูดควัน, เตาอบ, ไมโครเวฟ ยี่ห้อ Franke พื้นที่ใช้สอยทำอย่างลงตัว มีชั้นเก็บของทั้งห้อง<br>
-                สิ่งอำนวยความสะดวกในโครงการ มินิมาร์ท ร้านซัก อบ รีด ฟิตเนส , ลานจอดรถยนต์และจักรยานยนต์ สวนหย่อมดาดฟ้า ระบบรักษาความปลอดภัย , กล่องวงจรปิด , คีย์การ์ด , wifi , ยิม<br>
-                สามารถจอดรถได้ 1 คัน  <br>
+                ขาย คอนโด เดอะ พีค 1 ห้องนอน 1 ห้องน้ำ พื้นที่ 47.22 ตรม. ห้องอยู่ชั้น 8 หัวมุม ประตูห้องไม่ติดกับใคร
+                พร้อมเฟอร์นิเจอร์ ตกแต่ง Build in ,walk in closet ,เตียง ,โซฟา,โต๊ะทานข้าว, และเครื่องใช้ไฟฟ้า อาทิ แอร์
+                2 เครื่อง, TV,เครื่องทำน้ำอุ่น, ที่ดูดควัน, เตาอบ, ไมโครเวฟ ยี่ห้อ Franke พื้นที่ใช้สอยทำอย่างลงตัว
+                มีชั้นเก็บของทั้งห้อง<br>
+                สิ่งอำนวยความสะดวกในโครงการ มินิมาร์ท ร้านซัก อบ รีด ฟิตเนส , ลานจอดรถยนต์และจักรยานยนต์ สวนหย่อมดาดฟ้า
+                ระบบรักษาความปลอดภัย , กล่องวงจรปิด , คีย์การ์ด , wifi , ยิม<br>
+                สามารถจอดรถได้ 1 คัน <br>
                 ที่ตั้ง ซอยประชาราษฎร์บำเพ็ญ 16 ห่างจาก ถนนประชาราษฎร์บำเพ็ญ ใกล้รถไฟฟ้า MRT ห้วยขวาง<br>
                 <br>
                 ขาย 2,600,000 บาท (ไม่รวมค่าใช้จ่ายที่สำนักงานที่ดิน) ห้องนี้คุ้มสุดๆ บอกเลย<br>
@@ -646,10 +683,11 @@ console.log(el);
                 โรงเรียนอนุบาลสีชมพู – 970 เมตร (ขับรถ 4 นาที)<br>
                 โรงเรียนนานาชาติเดอะรีเจ้นท์ – 1<br>
                 <br>
-                โรงพยาบาลโกลเด้นเยียส์เนอสซิ่งโฮม เป็นโรงพยาบาลที่ใกล้ที่สุดซึ่งตั้งอยู่ 2.4 กิโลเมตร จากคอนโดมิเนียมจะใช้เวลาประมาณ ขับรถ 8 นาทีไปที่นั่น<br>
+                โรงพยาบาลโกลเด้นเยียส์เนอสซิ่งโฮม เป็นโรงพยาบาลที่ใกล้ที่สุดซึ่งตั้งอยู่ 2.4 กิโลเมตร
+                จากคอนโดมิเนียมจะใช้เวลาประมาณ ขับรถ 8 นาทีไปที่นั่น<br>
                 <br>
                 <br>
-                ทำการตลาดโดย บริษัท เก้า เก้า เก้า เรียลเอสเตท  แอนด์ (เดวิลอปเม้น ไทยแลนด์) บริการรับฝากขาย บ้านที่ดิน
+                ทำการตลาดโดย บริษัท เก้า เก้า เก้า เรียลเอสเตท แอนด์ (เดวิลอปเม้น ไทยแลนด์) บริการรับฝากขาย บ้านที่ดิน
             </div>
         </div>
 
