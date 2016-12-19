@@ -56,8 +56,15 @@
 
     </script>
 
-    <link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">
-    <script src="//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"></script>
+    <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
+    <!--<script src="//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"></script>-->
+    
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet' />
+    
+
+
+    
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJK15zKXhqLtzs6rk-wWZbrwrrDL8xqhc"
             async defer></script>
     <script type="text/javascript">
@@ -68,6 +75,7 @@
                 "properties": {
                     "head": "",
                     "title": "Leeds and region",
+                    "icon" : "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
                     "description": "<p>First-year students on our BA programmes may have the chance to visit Leeds city centre, where we look at shopping areas and regeneration along the waterfront.</P><p>The trip gives us a chance to compare areas like the Victoria Quarter, Kirkgate Market and the Corn Exchange and discuss how they are branded to attract shoppers.</p><p> We also visit Holbeck Urban Village, which calls itself a “pioneer of urban regeneration”, and Urban Splash’s development in Saxton to explore the issue of gentrification.</p><p>During fieldwork in Leeds you may also have the chance to study:</p> <ul> <li>Clarence Dock and the Royal Armouries</li> <li>Developments near the Centenary Bridge</li> <li>The village of Saltaire, north of Bradford</li> </ul> <p>Field study like this develops important skills of observation, critique and policy analysis, as well as leading into later human geography modules.</p>",
                     "gallery": [ ]
                 },
@@ -138,7 +146,9 @@
                     "properties": {
                         "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Spain_Header2.jpg",
                         "title": "Spain",
-                        "description": "<p>The week-long fieldtrip to Almería, Spain, is an option for our second year BSc students. The trip took place for the first time in March 2010 and was a roaring success, appealing both to ‘hard-core’ physical geographers and to those interested in natural environments, human land use and its impacts on the environment.</p><p>The Iberian Peninsula is a fascinating, topographically and climatically diverse region which lends itself extraordinarily well to geography fieldtrips.</p> <ul> <li>On the arid southeastern tip of Spain, in the rain shadow of mountain ranges, Almería is unique</li> <li>In the badlands of the Sorbas-Tabernas basin, where we stay, you will find some of the most famous marine geology in the world</li> <li>At the coast, the endless sea of plastic greenhouses which now dominates the coastal zone is a major global producer of fruit and vegetables</li> <li>Inland mountain ranges contrast greatly with the rugged and largely unspoilt rural landscapes such as the Filabres and Alhamilla.</li> </ul> <p>The aim is to offer students instruction and experience in a broad range of field research and data collection methods in a region completely unlike their home environment.</p>",
+                        "icon" : "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
+                        "iconSize": [40, 40],
+                        "description": "<p>The week-long fieldtrip to Almería, Spain, is an option for our second year BSc students. The trip took place for the first time in March 2010 and was a roaring success, appealing both to ‘hard-core’ physical geographers and to those interested in natural environments, human land use and its impacts on the environment.</p><p>The Iberian Peninsula is a fascinating, topographically and climatically diverse region which lends itself extraordinarily well to geography fieldtrips.</p> <ul> <li>On the arid southeastern tip of Spain, in the rain shadow of mountain ranges, Almer��a is unique</li> <li>In the badlands of the Sorbas-Tabernas basin, where we stay, you will find some of the most famous marine geology in the world</li> <li>At the coast, the endless sea of plastic greenhouses which now dominates the coastal zone is a major global producer of fruit and vegetables</li> <li>Inland mountain ranges contrast greatly with the rugged and largely unspoilt rural landscapes such as the Filabres and Alhamilla.</li> </ul> <p>The aim is to offer students instruction and experience in a broad range of field research and data collection methods in a region completely unlike their home environment.</p>",
                         "gallery": [
                             ["http://www2.hull.ac.uk/science/images/mapbox/spain/Spain_7.jpg"],
                             ["http://www2.hull.ac.uk/science/images/mapbox/spain/Spain_2.jpg"],
@@ -262,81 +272,171 @@
                 }]
         };
         //========== Mapbox
-        var map = L.mapbox.map('map', 'diccfish.map-fwz7rlzv')
-            .setView([50.4520018,-32.2077026], 3);
-        var markerLayer = L.mapbox.markerLayer()
-            //.loadURL('https://s3-us-west-2.amazonaws.com/s.cdpn.io/41294/GEESmaptest_v3.geojson')
-            .setGeoJSON(geojsonFeature)
-            .addTo(map);
-        map.scrollWheelZoom.disable();
-
-        // Link Address to Google Map Directions
-        function popupLink() {
-            $('.marker-title').on('click', function() {
-                window.open( 'http://maps.google.com/?q=' + $(this).html() );
+        // var map = L.mapbox.map('map', 'diccfish.map-fwz7rlzv')
+        //     .setView([50.4520018,-32.2077026], 3);
+        // var markerLayer = L.mapbox.markerLayer()
+        //     .loadURL('https://s3-us-west-2.amazonaws.com/s.cdpn.io/41294/GEESmaptest_v3.geojson')
+        //     .setGeoJSON(geojsonFeature)
+        //     .addTo(map);
+            
+            mapboxgl.accessToken = 'pk.eyJ1Ijoia3Jpc2F1YnVjaG9uIiwiYSI6ImNpZjVzcWhhaDBhNDZzeWt1MWVmbnZhcjgifQ.aMXr9Q4RmmLY_KzI-LFW5w';
+            var map = new mapboxgl.Map({
+                container: 'map', // container id
+                    style: 'mapbox://styles/krisaubuchon/cir4yrcgi0007bsm8tv1myves',
+              
+                    center: [50.4520018,-32.207702],
+                zoom: 3
             });
-        }
-        // Link sidebar with map locations
-        map.markerLayer.on('ready', function(e) {
+
+        // map.scrollWheelZoom.disable();
+
+
+        // function popupLink() {
+        //     $('.marker-title').on('click', function() {
+        //         window.open( 'http://maps.google.com/?q=' + $(this).html() );
+        //     });
+        // }
+
+//         map.markerLayer.on('ready', function(e) {
+
+//             // Grab the Legend
+//             var legend = document.getElementById('map-legend');
+
+//             // Prepend each location under the legend div
+//             var allPoints = map.markerLayer.eachLayer( function(e) {
+//                 $(legend).prepend('<section class="poi">' + e.feature.properties.title + '</section>');
+//             });
+//             $.each(geojsonFeature, function (key, data) {
+//                 console.log(key);
+//                 if(key == 'features'){
+//                     $.each(data, function (index, data) {
+//                         console.log('index', data.properties.title);
+//                         $(legend).prepend('<section class="poi">' + data.properties.title + '</section>');
+//                     })
+//                 }
+//             });
+
+//             $('.poi').on('click', function() {
+
+//                 $title = $(this).html();
+
+//                 map.markerLayer.eachLayer( function(marker) {
+
+//                     if (marker.feature.properties.title === $title ) {
+//                         marker.openPopup();
+//                         map.panTo(marker.getLatLng());
+//                         popupLink();
+//                         console.log(marker.getLatLng());
+//                         alert(marker.getLatLng());
+//                     }
+
+//                     $.each(geojsonFeature, function (key, data) {
+//                         console.log(key);
+//                         if(key == 'features'){
+//                             $.each(data, function (index, data) {
+//                                 console.log('index', data.properties.title);
+//                                 if (data.properties.title === $title ) {
+//                                     marker.openPopup();
+                                    
+//                                     var latLng = new google.maps.LatLng(data.geometry.coordinates[0], data.geometry.coordinates[1]); //Makes a latlng
+//                                     map.panTo(marker2); //Make map global
+// //                                    map.panTo(marker.getLatLng());
+//                                     popupLink();
+//                                 }
+//                             })
+//                         }
+//                     });
+
+
+//                 });
+//             });
+//         });
+
+
+
+            // map.on('load', function () {
+            //     map.addSource("points", {
+            //         "type": "geojson",
+            //         "data": geojsonFeature
+            //     });
+            
+            //     map.addLayer({
+            //         "id": "points",
+            //         "type": "symbol",
+            //         "source": "points",
+            //         "layout": {
+            //             "icon-image": "http://www2.hull.ac.uk/science/images/mapbox/headers/Iceland_Header.jpg",
+            //             "text-field": "{title}",
+            //             "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+            //             "text-offset": [0, 0.6],
+            //             "text-anchor": "top"
+            //         }
+            //     });
+            // });
+
+// add markers to map
+
+var popup = new mapboxgl.Popup({
+    closeButton: false
+});
+
+geojsonFeature.features.forEach(function(marker) {
+    
+    // create a DOM element for the marker
+    var el = document.createElement('img');
+    el.className = 'marker';
+    el.src = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png';
+    // el.style.backgroundImage = 'url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png)';
+    el.style.width = '20px';
+    el.style.height = '20px';
+
+    el.addEventListener('click', function() {
+        //window.alert(marker.properties.description);
+        var latLng = new google.maps.LatLng(50.4520018,-32.207702); //Makes a latlng
+        map.panTo(latLng); //Make map global
+    });
+console.log(el);
+
 
             // Grab the Legend
             var legend = document.getElementById('map-legend');
-
             // Prepend each location under the legend div
-            var allPoints = map.markerLayer.eachLayer( function(e) {
-                $(legend).prepend('<section class="poi">' + e.feature.properties.title + '</section>');
-            });
-            $.each(geojsonFeature, function (key, data) {
-                console.log(key);
-                if(key == 'features'){
-                    $.each(data, function (index, data) {
-                        console.log('index', data.properties.title);
-                        $(legend).prepend('<section class="poi">' + data.properties.title + '</section>');
-                    })
-                }
-//                $.each(data, function (index, data) {
-//                    console.log('index', data)
-//                })
-            });
-            // Attach click event to new sections
+            $(legend).prepend('<section class="poi">' + marker.properties.title + '</section>');
+            
             $('.poi').on('click', function() {
 
                 $title = $(this).html();
+                
 
-                map.markerLayer.eachLayer( function(marker) {
-
-                    if (marker.feature.properties.title === $title ) {
-                        marker.openPopup();
-                        map.panTo(marker.getLatLng());
-                        popupLink();
-                        console.log(marker.getLatLng());
-                        alert(marker.getLatLng());
-                    }
-
-                    $.each(geojsonFeature, function (key, data) {
+            
+                $.each(geojsonFeature, function (key, data) {
                         console.log(key);
                         if(key == 'features'){
                             $.each(data, function (index, data) {
-                                console.log('index', data.properties.title);
-                                if (data.properties.title === $title ) {
-                                    marker.openPopup();
-                                    var marker2 = {
-                                        lat: parseFloat(data.geometry.coordinates[0]),
-                                        lng: parseFloat(data.geometry.coordinates[1])
-                                    }
+                                console.log('index', marker.properties.title);
+                                if (marker.properties.title === $title ) {
+                                    
+                                    //alert(marker.properties.title);
                                     var latLng = new google.maps.LatLng(data.geometry.coordinates[0], data.geometry.coordinates[1]); //Makes a latlng
-                                    map.panTo(marker2); //Make map global
-//                                    map.panTo(marker.getLatLng());
-                                    popupLink();
+                                    map.panTo(marker.geometry.coordinates);
+                                    
+                                    popup.setLngLat(marker.geometry.coordinates)
+                                    .setText(marker.properties.title)
+                                    .addTo(map);
+                                    
                                 }
                             })
                         }
-                    });
-
-
                 });
             });
-        });
+            
+            
+            
+    // add marker to map
+    new mapboxgl.Marker(el, {offset: [-20 / 2, -20 / 2]})
+        .setLngLat(marker.geometry.coordinates)
+        .addTo(map);
+});
 
 
 
