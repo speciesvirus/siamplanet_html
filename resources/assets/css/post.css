@@ -2,13 +2,16 @@
     background-color: #222;
     overflow: hidden;
 }
-.project-page{
+
+.project-page {
     padding: 15px 15px 10px;
     background-color: #111;
 }
-.project-page .pagingInfo{
+
+.project-page .pagingInfo {
     color: #FFFFFF;
 }
+
 .slick-initialized .slick-slide {
     text-align: center;
 
@@ -72,11 +75,11 @@
 }
 
 /*.arrow:hover.left {*/
-    /*left: -.2rem;*/
+/*left: -.2rem;*/
 /*}*/
 
 /*.arrow:hover.right {*/
-    /*right: -.2rem;*/
+/*right: -.2rem;*/
 /*}*/
 
 /* show details */
@@ -129,24 +132,30 @@
     padding-right: .5em;
 }
 
-
-.bs-docs-section > .row{
+.bs-docs-section > .row {
     margin-bottom: 15px;
 }
+
 .distance-essential-property, .features-item {
     margin-bottom: 5px;
 }
-
+.list-item.one-column {
+    width: 100%;
+}
 .list-item.two-column {
     width: 50%;
 }
+
 .list-item.three-column {
     width: 33.33%;
 }
-
-.features-item .f-name{
+.features-item.contact-list .f-name{
+    padding-left: 0;
+}
+.features-item:not(.contact-list) .f-name {
     padding-left: 30px;
 }
+
 
 .check {
     width: 23px;
@@ -167,6 +176,7 @@
     box-shadow: 0px -4px 4px 0px rgba(255, 255, 255, 0.75), inset 0px 4px 4px 0px rgba(0, 0, 0, 0.08);
     cursor: pointer;
 }
+
 .check:before {
     content: "";
     background: #fff;
@@ -182,19 +192,20 @@
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.08);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.08);
 }
+
 /*.check:after {*/
-    /*content: "";*/
-    /*position: absolute;*/
-    /*-moz-border-radius: 50%;*/
-    /*-webkit-border-radius: 50%;*/
-    /*border-radius: 50%;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    /*bottom: 0;*/
-    /*border-color: #60b247;*/
-    /*border-width: 0;*/
-    /*border-style: solid;*/
+/*content: "";*/
+/*position: absolute;*/
+/*-moz-border-radius: 50%;*/
+/*-webkit-border-radius: 50%;*/
+/*border-radius: 50%;*/
+/*top: 0;*/
+/*left: 0;*/
+/*right: 0;*/
+/*bottom: 0;*/
+/*border-color: #60b247;*/
+/*border-width: 0;*/
+/*border-style: solid;*/
 /*}*/
 .check .check-icon {
     position: absolute;
@@ -209,7 +220,6 @@
     fill: green;
 }
 
-
 .features-list .list-item {
     position: relative;
     padding: 0 1% 0 0;
@@ -219,42 +229,48 @@
 .list-item.three-column {
     width: 32%;
 }
+
 .features-item, .photo-preview {
     /* position: relative; */
 }
+
 .list-item, .media-block .info {
     padding-left: 5px;
     float: left;
 }
-.show-more{
+
+.show-more {
     /*float: left;*/
     /*margin: 20px 0 30px;*/
     text-align: left;
 }
+
 .show-more:before, .toggle:before {
     clear: both;
 }
+
 .show-more:after, .toggle:after {
     clear: both;
 }
+
 .show-more:before, .toggle:after {
     display: table;
     content: " ";
 }
+
 .collapsing {
     -webkit-transition: none;
     transition: none;
 }
 
-
-
-.map-section{
+.map-section {
     /*position: relative;*/
     /*height: 589px;*/
     height: 389px;
     position: relative;
     overflow: hidden;
 }
+
 #map {
     position: absolute;
     top: 0;
@@ -263,34 +279,38 @@
 }
 
 .map-legend {
-    background: rgba(11, 130, 135, 0.9);
-    box-sizing: border-box;
-    font-family: 'Roboto Slab', serif;
+    background: rgba(11, 130, 135, 0.8);
+    /* box-sizing: border-box; */
+    /* font-family: 'Roboto Slab', serif; */
     height: 100%;
-    overflow: scroll;
-    padding: 2.5% 0;
+    /* overflow: scroll; */
+    /* padding: 2.5% 0; */
     position: absolute;
     top: 0;
     right: 0;
-    /*width: 35%;*/
-    width: 235px;
+    /* width: 35%; */
+    width: 150px;
     z-index: 6;
 }
+
 .map-legend > div {
     border-bottom: 1px dashed #13caba;
     color: #1de79d;
     cursor: pointer;
     display: block;
-    font-size: .9125rem;
+    font-size: 12px;
     position: relative;
-    padding: 1rem 5% 1rem 15%;
+    padding: 10px;
     text-rendering: geometricPrecision;
     transition: 0.3s background ease;
-    width: 80%;
+    -webkit-transition: 0.3s background ease;
+    /* width: 80%; */
 }
+
 .map-legend > div:hover {
     background: rgba(255, 255, 255, 0.2);
     transition: 0.3s background ease;
+    -webkit-transition: 0.3s background ease;
 }
 
 .marker-title {
@@ -315,40 +335,171 @@
     margin-right: 10px;
 }
 
-
-
-
-
 #cd-zoom-in, #cd-zoom-out {
-  height: 32px;
-  width: 32px;
-  cursor: pointer;
-  margin-left: 10px;
-  background-color: rgba(211, 104, 104, 0.9);
-  background-repeat: no-repeat;
-  background-size: 32px 64px;
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-controller.svg");
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    margin-left: 10px;
+    background-color: rgba(211, 104, 104, 0.9);
+    background-repeat: no-repeat;
+    background-size: 32px 64px;
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-controller.svg");
 }
+
 .no-touch #cd-zoom-in:hover, .no-touch #cd-zoom-out:hover {
-  background-color: #d36868;
+    background-color: #d36868;
 }
+
 @media only screen and (min-width: 768px) {
-  #cd-zoom-in, #cd-zoom-out {
-    margin-left: 50px;
-  }
+    #cd-zoom-in, #cd-zoom-out {
+        margin-left: 50px;
+    }
 }
 
 #cd-zoom-in {
-  background-position: 50% 0;
-  margin-top: 10px;
-  margin-bottom: 1px;
+    background-position: 50% 0;
+    margin-top: 10px;
+    margin-bottom: 1px;
 }
+
 @media only screen and (min-width: 768px) {
-  #cd-zoom-in {
-    margin-top: 50px;
-  }
+    #cd-zoom-in {
+        margin-top: 50px;
+    }
 }
 
 #cd-zoom-out {
-  background-position: 50% -32px;
+    background-position: 50% -32px;
 }
+
+.contact-section h2 {
+    font-size: 1.0625em;
+    line-height: 1.7647058824em;
+    margin: 0 0 1.7647058824em 0;
+}
+
+/*.contact-section p {*/
+    /*margin: 1.625em 0;*/
+    /*font-size: 1em;*/
+    /*line-height: 1.625em;*/
+/*}*/
+
+.contact-section .wpcf7-validation-errors, .contact-section .wpcf7-validation-errors {
+    color: #e50000;
+}
+
+.contact-section .col.col-1 {
+    padding-right: 0.625em;
+}
+
+.contact-section form .col {
+    margin-bottom: 0.5em;
+    width: 50%;
+    float: left;
+}
+
+.contact-section form input[type=text], .contact-section form input[type=email],
+.contact-section form input[type=password], .contact-section form input[type=checkbox] + label,
+.contact-section form textarea, .contact-section form .selectric, .contact-section form input[type=text],
+.contact-section form input[type=email], .contact-section form input[type=password],
+.contact-section form input[type=checkbox] + label, .contact-section form textarea, .contact-section form .selectric {
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    border: 1px solid #e8e8e8;
+    font-weight: normal;
+    font-size: 0.8125em;
+    color: #000;
+    background-color: #fbfbfb;
+    width: 100%;
+    padding: 1.25em 1.0625em 0.9375em;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+
+    padding: 0 1.0625em 0;
+    margin-bottom: 0;
+
+    font-size: 1em;
+    line-height: 2.75em;
+    height: 44px;
+
+}
+
+.contact-section form textarea {
+    padding: 0 1.0625em 0;
+    margin-bottom: 0;
+    height: 80px;
+}
+
+.contact-section form input::-moz-placeholder,
+.contact-section form input::-webkit-input-placeholder,
+.contact-section form input:-ms-input-placeholder,
+.contact-section form input:-moz-placeholder {
+    color: #b3b1b1;
+    vertical-align: sub
+}
+
+.button.bronze {
+    position: relative;
+    padding: 13px 25px;
+    background: #986b4d;
+    color: #fff;
+    overflow: hidden;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.contact-section .button.bronze {
+    padding: 0.9375em 2.8125em;
+    margin-top: 0.625em;
+
+    display: inline-block;
+    clear: none;
+}
+
+.contact-section form input[type=submit] {
+    float: right;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    border: 0;
+    cursor: pointer;
+    margin-top: 25px;
+
+    text-align: right;
+    padding-right: 0;
+    /*font-size: 0.75em;*/
+}
+.contact-section{
+    margin-top: 50px;
+}
+.fb-comments-section{
+    clear: both;
+    margin-top: 50px;
+    border: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px;
+    padding: 32px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

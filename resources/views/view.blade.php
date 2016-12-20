@@ -75,7 +75,7 @@
                 },
                 "geometry": {
                     "type": "Point",
-                    "coordinates": [13.7146687,100.4654378]
+                    "coordinates": [13.7146687, 100.4654378]
                 }
             },
                 {
@@ -95,7 +95,7 @@
                     },
                     "geometry": {
                         "type": "Point",
-                        "coordinates": [13.7146391,100.4654378]
+                        "coordinates": [13.7146391, 100.4654378]
                     }
                 },
                 {
@@ -115,329 +115,326 @@
                     },
                     "geometry": {
                         "type": "Point",
-                        "coordinates": [13.7150131,100.4653149]
+                        "coordinates": [13.7150131, 100.4653149]
                     }
                 }
+            ]
+        };
+
+        var allMyMarkers = [];
+
+        //set your google maps parameters
+        var $latitude = 13.71466247885533,
+            $longitude = 100.4676117002964,
+            $map_zoom = 17;
+
+        //google map custom marker icon - .png fallback for IE11
+        var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
+        var $marker_url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
+
+        //define the basic color of your map, plus a value for saturation and brightness
+        var $main_color = '#2d313f',
+            $saturation = -20,
+            $brightness = 5;
+
+        //we define here the style of the map
+        var style = [
+            {
+                //set saturation for the labels on the map
+                elementType: "labels",
+                stylers: [
+                    {saturation: $saturation}
                 ]
-        };
+            },
+            {	//poi stands for point of interest - don't show these lables on the map
+                featureType: "poi",
+                elementType: "labels",
+                stylers: [
+                    {visibility: "off"}
+                ]
+            },
+            {
+                //don't show highways lables on the map
+                featureType: 'road.highway',
+                elementType: 'labels',
+                stylers: [
+                    {visibility: "off"}
+                ]
+            },
+            {
+                //don't show local road lables on the map
+                featureType: "road.local",
+                elementType: "labels.icon",
+                stylers: [
+                    {visibility: "off"}
+                ]
+            },
+            {
+                //don't show arterial road lables on the map
+                featureType: "road.arterial",
+                elementType: "labels.icon",
+                stylers: [
+                    {visibility: "off"}
+                ]
+            },
+            {
+                //don't show road lables on the map
+                featureType: "road",
+                elementType: "geometry.stroke",
+                stylers: [
+                    {visibility: "off"}
+                ]
+            },
+            //style different elements on the map
+            {
+                featureType: "transit",
+                elementType: "geometry.fill",
+                stylers: [
+                    {hue: $main_color},
+                    {visibility: "on"},
+                    {lightness: $brightness},
+                    {saturation: $saturation}
+                ]
+            },
+            {
+                featureType: "poi",
+                elementType: "geometry.fill",
+                stylers: [
+                    {hue: $main_color},
+                    {visibility: "on"},
+                    {lightness: $brightness},
+                    {saturation: $saturation}
+                ]
+            },
+            {
+                featureType: "poi.government",
+                elementType: "geometry.fill",
+                stylers: [
+                    {hue: $main_color},
+                    {visibility: "on"},
+                    {lightness: $brightness},
+                    {saturation: $saturation}
+                ]
+            },
+            {
+                featureType: "poi.sport_complex",
+                elementType: "geometry.fill",
+                stylers: [
+                    {hue: $main_color},
+                    {visibility: "on"},
+                    {lightness: $brightness},
+                    {saturation: $saturation}
+                ]
+            },
+            {
+                featureType: "poi.attraction",
+                elementType: "geometry.fill",
+                stylers: [
+                    {hue: $main_color},
+                    {visibility: "on"},
+                    {lightness: $brightness},
+                    {saturation: $saturation}
+                ]
+            },
+            {
+                featureType: "poi.business",
+                elementType: "geometry.fill",
+                stylers: [
+                    {hue: $main_color},
+                    {visibility: "on"},
+                    {lightness: $brightness},
+                    {saturation: $saturation}
+                ]
+            },
+            {
+                featureType: "transit",
+                elementType: "geometry.fill",
+                stylers: [
+                    {hue: $main_color},
+                    {visibility: "on"},
+                    {lightness: $brightness},
+                    {saturation: $saturation}
+                ]
+            },
+            {
+                featureType: "transit.station",
+                elementType: "geometry.fill",
+                stylers: [
+                    {hue: $main_color},
+                    {visibility: "on"},
+                    {lightness: $brightness},
+                    {saturation: $saturation}
+                ]
+            },
+            {
+                featureType: "landscape",
+                stylers: [
+                    {hue: $main_color},
+                    {visibility: "on"},
+                    {lightness: $brightness},
+                    {saturation: $saturation}
+                ]
 
-    var allMyMarkers = [];
-
-	//set your google maps parameters
-	var $latitude = 13.71466247885533,
-		$longitude = 100.4676117002964,
-		$map_zoom = 17;
-
-	//google map custom marker icon - .png fallback for IE11
-	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
-	var $marker_url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
-		
-	//define the basic color of your map, plus a value for saturation and brightness
-	var	$main_color = '#2d313f',
-		$saturation= -20,
-		$brightness= 5;
-
-	//we define here the style of the map
-	var style= [ 
-		{
-			//set saturation for the labels on the map
-			elementType: "labels",
-			stylers: [
-				{saturation: $saturation}
-			]
-		},  
-	    {	//poi stands for point of interest - don't show these lables on the map 
-			featureType: "poi",
-			elementType: "labels",
-			stylers: [
-				{visibility: "off"}
-			]
-		},
-		{
-			//don't show highways lables on the map
-	        featureType: 'road.highway',
-	        elementType: 'labels',
-	        stylers: [
-	            {visibility: "off"}
-	        ]
-	    }, 
-		{ 	
-			//don't show local road lables on the map
-			featureType: "road.local", 
-			elementType: "labels.icon", 
-			stylers: [
-				{visibility: "off"} 
-			] 
-		},
-		{ 
-			//don't show arterial road lables on the map
-			featureType: "road.arterial", 
-			elementType: "labels.icon", 
-			stylers: [
-				{visibility: "off"}
-			] 
-		},
-		{
-			//don't show road lables on the map
-			featureType: "road",
-			elementType: "geometry.stroke",
-			stylers: [
-				{visibility: "off"}
-			]
-		}, 
-		//style different elements on the map
-		{ 
-			featureType: "transit", 
-			elementType: "geometry.fill", 
-			stylers: [
-				{ hue: $main_color },
-				{ visibility: "on" }, 
-				{ lightness: $brightness }, 
-				{ saturation: $saturation }
-			]
-		}, 
-		{
-			featureType: "poi",
-			elementType: "geometry.fill",
-			stylers: [
-				{ hue: $main_color },
-				{ visibility: "on" }, 
-				{ lightness: $brightness }, 
-				{ saturation: $saturation }
-			]
-		},
-		{
-			featureType: "poi.government",
-			elementType: "geometry.fill",
-			stylers: [
-				{ hue: $main_color },
-				{ visibility: "on" }, 
-				{ lightness: $brightness }, 
-				{ saturation: $saturation }
-			]
-		},
-		{
-			featureType: "poi.sport_complex",
-			elementType: "geometry.fill",
-			stylers: [
-				{ hue: $main_color },
-				{ visibility: "on" }, 
-				{ lightness: $brightness }, 
-				{ saturation: $saturation }
-			]
-		},
-		{
-			featureType: "poi.attraction",
-			elementType: "geometry.fill",
-			stylers: [
-				{ hue: $main_color },
-				{ visibility: "on" }, 
-				{ lightness: $brightness }, 
-				{ saturation: $saturation }
-			]
-		},
-		{
-			featureType: "poi.business",
-			elementType: "geometry.fill",
-			stylers: [
-				{ hue: $main_color },
-				{ visibility: "on" }, 
-				{ lightness: $brightness }, 
-				{ saturation: $saturation }
-			]
-		},
-		{
-			featureType: "transit",
-			elementType: "geometry.fill",
-			stylers: [
-				{ hue: $main_color },
-				{ visibility: "on" }, 
-				{ lightness: $brightness }, 
-				{ saturation: $saturation }
-			]
-		},
-		{
-			featureType: "transit.station",
-			elementType: "geometry.fill",
-			stylers: [
-				{ hue: $main_color },
-				{ visibility: "on" }, 
-				{ lightness: $brightness }, 
-				{ saturation: $saturation }
-			]
-		},
-		{
-			featureType: "landscape",
-			stylers: [
-				{ hue: $main_color },
-				{ visibility: "on" }, 
-				{ lightness: $brightness }, 
-				{ saturation: $saturation }
-			]
-			
-		},
-		{
-			featureType: "road",
-			elementType: "geometry.fill",
-			stylers: [
-				{ hue: $main_color },
-				{ visibility: "on" }, 
-				{ lightness: $brightness }, 
-				{ saturation: $saturation }
-			]
-		},
-		{
-			featureType: "road.highway",
-			elementType: "geometry.fill",
-			stylers: [
-				{ hue: $main_color },
-				{ visibility: "on" }, 
-				{ lightness: $brightness }, 
-				{ saturation: $saturation }
-			]
-		}, 
-		{
-			featureType: "water",
-			elementType: "geometry",
-			stylers: [
-				{ hue: $main_color },
-				{ visibility: "on" }, 
-				{ lightness: $brightness }, 
-				{ saturation: $saturation }
-			]
-		}
-	];
-		
-	//set google map options
-	var map_options = {
-      	center: new google.maps.LatLng($latitude, $longitude),
-      	zoom: $map_zoom,
-      	panControl: false,
-      	zoomControl: false,
-      	mapTypeControl: false,
-      	streetViewControl: false,
-      	mapTypeId: google.maps.MapTypeId.ROADMAP,
-      	scrollwheel: false,
-      	styles: style,
-    }
-    //inizialize the map
-        var image = {
-          url: $marker_url,
-          // This marker is 20 pixels wide by 32 pixels high.
-          scaledSize: new google.maps.Size(30, 30)
-
-        };
-        
-	var map = new google.maps.Map(document.getElementById('map'), map_options);
-	//add a custom marker to the map				
-	var marker = new google.maps.Marker({
-	  	position: new google.maps.LatLng($latitude, $longitude),
-	    map: map,
-	    visible: true,
-	 	icon: image,
-	});
-
-	    var iconBase = $marker_url;
-        var icons = {
-          parking: {
-            icon: $marker_url
-          },
-          library: {
-            icon: $marker_url
-          },
-          info: {
-            icon: $marker_url
-          }
-        };
-
-        function addMarker(feature,featureID) {
-            
-        var image = {
-          url: feature.properties.icon,
-          // This marker is 20 pixels wide by 32 pixels high.
-          scaledSize: new google.maps.Size(20, 20)
-        };
-        
-          var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(feature.geometry.coordinates[0], feature.geometry.coordinates[1]),
-            icon: image,
-            map: map,
-            id: featureID
-          });
-          
-          $('#map-legend').append('<div class="poi">'+ feature.properties.title +'</div>');
-          
-          allMyMarkers.push(marker);
-        }
-        
-        
-        for (var i = 0, jsonFeature; jsonFeature = geojsonFeature.features[i]; i++) {
-          addMarker(jsonFeature,i);
-        }
-        
-          $('.poi').on('click', function() {
-        
-            $title = $(this).html();
-        
-            for (var i = 0, jsonFeature; jsonFeature = geojsonFeature.features[i]; i++) {
-              if (jsonFeature.properties.title === $title ) {
-                map.panTo(new google.maps.LatLng(jsonFeature.geometry.coordinates[0], jsonFeature.geometry.coordinates[1]));
-              }
+            },
+            {
+                featureType: "road",
+                elementType: "geometry.fill",
+                stylers: [
+                    {hue: $main_color},
+                    {visibility: "on"},
+                    {lightness: $brightness},
+                    {saturation: $saturation}
+                ]
+            },
+            {
+                featureType: "road.highway",
+                elementType: "geometry.fill",
+                stylers: [
+                    {hue: $main_color},
+                    {visibility: "on"},
+                    {lightness: $brightness},
+                    {saturation: $saturation}
+                ]
+            },
+            {
+                featureType: "water",
+                elementType: "geometry",
+                stylers: [
+                    {hue: $main_color},
+                    {visibility: "on"},
+                    {lightness: $brightness},
+                    {saturation: $saturation}
+                ]
             }
-            
-                var selectedID = $(this).attr('id');
-                toggleBounce($( ".poi" ).index( this ));
-            
-          });
-        
-        
+        ];
+
+        //set google map options
+        var map_options = {
+            center: new google.maps.LatLng($latitude, $longitude),
+            zoom: $map_zoom,
+            panControl: false,
+            zoomControl: false,
+            mapTypeControl: false,
+            streetViewControl: false,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            scrollwheel: false,
+            styles: style,
+        }
+        //inizialize the map
+        var image = {
+            url: $marker_url,
+            // This marker is 20 pixels wide by 32 pixels high.
+            scaledSize: new google.maps.Size(30, 30)
+
+        };
+
+        var map = new google.maps.Map(document.getElementById('map'), map_options);
+        //add a custom marker to the map
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng($latitude, $longitude),
+            map: map,
+            visible: true,
+            icon: image,
+        });
+
+        var iconBase = $marker_url;
+        var icons = {
+            parking: {
+                icon: $marker_url
+            },
+            library: {
+                icon: $marker_url
+            },
+            info: {
+                icon: $marker_url
+            }
+        };
+
+        function addMarker(feature, featureID) {
+
+            var image = {
+                url: feature.properties.icon,
+                // This marker is 20 pixels wide by 32 pixels high.
+                scaledSize: new google.maps.Size(20, 20)
+            };
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(feature.geometry.coordinates[0], feature.geometry.coordinates[1]),
+                icon: image,
+                map: map,
+                id: featureID
+            });
+
+            $('#map-legend').append('<div class="poi">' + feature.properties.title + '</div>');
+
+            allMyMarkers.push(marker);
+        }
+
+
+        for (var i = 0, jsonFeature; jsonFeature = geojsonFeature.features[i]; i++) {
+            addMarker(jsonFeature, i);
+        }
+
+        $('.poi').on('click', function () {
+
+            $title = $(this).html();
+
+            for (var i = 0, jsonFeature; jsonFeature = geojsonFeature.features[i]; i++) {
+                if (jsonFeature.properties.title === $title) {
+                    map.panTo(new google.maps.LatLng(jsonFeature.geometry.coordinates[0], jsonFeature.geometry.coordinates[1]));
+                }
+            }
+
+            var selectedID = $(this).attr('id');
+            toggleBounce($(".poi").index(this));
+
+        });
+
+
         function toggleBounce(selectedID) {
 
-        // loop through our array & check with marker has same ID with the text
-        for(var j=0;j<allMyMarkers.length;j++){
-                if(allMyMarkers[j].id == selectedID){
-                        if (allMyMarkers[j].getAnimation() != null) {
-                                allMyMarkers[j].setAnimation(null);
-                        } else {
-                                allMyMarkers[j].setAnimation(google.maps.Animation.BOUNCE);
-                                map.setCenter(allMyMarkers[j].getPosition());
-                        }
-                        break; // stop continue looping
+            // loop through our array & check with marker has same ID with the text
+            for (var j = 0; j < allMyMarkers.length; j++) {
+                if (allMyMarkers[j].id == selectedID) {
+                    if (allMyMarkers[j].getAnimation() != null) {
+                        allMyMarkers[j].setAnimation(null);
+                    } else {
+                        allMyMarkers[j].setAnimation(google.maps.Animation.BOUNCE);
+                        map.setCenter(allMyMarkers[j].getPosition());
+                    }
+                    break; // stop continue looping
                 }
+            }
+        } // end toggleBounce
+
+
+        // google.maps.event.addListener(map, 'click', function( event ){
+        //   alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
+        // });
+
+        //add custom buttons for the zoom-in/zoom-out on the map
+        function CustomZoomControl(controlDiv, map) {
+            //grap the zoom elements from the DOM and insert them in the map
+            var controlUIzoomIn = document.getElementById('cd-zoom-in'),
+                controlUIzoomOut = document.getElementById('cd-zoom-out');
+            controlDiv.appendChild(controlUIzoomIn);
+            controlDiv.appendChild(controlUIzoomOut);
+
+            // Setup the click event listeners and zoom-in or out according to the clicked element
+            google.maps.event.addDomListener(controlUIzoomIn, 'click', function () {
+                map.setZoom(map.getZoom() + 1)
+            });
+            google.maps.event.addDomListener(controlUIzoomOut, 'click', function () {
+                map.setZoom(map.getZoom() - 1)
+            });
         }
-} // end toggleBounce
 
+        var zoomControlDiv = document.createElement('div');
+        var zoomControl = new CustomZoomControl(zoomControlDiv, map);
 
+        //insert the zoom div on the top left of the map
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
 
-
-
-    // google.maps.event.addListener(map, 'click', function( event ){
-    //   alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() ); 
-    // });
-    
-	//add custom buttons for the zoom-in/zoom-out on the map
-	function CustomZoomControl(controlDiv, map) {
-		//grap the zoom elements from the DOM and insert them in the map 
-	  	var controlUIzoomIn= document.getElementById('cd-zoom-in'),
-	  		controlUIzoomOut= document.getElementById('cd-zoom-out');
-	  	controlDiv.appendChild(controlUIzoomIn);
-	  	controlDiv.appendChild(controlUIzoomOut);
-
-		// Setup the click event listeners and zoom-in or out according to the clicked element
-		google.maps.event.addDomListener(controlUIzoomIn, 'click', function() {
-		    map.setZoom(map.getZoom()+1)
-		});
-		google.maps.event.addDomListener(controlUIzoomOut, 'click', function() {
-		    map.setZoom(map.getZoom()-1)
-		});
-	}
-
-	var zoomControlDiv = document.createElement('div');
- 	var zoomControl = new CustomZoomControl(zoomControlDiv, map);
-
-  	//insert the zoom div on the top left of the map
-  	map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
-  
     </script>
 @stop
 
@@ -487,7 +484,6 @@
                 <li class="nav-two"><a class="" href="#filter-scene">SANSIRI - แสนสิริ จำกัด</a></li>
                 <li class="nav-three"><a class="" href="#filter-carnets">แล้วเสร็จ 2013</a></li>
                 <li class="nav-four last"><a class="current" href="#filter-jetedis">ชั้น 6</a></li>
-                <li class="nav-five last"><a class="" href="#filter-tour">1 hour ago</a></li>
 
             </ul>
 
@@ -504,7 +500,6 @@
                            data-country="31 ตารางเมตร">พื้นที่</a></li>
                     <li><a style="display: block;" href="#!" class="all zwitserland" data-country="1 งาน">ขนาดที่ดิน</a>
                     </li>
-
                 </ul>
 
             </div>
@@ -631,6 +626,7 @@
                     </ul>
                 </div>
             </div>
+
         </div>
 
         <div class="bs-docs-section">
@@ -672,10 +668,130 @@
             <div class="map-legend" id="map-legend"></div>
             <div id="map"></div>
             <div id="cd-zoom-in"></div>
-	        <div id="cd-zoom-out"></div>
+            <div id="cd-zoom-out"></div>
         </div>
 
+
+        <div class="bs-docs-section contact-section">
+            <h2>สอบถามข้อมูลเพิ่มเติม</h2>
+            <div class="row">
+                <div class="col-md-3">ชื่อ : </div>
+                <div class="col-md-9">
+                    <ul class="features-list">
+                        <li class="list-item one-column features-item">
+                            <div>คุณจิตตภู รักศิลป์ (ปลาย)</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">อีเมล : </div>
+                <div class="col-md-9">
+                    <ul class="features-list">
+                        <li class="list-item one-column features-item">
+                            <div>Speciesvirus@gmail.com</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">เบอร์โทรศัพท์ : </div>
+                <div class="col-md-9">
+                    <ul class="features-list">
+                        <li class="list-item one-column features-item">
+                            <div>097414xxxx</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">ข้อความ : </div>
+                <div class="col-md-9">
+                    <ul class="features-list">
+                        <li class="list-item one-column features-item">
+                            <p>If you have any question or remarks about Trefecta, fill in your details below, and we will contact you
+                                as soon as possible.<br></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div role="form" class="wpcf7" id="wpcf7-f167-p96-o1" lang="en-US" dir="ltr">
+                <div class="screen-reader-response"></div>
+                <form action="/about/contact/#wpcf7-f167-p96-o1" method="post" class="wpcf7-form"
+                      novalidate="novalidate">
+                    <div style="display: none;">
+                        <input type="hidden" name="_wpcf7" value="167">
+                        <input type="hidden" name="_wpcf7_version" value="4.3">
+                        <input type="hidden" name="_wpcf7_locale" value="en_US">
+                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f167-p96-o1">
+                        <input type="hidden" name="_wpnonce" value="088807312a">
+                    </div>
+                    <div class="wpcf7-response-output wpcf7-display-none"></div>
+                    <div class="fields">
+                        <div class="col col-1"><span class="wpcf7-form-control-wrap firstname"><input type="text"
+                                                                                                      name="firstname"
+                                                                                                      value="" size="40"
+                                                                                                      class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                                                                                                      aria-required="true"
+                                                                                                      aria-invalid="false"
+                                                                                                      placeholder="First name"></span>
+                        </div>
+                        <div class="col col-2"><span class="wpcf7-form-control-wrap lastname"><input type="text"
+                                                                                                     name="lastname"
+                                                                                                     value="" size="40"
+                                                                                                     class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                                                                                                     aria-required="true"
+                                                                                                     aria-invalid="false"
+                                                                                                     placeholder="Last name"></span>
+                        </div>
+                        <div class="col col-1"><span class="wpcf7-form-control-wrap emailaddress"><input type="email"
+                                                                                                         name="emailaddress"
+                                                                                                         value=""
+                                                                                                         size="40"
+                                                                                                         class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                                                                                                         aria-required="true"
+                                                                                                         aria-invalid="false"
+                                                                                                         placeholder="E-mail address"></span>
+                        </div>
+                        <div class="col col-2"><span class="wpcf7-form-control-wrap phone"><input type="text"
+                                                                                                  name="phone" value=""
+                                                                                                  size="40"
+                                                                                                  class="wpcf7-form-control wpcf7-text"
+                                                                                                  aria-invalid="false"
+                                                                                                  placeholder="Phone number"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="wpcf7-form-control-wrap comments">
+                            <textarea name="comments" cols="40" rows="20"
+                                      class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required"
+                                      placeholder="Comments/question"></textarea>
+                        </span>
+                    </div>
+                    <div class="form-buttons"><input type="submit" value="Send message"
+                                                     class="wpcf7-form-control wpcf7-submit button bronze"><img
+                                class="ajax-loader" style="visibility: hidden;"></div>
+                </form>
+            </div>
+
+
+        </div>
+
+        <div class="bs-docs-section fb-comments-section">
+            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5"></div>
+        </div>
+
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1724713611112155";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
     </div>
+
     <div class="col-md-3">
 
         <div class="side-panel bs-docs-sidebar">

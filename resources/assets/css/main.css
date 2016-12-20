@@ -1147,18 +1147,18 @@ section:first-child {
 /*
 * 12.0 - Advance Search
 */
-::-moz-placeholder {
-    color: #4a525d;
-    opacity: 1;
-}
+/*::-moz-placeholder {*/
+    /*color: #4a525d;*/
+    /*opacity: 1;*/
+/*}*/
 
-:-ms-input-placeholder {
-    color: #4a525d;
-}
+/*:-ms-input-placeholder {*/
+    /*color: #4a525d;*/
+/*}*/
 
-::-webkit-input-placeholder {
-    color: #4a525d;
-}
+/*::-webkit-input-placeholder {*/
+    /*color: #4a525d;*/
+/*}*/
 
 .advance-search input[type="text"]:hover,
 .advance-search input[type="text"]:focus,
