@@ -251,7 +251,7 @@
 .map-section{
     /*position: relative;*/
     /*height: 589px;*/
-    height: 589px;
+    height: 389px;
     position: relative;
     overflow: hidden;
 }
@@ -271,10 +271,12 @@
     padding: 2.5% 0;
     position: absolute;
     top: 0;
-    width: 35%;
+    right: 0;
+    /*width: 35%;*/
+    width: 235px;
     z-index: 6;
 }
-.map-legend section {
+.map-legend > div {
     border-bottom: 1px dashed #13caba;
     color: #1de79d;
     cursor: pointer;
@@ -286,7 +288,7 @@
     transition: 0.3s background ease;
     width: 80%;
 }
-.map-legend section:hover {
+.map-legend > div:hover {
     background: rgba(255, 255, 255, 0.2);
     transition: 0.3s background ease;
 }
@@ -311,4 +313,42 @@
 .leaflet-control {
     float: right;
     margin-right: 10px;
+}
+
+
+
+
+
+#cd-zoom-in, #cd-zoom-out {
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  margin-left: 10px;
+  background-color: rgba(211, 104, 104, 0.9);
+  background-repeat: no-repeat;
+  background-size: 32px 64px;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-controller.svg");
+}
+.no-touch #cd-zoom-in:hover, .no-touch #cd-zoom-out:hover {
+  background-color: #d36868;
+}
+@media only screen and (min-width: 768px) {
+  #cd-zoom-in, #cd-zoom-out {
+    margin-left: 50px;
+  }
+}
+
+#cd-zoom-in {
+  background-position: 50% 0;
+  margin-top: 10px;
+  margin-bottom: 1px;
+}
+@media only screen and (min-width: 768px) {
+  #cd-zoom-in {
+    margin-top: 50px;
+  }
+}
+
+#cd-zoom-out {
+  background-position: 50% -32px;
 }

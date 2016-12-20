@@ -58,14 +58,8 @@
 
     <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
     <!--<script src="//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"></script>-->
-
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet'/>
-
-
-
-
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGFbK0CvMXKVzCJA_2Fj5B7pItfK0a1QA"></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
     <script type="text/javascript">
 
         var geojsonFeature = {
@@ -74,21 +68,22 @@
                 "type": "Feature",
                 "properties": {
                     "head": "",
-                    "title": "Leeds and region",
+                    "title": "คอนโดมิเนียม เดอะคีย์สาทร-ราชพฤกษ์",
                     "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
                     "description": "<p>First-year students on our BA programmes may have the chance to visit Leeds city centre, where we look at shopping areas and regeneration along the waterfront.</P><p>The trip gives us a chance to compare areas like the Victoria Quarter, Kirkgate Market and the Corn Exchange and discuss how they are branded to attract shoppers.</p><p> We also visit Holbeck Urban Village, which calls itself a “pioneer of urban regeneration”, and Urban Splash’s development in Saxton to explore the issue of gentrification.</p><p>During fieldwork in Leeds you may also have the chance to study:</p> <ul> <li>Clarence Dock and the Royal Armouries</li> <li>Developments near the Centenary Bridge</li> <li>The village of Saltaire, north of Bradford</li> </ul> <p>Field study like this develops important skills of observation, critique and policy analysis, as well as leading into later human geography modules.</p>",
                     "gallery": []
                 },
                 "geometry": {
                     "type": "Point",
-                    "coordinates": [-1.5449523925781248, 53.80389494430927]
+                    "coordinates": [13.7146687,100.4654378]
                 }
             },
                 {
                     "type": "Feature",
                     "properties": {
                         "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Scarborough_Header.jpg",
-                        "title": "Ideo Wutthakat",
+                        "title": "Wutthakat BTS Station",
+                        "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
                         "description": "<p>In October our first-year physical geography students join staff for an &quot;ice-breaker&quot; field weekend in Scarborough. The trip helps students make friends and teach them the basic skills they’ll need as physical geographers.</p><p>During the first day we tour the countryside to look at geology, glaciation and how the beautiful landscape of the North Yorkshire Moors was formed.</p><p>We make stops at:</p> <ul> <li>Scarp edges at the wolds near Market Weighton</li> <li>Millingtondale</li> <li>The Hole of Horcrum</li> <li>Newtondale</li> </ul> <p>At these stops the students work in small groups to investigate the landscape, discuss ideas of how individual landforms developed and discuss their ideas with a member of staff. This is physical geography at its most traditional, but the approaches and thinking that underpin this work are excellent preparation for the students later in their degree.</p><p> On the second day students work in small groups to explore the land at Jugger Howe. They measure hill slopes and soil saturation as well as investigating the amount of vegetation cover.</p>",
                         "gallery": [
                             ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_1.jpg"],
@@ -100,14 +95,15 @@
                     },
                     "geometry": {
                         "type": "Point",
-                        "coordinates": [13.7146635,100.4654378]
+                        "coordinates": [13.7146391,100.4654378]
                     }
                 },
                 {
                     "type": "Feature",
                     "properties": {
                         "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Scarborough_Header.jpg",
-                        "title": "Scarborough and region",
+                        "title": "วัดนาคปรก",
+                        "icon": "https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png",
                         "description": "<p>In October our first-year physical geography students join staff for an &quot;ice-breaker&quot; field weekend in Scarborough. The trip helps students make friends and teach them the basic skills they’ll need as physical geographers.</p><p>During the first day we tour the countryside to look at geology, glaciation and how the beautiful landscape of the North Yorkshire Moors was formed.</p><p>We make stops at:</p> <ul> <li>Scarp edges at the wolds near Market Weighton</li> <li>Millingtondale</li> <li>The Hole of Horcrum</li> <li>Newtondale</li> </ul> <p>At these stops the students work in small groups to investigate the landscape, discuss ideas of how individual landforms developed and discuss their ideas with a member of staff. This is physical geography at its most traditional, but the approaches and thinking that underpin this work are excellent preparation for the students later in their degree.</p><p> On the second day students work in small groups to explore the land at Jugger Howe. They measure hill slopes and soil saturation as well as investigating the amount of vegetation cover.</p>",
                         "gallery": [
                             ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_1.jpg"],
@@ -119,348 +115,329 @@
                     },
                     "geometry": {
                         "type": "Point",
-                        "coordinates": [-0.4131889343261718, 54.28537062593458]
+                        "coordinates": [13.7150131,100.4653149]
                     }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "",
-                        "title": "Whitby and North York Moors",
-                        "description": "<p>Each year we take our first-year BA students to Whitby for a field trip in October.<br> The historic town is on the coast near the North Yorkshire Moors National Park and offers a chance to visit other sites including the former alum mines at Ravenscar and the “Heartbeat country” landscape of Goathland.</p><p>Whitby itself has links with Captain Cook and became world famous after appearing in Dracula. These days it is a thriving fishing and commercial centre that is popular with tourists.</p><p>The North York Moors and the town of Whitby are ideal venues for introducing students to the range of topics covered in our BA Geography and BA Human Geography degree programmes.</p><p>Students can undertake projects on the following topics:</p> <ul> <li>Alternative rural livelihoods in Heartbeat Country</li> <li>Resource extraction and sustainable development at Ravenscar</li> <li>Heritage, identity and place marketing in Whitby</li> <li>Mapping and evaluating urban land use change in Whitby</li> </ul>",
-                        "gallery": []
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-0.6157493591308594, 54.487890279847285]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Tenerife_Header.jpg",
-                        "title": "Tenerife",
-                        "description": "<p>Tenerife in the Canary Islands has been a destination for Hull Geography Students for over 30 years. It is one of the destinations second year BSc students can choose as part of their course.</p><p> The Canary Islands are a series of volcanoes that formed above a rising plume of molten rock within the earth’s mantle. They create an amazing range of rock types, from simple lava deposits to complex products of eruptions called “ignimbrites”.</P><p>During this week-long field trip, students get to see examples of all the different types of volcanic deposits that make-up the island. By studying these volcanic deposits which range in age from a few million years old through to cinder cones that are only a few hundred years old, students learn about the inner workings of volcanoes and the dangers they pose to humans today.</P><p>We also take a boat trip to see some of the most spectacular cliffs in the world. They are up to 500m high and reveal some of the oldest rocks on the island, along with lava tubes and ancient cinder cones buried under layers of lava.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/tenerife/Tenerife_1.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/tenerife/Tenerife_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/tenerife/Tenerife_3.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/tenerife/Tenerife_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/tenerife/Tenerife_6.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/tenerife/Tenerife_7.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/tenerife/Tenerife_8.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-16.60858154296875, 28.263263279931966]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Spain_Header2.jpg",
-                        "title": "Spain",
-                        "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
-                        "iconSize": [40, 40],
-                        "description": "<p>The week-long fieldtrip to Almería, Spain, is an option for our second year BSc students. The trip took place for the first time in March 2010 and was a roaring success, appealing both to ‘hard-core’ physical geographers and to those interested in natural environments, human land use and its impacts on the environment.</p><p>The Iberian Peninsula is a fascinating, topographically and climatically diverse region which lends itself extraordinarily well to geography fieldtrips.</p> <ul> <li>On the arid southeastern tip of Spain, in the rain shadow of mountain ranges, Almer��a is unique</li> <li>In the badlands of the Sorbas-Tabernas basin, where we stay, you will find some of the most famous marine geology in the world</li> <li>At the coast, the endless sea of plastic greenhouses which now dominates the coastal zone is a major global producer of fruit and vegetables</li> <li>Inland mountain ranges contrast greatly with the rugged and largely unspoilt rural landscapes such as the Filabres and Alhamilla.</li> </ul> <p>The aim is to offer students instruction and experience in a broad range of field research and data collection methods in a region completely unlike their home environment.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/spain/Spain_7.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/spain/Spain_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/spain/Spain_3.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/spain/Spain_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/spain/Spain_5.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/spain/Spain_6.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-2.98828125, 40.3130432088809]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Berlin_Header.jpg",
-                        "title": "Berlin",
-                        "description": "<p>This week-long fieldtrip provides an opportunity to explore and come to understand Berlin: a profoundly historical, political, anarchic and artistic city.</p><p>Berlin’s identity is underpinned by a long and traumatic history and geography associated with empire building, Nazi infamy and the geopolitical crises of the cold war era.</p><p>During the cold war, Berlin became a divided city. The infamous wall (der Mauer) split the city in two, divided families, and left some people plagued by a sense of imprisonment. Furthermore, the wall divided a nation and sent the world to the brink of a third world war.</p><p>Since 1989 and the reunification of Germany, Berlin is once again the capital of Germany and the economic heart of Europe.</p> <p>The aims of the trip are to:</p> <ul> <li>Use geographic concepts to understand the astonishing re-development of Berlin</li> <li>Help develop the skills needed for independent field research</li> </ul>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/berlin/Berlin_6.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/berlin/Berlin_1.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/berlin/Berlin_10.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/berlin/Berlin_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/berlin/Berlin_9.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [13.395767211914062, 52.51496729886834]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Rome_Header.jpg",
-                        "title": "Italy",
-                        "description": "<p>About half our second-year BA students usually visit southern Italy, where we take in Rome and either Abruzzo National Park or Naples.</P><p>In Rome we look at modern urban areas and the remains of past eras, from the Roman empire to planning under Mussolini. In Naples we stay near Vesuvius and see the old city itself and some attractions nearby, including the ruins of Pompeii and the Amalfi coast.</p><p> The trip focuses on the geography of southern Italy (the Mezzogiorno) and lets us study its cultures, landscapes, societies and economies. Students have the opportunity to consider issues of regional underdevelopment, the impact of policy, planning and state power, and the transformation of cultural landscapes in both rural and urban areas.</P><p>You might also have the chance to stay on one of the region’s organic “agriturismo” farms, which are famous for mixing traditional farming methods with modern technology.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_1.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_5.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_3.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_6.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_7.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_8.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_9.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_10.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_11.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_12.jpg"]
-
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [13.095703125, 42.35854391749705]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Swiss_Header.jpg",
-                        "title": "Swiss Alps",
-                        "description": "<p>The Swiss Alps fieldtrip is a fantastic opportunity to investigate glacial geomorphology and hydrology, fluvial geomorphology, ecohydrology, recent environmental change, vegetation succession in glacial forelands, and water resources.</P><p> The 7 day trip is based in Arolla, at 2000 metres above sea level, in the canton of Valais.<br> The first half of the trip is spent visiting various field sites, including the Tsidjiore Nouve, Bas d’Arolla, and Moiry glaciers.</P><p>There is a visit to one of the world’s largest gravity Dams, the Grande Dixence, where you will have a guided tour inside the dam, and learn about how glacial meltwater is harnessed to provide a large proportion of Switzerland’s energy.</P><p>The second half of the trip also gives you the opportunity to work as a team on a detailed research project, developing your project design skills. Training may also be provided in the use of advanced geomorphological field techniques.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_1.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_11.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_5.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_6.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_7.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_8.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_9.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_10.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [8.4375, 46.619261036171515]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Iceland_Header.jpg",
-                        "title": "Iceland",
-                        "description": "<p>We are currently developing a field trip to Iceland for our third year students. Iceland, the 'land of fire and ice', is a geographic phenomenon – a living laboratory where nature’s land forming processes are easy to see and students will be able to study glaciers, active volcanoes, and human-environment interaction.</p><p> We’ll focus on physical geography, studying glacial, fluvial, and high latitude (periglacial) geomorphology, natural hazards and resources in cold environments, climate change and human-environment impact.</p><p> Iceland sits on the boundary between the North American and Eurasian tectonic plates, heavily influencing the island’s landscape.</P><p> Students will have the chance to investigate active and dormant volcanoes and see how the country uses geothermal activity to create power.</P><p>We’ll also take in archaeological sites enabling students to study the interaction of humans with the environment, and the effects of climate change and volcanic activity on social structure and cultural dynamics.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/iceland/Iceland_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/iceland/Iceland_5.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/iceland/Iceland_7.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/iceland/Iceland_9.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/iceland/Iceland_3.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-18.45703125, 65.07213008560697]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/NewYork_Header.jpg",
-                        "title": "New York",
-                        "description": "<p>New York City is a venue for one of the Department’s third year Human Geography field trips. New York is unlike any other city in the world; its past development and present formation offer unique opportunities to examine historical, social, cultural, political and economic processes. Students spend a week studying, exploring and experiencing this distinctive city.<P></P>Students visit different heritage sites, iconic spaces, and various neighbourhoods – some valued for their historic significance and others for their contemporary use.</p><p>These include visits to:</p> <ul>  <li>the historic immigration station at Ellis Island</li> <li>the Eldridge Street Synagogue on the Lower East Side</li> <li>Chinatown</li> <li>Central Park</li> <li>the former World Trade Center site</li> </ul> <p>And walking tours of:</p> <ul>  <li>the recently-opened High Line</li> <li>an elevated public park in the historic Meat Packing District</li> <li>Brooklyn, including the waterfront area which has a dramatic view of Lower Manhattan</li> </ul> <p>Through these different activities, students can apply some of the geographical concepts they have learnt in their modules to the landscapes of New York.</p><p> During the second part of the week, students work in groups on self-directed research projects. There is a wide choice of themes to work on, because New York offered such a rich and varied research landscape.</p>",
-                        "gallery": []
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [40.705311,-74.2581879]
-                    }
-                }]
-        };
-        //========== Mapbox
-        // var map = L.mapbox.map('map', 'diccfish.map-fwz7rlzv')
-        //     .setView([50.4520018,-32.2077026], 3);
-        // var markerLayer = L.mapbox.markerLayer()
-        //     .loadURL('https://s3-us-west-2.amazonaws.com/s.cdpn.io/41294/GEESmaptest_v3.geojson')
-        //     .setGeoJSON(geojsonFeature)
-        //     .addTo(map);
-
-
-        var latLng = new google.maps.LatLng(13.7146635,100.4654378); //Makes a latlng
-        mapboxgl.accessToken = 'pk.eyJ1Ijoia3Jpc2F1YnVjaG9uIiwiYSI6ImNpZjVzcWhhaDBhNDZzeWt1MWVmbnZhcjgifQ.aMXr9Q4RmmLY_KzI-LFW5w';
-        var map = new mapboxgl.Map({
-            container: 'map', // container id
-            style: 'mapbox://styles/krisaubuchon/cir4yrcgi0007bsm8tv1myves',
-            center: [latLng.lng(), latLng.lat()],
-            zoom: 15
-        });
-
-        // map.scrollWheelZoom.disable();
-
-
-        // function popupLink() {
-        //     $('.marker-title').on('click', function() {
-        //         window.open( 'http://maps.google.com/?q=' + $(this).html() );
-        //     });
-        // }
-
-        //         map.markerLayer.on('ready', function(e) {
-
-        //             // Grab the Legend
-        //             var legend = document.getElementById('map-legend');
-
-        //             // Prepend each location under the legend div
-        //             var allPoints = map.markerLayer.eachLayer( function(e) {
-        //                 $(legend).prepend('<section class="poi">' + e.feature.properties.title + '</section>');
-        //             });
-        //             $.each(geojsonFeature, function (key, data) {
-        //                 console.log(key);
-        //                 if(key == 'features'){
-        //                     $.each(data, function (index, data) {
-        //                         console.log('index', data.properties.title);
-        //                         $(legend).prepend('<section class="poi">' + data.properties.title + '</section>');
-        //                     })
-        //                 }
-        //             });
-
-        //             $('.poi').on('click', function() {
-
-        //                 $title = $(this).html();
-
-        //                 map.markerLayer.eachLayer( function(marker) {
-
-        //                     if (marker.feature.properties.title === $title ) {
-        //                         marker.openPopup();
-        //                         map.panTo(marker.getLatLng());
-        //                         popupLink();
-        //                         console.log(marker.getLatLng());
-        //                         alert(marker.getLatLng());
-        //                     }
-
-        //                     $.each(geojsonFeature, function (key, data) {
-        //                         console.log(key);
-        //                         if(key == 'features'){
-        //                             $.each(data, function (index, data) {
-        //                                 console.log('index', data.properties.title);
-        //                                 if (data.properties.title === $title ) {
-        //                                     marker.openPopup();
-
-        //                                     var latLng = new google.maps.LatLng(data.geometry.coordinates[0], data.geometry.coordinates[1]); //Makes a latlng
-        //                                     map.panTo(marker2); //Make map global
-        // //                                    map.panTo(marker.getLatLng());
-        //                                     popupLink();
-        //                                 }
-        //                             })
-        //                         }
-        //                     });
-
-
-        //                 });
-        //             });
-        //         });
-
-
-        // map.on('load', function () {
-        //     map.addSource("points", {
-        //         "type": "geojson",
-        //         "data": geojsonFeature
-        //     });
-
-        //     map.addLayer({
-        //         "id": "points",
-        //         "type": "symbol",
-        //         "source": "points",
-        //         "layout": {
-        //             "icon-image": "http://www2.hull.ac.uk/science/images/mapbox/headers/Iceland_Header.jpg",
-        //             "text-field": "{title}",
-        //             "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-        //             "text-offset": [0, 0.6],
-        //             "text-anchor": "top"
-        //         }
-        //     });
-        // });
-
-        // add markers to map
-
-        var popup = new mapboxgl.Popup({
-            closeButton: false
-        });
-
-        geojsonFeature.features.forEach(function (marker) {
-
-            // create a DOM element for the marker
-            var el = document.createElement('img');
-            el.className = 'marker';
-            el.src = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png';
-            // el.style.backgroundImage = 'url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png)';
-
-
-            el.addEventListener('click', function () {
-                //window.alert(marker.properties.description);
-                var latLng = new google.maps.LatLng(marker.geometry.coordinates[0],marker.geometry.coordinates[1]); //Makes a latlng
-                var arr = [latLng.lng(), latLng.lat()];
-                var ll = mapboxgl.LngLat.convert(arr);
-                map.panTo(ll); //Make map global
-            });
-            console.log(el);
-
-
-            // Grab the Legend
-            var legend = document.getElementById('map-legend');
-            // Prepend each location under the legend div
-            $(legend).prepend('<section class="poi">' + marker.properties.title + '</section>');
-
-
-
-
-            // add marker to map
-            var latLng = new google.maps.LatLng(marker.geometry.coordinates[0], marker.geometry.coordinates[1]); //Makes a latlng
-            var arr = [latLng.lng(), latLng.lat()];
-            var ll = mapboxgl.LngLat.convert(arr);
-            new mapboxgl.Marker(el, {offset: [-20 / 2, -20 / 2]})
-//                .setLngLat({lng: latLng.lng(), lat: latLng.lat()})
-                .setLngLat(ll)
-                .addTo(map);
-        });
-
-        $('.poi').on('click', function () {
-
-            $title = $(this).html();
-
-            $.each(geojsonFeature, function (key, data) {
-                if (key == 'features') {
-                    $.each(data, function (index, value) {
-                        console.log('index', value.properties.title);
-                        if (value.properties.title == $title) {
-                            console.log('index', value);
-                            //alert(marker.properties.title);
-                                var latLng = new google.maps.LatLng(value.geometry.coordinates[0], value.geometry.coordinates[1]); //Makes a latlng
-                                var arr = [latLng.lng(), latLng.lat()];
-                                var ll = mapboxgl.LngLat.convert(arr);
-                                map.panTo(ll);
-
-                            popup.setLngLat(ll)
-                                .setText(value.properties.title)
-                                .addTo(map);
-
-                        }
-                    })
                 }
-            });
-        });
+                ]
+        };
 
+    var allMyMarkers = [];
+
+	//set your google maps parameters
+	var $latitude = 13.71466247885533,
+		$longitude = 100.4676117002964,
+		$map_zoom = 17;
+
+	//google map custom marker icon - .png fallback for IE11
+	var is_internetExplorer11= navigator.userAgent.toLowerCase().indexOf('trident') > -1;
+	var $marker_url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
+		
+	//define the basic color of your map, plus a value for saturation and brightness
+	var	$main_color = '#2d313f',
+		$saturation= -20,
+		$brightness= 5;
+
+	//we define here the style of the map
+	var style= [ 
+		{
+			//set saturation for the labels on the map
+			elementType: "labels",
+			stylers: [
+				{saturation: $saturation}
+			]
+		},  
+	    {	//poi stands for point of interest - don't show these lables on the map 
+			featureType: "poi",
+			elementType: "labels",
+			stylers: [
+				{visibility: "off"}
+			]
+		},
+		{
+			//don't show highways lables on the map
+	        featureType: 'road.highway',
+	        elementType: 'labels',
+	        stylers: [
+	            {visibility: "off"}
+	        ]
+	    }, 
+		{ 	
+			//don't show local road lables on the map
+			featureType: "road.local", 
+			elementType: "labels.icon", 
+			stylers: [
+				{visibility: "off"} 
+			] 
+		},
+		{ 
+			//don't show arterial road lables on the map
+			featureType: "road.arterial", 
+			elementType: "labels.icon", 
+			stylers: [
+				{visibility: "off"}
+			] 
+		},
+		{
+			//don't show road lables on the map
+			featureType: "road",
+			elementType: "geometry.stroke",
+			stylers: [
+				{visibility: "off"}
+			]
+		}, 
+		//style different elements on the map
+		{ 
+			featureType: "transit", 
+			elementType: "geometry.fill", 
+			stylers: [
+				{ hue: $main_color },
+				{ visibility: "on" }, 
+				{ lightness: $brightness }, 
+				{ saturation: $saturation }
+			]
+		}, 
+		{
+			featureType: "poi",
+			elementType: "geometry.fill",
+			stylers: [
+				{ hue: $main_color },
+				{ visibility: "on" }, 
+				{ lightness: $brightness }, 
+				{ saturation: $saturation }
+			]
+		},
+		{
+			featureType: "poi.government",
+			elementType: "geometry.fill",
+			stylers: [
+				{ hue: $main_color },
+				{ visibility: "on" }, 
+				{ lightness: $brightness }, 
+				{ saturation: $saturation }
+			]
+		},
+		{
+			featureType: "poi.sport_complex",
+			elementType: "geometry.fill",
+			stylers: [
+				{ hue: $main_color },
+				{ visibility: "on" }, 
+				{ lightness: $brightness }, 
+				{ saturation: $saturation }
+			]
+		},
+		{
+			featureType: "poi.attraction",
+			elementType: "geometry.fill",
+			stylers: [
+				{ hue: $main_color },
+				{ visibility: "on" }, 
+				{ lightness: $brightness }, 
+				{ saturation: $saturation }
+			]
+		},
+		{
+			featureType: "poi.business",
+			elementType: "geometry.fill",
+			stylers: [
+				{ hue: $main_color },
+				{ visibility: "on" }, 
+				{ lightness: $brightness }, 
+				{ saturation: $saturation }
+			]
+		},
+		{
+			featureType: "transit",
+			elementType: "geometry.fill",
+			stylers: [
+				{ hue: $main_color },
+				{ visibility: "on" }, 
+				{ lightness: $brightness }, 
+				{ saturation: $saturation }
+			]
+		},
+		{
+			featureType: "transit.station",
+			elementType: "geometry.fill",
+			stylers: [
+				{ hue: $main_color },
+				{ visibility: "on" }, 
+				{ lightness: $brightness }, 
+				{ saturation: $saturation }
+			]
+		},
+		{
+			featureType: "landscape",
+			stylers: [
+				{ hue: $main_color },
+				{ visibility: "on" }, 
+				{ lightness: $brightness }, 
+				{ saturation: $saturation }
+			]
+			
+		},
+		{
+			featureType: "road",
+			elementType: "geometry.fill",
+			stylers: [
+				{ hue: $main_color },
+				{ visibility: "on" }, 
+				{ lightness: $brightness }, 
+				{ saturation: $saturation }
+			]
+		},
+		{
+			featureType: "road.highway",
+			elementType: "geometry.fill",
+			stylers: [
+				{ hue: $main_color },
+				{ visibility: "on" }, 
+				{ lightness: $brightness }, 
+				{ saturation: $saturation }
+			]
+		}, 
+		{
+			featureType: "water",
+			elementType: "geometry",
+			stylers: [
+				{ hue: $main_color },
+				{ visibility: "on" }, 
+				{ lightness: $brightness }, 
+				{ saturation: $saturation }
+			]
+		}
+	];
+		
+	//set google map options
+	var map_options = {
+      	center: new google.maps.LatLng($latitude, $longitude),
+      	zoom: $map_zoom,
+      	panControl: false,
+      	zoomControl: false,
+      	mapTypeControl: false,
+      	streetViewControl: false,
+      	mapTypeId: google.maps.MapTypeId.ROADMAP,
+      	scrollwheel: false,
+      	styles: style,
+    }
+    //inizialize the map
+        var image = {
+          url: $marker_url,
+          // This marker is 20 pixels wide by 32 pixels high.
+          scaledSize: new google.maps.Size(30, 30)
+
+        };
+        
+	var map = new google.maps.Map(document.getElementById('map'), map_options);
+	//add a custom marker to the map				
+	var marker = new google.maps.Marker({
+	  	position: new google.maps.LatLng($latitude, $longitude),
+	    map: map,
+	    visible: true,
+	 	icon: image,
+	});
+
+	    var iconBase = $marker_url;
+        var icons = {
+          parking: {
+            icon: $marker_url
+          },
+          library: {
+            icon: $marker_url
+          },
+          info: {
+            icon: $marker_url
+          }
+        };
+
+        function addMarker(feature,featureID) {
+            
+        var image = {
+          url: feature.properties.icon,
+          // This marker is 20 pixels wide by 32 pixels high.
+          scaledSize: new google.maps.Size(20, 20)
+        };
+        
+          var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(feature.geometry.coordinates[0], feature.geometry.coordinates[1]),
+            icon: image,
+            map: map,
+            id: featureID
+          });
+          
+          $('#map-legend').append('<div class="poi">'+ feature.properties.title +'</div>');
+          
+          allMyMarkers.push(marker);
+        }
+        
+        
+        for (var i = 0, jsonFeature; jsonFeature = geojsonFeature.features[i]; i++) {
+          addMarker(jsonFeature,i);
+        }
+        
+          $('.poi').on('click', function() {
+        
+            $title = $(this).html();
+        
+            for (var i = 0, jsonFeature; jsonFeature = geojsonFeature.features[i]; i++) {
+              if (jsonFeature.properties.title === $title ) {
+                map.panTo(new google.maps.LatLng(jsonFeature.geometry.coordinates[0], jsonFeature.geometry.coordinates[1]));
+              }
+            }
+            
+                var selectedID = $(this).attr('id');
+                toggleBounce($( ".poi" ).index( this ));
+            
+          });
+        
+        
+        function toggleBounce(selectedID) {
+
+        // loop through our array & check with marker has same ID with the text
+        for(var j=0;j<allMyMarkers.length;j++){
+                if(allMyMarkers[j].id == selectedID){
+                        if (allMyMarkers[j].getAnimation() != null) {
+                                allMyMarkers[j].setAnimation(null);
+                        } else {
+                                allMyMarkers[j].setAnimation(google.maps.Animation.BOUNCE);
+                                map.setCenter(allMyMarkers[j].getPosition());
+                        }
+                        break; // stop continue looping
+                }
+        }
+} // end toggleBounce
+
+
+
+
+
+    // google.maps.event.addListener(map, 'click', function( event ){
+    //   alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() ); 
+    // });
+    
+	//add custom buttons for the zoom-in/zoom-out on the map
+	function CustomZoomControl(controlDiv, map) {
+		//grap the zoom elements from the DOM and insert them in the map 
+	  	var controlUIzoomIn= document.getElementById('cd-zoom-in'),
+	  		controlUIzoomOut= document.getElementById('cd-zoom-out');
+	  	controlDiv.appendChild(controlUIzoomIn);
+	  	controlDiv.appendChild(controlUIzoomOut);
+
+		// Setup the click event listeners and zoom-in or out according to the clicked element
+		google.maps.event.addDomListener(controlUIzoomIn, 'click', function() {
+		    map.setZoom(map.getZoom()+1)
+		});
+		google.maps.event.addDomListener(controlUIzoomOut, 'click', function() {
+		    map.setZoom(map.getZoom()-1)
+		});
+	}
+
+	var zoomControlDiv = document.createElement('div');
+ 	var zoomControl = new CustomZoomControl(zoomControlDiv, map);
+
+  	//insert the zoom div on the top left of the map
+  	map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
+  
     </script>
 @stop
 
@@ -693,7 +670,9 @@
 
         <div class="bs-docs-section map-section">
             <div class="map-legend" id="map-legend"></div>
-            <div id='map'></div>
+            <div id="map"></div>
+            <div id="cd-zoom-in"></div>
+	        <div id="cd-zoom-out"></div>
         </div>
 
     </div>
