@@ -1,393 +1,105 @@
-<html class="no-js" lang="en"><!--<![endif]-->
-
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-
-    <!-- Always force latest IE rendering engine (even in intranet) -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- Important stuff for SEO, don't neglect. (And don't dupicate values across your site!) -->
-    <title>@yield('title')</title>
-    <meta name="author" content=""/>
-    <meta name="description" content=""/>
-
-    <!-- Don't forget to set your site up: http://google.com/webmasters -->
-    <meta name="google-site-verification" content=""/>
-
-    <!-- Who owns the content of this site? -->
-    <meta name="Copyright" content=""/>
-
-    <!--  Mobile Viewport
-    http://j.mp/mobileviewport & http://davidbcalhoun.com/2010/viewport-metatag
-    device-width : Occupy full width of the screen in its current orientation
-    initial-scale = 1.0 retains dimensions instead of zooming out if page height > device height
-    maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width (wrong for most sites)
-    -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-    <meta name="theme-color" content="#003561">
-    <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#003561">
-    <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#003561">
-
-<!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
-    <link rel="shortcut icon" href="favicon.ico"/>
-
-    <!-- concatenate and minify for production -->
-<!--<link rel="stylesheet" href="{{ asset('resources/assets/css/reset.css') }}" />-->
-<!--<link rel="stylesheet" href="{{ asset('resources/assets/css/style.css') }}" />-->
-<!--<link rel="stylesheet" href="{{ asset('resources/assets/bootstrap/dist/css/bootstrap.min.css') }}" />-->
-<!--<link rel="stylesheet" href="{{ asset('resources/assets/font-awesome/css/font-awesome.min.css') }}" />-->
-<!--<link rel="stylesheet" href="{{ asset('resources/assets/select2/dist/css/select2.min.css') }}" />-->
-<!--<link rel="stylesheet" href="{{ asset('resources/assets/css/main.css') }}" />-->
-    <link rel="stylesheet" href="resources/assets/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="resources/assets/font-awesome/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="resources/assets/css/reset.css"/>
-    <link rel="stylesheet" href="resources/assets/css/style.css"/>
-
-    <link rel="stylesheet" href="resources/assets/select2/dist/css/select2.min.css"/>
-    <link rel="stylesheet" href="resources/assets/css/main.css"/>
-
-    <!-- Lea Verou's prefixfree (http://leaverou.github.io/prefixfree/), lets you use un-prefixed properties in your CSS files -->
-    {{--<script src="{{ asset('resources/assets/js/libs/prefixfree.min.js') }}"></script>--}}
-    {{-- open --}}
-    {{--<script src="resources/assets/js/libs/prefixfree.min.js"></script>--}}
-
-    <!-- This is a minimized, base version of Modernizr. (http://modernizr.com)
-          You will need to create new builds to get the detects you need. -->
-    {{--<script src="{{ asset('resources/assets/js/libs/modernizr-3.2.0.base.js') }}"></script>--}}
-    {{-- open --}}
-    {{--<script src="resources/assets/js/libs/modernizr-3.2.0.base.js"></script>--}}
-
-    <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
-    <meta name="twitter:card" content="">
-    <meta name="twitter:site" content="">
-    <meta name="twitter:title" content="">
-    <meta name="twitter:description" content="">
-    <meta name="twitter:url" content="">
-    <!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
-    <meta property="og:title" content=""/>
-    <meta property="og:description" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:image" content=""/>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>window.jQuery || document.write("<script src='{{ asset('resources/assets/js/components/jquery-1.11.3.min.js') }}'>\x3C/script>")</script>
-
-<!--<script src="{{ asset('resources/assets/select2/dist/js/select2.full.min.js') }}"></script>-->
-<script src="resources/assets/select2/dist/js/select2.full.min.js"></script>
-
-<!-- this is where we put our custom functions -->
-<!-- don't forget to concatenate and minify for production -->
-<!--<script src="{{ asset('resources/assets/js/functions.js') }}"></script>-->
-<script src="resources/assets/js/functions.js"></script>
-
-
-    <script src="resources/assets/slick-carousel/slick/slick.min.js"></script>
-    <link rel="stylesheet" href="resources/assets/slick-carousel/slick/slick.css"/>
-    <link rel="stylesheet" href="resources/assets/css/post.css"/>
-
-
-    <link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">
-    <script src="//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJK15zKXhqLtzs6rk-wWZbrwrrDL8xqhc"
-            async defer></script>
-    <script type="text/javascript">
-        var geojsonFeature = {
-            "type": "FeatureCollection",
-            "features": [{
-                "type": "Feature",
-                "properties": {
-                    "head": "",
-                    "title": "Leeds and region",
-                    "description": "<p>First-year students on our BA programmes may have the chance to visit Leeds city centre, where we look at shopping areas and regeneration along the waterfront.</P><p>The trip gives us a chance to compare areas like the Victoria Quarter, Kirkgate Market and the Corn Exchange and discuss how they are branded to attract shoppers.</p><p> We also visit Holbeck Urban Village, which calls itself a “pioneer of urban regeneration”, and Urban Splash’s development in Saxton to explore the issue of gentrification.</p><p>During fieldwork in Leeds you may also have the chance to study:</p> <ul> <li>Clarence Dock and the Royal Armouries</li> <li>Developments near the Centenary Bridge</li> <li>The village of Saltaire, north of Bradford</li> </ul> <p>Field study like this develops important skills of observation, critique and policy analysis, as well as leading into later human geography modules.</p>",
-                    "gallery": [ ]
-                },
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [-1.5449523925781248, 53.80389494430927]
-                }
-            },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Scarborough_Header.jpg",
-                        "title": "Scarborough and region",
-                        "description": "<p>In October our first-year physical geography students join staff for an &quot;ice-breaker&quot; field weekend in Scarborough. The trip helps students make friends and teach them the basic skills they’ll need as physical geographers.</p><p>During the first day we tour the countryside to look at geology, glaciation and how the beautiful landscape of the North Yorkshire Moors was formed.</p><p>We make stops at:</p> <ul> <li>Scarp edges at the wolds near Market Weighton</li> <li>Millingtondale</li> <li>The Hole of Horcrum</li> <li>Newtondale</li> </ul> <p>At these stops the students work in small groups to investigate the landscape, discuss ideas of how individual landforms developed and discuss their ideas with a member of staff. This is physical geography at its most traditional, but the approaches and thinking that underpin this work are excellent preparation for the students later in their degree.</p><p> On the second day students work in small groups to explore the land at Jugger Howe. They measure hill slopes and soil saturation as well as investigating the amount of vegetation cover.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_1.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_5.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_8.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-0.4131889343261718, 54.28537062593458]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "",
-                        "title": "Whitby and North York Moors",
-                        "description": "<p>Each year we take our first-year BA students to Whitby for a field trip in October.<br> The historic town is on the coast near the North Yorkshire Moors National Park and offers a chance to visit other sites including the former alum mines at Ravenscar and the “Heartbeat country” landscape of Goathland.</p><p>Whitby itself has links with Captain Cook and became world famous after appearing in Dracula. These days it is a thriving fishing and commercial centre that is popular with tourists.</p><p>The North York Moors and the town of Whitby are ideal venues for introducing students to the range of topics covered in our BA Geography and BA Human Geography degree programmes.</p><p>Students can undertake projects on the following topics:</p> <ul> <li>Alternative rural livelihoods in Heartbeat Country</li> <li>Resource extraction and sustainable development at Ravenscar</li> <li>Heritage, identity and place marketing in Whitby</li> <li>Mapping and evaluating urban land use change in Whitby</li> </ul>",
-                        "gallery": [ ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-0.6157493591308594, 54.487890279847285]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Tenerife_Header.jpg",
-                        "title": "Tenerife",
-                        "description": "<p>Tenerife in the Canary Islands has been a destination for Hull Geography Students for over 30 years. It is one of the destinations second year BSc students can choose as part of their course.</p><p> The Canary Islands are a series of volcanoes that formed above a rising plume of molten rock within the earth’s mantle. They create an amazing range of rock types, from simple lava deposits to complex products of eruptions called “ignimbrites”.</P><p>During this week-long field trip, students get to see examples of all the different types of volcanic deposits that make-up the island. By studying these volcanic deposits which range in age from a few million years old through to cinder cones that are only a few hundred years old, students learn about the inner workings of volcanoes and the dangers they pose to humans today.</P><p>We also take a boat trip to see some of the most spectacular cliffs in the world. They are up to 500m high and reveal some of the oldest rocks on the island, along with lava tubes and ancient cinder cones buried under layers of lava.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/tenerife/Tenerife_1.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/tenerife/Tenerife_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/tenerife/Tenerife_3.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/tenerife/Tenerife_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/tenerife/Tenerife_6.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/tenerife/Tenerife_7.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/tenerife/Tenerife_8.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-16.60858154296875, 28.263263279931966]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Spain_Header2.jpg",
-                        "title": "Spain",
-                        "description": "<p>The week-long fieldtrip to Almería, Spain, is an option for our second year BSc students. The trip took place for the first time in March 2010 and was a roaring success, appealing both to ‘hard-core’ physical geographers and to those interested in natural environments, human land use and its impacts on the environment.</p><p>The Iberian Peninsula is a fascinating, topographically and climatically diverse region which lends itself extraordinarily well to geography fieldtrips.</p> <ul> <li>On the arid southeastern tip of Spain, in the rain shadow of mountain ranges, Almería is unique</li> <li>In the badlands of the Sorbas-Tabernas basin, where we stay, you will find some of the most famous marine geology in the world</li> <li>At the coast, the endless sea of plastic greenhouses which now dominates the coastal zone is a major global producer of fruit and vegetables</li> <li>Inland mountain ranges contrast greatly with the rugged and largely unspoilt rural landscapes such as the Filabres and Alhamilla.</li> </ul> <p>The aim is to offer students instruction and experience in a broad range of field research and data collection methods in a region completely unlike their home environment.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/spain/Spain_7.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/spain/Spain_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/spain/Spain_3.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/spain/Spain_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/spain/Spain_5.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/spain/Spain_6.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-2.98828125, 40.3130432088809]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Berlin_Header.jpg",
-                        "title": "Berlin",
-                        "description": "<p>This week-long fieldtrip provides an opportunity to explore and come to understand Berlin: a profoundly historical, political, anarchic and artistic city.</p><p>Berlin’s identity is underpinned by a long and traumatic history and geography associated with empire building, Nazi infamy and the geopolitical crises of the cold war era.</p><p>During the cold war, Berlin became a divided city. The infamous wall (der Mauer) split the city in two, divided families, and left some people plagued by a sense of imprisonment. Furthermore, the wall divided a nation and sent the world to the brink of a third world war.</p><p>Since 1989 and the reunification of Germany, Berlin is once again the capital of Germany and the economic heart of Europe.</p> <p>The aims of the trip are to:</p> <ul> <li>Use geographic concepts to understand the astonishing re-development of Berlin</li> <li>Help develop the skills needed for independent field research</li> </ul>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/berlin/Berlin_6.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/berlin/Berlin_1.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/berlin/Berlin_10.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/berlin/Berlin_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/berlin/Berlin_9.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [13.395767211914062, 52.51496729886834]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Rome_Header.jpg",
-                        "title": "Italy",
-                        "description": "<p>About half our second-year BA students usually visit southern Italy, where we take in Rome and either Abruzzo National Park or Naples.</P><p>In Rome we look at modern urban areas and the remains of past eras, from the Roman empire to planning under Mussolini. In Naples we stay near Vesuvius and see the old city itself and some attractions nearby, including the ruins of Pompeii and the Amalfi coast.</p><p> The trip focuses on the geography of southern Italy (the Mezzogiorno) and lets us study its cultures, landscapes, societies and economies. Students have the opportunity to consider issues of regional underdevelopment, the impact of policy, planning and state power, and the transformation of cultural landscapes in both rural and urban areas.</P><p>You might also have the chance to stay on one of the region’s organic “agriturismo” farms, which are famous for mixing traditional farming methods with modern technology.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_1.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_5.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_3.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_6.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_7.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_8.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_9.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_10.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_11.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/italy/Italy_12.jpg"]
-
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [13.095703125, 42.35854391749705]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Swiss_Header.jpg",
-                        "title": "Swiss Alps",
-                        "description": "<p>The Swiss Alps fieldtrip is a fantastic opportunity to investigate glacial geomorphology and hydrology, fluvial geomorphology, ecohydrology, recent environmental change, vegetation succession in glacial forelands, and water resources.</P><p> The 7 day trip is based in Arolla, at 2000 metres above sea level, in the canton of Valais.<br> The first half of the trip is spent visiting various field sites, including the Tsidjiore Nouve, Bas d’Arolla, and Moiry glaciers.</P><p>There is a visit to one of the world’s largest gravity Dams, the Grande Dixence, where you will have a guided tour inside the dam, and learn about how glacial meltwater is harnessed to provide a large proportion of Switzerland’s energy.</P><p>The second half of the trip also gives you the opportunity to work as a team on a detailed research project, developing your project design skills. Training may also be provided in the use of advanced geomorphological field techniques.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_1.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_11.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_5.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_6.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_7.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_8.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_9.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/swiss/Swiss_10.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [8.4375, 46.619261036171515]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Iceland_Header.jpg",
-                        "title": "Iceland",
-                        "description": "<p>We are currently developing a field trip to Iceland for our third year students. Iceland, the 'land of fire and ice', is a geographic phenomenon – a living laboratory where nature’s land forming processes are easy to see and students will be able to study glaciers, active volcanoes, and human-environment interaction.</p><p> We’ll focus on physical geography, studying glacial, fluvial, and high latitude (periglacial) geomorphology, natural hazards and resources in cold environments, climate change and human-environment impact.</p><p> Iceland sits on the boundary between the North American and Eurasian tectonic plates, heavily influencing the island’s landscape.</P><p> Students will have the chance to investigate active and dormant volcanoes and see how the country uses geothermal activity to create power.</P><p>We’ll also take in archaeological sites enabling students to study the interaction of humans with the environment, and the effects of climate change and volcanic activity on social structure and cultural dynamics.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/iceland/Iceland_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/iceland/Iceland_5.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/iceland/Iceland_7.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/iceland/Iceland_9.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/iceland/Iceland_3.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-18.45703125, 65.07213008560697]
-                    }
-                },
-
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/NewYork_Header.jpg",
-                        "title": "New York",
-                        "description": "<p>New York City is a venue for one of the Department’s third year Human Geography field trips. New York is unlike any other city in the world; its past development and present formation offer unique opportunities to examine historical, social, cultural, political and economic processes. Students spend a week studying, exploring and experiencing this distinctive city.<P></P>Students visit different heritage sites, iconic spaces, and various neighbourhoods – some valued for their historic significance and others for their contemporary use.</p><p>These include visits to:</p> <ul>  <li>the historic immigration station at Ellis Island</li> <li>the Eldridge Street Synagogue on the Lower East Side</li> <li>Chinatown</li> <li>Central Park</li> <li>the former World Trade Center site</li> </ul> <p>And walking tours of:</p> <ul>  <li>the recently-opened High Line</li> <li>an elevated public park in the historic Meat Packing District</li> <li>Brooklyn, including the waterfront area which has a dramatic view of Lower Manhattan</li> </ul> <p>Through these different activities, students can apply some of the geographical concepts they have learnt in their modules to the landscapes of New York.</p><p> During the second part of the week, students work in groups on self-directed research projects. There is a wide choice of themes to work on, because New York offered such a rich and varied research landscape.</p>",
-                        "gallery": [ ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [-74.01214599609375, 40.72852712420599]
-                    }
-                }]
-        };
-        //========== Mapbox
-        var map = L.mapbox.map('map', 'diccfish.map-fwz7rlzv')
-            .setView([50.4520018,-32.2077026], 3);
-        var markerLayer = L.mapbox.markerLayer()
-            //.loadURL('https://s3-us-west-2.amazonaws.com/s.cdpn.io/41294/GEESmaptest_v3.geojson')
-            .setGeoJSON(geojsonFeature)
-            .addTo(map);
-        map.scrollWheelZoom.disable();
-
-        // Link Address to Google Map Directions
-        function popupLink() {
-            $('.marker-title').on('click', function() {
-                window.open( 'http://maps.google.com/?q=' + $(this).html() );
-            });
-        }
-        // Link sidebar with map locations
-        map.markerLayer.on('ready', function(e) {
-
-            // Grab the Legend
-            var legend = document.getElementById('map-legend');
-
-            // Prepend each location under the legend div
-            var allPoints = map.markerLayer.eachLayer( function(e) {
-                $(legend).prepend('<section class="poi">' + e.feature.properties.title + '</section>');
-            });
-            $.each(geojsonFeature, function (key, data) {
-                console.log(key);
-                if(key == 'features'){
-                    $.each(data, function (index, data) {
-                        console.log('index', data.properties.title);
-                        $(legend).prepend('<section class="poi">' + data.properties.title + '</section>');
-                    })
-                }
-//                $.each(data, function (index, data) {
-//                    console.log('index', data)
-//                })
-            });
-            // Attach click event to new sections
-            $('.poi').on('click', function() {
-
-                $title = $(this).html();
-
-                map.markerLayer.eachLayer( function(marker) {
-
-                    if (marker.feature.properties.title === $title ) {
-                        marker.openPopup();
-                        map.panTo(marker.getLatLng());
-                        popupLink();
-                        console.log(marker.getLatLng());
-                        alert(marker.getLatLng());
-                    }
-
-                    $.each(geojsonFeature, function (key, data) {
-                        console.log(key);
-                        if(key == 'features'){
-                            $.each(data, function (index, data) {
-                                console.log('index', data.properties.title);
-                                if (data.properties.title === $title ) {
-                                    marker.openPopup();
-                                    var marker2 = {
-                                        lat: parseFloat(data.geometry.coordinates[0]),
-                                        lng: parseFloat(data.geometry.coordinates[1])
-                                    }
-                                    var latLng = new google.maps.LatLng(data.geometry.coordinates[0], data.geometry.coordinates[1]); //Makes a latlng
-                                    map.panTo(marker2); //Make map global
-//                                    map.panTo(marker.getLatLng());
-                                    popupLink();
-                                }
-                            })
-                        }
-                    });
-
-
-                });
-            });
-        });
-
-
-
-
-
-    </script>
-
-
+  <meta charset="utf-8">
+  <title>Tobias Wolf</title>
+  <meta name="description" content="Tobias Wolf is an interface designer and student of Media Art &amp; Design at the Bauhaus-Universität Weimar.">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta property="og:image" content="https://tobiaswolf.me/assets/images/fb-share-image.jpg">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
-
 <body>
-            <div class="bs-docs-section map-section">
-            <div class="map-legend" id="map-legend"></div>
-            <div id='map'></div>
-        </div>
-        
+  <div class="center">
+    <h1 hidden>Tobias Wolf</h1>
+    <article class="intro">
+      <h1>Hello,</h1>
+      <p>My name is Tobias Wolf. I am a web designer working for <a href="//www.wagnerwagner.de">Wagnerwagner</a>. I have studied Media Art &amp; Design at the Bauhaus-Universität Weimar.</p>
+    </article>
+    <img class="seperator" src="assets/images/sep_rect.png" srcset="assets/images/sep_rect@2x.png 2x" alt="">
+    <article class="portfolio">
+      <h1>There are some websites I designed.</h1>
+      <div class="container">
+        <a href="http://cellulart.de" class="white-text">
+          <span>cellulart.de</span>
+          <figure>
+            <img src="portfolio/cellulart.de.png" srcset="portfolio/cellulart.de@2x.png 2x" alt="cellulart.de">
+          </figure>
+        </a>
+        <a href="http://christina-meissner.de" class="white-text">
+          <span>christina-meissner.de</span>
+          <figure>
+            <img src="portfolio/christina-meissner.de.jpg" srcset="portfolio/christina-meissner.de@2x.jpg 2x" alt="christina-meissner.de">
+          </figure>
+        </a>
+        <a href="http://eichsfelderdomfestspiele.de">
+          <span>eichsfelderdomfestspiele.de</span>
+          <figure>
+            <img src="portfolio/eichsfelderdomfestspiele.de.jpg" srcset="portfolio/eichsfelderdomfestspiele.de@2x.jpg 2x" alt="eichsfelderdomfestspiele.de">
+          </figure>
+        </a>
+        <a href="http://iwantmymkg.de">
+          <span>iwantmymkg.de</span>
+          <figure>
+            <img src="portfolio/iwantmymkg.de.png" srcset="portfolio/iwantmymkg.de@2x.png 2x" alt="iwantmymkg.de">
+          </figure>
+        </a>
+        <a href="http://chrisroemer.de">
+          <span>chrisroemer.de</span>
+          <figure>
+            <img src="portfolio/chrisroemer.de.jpg" srcset="portfolio/chrisroemer.de@2x.jpg 2x" alt="chrisroemer.de">
+          </figure>
+        </a>
+        <a href="http://equipmentschmiede.de">
+          <span>equipmentschmiede.de</span>
+          <figure>
+            <img src="portfolio/equipmentschmiede.de.jpg" srcset="portfolio/equipmentschmiede.de@2x.jpg 2x" alt="equipmentschmiede.de">
+          </figure>
+        </a>
+        <div class="clear"></div>
+      </div>
+    </article>
+    <img class="seperator" src="assets/images/sep_circle.png" srcset="assets/images/sep_circle@2x.png 2x" alt="">
+    <article class="contact">
+      <p class="mail">
+        <a href="mailto:hello@tobiaswolf.me">hello<span>@</span>tobiaswolf.me</a><br>
+        <!-- <a href="public.asc" class="small">PGP Key</a> -->
+      </p>
+      <p class="tel">
+        <a href="tel:+4915141815084">+49&thinsp;151 41815084</a>
+      </p>
+      <p>
+        Roßbergstr. 3<br>
+        72072 Tübingen
+      </p>
+
+      <div class="social_media">
+        <a href="https://twitter.com/tobiasfwolf" class="twitter">
+          <svg viewBox="0 0 22 22" alt="Twitter">
+            <path id="path-2" d="M16.7019937,8.26306697 C16.3089655,8.4382922 15.8865941,8.55671948 15.4432798,8.60998229 C15.895776,8.33730496 16.2432459,7.90554621 16.4068807,7.39110441 C15.9834543,7.64355287 15.5144305,7.82690893 15.0152428,7.92573581 C14.6154551,7.49755148 14.0458983,7.22998047 13.4155841,7.22998047 C12.2052417,7.22998047 11.2239801,8.21640308 11.2239801,9.43308132 C11.2239801,9.60575339 11.243399,9.77390834 11.2807521,9.93515012 C9.45935813,9.8432757 7.84453933,8.96616754 6.76364341,7.63326168 C6.57500238,7.95865191 6.46692842,8.33710856 6.46692842,8.74086112 C6.46692842,9.50519823 6.85386134,10.1795463 7.44189935,10.5746181 C7.08262961,10.5631878 6.74473242,10.464086 6.44922867,10.2990734 C6.44907238,10.3082648 6.44907238,10.3174954 6.44907238,10.3267654 C6.44907238,11.3942213 7.2044961,12.2846844 8.20705206,12.4870517 C8.02313878,12.5374078 7.82953557,12.5643142 7.62964172,12.5643142 C7.48843445,12.5643142 7.35113441,12.5505272 7.21735088,12.5247992 C7.49620984,13.4001005 8.30555332,14.0370546 9.26454368,14.0548482 C8.51451194,14.6457276 7.56954853,14.9979456 6.54280681,14.9979456 C6.36592654,14.9979456 6.19146875,14.9875366 6.02001953,14.9671899 C6.98987199,15.5922817 8.14184041,15.9569905 9.37945529,15.9569905 C13.4104656,15.9569905 15.6147681,12.5999013 15.6147681,9.68855429 C15.6147681,9.59302688 15.6126582,9.4980101 15.6084384,9.40354324 C16.0365926,9.09292205 16.4081701,8.70488123 16.7019937,8.26306697"></path>
+          </svg>
+          <span class="title">Twitter</span>
+        </a>
+        <a href="https://500px.com/tobiasfabian" class="a500px">
+          <svg viewBox="0 0 22 22" alt="500px">
+            <path d="M4.8663326,8.51490664 C5.14611784,8.2051624 5.48972175,7.9585563 5.89718226,7.77505046 C6.30433922,7.59188549 6.76249041,7.5 7.27163582,7.5 C7.69161723,7.5 8.07638834,7.56344113 8.42655624,7.68967952 C8.77642059,7.81625879 9.10097755,7.98374338 9.40015123,8.19239843 C9.69902136,8.40109135 9.97907221,8.64144803 10.2400382,8.91327908 C10.5007385,9.18537526 10.7584414,9.47288669 11.0131849,9.77641938 C11.2548004,9.4856128 11.5062428,9.20109351 11.7672088,8.92274791 C12.0279091,8.6447053 12.3079979,8.40109135 12.6071716,8.19239843 C12.9060417,7.98374338 13.2305987,7.81625879 13.5807666,7.68967952 C13.930631,7.56344113 14.3091416,7.5 14.7166021,7.5 C15.225444,7.5 15.6835952,7.58862821 16.0910177,7.76558163 C16.4981747,7.94283805 16.8417786,8.18618688 17.1218674,8.49593111 C17.4016527,8.80597835 17.6181884,9.16935401 17.7709434,9.58673986 C17.9236225,10.00405 18,10.4593111 18,10.9525612 C18,11.4457734 17.9236225,11.907587 17.7709434,12.3373959 C17.6181884,12.76747 17.4016527,13.1436475 17.1218674,13.4661178 C16.8417786,13.788626 16.4949117,14.0417088 16.0814943,14.2249117 C15.6677733,14.4083796 15.2063591,14.5 14.6975172,14.5 C14.3028812,14.5 13.9339319,14.4401191 13.5902901,14.3197514 C13.2466862,14.1997246 12.9251646,14.0417088 12.6262565,13.8455148 C12.3270828,13.6495858 12.0440345,13.4219552 11.7767702,13.162623 C11.5095059,12.9035559 11.2548004,12.6346792 11.0131849,12.3563714 C10.7459205,12.6346792 10.4849546,12.9035559 10.2305147,13.162623 C9.97580918,13.4219552 9.70554741,13.6495858 9.41923612,13.8455148 C9.13288688,14.0417088 8.82088877,14.1997246 8.48381091,14.3197514 C8.14646745,14.4401191 7.76795679,14.5 7.34797538,14.5 C6.82600553,14.5 6.36159389,14.4083796 5.95443693,14.2249117 C5.54701436,14.0417088 5.19711206,13.7951406 4.90450238,13.4850934 C4.63518916,13.200309 4.4255589,12.8644686 4.27481483,12.4779133 C4.27481483,12.4779133 4,11.8963001 4,11.0000189 C4,10.1036999 4.23873187,9.58189182 4.23873187,9.58189182 C4.38450552,9.17242191 4.59364253,8.81673493 4.8663326,8.51490664 Z M9.33333514,10.5068067 C9.12958592,10.3108399 8.91635116,10.1306292 8.69378264,9.96613677 C8.47098647,9.80190946 8.23862888,9.66586137 7.99701341,9.55825763 C7.75513235,9.45095689 7.51325129,9.39702246 7.27163582,9.39702246 C6.82600553,9.39702246 6.47284021,9.56477218 6.21213985,9.89970349 C5.9511739,10.2349757 5.82080475,10.6110774 5.82080475,11.0284633 C5.82080475,11.4837244 5.95443693,11.8569098 6.22170127,12.1477164 C6.48896562,12.4387502 6.85791486,12.584002 7.32889049,12.584002 C7.57050596,12.584002 7.81242496,12.5365821 8.05430602,12.4417045 C8.29592149,12.3469026 8.52497812,12.2268379 8.74151384,12.081321 C8.95778396,11.9360692 9.16153319,11.7715389 9.35242003,11.5880709 C9.54330687,11.4048681 9.71510883,11.2246952 9.86782589,11.0474388 C9.71510883,10.8832115 9.53674289,10.7030008 9.33333514,10.5068067 Z M15.795145,9.87125914 C15.5213546,9.55530335 15.1490665,9.39702246 14.6784323,9.39702246 C14.4236889,9.39702246 14.1788104,9.45095689 13.9434554,9.55825763 C13.7078348,9.66586137 13.4853421,9.80190946 13.2752945,9.96613677 C13.0653228,10.1306292 12.8649125,10.3108399 12.6740256,10.5068067 C12.4831388,10.7030008 12.3112989,10.8832115 12.1585818,11.0474388 C12.3238198,11.2371183 12.5021857,11.4238436 12.6931105,11.6070464 C12.8839974,11.7905144 13.0874051,11.9550447 13.3039408,12.1002586 C13.520173,12.2458134 13.7460046,12.362886 13.9816631,12.4512112 C14.2169802,12.5398394 14.4684227,12.584002 14.735687,12.584002 C15.2063591,12.584002 15.5690479,12.4322357 15.8237913,12.1287409 C16.0781933,11.8252082 16.205603,11.4522879 16.205603,11.0094878 C16.205603,10.5669148 16.0686698,10.1875558 15.795145,9.87125914 Z"></path>
+          </svg>
+          <span class="title">500px</span>
+        </a>
+        <a href="https://vimeo.com/tobiaswolf" class="vimeo">
+          <svg viewBox="0 0 22 22" alt="Vimeo">
+              <path d="M13.6325004,13.3756301 C12.2597765,15.1653097 11.098373,16.0600485 10.1482897,16.0600485 C9.5599651,16.0600485 9.06170147,15.5152403 8.65501335,14.4252197 C8.38321483,13.4260678 8.11171921,12.427017 7.84002166,11.4278651 C7.5378326,10.3384509 7.21383504,9.79303625 6.86742318,9.79303625 C6.79190116,9.79303625 6.52757407,9.95243559 6.07504772,10.2700214 L5.6000061,9.6561772 C6.09826973,9.21699511 6.58986965,8.77791409 7.07349331,8.33822661 C7.73804674,7.76218547 8.23691615,7.45925596 8.5693948,7.42862945 C9.35520752,7.35292234 9.83883118,7.89166585 10.0203667,9.04496106 C10.2165423,10.2892261 10.3522396,11.0631771 10.4285693,11.3661067 C10.6550345,12.398412 10.9042167,12.9139077 11.1765201,12.9139077 C11.3878404,12.9139077 11.7052752,12.5791387 12.1285217,11.9096008 C12.5513642,11.2398608 12.7778293,10.7303287 12.8084218,10.380297 C12.8685971,9.80233539 12.642031,9.51264704 12.1285217,9.51264704 C11.8868108,9.51264704 11.6376285,9.56844186 11.3812777,9.6787175 C11.877421,8.04843718 12.8254849,7.25669648 14.2248636,7.30187816 C15.2622818,7.33240359 15.7513576,8.00729861 15.6915862,9.32666429 C15.6466566,10.3124739 14.9601937,11.662365 13.6325004,13.3756301 Z"></path>
+          </svg>
+          <span class="title">Vimeo</span>
+        </a>
+        <a href="https://github.com/tobiasfabian" class="github">
+          <svg viewBox="0 0 22 22" alt="GitHub">
+            <path d="M9.13917373,16.7750734 C9.13917373,16.6048697 9.13276311,16.1529038 9.12909989,15.5536633 C7.05434783,15.9875505 6.61659392,14.5906454 6.61659392,14.5906454 C6.27728885,13.7607921 5.78824996,13.53988 5.78824996,13.53988 C5.11101352,13.0945283 5.83953494,13.1033471 5.83953494,13.1033471 C6.58820402,13.1540555 6.98199938,13.8436892 6.98199938,13.8436892 C7.64733038,14.9411945 8.72797811,14.624157 9.15291078,14.4402841 C9.22068021,13.9764128 9.41345678,13.6598163 9.62638101,13.4803528 C7.97015099,13.2991255 6.22875128,12.6826882 6.22875128,9.93032662 C6.22875128,9.14633127 6.51951878,8.50476028 6.99665223,8.00296799 C6.92018267,7.82129977 6.66421568,7.09109939 7.06991648,6.10206589 C7.06991648,6.10206589 7.69632585,5.90893318 9.12085767,6.83843947 C9.71612972,6.67881837 10.3539866,6.59944876 10.9881803,6.59636217 C11.6219161,6.59944876 12.259773,6.67881837 12.855503,6.83843947 C14.2795769,5.90893318 14.9050704,6.10206589 14.9050704,6.10206589 C15.311687,7.09109939 15.0557201,7.82129977 14.9792505,8.00296799 C15.4572997,8.50476028 15.7457777,9.14633127 15.7457777,9.93032662 C15.7457777,12.6897433 14.0020885,13.2969208 12.3403637,13.4746205 C12.6077782,13.6964145 12.8463449,14.1347111 12.8463449,14.8049433 C12.8463449,15.7648746 12.8376448,16.5396102 12.8376448,16.7750734 C12.8376448,16.9673242 9.13917373,16.9655604 9.13917373,16.7750734 Z"></path>
+          </svg>
+          <span class="title">GitHub</span>
+        </a>
+      </div>
+    </article>
+    <img class="seperator" src="assets/images/sep_line.png" srcset="assets/images/sep_line@2x.png 2x" alt="">
+  </div>
 </body>
-        
 </html>

@@ -9,472 +9,110 @@
 @stop
 
 @section('script')
-    <!--<script src="{{ asset('/resources/assets/slick-carousel/slick/slick.min.js') }}"></script>-->
-    <script src="resources/assets/slick-carousel/slick/slick.min.js"></script>
-    <link rel="stylesheet" href="resources/assets/slick-carousel/slick/slick.css"/>
+
     <link rel="stylesheet" href="resources/assets/css/post.css"/>
+<link rel="stylesheet" href="resources/assets/css/news.css"/>
 
     <script src="resources/assets/bootstrap/dist/js/bootstrap.js"></script>
 
     <script type="text/javascript">
 
-        var $status = $('.pagingInfo');
-        var $slickElement = $('.project-screen');
-
-        $slickElement.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-            //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
-            var i = (currentSlide ? currentSlide : 0) + 1;
-            $status.text(i + '/' + slick.slideCount);
-        });
-
-        $(".project-screen").slick({
-            slidesToShow: 1,
-            arrows: false,
-            asNavFor: '.project-strip',
-            autoplay: true,
-            autoplaySpeed: 3000
-        });
-
-        $(".project-strip").slick({
-            slidesToShow: 1,
-            slidesToScroll: 3,
-            arrows: false,
-            asNavFor: '.project-screen',
-            dots: false,
-// 	infinite: true,
-//            centerMode: true,
-            focusOnSelect: true,
-            variableWidth: true
-        });
-
-        $('.next-button-slick').click(function () {
-            $('.project-screen').slick("slickNext");
-        });
-        $('.prev-button-slick').click(function () {
-            $('.project-screen').slick("slickPrev");
-        });
-
+        
     </script>
 
-    <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
-    <!--<script src="//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"></script>-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGFbK0CvMXKVzCJA_2Fj5B7pItfK0a1QA"></script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
-    <script type="text/javascript">
-
-        var geojsonFeature = {
-            "type": "FeatureCollection",
-            "features": [{
-                "type": "Feature",
-                "properties": {
-                    "head": "",
-                    "title": "คอนโดมิเนียม เดอะคีย์สาทร-ราชพฤกษ์",
-                    "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
-                    "description": "<p>First-year students on our BA programmes may have the chance to visit Leeds city centre, where we look at shopping areas and regeneration along the waterfront.</P><p>The trip gives us a chance to compare areas like the Victoria Quarter, Kirkgate Market and the Corn Exchange and discuss how they are branded to attract shoppers.</p><p> We also visit Holbeck Urban Village, which calls itself a “pioneer of urban regeneration”, and Urban Splash’s development in Saxton to explore the issue of gentrification.</p><p>During fieldwork in Leeds you may also have the chance to study:</p> <ul> <li>Clarence Dock and the Royal Armouries</li> <li>Developments near the Centenary Bridge</li> <li>The village of Saltaire, north of Bradford</li> </ul> <p>Field study like this develops important skills of observation, critique and policy analysis, as well as leading into later human geography modules.</p>",
-                    "gallery": []
-                },
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [13.7146687, 100.4654378]
-                }
-            },
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Scarborough_Header.jpg",
-                        "title": "Wutthakat BTS Station",
-                        "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
-                        "description": "<p>In October our first-year physical geography students join staff for an &quot;ice-breaker&quot; field weekend in Scarborough. The trip helps students make friends and teach them the basic skills they’ll need as physical geographers.</p><p>During the first day we tour the countryside to look at geology, glaciation and how the beautiful landscape of the North Yorkshire Moors was formed.</p><p>We make stops at:</p> <ul> <li>Scarp edges at the wolds near Market Weighton</li> <li>Millingtondale</li> <li>The Hole of Horcrum</li> <li>Newtondale</li> </ul> <p>At these stops the students work in small groups to investigate the landscape, discuss ideas of how individual landforms developed and discuss their ideas with a member of staff. This is physical geography at its most traditional, but the approaches and thinking that underpin this work are excellent preparation for the students later in their degree.</p><p> On the second day students work in small groups to explore the land at Jugger Howe. They measure hill slopes and soil saturation as well as investigating the amount of vegetation cover.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_1.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_5.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_8.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [13.7146391, 100.4654378]
-                    }
-                },
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Scarborough_Header.jpg",
-                        "title": "วัดนาคปรก",
-                        "icon": "https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png",
-                        "description": "<p>In October our first-year physical geography students join staff for an &quot;ice-breaker&quot; field weekend in Scarborough. The trip helps students make friends and teach them the basic skills they’ll need as physical geographers.</p><p>During the first day we tour the countryside to look at geology, glaciation and how the beautiful landscape of the North Yorkshire Moors was formed.</p><p>We make stops at:</p> <ul> <li>Scarp edges at the wolds near Market Weighton</li> <li>Millingtondale</li> <li>The Hole of Horcrum</li> <li>Newtondale</li> </ul> <p>At these stops the students work in small groups to investigate the landscape, discuss ideas of how individual landforms developed and discuss their ideas with a member of staff. This is physical geography at its most traditional, but the approaches and thinking that underpin this work are excellent preparation for the students later in their degree.</p><p> On the second day students work in small groups to explore the land at Jugger Howe. They measure hill slopes and soil saturation as well as investigating the amount of vegetation cover.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_1.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_5.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_8.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [13.7150131, 100.4653149]
-                    }
-                }
-            ]
-        };
-
-        var allMyMarkers = [];
-
-        //set your google maps parameters
-        var $latitude = 13.71466247885533,
-            $longitude = 100.4676117002964,
-            $map_zoom = 17;
-
-        //google map custom marker icon - .png fallback for IE11
-        var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
-        var $marker_url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
-
-        //define the basic color of your map, plus a value for saturation and brightness
-        var $main_color = '#2d313f',
-            $saturation = -20,
-            $brightness = 5;
-
-        //we define here the style of the map
-        var style = [
-            {
-                //set saturation for the labels on the map
-                elementType: "labels",
-                stylers: [
-                    {saturation: $saturation}
-                ]
-            },
-            {	//poi stands for point of interest - don't show these lables on the map
-                featureType: "poi",
-                elementType: "labels",
-                stylers: [
-                    {visibility: "off"}
-                ]
-            },
-            {
-                //don't show highways lables on the map
-                featureType: 'road.highway',
-                elementType: 'labels',
-                stylers: [
-                    {visibility: "off"}
-                ]
-            },
-            {
-                //don't show local road lables on the map
-                featureType: "road.local",
-                elementType: "labels.icon",
-                stylers: [
-                    {visibility: "off"}
-                ]
-            },
-            {
-                //don't show arterial road lables on the map
-                featureType: "road.arterial",
-                elementType: "labels.icon",
-                stylers: [
-                    {visibility: "off"}
-                ]
-            },
-            {
-                //don't show road lables on the map
-                featureType: "road",
-                elementType: "geometry.stroke",
-                stylers: [
-                    {visibility: "off"}
-                ]
-            },
-            //style different elements on the map
-            {
-                featureType: "transit",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "poi",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "poi.government",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "poi.sport_complex",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "poi.attraction",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "poi.business",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "transit",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "transit.station",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "landscape",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-
-            },
-            {
-                featureType: "road",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "road.highway",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "water",
-                elementType: "geometry",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            }
-        ];
-
-        //set google map options
-        var map_options = {
-            center: new google.maps.LatLng($latitude, $longitude),
-            zoom: $map_zoom,
-            panControl: false,
-            zoomControl: false,
-            mapTypeControl: false,
-            streetViewControl: false,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            scrollwheel: false,
-            styles: style,
-        }
-        //inizialize the map
-        var image = {
-            url: $marker_url,
-            // This marker is 20 pixels wide by 32 pixels high.
-            scaledSize: new google.maps.Size(30, 30)
-
-        };
-
-        var map = new google.maps.Map(document.getElementById('map'), map_options);
-        //add a custom marker to the map
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng($latitude, $longitude),
-            map: map,
-            visible: true,
-            icon: image,
-        });
-
-        var iconBase = $marker_url;
-        var icons = {
-            parking: {
-                icon: $marker_url
-            },
-            library: {
-                icon: $marker_url
-            },
-            info: {
-                icon: $marker_url
-            }
-        };
-
-        function addMarker(feature, featureID) {
-
-            var image = {
-                url: feature.properties.icon,
-                // This marker is 20 pixels wide by 32 pixels high.
-                scaledSize: new google.maps.Size(20, 20)
-            };
-
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(feature.geometry.coordinates[0], feature.geometry.coordinates[1]),
-                icon: image,
-                map: map,
-                id: featureID
-            });
-
-            $('#map-legend').append('<div class="poi">' + feature.properties.title + '</div>');
-
-            allMyMarkers.push(marker);
-        }
-
-
-        for (var i = 0, jsonFeature; jsonFeature = geojsonFeature.features[i]; i++) {
-            addMarker(jsonFeature, i);
-        }
-
-        $('.poi').on('click', function () {
-
-            $title = $(this).html();
-
-            for (var i = 0, jsonFeature; jsonFeature = geojsonFeature.features[i]; i++) {
-                if (jsonFeature.properties.title === $title) {
-                    map.panTo(new google.maps.LatLng(jsonFeature.geometry.coordinates[0], jsonFeature.geometry.coordinates[1]));
-                }
-            }
-
-            var selectedID = $(this).attr('id');
-            toggleBounce($(".poi").index(this));
-
-        });
-
-
-        function toggleBounce(selectedID) {
-
-            // loop through our array & check with marker has same ID with the text
-            for (var j = 0; j < allMyMarkers.length; j++) {
-                if (allMyMarkers[j].id == selectedID) {
-                    if (allMyMarkers[j].getAnimation() != null) {
-                        allMyMarkers[j].setAnimation(null);
-                    } else {
-                        allMyMarkers[j].setAnimation(google.maps.Animation.BOUNCE);
-                        map.setCenter(allMyMarkers[j].getPosition());
-                    }
-                    break; // stop continue looping
-                }
-            }
-        } // end toggleBounce
-
-
-        // google.maps.event.addListener(map, 'click', function( event ){
-        //   alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
-        // });
-
-        //add custom buttons for the zoom-in/zoom-out on the map
-        function CustomZoomControl(controlDiv, map) {
-            //grap the zoom elements from the DOM and insert them in the map
-            var controlUIzoomIn = document.getElementById('cd-zoom-in'),
-                controlUIzoomOut = document.getElementById('cd-zoom-out');
-            controlDiv.appendChild(controlUIzoomIn);
-            controlDiv.appendChild(controlUIzoomOut);
-
-            // Setup the click event listeners and zoom-in or out according to the clicked element
-            google.maps.event.addDomListener(controlUIzoomIn, 'click', function () {
-                map.setZoom(map.getZoom() + 1)
-            });
-            google.maps.event.addDomListener(controlUIzoomOut, 'click', function () {
-                map.setZoom(map.getZoom() - 1)
-            });
-        }
-
-        var zoomControlDiv = document.createElement('div');
-        var zoomControl = new CustomZoomControl(zoomControlDiv, map);
-
-        //insert the zoom div on the top left of the map
-        map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
-
-    </script>
 @stop
 
 @section('first-content')
+
+<div id="feat-top-wrap" class="left relative">
+															<div class="feat-wide5-main col-xs-6 col-sm-3">
+									<a href="http://www.mvpthemes.com/flexmag/flex-mag-powerfully-simple-wordpress-theme/" rel="bookmark">
+									<div class="feat-wide5-img left relative">
+
+                                        <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/woman-beach2.jpg">
+
+									</div><!--feat-wide5-img-->
+									<div class="feat-wide5-text">
+										<span class="feat-cat">Business</span>
+										<h2>Flex Mag: Powerfully simple WordPress theme</h2>
+									</div><!--feat-wide5-text-->
+																			<div class="feat-info-wrap">
+											<div class="feat-info-views">
+												<i class="fa fa-eye fa-2"></i> <span class="feat-info-text">8.8K</span>
+											</div><!--feat-info-views-->
+																	<div class="feat-info-comm">
+										<i class="fa fa-comment"></i> <span class="feat-info-text">17</span>
+									</div><!--feat-info-comm-->
+																		</div><!--feat-info-wrap-->
+																		</a>
+								</div><!--feat-wide5-main-->
+															<div class="feat-wide5-main col-xs-6 col-sm-3">
+									<a href="http://www.mvpthemes.com/flexmag/only-three-players-have-a-winning-record-against-rafael-nadal/" rel="bookmark">
+									<div class="feat-wide5-img left relative">
+									     <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/tennis1.jpg" class="unlazy reg-img wp-post-image">
+									     </div><!--feat-wide5-img-->
+																		<div class="feat-wide5-text">
+										<span class="feat-cat">Sports</span>
+										<h2>Only three players have a winning record against Rafael Nadal</h2>
+									</div><!--feat-wide5-text-->
+																			<div class="feat-info-wrap">
+											<div class="feat-info-views">
+												<i class="fa fa-eye fa-2"></i> <span class="feat-info-text">44.0K</span>
+											</div><!--feat-info-views-->
+																	<div class="feat-info-comm">
+										<i class="fa fa-comment"></i> <span class="feat-info-text">13</span>
+									</div><!--feat-info-comm-->
+																		</div><!--feat-info-wrap-->
+																		</a>
+								</div><!--feat-wide5-main-->
+															<div class="feat-wide5-main col-xs-6 col-sm-3">
+									<a href="http://www.mvpthemes.com/flexmag/terrell-owens-says-he-doesnt-care-about-the-hall-of-fame/" rel="bookmark">
+									<div class="feat-wide5-img left relative">
+																					<img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/07/football1.jpg" class="unlazy reg-img wp-post-image" alt="">																		
+																					</div><!--feat-wide5-img-->
+																			<div class="feat-vid-but">
+											<i class="fa fa-play fa-3"></i>
+										</div><!--feat-vid-but-->
+																		<div class="feat-wide5-text">
+										<span class="feat-cat">Sports</span>
+										<h2>Terrell Owens says he doesn’t care about the Hall of Fame</h2>
+									</div><!--feat-wide5-text-->
+																			<div class="feat-info-wrap">
+											<div class="feat-info-views">
+												<i class="fa fa-eye fa-2"></i> <span class="feat-info-text">53.7K</span>
+											</div><!--feat-info-views-->
+																	<div class="feat-info-comm">
+										<i class="fa fa-comment"></i> <span class="feat-info-text">9</span>
+									</div><!--feat-info-comm-->
+																		</div><!--feat-info-wrap-->
+																		</a>
+								</div><!--feat-wide5-main-->
+															<div class="feat-wide5-main col-xs-6 col-sm-3">
+									<a href="http://www.mvpthemes.com/flexmag/googles-alphabet-rollout-could-still-be-a-qwikster-like-farce/" rel="bookmark">
+									<div class="feat-wide5-img left relative">
+																		<img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/interview.jpg" class="unlazy reg-img wp-post-image">
+																		</div><!--feat-wide5-img-->
+																		<div class="feat-wide5-text">
+										<span class="feat-cat">Business</span>
+										<h2>Google’s Alphabet rollout could still be a Qwikster-like farce</h2>
+									</div><!--feat-wide5-text-->
+																			<div class="feat-info-wrap">
+											<div class="feat-info-views">
+												<i class="fa fa-eye fa-2"></i> <span class="feat-info-text">26.7K</span>
+											</div><!--feat-info-views-->
+																	<div class="feat-info-comm">
+										<i class="fa fa-comment"></i> <span class="feat-info-text">7</span>
+									</div><!--feat-info-comm-->
+																		</div><!--feat-info-wrap-->
+																		</a>
+								</div><!--feat-wide5-main-->
+									</div>
+									
     <div class="col-md-9">
         <h1 class="entry-title">Simplicity2の子テーマ</h1>
 
         <div class="section section-project">
-            <div class="project-carousel">
-
-                <div class="project-page">
-                    <span class="pagingInfo">1/1</span>
-                    <div class="pull-right">
-                        <a href="javascript://" class="prev-button-slick arrow left"></a>
-                        <a href="javascript://" class="next-button-slick arrow right"></a>
-                    </div>
-                </div>
-                <div class="project-screen">
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=26" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=39" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=52" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=65" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=78" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=91" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=104" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=117" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=130" alt=""/></div>
-                </div>
-                <div class="project-strip">
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=26" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=39" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=52" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=65" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=78" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=91" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=104" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=117" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=130" alt=""/></div>
-                </div>
-            </div>
+            
         </div>
 
         <div class="vertical-tabs">
@@ -506,131 +144,7 @@
 
         </div>
 
-        
-        <div class="bs-docs-section">
-            <h1 class="page-header" id="type">รายละเอียด</h1>
-            <div class="row">
-                <div class="col-md-3">พื้นที่ใกล้เคียง</div>
-                <div class="col-md-9">
-
-                    <ul class="features-list">
-                        <li class="list-item two-column features-item distance-essential-property">
-                            <div>Utapao International Airport</div>
-                            <div>31.88 km</div>
-                        </li>
-                        <li class="list-item two-column features-item distance-essential-property">
-                            <div>Utapao International Airport</div>
-                            <div>31.88 km</div>
-                        </li>
-                        <li class="list-item two-column features-item distance-essential-property">
-                            <div>Utapao International Airport</div>
-                            <div>31.88 km</div>
-                        </li>
-                        <li class="list-item two-column features-item distance-essential-property">
-                            <div>Utapao International Airport</div>
-                            <div>31.88 km</div>
-                        </li>
-                        <li class="list-item two-column features-item distance-essential-property">
-                            <div>Utapao International Airport</div>
-                            <div>31.88 km</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">สิ่งอำนวยความสะดวก</div>
-                <div class="col-md-9">
-                    <ul class="features-list">
-                        <li class="list-item three-column features-item">
-                            <div class="check">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
-                                          id="path-1" class="cls-2" fill-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <span class="f-name">การรักษาความปลอดภัย (24 ชั่วโมง)</span>
-                        </li>
-                        <li class="list-item three-column features-item">
-                            <div class="check active">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
-                                          id="path-1" class="cls-2" fill-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <span class="f-name">เช็คอิน/เช็คเอาต์ด่วน</span>
-                        </li>
-                        <li class="list-item three-column features-item">
-                            <div class="check">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
-                                          id="path-1" class="cls-2" fill-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <span class="f-name">ทางสำหรับรถเข็น</span>
-                        </li>
-                        <li class="list-item three-column features-item">
-                            <div class="check">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
-                                          id="path-1" class="cls-2" fill-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <span class="f-name">นำสัตว์เลี้ยงเข้าพักได้</span>
-                        </li>
-
-
-                        <div class="collapse toggle">
-                            <li class="list-item three-column features-item">
-                                <div class="check">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
-                                              id="path-1" class="cls-2" fill-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <span class="f-name">ลิฟ</span>
-                            </li>
-                            <li class="list-item three-column features-item">
-                                <div class="check">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
-                                              id="path-1" class="cls-2" fill-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <span class="f-name">นำสัตว์เลี้ยงเข้าพักได้</span>
-                            </li>
-                            <li class="list-item three-column features-item">
-                                <div class="check">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
-                                              id="path-1" class="cls-2" fill-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <span class="f-name">Utapao International</span>
-                            </li>
-                        </div>
-
-                        <div class="show-more">
-                            <a href="javascript://" data-toggle="collapse" data-target=".toggle">
-                                <span class="show-less">ดูเพิ่มเติม</span>
-                                <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
-                            </a>
-                        </div>
-
-
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="bs-docs-section">
+      <div class="bs-docs-section">
             <div class="listing-details-text">
                 <h1 class="listing-title">ขายคอนโด ห้องจริงสวยมาก เดอะ พีค รัชดา-ห้วยขวาง ใกล้ รถไฟฟ้าใต้ดิน 1 ห้องนอน
                     (The Peak Ratchada Huaykwang) 1k. m. to MRT</h1>
@@ -665,156 +179,6 @@
             </div>
         </div>
 
-        <div class="bs-docs-section map-section">
-            <h2>พื้นที่รอบข้าง</h2>
-            <div class="map-section-container">
-                <div class="map-legend" id="map-legend"></div>
-                <div id="map"></div>
-                <div id="cd-zoom-in"></div>
-                <div id="cd-zoom-out"></div>
-            </div>
-        </div>
-
-
-        <div class="bs-docs-section contact-section">
-            <h2>สอบถามข้อมูลเพิ่มเติม</h2>
-            <div class="row">
-                <div class="col-md-3">ชื่อ : </div>
-                <div class="col-md-9">
-                    <ul class="features-list">
-                        <li class="list-item one-column features-item">
-                            <div>คุณจิตตภู รักศิลป์ (ปลาย)</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">อีเมล : </div>
-                <div class="col-md-9">
-                    <ul class="features-list">
-                        <li class="list-item one-column features-item">
-                            <div>Speciesvirus@gmail.com</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">เบอร์โทรศัพท์ : </div>
-                <div class="col-md-9">
-                    <ul class="features-list">
-                        <li class="list-item one-column features-item">
-                            <div>097414xxxx</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">ข้อความ : </div>
-                <div class="col-md-9">
-                    <ul class="features-list">
-                        <li class="list-item one-column features-item">
-                            <p>If you have any question or remarks about Trefecta, fill in your details below, and we will contact you
-                                as soon as possible.<br></p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div role="form" class="wpcf7" id="wpcf7-f167-p96-o1" lang="en-US" dir="ltr">
-                <div class="screen-reader-response"></div>
-                <form action="/about/contact/#wpcf7-f167-p96-o1" method="post" class="wpcf7-form"
-                      novalidate="novalidate">
-                    <div style="display: none;">
-                        <input type="hidden" name="_wpcf7" value="167">
-                        <input type="hidden" name="_wpcf7_version" value="4.3">
-                        <input type="hidden" name="_wpcf7_locale" value="en_US">
-                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f167-p96-o1">
-                        <input type="hidden" name="_wpnonce" value="088807312a">
-                    </div>
-                    <div class="wpcf7-response-output wpcf7-display-none"></div>
-                    <div class="fields">
-                        <div class="col col-1"><span class="wpcf7-form-control-wrap firstname"><input type="text"
-                                                                                                      name="firstname"
-                                                                                                      value="" size="40"
-                                                                                                      class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                                                                      aria-required="true"
-                                                                                                      aria-invalid="false"
-                                                                                                      placeholder="First name"></span>
-                        </div>
-                        <div class="col col-2"><span class="wpcf7-form-control-wrap lastname"><input type="text"
-                                                                                                     name="lastname"
-                                                                                                     value="" size="40"
-                                                                                                     class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                                                                     aria-required="true"
-                                                                                                     aria-invalid="false"
-                                                                                                     placeholder="Last name"></span>
-                        </div>
-                        <div class="col col-1"><span class="wpcf7-form-control-wrap emailaddress"><input type="email"
-                                                                                                         name="emailaddress"
-                                                                                                         value=""
-                                                                                                         size="40"
-                                                                                                         class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
-                                                                                                         aria-required="true"
-                                                                                                         aria-invalid="false"
-                                                                                                         placeholder="E-mail address"></span>
-                        </div>
-                        <div class="col col-2"><span class="wpcf7-form-control-wrap phone"><input type="text"
-                                                                                                  name="phone" value=""
-                                                                                                  size="40"
-                                                                                                  class="wpcf7-form-control wpcf7-text"
-                                                                                                  aria-invalid="false"
-                                                                                                  placeholder="Phone number"></span>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="wpcf7-form-control-wrap comments">
-                            <textarea name="comments" cols="40" rows="20"
-                                      class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required"
-                                      placeholder="Comments/question"></textarea>
-                        </span>
-                    </div>
-                    <div class="form-buttons"><input type="submit" value="Send message"
-                                                     class="wpcf7-form-control wpcf7-submit button bronze"><img
-                                class="ajax-loader" style="visibility: hidden;"></div>
-                </form>
-            </div>
-
-
-        </div>
-        
-        <div class="bs-docs-section social-section">
-            <ul class="social">
-                <li class="social-twitter">
-                  <a href="http://twitter.com" title="Twitter" target="_blank"><i class="fa fa-twitter icon-2x" aria-hidden="true">&nbsp;</i></a>
-                </li>
-                <li class="social-facebook">
-                  <a href="http://www.facebook.com" title="Facebook" target="_blank"><i class="fa fa-facebook icon-2x">&nbsp;</i></a></li>
-                <li class="social-pinterest">
-                  <a href="http://www.pinterest.com" title="Pinterest" target="_blank"><i class="fa fa-pinterest-p icon-2x">&nbsp;</i>
-                  </a>
-                </li>
-                <li class="social-google">
-                  <a href="http://www.youtube.com" title="Google+" target="_blank"><i class="fa fa-google-plus icon-2x">&nbsp;</i></a>
-                 </li>
-                <li class="social-linkedin">
-                  <a href="http://www.pinterest.com" title="Pinterest" target="_blank"><i class="fa fa-linkedin icon-2x">&nbsp;</i>
-                  </a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="bs-docs-section fb-comments-section">
-            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5"></div>
-        </div>
-
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1724713611112155";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));</script>
     </div>
 
     <div class="col-md-3">

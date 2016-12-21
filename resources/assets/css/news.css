@@ -1,0 +1,76 @@
+#feat-top-wrap {
+            position: relative;
+        float: left;
+    margin-bottom: 15px;
+    overflow: hidden;
+    width: 100%;
+}
+.feat-wide5-main {
+        position: relative;
+        float: left;
+    /*margin-left: .094756790903%;*/
+    overflow: hidden;
+    /*width: 24.9289324068%;*/
+    /*height: 370px;*/
+}
+.feat-wide5-main:first-child {
+    margin-left: 0;
+}
+#feat-top-wrap .feat-wide5-main {
+    height: 370px;
+}
+@media screen and (max-width: 768px) {
+    #feat-top-wrap .feat-wide5-main, #feat-wide-wrap .feat-wide5-main {
+        height: 300px;
+    }
+}
+@media screen and (max-width: 660px) {
+    #feat-top-wrap .feat-wide5-main, #feat-wide-wrap .feat-wide5-main {
+        height: 250px;
+    }
+}
+
+/*@media screen and (max-width: 899px) and (min-width: 768px) {*/
+/*    #feat-top-wrap .feat-wide5-main, #feat-wide-wrap .feat-wide5-main {*/
+/*        height: 300px;*/
+/*    }*/
+/*}*/
+/*#feat-top-wrap .feat-wide5-main, #feat-wide-wrap .feat-wide5-main {*/
+/*    height: 370px;*/
+/*}*/
+
+.feat-wide1-img, .feat-top2-left-img, .feat-top2-right-img, .feat-wide5-img {
+                position: relative;
+        float: left;
+    background: #000;
+    line-height: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.feat-wide5-img img {
+    min-width: 840px;
+}
+.feat-wide5-img img {
+    max-width: 100%;
+    height: auto;
+    -webkit-backface-visibility: hidden;
+}
+#fly-wrap, ul.post-gallery-bot-list li img, .post-gallery-top .flex-direction-nav a, .fly-fade, nav.main-menu-wrap, nav.main-menu-wrap ul li a, nav.main-menu-wrap ul li.menu-item-has-children a::after, .mega-img img, span.nav-search-but i, span.nav-soc-but i, ul.score-list li, .es-nav span a, .feat-wide-sub-text h2, .feat-wide1-img img, .feat-top2-left-img img, .feat-top2-right-img img, .feat-wide5-img img, #home-feat-img img, .feat-vid-but, .side-list-img img, .side-list-text p, .row-widget-img img, .row-widget-text p, .blog-widget-img img, .blog-widget-text h2, .feat-widget-img img, .feat-widget-text h2, span.more-posts-text, .facebook-share, .twitter-share, .pinterest-share, .email-share, .social-comments, .prev-next-text, #comments-button a, #comments-button span.comment-but-text, .archive-list-img img, .archive-list-text h2, ul.foot-soc-list li a, .tag-cloud a, a.inf-more-but, .mvp-related-img img {
+    -webkit-transition: all .25s;
+    -moz-transition: all .25s;
+    -ms-transition: all .25s;
+    -o-transition: all .25s;
+    transition: all .25s;
+}
+.feat-wide1-img img, .feat-top2-left-img img, .feat-top2-right-img img, .feat-wide5-img img {
+    margin: 0 auto;
+    opacity: .9;
+    position: absolute;
+    left: -9999px;
+    right: -9999px;
+    width: 100%;
+}
