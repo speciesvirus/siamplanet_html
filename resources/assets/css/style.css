@@ -64,7 +64,7 @@ body {
 	/* position: relative; */
 	margin-top: 50px;
 	margin-bottom: 45px;
-	padding-bottom: 45px;
+	padding-bottom: 15px;
 	background: url(../images/bg-hr-bottom.png) no-repeat bottom center;
 }
 .footer {
