@@ -1291,7 +1291,7 @@
                         <h3 class="related-entry-title">
                             <a href="//wp-simplicity.com/ptengine/" class="related-entry-title-link"
                                title="SimplicityでPtengineのアクセス解析（ヒートマップ分析）を行う方法">
-                                SimplicityでPtengineのアクセス解析（ヒートマップ分析）を行う方法 </a></h3>
+                                SimplicityでPtengineのア���セス解析（ヒートマップ分析）を行う方法 </a></h3>
                     </header>
                     <p class="related-entry-snippet">
                         Simplicity1.7.7より、カスタマイザーでIDを設定することにより、Ptengineでの解析を行えるようになりました。 Pten...</p>

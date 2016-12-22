@@ -21,5 +21,11 @@ Route::get('/test', function() {
    return view('test');
 });
 Route::get('/news', function() {
-   return view('news');
+   return view('news.news');
+});
+Route::get('/news/category', function() {
+   return view('news.category');
+});
+Route::get('/news/view', function() {
+   return view('news.view');
 });
