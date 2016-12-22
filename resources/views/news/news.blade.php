@@ -10,10 +10,10 @@
 
 @section('script')
 
-    <link rel="stylesheet" href="resources/assets/css/post.css"/>
-    <link rel="stylesheet" href="resources/assets/css/news.css"/>
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/post.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/news.css') }}"/>
 
-    <script src="resources/assets/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="{{ asset('resources/assets/bootstrap/dist/js/bootstrap.js') }}"></script>
 
     <script type="text/javascript">
 

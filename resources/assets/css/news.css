@@ -1,7 +1,7 @@
 #feat-top-wrap {
             position: relative;
         float: left;
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
     overflow: hidden;
     width: 100%;
 }

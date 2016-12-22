@@ -54,13 +54,13 @@
 <!--<link rel="stylesheet" href="{{ asset('resources/assets/font-awesome/css/font-awesome.min.css') }}" />-->
 <!--<link rel="stylesheet" href="{{ asset('resources/assets/select2/dist/css/select2.min.css') }}" />-->
 <!--<link rel="stylesheet" href="{{ asset('resources/assets/css/main.css') }}" />-->
-    <link rel="stylesheet" href="//resources/assets/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="//resources/assets/font-awesome/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="//resources/assets/css/reset.css"/>
-    <link rel="stylesheet" href="//resources/assets/css/style.css"/>
+    <link rel="stylesheet" href="resources/assets/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="resources/assets/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="resources/assets/css/reset.css"/>
+    <link rel="stylesheet" href="resources/assets/css/style.css"/>
 
-    <link rel="stylesheet" href="//resources/assets/select2/dist/css/select2.min.css"/>
-    <link rel="stylesheet" href="//resources/assets/css/main.css"/>
+    <link rel="stylesheet" href="resources/assets/select2/dist/css/select2.min.css"/>
+    <link rel="stylesheet" href="resources/assets/css/main.css"/>
 
     <!-- Lea Verou's prefixfree (http://leaverou.github.io/prefixfree/), lets you use un-prefixed properties in your CSS files -->
     {{--<script src="{{ asset('resources/assets/js/libs/prefixfree.min.js') }}"></script>--}}
