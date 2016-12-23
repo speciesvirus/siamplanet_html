@@ -10,10 +10,10 @@
 
 @section('script')
 
-    <link rel="stylesheet" href="../resources/assets/css/post.css"/>
-    <link rel="stylesheet" href="../resources/assets/css/news.css"/>
+    <link rel="stylesheet" href="../../resources/assets/css/post.css"/>
+    <link rel="stylesheet" href="../../resources/assets/css/news.css"/>
 
-    <script src="../resources/assets/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../../resources/assets/bootstrap/dist/js/bootstrap.js"></script>
 
     <script type="text/javascript">
 
@@ -24,481 +24,72 @@
 
 @section('first-content')
 
-    <h1 class="entry-title"></h1>
 
-    <div id="feat-top-wrap" class="left relative">
-        <div class="col-xs-6 col-sm-3">
-            <div class="row">
-                <div class="feat-wide5-main">
-                    <a href="http://www.mvpthemes.com/flexmag/only-three-players-have-a-winning-record-against-rafael-nadal/"
-                       rel="bookmark">
-                        <div class="feat-wide5-img left relative">
-                            <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/woman-beach2.jpg"
-                                 class="unlazy reg-img wp-post-image">
-                        </div><!--feat-wide5-img-->
-                        <div class="feat-wide5-text">
-                            <span class="feat-cat">Sports</span>
-                            <h2>Only three players have a winning record against Rafael Nadal</h2>
-                        </div><!--feat-wide5-text-->
-                        <div class="feat-info-wrap">
-                            <div class="feat-info-views">
-                                <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">44.0K</span>
-                            </div><!--feat-info-views-->
-                            <div class="feat-info-comm">
-                                <i class="fa fa-comment"></i> <span class="feat-info-text">13</span>
-                            </div><!--feat-info-comm-->
-                        </div><!--feat-info-wrap-->
-                    </a>
-                </div><!--feat-wide5-main-->
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-3">
-            <div class="row">
-                <div class="feat-wide5-main">
-                    <a href="http://www.mvpthemes.com/flexmag/only-three-players-have-a-winning-record-against-rafael-nadal/"
-                       rel="bookmark">
-                        <div class="feat-wide5-img left relative">
-                            <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/tennis1.jpg"
-                                 class="unlazy reg-img wp-post-image">
-                        </div><!--feat-wide5-img-->
-                        <div class="feat-wide5-text">
-                            <span class="feat-cat">Sports</span>
-                            <h2>Only three players have a winning record against Rafael Nadal</h2>
-                        </div><!--feat-wide5-text-->
-                        <div class="feat-info-wrap">
-                            <div class="feat-info-views">
-                                <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">44.0K</span>
-                            </div><!--feat-info-views-->
-                            <div class="feat-info-comm">
-                                <i class="fa fa-comment"></i> <span class="feat-info-text">13</span>
-                            </div><!--feat-info-comm-->
-                        </div><!--feat-info-wrap-->
-                    </a>
-                </div><!--feat-wide5-main-->
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-3">
-            <div class="row">
-                <div class="feat-wide5-main">
-                    <a href="http://www.mvpthemes.com/flexmag/terrell-owens-says-he-doesnt-care-about-the-hall-of-fame/"
-                       rel="bookmark">
-                        <div class="feat-wide5-img left relative">
-                            <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/07/football1.jpg"
-                                 class="unlazy reg-img wp-post-image" alt="">
-                        </div><!--feat-wide5-img-->
-                        <div class="feat-vid-but">
-                            <i class="fa fa-play fa-3"></i>
-                        </div><!--feat-vid-but-->
-                        <div class="feat-wide5-text">
-                            <span class="feat-cat">Sports</span>
-                            <h2>Terrell Owens says he doesn’t care about the Hall of Fame</h2>
-                        </div><!--feat-wide5-text-->
-                        <div class="feat-info-wrap">
-                            <div class="feat-info-views">
-                                <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">53.7K</span>
-                            </div><!--feat-info-views-->
-                            <div class="feat-info-comm">
-                                <i class="fa fa-comment"></i> <span class="feat-info-text">9</span>
-                            </div><!--feat-info-comm-->
-                        </div><!--feat-info-wrap-->
-                    </a>
-                </div><!--feat-wide5-main-->
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-3">
-            <div class="row">
-                <div class="feat-wide5-main">
-                    <a href="http://www.mvpthemes.com/flexmag/googles-alphabet-rollout-could-still-be-a-qwikster-like-farce/"
-                       rel="bookmark">
-                        <div class="feat-wide5-img left relative">
-                            <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/interview.jpg"
-                                 class="unlazy reg-img wp-post-image">
-                        </div><!--feat-wide5-img-->
-                        <div class="feat-wide5-text">
-                            <span class="feat-cat">Business</span>
-                            <h2>Google’s Alphabet rollout could still be a Qwikster-like farce</h2>
-                        </div><!--feat-wide5-text-->
-                        <div class="feat-info-wrap">
-                            <div class="feat-info-views">
-                                <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">26.7K</span>
-                            </div><!--feat-info-views-->
-                            <div class="feat-info-comm">
-                                <i class="fa fa-comment"></i> <span class="feat-info-text">7</span>
-                            </div><!--feat-info-comm-->
-                        </div><!--feat-info-wrap-->
-                    </a>
-                </div><!--feat-wide5-main-->
-            </div>
-        </div>
-
-    </div>
-@stop
-
-@section('second-content')
 
     <div class="col-md-9">
-        <h3 class="side-list-title">Featured News</h3>
-        <div id="mvp_tagrow_widget-2" class="home-widget left relative mvp_tagrow_widget">
-            <div class="row-widget-wrap left relative">
-                <ul class="row-widget-list">
-                    <li>
-                        <a href="http://www.mvpthemes.com/flexmag/yes-there-are-now-jeans-that-can-charge-your-phone/" rel="bookmark">
-                            <div class="row-widget-img left relative">
-                                <img width="300" height="180" src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/woman-jeans-300x180.jpg" class="reg-img wp-post-image" alt="">
-                                <div class="feat-info-wrap">
-                                    <div class="feat-info-views">
-                                        <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">33.0K</span>
-                                    </div><!--feat-info-views-->
-                                    <div class="feat-info-comm">
-                                        <i class="fa fa-comment"></i> <span class="feat-info-text">2</span>
-                                    </div><!--feat-info-comm-->
-                                </div><!--feat-info-wrap-->
-                            </div><!--row-widget-img-->
-                            <div class="row-widget-text left relative">
-                                <span class="side-list-cat">Fashion</span>
-                                <p>Yes, there are now jeans that can charge your phone</p>
-                            </div><!--row-widget-text-->
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.mvpthemes.com/flexmag/5-straight-outta-compton-cameos-that-will-make-you-do-a-double-take/" rel="bookmark">
-                            <div class="row-widget-img left relative">
-                                <img width="300" height="180" src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/music-dj-300x180.jpg" class="reg-img wp-post-image" alt="">
-                                <div class="feat-info-wrap">
-                                    <div class="feat-info-views">
-                                        <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">50.7K</span>
-                                    </div><!--feat-info-views-->
-                                    <div class="feat-info-comm">
-                                        <i class="fa fa-comment"></i> <span class="feat-info-text">2</span>
-                                    </div><!--feat-info-comm-->
-                                </div><!--feat-info-wrap-->
-                            </div><!--row-widget-img-->
-                            <div class="row-widget-text left relative">
-                                <span class="side-list-cat">Entertainment</span>
-                                <p>5 ’Straight Outta Compton’ cameos that will make you do a double take</p>
-                            </div><!--row-widget-text-->
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.mvpthemes.com/flexmag/googles-alphabet-rollout-could-still-be-a-qwikster-like-farce/" rel="bookmark">
-                            <div class="row-widget-img left relative">
-                                <img width="300" height="180" src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/interview-300x180.jpg" class="reg-img wp-post-image" alt="">
-                                <div class="feat-info-wrap">
-                                    <div class="feat-info-views">
-                                        <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">26.7K</span>
-                                    </div><!--feat-info-views-->
-                                    <div class="feat-info-comm">
-                                        <i class="fa fa-comment"></i> <span class="feat-info-text">7</span>
-                                    </div><!--feat-info-comm-->
-                                </div><!--feat-info-wrap-->
-                            </div><!--row-widget-img-->
-                            <div class="row-widget-text left relative">
-                                <span class="side-list-cat">Business</span>
-                                <p>Google’s Alphabet rollout could still be a Qwikster-like farce</p>
-                            </div><!--row-widget-text-->
-                        </a>
-                    </li>
-                </ul>
-            </div><!--row-widget-wrap-->
-        </div>
-        <a href="#" class="inf-more-but" style="display: inline-block;">More Posts</a>
+            <h1 class="entry-title">Featured News</h1>
 
-        <h3 class="side-list-title mg-30">Featured News</h3>
-        <aside class="related-entries">
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/simplicity-and-wordpress-popular-posts/"
-                       title="SimplicityとWordPress Popular Postsを関連づける方法">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2014/12/rope-494423_12801-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image"
-                             alt="SimplicityとWordPress Popular Postsを関連づける方法"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2014/12/rope-494423_12801-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2014/12/rope-494423_12801-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2014/12/rope-494423_12801-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
+            <div id="post-feat-img" class="left relative">
+			    <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/woman-fashion.jpg" class="attachment- size- wp-post-image" alt="" >
+				<div class="post-feat-text">
+				    <span class="post-excerpt left">
+				        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.</p>
+                    </span>
+					<span class="feat-caption">Photo: Shutterstock</span>
+				</div>
+			</div><!--post-feat-text-->
+			
+						<div id="content-area" itemprop="articleBody" class="post-122 post type-post status-publish format-standard has-post-thumbnail hentry category-fashion tag-celebrities tag-fashion tag-gallery tag-style">
+							<div id="content-main" class="relative">
+																								
+<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+<p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
+<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+<blockquote><p>“Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat”</p></blockquote>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+<p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+<p>Nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+																<div class="posts-nav-link">
+																	</div><!--posts-nav-link-->
+																	<div class="post-tags">
+										<span class="post-tags-header">Related Items:</span><span itemprop="keywords"><a href="http://www.mvpthemes.com/flexmag/tag/celebrities/" rel="tag">Celebrities</a>, <a href="http://www.mvpthemes.com/flexmag/tag/fashion/" rel="tag">Fashion</a>, <a href="http://www.mvpthemes.com/flexmag/tag/gallery/" rel="tag">gallery</a>, <a href="http://www.mvpthemes.com/flexmag/tag/style/" rel="tag">Style</a></span>
+									</div><!--post-tags-->
+																												
+																												
+								<div class="social-sharing-bot">
+                                    <ul class="social">
+                                        <li class="social-twitter">
+                                          <a href="http://twitter.com" title="Twitter" target="_blank"><i class="fa fa-twitter icon-2x" aria-hidden="true">&nbsp;</i></a>
+                                        </li>
+                                        <li class="social-facebook">
+                                          <a href="http://www.facebook.com" title="Facebook" target="_blank"><i class="fa fa-facebook icon-2x">&nbsp;</i></a></li>
+                                        <li class="social-pinterest">
+                                          <a href="http://www.pinterest.com" title="Pinterest" target="_blank"><i class="fa fa-pinterest-p icon-2x">&nbsp;</i>
+                                          </a>
+                                        </li>
+                                        <li class="social-google">
+                                          <a href="http://www.youtube.com" title="Google+" target="_blank"><i class="fa fa-google-plus icon-2x">&nbsp;</i></a>
+                                         </li>
+                                        <li class="social-linkedin">
+                                          <a href="http://www.pinterest.com" title="Pinterest" target="_blank"><i class="fa fa-linkedin icon-2x">&nbsp;</i>
+                                          </a>
+                                        </li>
+                                    </ul>
+								</div><!--social-sharing-bot-->
+																															           
+																															           
 
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/simplicity-and-wordpress-popular-posts/"
-                               class="related-entry-title-link" title="SimplicityとWordPress Popular Postsを関連づける方法">
-                                SimplicityとWordPress Popular Postsを関連づける方法 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-                        最近、メールなどでSimplicityとWordPress Popular Postsに関する質問をいくつかいただきました。 内容は、...</p>
-
-                    <footer>
-                        <p class="related-entry-read"><a
-                                    href="//wp-simplicity.com/simplicity-and-wordpress-popular-posts/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
-
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/searchform-style/" title="Simplicity検索ボックスのスタイルいろいろ">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2014/08/magnifying-glass-13622534633G4-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image" alt="Simplicity検索ボックスのスタイルいろいろ"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2014/08/magnifying-glass-13622534633G4-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2014/08/magnifying-glass-13622534633G4-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2014/08/magnifying-glass-13622534633G4-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
-
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/searchform-style/" class="related-entry-title-link"
-                               title="Simplicity検索ボックスのスタイルいろいろ">
-                                Simplicity検索ボックスのスタイルいろいろ </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-
-
-                        Simplicity20140828から、ブログの検索窓のスタイルをテーマカスタマイザーから変更できるようにしました。 Wor...
-
-                    </p>
-
-                    <footer>
-                        <p class="related-entry-read"><a href="//wp-simplicity.com/searchform-style/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
-
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/go-to-top-custum/" title="Simplicityでトップへ戻るボタンに画像を使用する方法">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2015/04/73e8b3abc0b9635c0f2af539836f20201-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image" alt="Simplicityでトップへ戻るボタンに画像を使用する方法"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2015/04/73e8b3abc0b9635c0f2af539836f20201-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2015/04/73e8b3abc0b9635c0f2af539836f20201-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2015/04/73e8b3abc0b9635c0f2af539836f20201-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
-
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/go-to-top-custum/" class="related-entry-title-link"
-                               title="Simplicityでトップへ戻るボタンに画像を使用する方法">
-                                Simplicityでトップへ戻るボタンに画像を使用する方法 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-
-
-                        Simplicityデフォルトでは、記事をスクロールなどすると、画面右下に以下のような「トップへ戻るボタン」が表示されます。 ...
-
-                    </p>
-
-                    <footer>
-                        <p class="related-entry-read"><a href="//wp-simplicity.com/go-to-top-custum/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
-            <a href="#" class="inf-more-but" style="display: inline-block;">More Posts</a>
-        </aside>
-
-        <h3 class="side-list-title mg-20">Featured News</h3>
-        <aside class="related-entries">
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/twitter-cards/" title="Twitter Cardsへの登録方法">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2014/07/Twitter-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image" alt="Twitter Cardsへの登録方法"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2014/07/Twitter-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2014/07/Twitter-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2014/07/Twitter-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
-
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/twitter-cards/" class="related-entry-title-link"
-                               title="Twitter Cardsへの登録方法">
-                                Twitter Cardsへの登録方法 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-                        Simplicityでは、プラグインを使用せずとも、デフォルトで以下のようなTwitter Cards情報のタグが挿入されます。 ...</p>
-
-                    <footer>
-                        <p class="related-entry-read"><a href="//wp-simplicity.com/twitter-cards/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
-
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/simplicity1-to-2-child-theme-settings/"
-                       title="Simplicity1用の子テーマをSimplicity2で使う時の修正方法">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2015/12/pier-jetty-wooden-beach-sand-bridge-construction-1-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image"
-                             alt="Simplicity1用の子テーマをSimplicity2で使う時の修正方法"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2015/12/pier-jetty-wooden-beach-sand-bridge-construction-1-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2015/12/pier-jetty-wooden-beach-sand-bridge-construction-1-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2015/12/pier-jetty-wooden-beach-sand-bridge-construction-1-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
-
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/simplicity1-to-2-child-theme-settings/"
-                               class="related-entry-title-link" title="Simplicity1用の子テーマをSimplicity2で使う時の修正方法">
-                                Simplicity1用の子テーマをSimplicity2で使う時の修正方法 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-                        Simplicity2を公開しました。 Simplicity2の子テーマも公開しています。 ただ、Simplicity1の子テーマは、...</p>
-
-                    <footer>
-                        <p class="related-entry-read"><a
-                                    href="//wp-simplicity.com/simplicity1-to-2-child-theme-settings/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
-
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/simplicity1-to-2-customizer/"
-                       title="Simplicity1系から2に移行するときにのテーマカスタマイザーの再設定方法">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2015/12/construction-worker-concrete-hummer-vibrator-job-1-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image"
-                             alt="Simplicity1系から2に移行するときにのテーマカスタマイザーの再設定方法"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2015/12/construction-worker-concrete-hummer-vibrator-job-1-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2015/12/construction-worker-concrete-hummer-vibrator-job-1-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2015/12/construction-worker-concrete-hummer-vibrator-job-1-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
-
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/simplicity1-to-2-customizer/" class="related-entry-title-link"
-                               title="Simplicity1系から2に移行するときにのテーマカスタマイザーの再設定方法">
-                                Simplicity1系から2に移行するときにのテーマカスタマイザーの再設定方法 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-                        Simplicity2を公開しました。 Simplicity2の子テーマも公開しています。 Simplicity2では、テーマカスタマ...</p>
-
-                    <footer>
-                        <p class="related-entry-read"><a
-                                    href="//wp-simplicity.com/simplicity1-to-2-customizer/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
-            <a href="#" class="inf-more-but" style="display: inline-block;">More Posts</a>
-        </aside>
-
-        <h3 class="side-list-title mg-30">Featured News</h3>
-        <aside class="related-entries">
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/how-to-set-big-header-image/" title="Simplicityに画面幅いっぱいのヘッダー画像を設定する方法">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2015/01/battery-cameara-canon-261-823x550-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image" alt="Simplicityに画面幅いっぱいのヘッダー画像を設定する方法"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2015/01/battery-cameara-canon-261-823x550-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2015/01/battery-cameara-canon-261-823x550-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2015/01/battery-cameara-canon-261-823x550-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
-
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/how-to-set-big-header-image/" class="related-entry-title-link"
-                               title="Simplicityに画面幅いっぱいのヘッダー画像を設定する方法">
-                                Simplicityに画面幅いっぱいのヘッダー画像を設定する方法 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-                        Simplicity1.4から、テーマカスタマイザーだけで、以下のような画面幅いっぱいのヘッダー画像を設定できるようになりました。 この...</p>
-
-                    <footer>
-                        <p class="related-entry-read"><a
-                                    href="//wp-simplicity.com/how-to-set-big-header-image/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
-
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/ptengine/" title="SimplicityでPtengineのアクセス解析（ヒートマップ分析）を行う方法">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2015/07/industry-vintage-old-fabric-large1-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image"
-                             alt="SimplicityでPtengineのアクセス解析（ヒートマップ分析）を行う方法"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2015/07/industry-vintage-old-fabric-large1-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2015/07/industry-vintage-old-fabric-large1-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2015/07/industry-vintage-old-fabric-large1-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
-
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/ptengine/" class="related-entry-title-link"
-                               title="SimplicityでPtengineのアクセス解析（ヒートマップ分析）を行う方法">
-                                SimplicityでPtengineのアクセス解析（ヒートマップ分析）を行う方法 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-                        Simplicity1.7.7より、カスタマイザーでIDを設定することにより、Ptengineでの解析を行えるようになりました。 Pten...</p>
-
-                    <footer>
-                        <p class="related-entry-read"><a href="//wp-simplicity.com/ptengine/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
-
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/skin-parts/" title="Simplicitパーツデザインの着せ替えができる「パーツスキン」機能の使い方と仕様">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2015/07/fashion-clothes-hanger-clothes-rack-clothing-landscape1-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image"
-                             alt="Simplicitパーツデザインの着せ替えができる「パーツスキン」機能の使い方と仕様"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2015/07/fashion-clothes-hanger-clothes-rack-clothing-landscape1-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2015/07/fashion-clothes-hanger-clothes-rack-clothing-landscape1-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2015/07/fashion-clothes-hanger-clothes-rack-clothing-landscape1-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
-
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/skin-parts/" class="related-entry-title-link"
-                               title="Simplicitパーツデザインの着せ替えができる「パーツスキン」機能の使い方と仕様">
-                                Simplicitパーツデザインの着せ替えができる「パーツスキン」機能の使い方と仕様 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-                        Simplicity1.7.9でパーツスキン機能を実装しました。 以前にもスキン機能というのはありました。 パーツスキン機能も、スキン機...</p>
-
-                    <footer>
-                        <p class="related-entry-read"><a href="//wp-simplicity.com/skin-parts/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
-
-            <a href="#" class="inf-more-but" style="display: inline-block;">More Posts</a>
-        </aside>
+	
+                            </div><!--content-main-->
+															
+			</div>
+        
 
     </div>
-
+    
     <div class="col-md-3">
 
         <div class="side-panel bs-docs-sidebar">
@@ -537,7 +128,7 @@
         <div class="sidebar-widget">
 
             <aside id="new_entries-2" class="widget widget_new_entries">
-                <h3 class="widget_title sidebar_widget_title"> 新着記事 </h3>
+                <h3 class="side-list-title">Review</h3>
                 <ul class="new-entrys">
                     <li class="new-entry">
                         <div class="new-entry-thumb">
@@ -629,7 +220,7 @@
             </aside>
 
         </div>
-
+        
         <div class="sidebar-widget">
             <div class="fb-page" data-href="https://www.facebook.com/unbokofficial/" data-tabs="timeline"
                  data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
@@ -638,6 +229,80 @@
                             href="https://www.facebook.com/unbokofficial/">Unbok</a></blockquote>
             </div>
         </div>
+
+    </div>
+@stop
+
+@section('second-content')
+
+    <div class="col-md-9">
+        <h3 class="side-list-title">Recommended for you</h3>
+        <div id="mvp_tagrow_widget-2" class="home-widget left relative mvp_tagrow_widget">
+            <div class="row-widget-wrap left relative">
+                <ul class="row-widget-list">
+                    <li>
+                        <a href="http://www.mvpthemes.com/flexmag/yes-there-are-now-jeans-that-can-charge-your-phone/" rel="bookmark">
+                            <div class="row-widget-img left relative">
+                                <img width="300" height="180" src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/woman-jeans-300x180.jpg" class="reg-img wp-post-image" alt="">
+                                <div class="feat-info-wrap">
+                                    <div class="feat-info-views">
+                                        <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">33.0K</span>
+                                    </div><!--feat-info-views-->
+                                    <div class="feat-info-comm">
+                                        <i class="fa fa-comment"></i> <span class="feat-info-text">2</span>
+                                    </div><!--feat-info-comm-->
+                                </div><!--feat-info-wrap-->
+                            </div><!--row-widget-img-->
+                            <div class="row-widget-text left relative">
+                                <span class="side-list-cat">Fashion</span>
+                                <p>Yes, there are now jeans that can charge your phone</p>
+                            </div><!--row-widget-text-->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.mvpthemes.com/flexmag/5-straight-outta-compton-cameos-that-will-make-you-do-a-double-take/" rel="bookmark">
+                            <div class="row-widget-img left relative">
+                                <img width="300" height="180" src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/music-dj-300x180.jpg" class="reg-img wp-post-image" alt="">
+                                <div class="feat-info-wrap">
+                                    <div class="feat-info-views">
+                                        <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">50.7K</span>
+                                    </div><!--feat-info-views-->
+                                    <div class="feat-info-comm">
+                                        <i class="fa fa-comment"></i> <span class="feat-info-text">2</span>
+                                    </div><!--feat-info-comm-->
+                                </div><!--feat-info-wrap-->
+                            </div><!--row-widget-img-->
+                            <div class="row-widget-text left relative">
+                                <span class="side-list-cat">Entertainment</span>
+                                <p>5 ’Straight Outta Compton’ cameos that will make you do a double take</p>
+                            </div><!--row-widget-text-->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.mvpthemes.com/flexmag/googles-alphabet-rollout-could-still-be-a-qwikster-like-farce/" rel="bookmark">
+                            <div class="row-widget-img left relative">
+                                <img width="300" height="180" src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/interview-300x180.jpg" class="reg-img wp-post-image" alt="">
+                                <div class="feat-info-wrap">
+                                    <div class="feat-info-views">
+                                        <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">26.7K</span>
+                                    </div><!--feat-info-views-->
+                                    <div class="feat-info-comm">
+                                        <i class="fa fa-comment"></i> <span class="feat-info-text">7</span>
+                                    </div><!--feat-info-comm-->
+                                </div><!--feat-info-wrap-->
+                            </div><!--row-widget-img-->
+                            <div class="row-widget-text left relative">
+                                <span class="side-list-cat">Business</span>
+                                <p>Google’s Alphabet rollout could still be a Qwikster-like farce</p>
+                            </div><!--row-widget-text-->
+                        </a>
+                    </li>
+                </ul>
+            </div><!--row-widget-wrap-->
+        </div>
+    </div>
+
+    <div class="col-md-3">
 
     </div>
 

@@ -219,3 +219,40 @@ a.inf-more-but:hover {
     color: #00b3ee;
     background: transparent;
 }
+
+#post-feat-img {
+    position: relative;
+    float: left;
+    line-height: 0;
+    overflow: hidden;
+    width: 100%;
+    max-height: 500px;
+}
+#post-feat-img img {
+    line-height: 0;
+    width: 100%;
+}
+#content-area {
+    float: left;
+    padding: 30px 2.93255131965%;
+    position: relative;
+    width: 94.1348973607%;
+}
+.post-tags {
+    float: left;
+    font-size: .75rem;
+    font-weight: 400;
+    line-height: 120%;
+    margin: 30px 0;
+    text-transform: uppercase;
+    width: 100%;
+}
+.social-sharing-top, .social-sharing-bot {
+    float: left;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.social-sharing-top, .social-sharing-bot {
+    margin-bottom: 30px;
+}

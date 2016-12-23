@@ -164,7 +164,7 @@
         <div class="sidebar-widget">
 
             <aside id="new_entries-2" class="widget widget_new_entries">
-                <h3 class="widget_title sidebar_widget_title"> 新着記事 </h3>
+                <h3 class="side-list-title">News</h3>
                 <ul class="new-entrys">
                     <li class="new-entry">
                         <div class="new-entry-thumb">
@@ -331,7 +331,7 @@
 @section('third-content')
 
     <div class="col-md-9">
-        <h2>Review</h2>
+        <h3 class="side-list-title">Review</h3>
         <aside id="related-entries">
             <article class="related-entry cf">
                 <div class="related-entry-thumb">

@@ -23,9 +23,9 @@ Route::get('/test', function() {
 Route::get('/news', function() {
    return view('news.news');
 });
-Route::get('/news/category', function() {
+Route::get('/nc', function() {
    return view('news.category');
 });
-Route::get('/news/view', function() {
+Route::get('/nv', function() {
    return view('news.view');
 });

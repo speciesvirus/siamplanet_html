@@ -10,10 +10,10 @@
 
 @section('script')
 
-    <link rel="stylesheet" href="{{ asset('resources/assets/css/post.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('resources/assets/css/news.css') }}"/>
+    <link rel="stylesheet" href="../resources/assets/css/post.css"/>
+    <link rel="stylesheet" href="../resources/assets/css/news.css"/>
 
-    <script src="{{ asset('resources/assets/bootstrap/dist/js/bootstrap.js') }}"></script>
+    <script src="../resources/assets/bootstrap/dist/js/bootstrap.js"></script>
 
     <script type="text/javascript">
 
@@ -537,7 +537,7 @@
         <div class="sidebar-widget">
 
             <aside id="new_entries-2" class="widget widget_new_entries">
-                <h3 class="widget_title sidebar_widget_title"> 新着記事 </h3>
+                <h3 class="side-list-title">Review</h3>
                 <ul class="new-entrys">
                     <li class="new-entry">
                         <div class="new-entry-thumb">
