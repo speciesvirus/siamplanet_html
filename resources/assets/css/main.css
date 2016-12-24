@@ -1335,3 +1335,180 @@ h3.side-list-title {
     margin-bottom: 20px;
     border-bottom: 1px solid #eee;
 }
+
+
+
+/*! login ------------------------------------*/
+.div-login, .div-join {
+    position: relative;
+    float: left;
+    padding-top: 40px;
+}
+
+.div-login {
+    width: calc(100% - 313px);
+}
+.div-join {
+    width: 313px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+}
+
+
+
+
+/*******************
+LOGIN FORM
+*******************/
+
+.login-form {
+
+    margin: 0 auto;
+    position: relative;
+
+    max-width: 450px;
+}
+
+/*******************
+HEADER
+*******************/
+
+
+.top-header {
+    font-weight: 300;
+    font-size: 28px;
+    line-height:34px;
+    color: #414848;
+    text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+
+}
+.div-join .top-header {
+    border-bottom: 1px solid transparent;
+}
+.login-form .header span {
+    font-size: 11px;
+    line-height: 16px;
+    color: #678889;
+    text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+}
+
+/*******************
+CONTENT
+*******************/
+
+.login-form .content {
+    padding-bottom: 15px;
+}
+
+/* Input field */
+.login-page .input {
+    width: 100%;
+    max-width: 300px;
+    padding: 5px 13px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #9d9e9e;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 1);
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+    -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+}
+
+/* Second input field */
+.login-page .input {
+    margin-top: 15px;
+}
+
+.login-page .input:hover {
+    background: #dfe9ec;
+    color: #414848;
+}
+
+/* Animation */
+.login-page .input{
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+}
+
+/*******************
+FOOTER
+*******************/
+
+.login-form .bottom {
+    padding: 15px 0;
+    overflow: auto;
+
+
+
+}
+
+
+
+button.proceed {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    padding: 15px 0;
+    color: white;
+    background: #3b8686;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…IgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: -webkit-linear-gradient(-45deg, #3b8686 0%, #0b486b 100%);
+    background: -webkit-linear-gradient(315deg, #3b8686 0%, #0b486b 100%);
+    background: linear-gradient(135deg, #3b8686 0%, #0b486b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF3B8686', endColorstr='#FF0B486B',GradientType=1 );
+    border: 0;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.join-btn{
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    padding: 15px 0;
+    color: white;
+    background: #003561;
+    border: 0;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 30px;
+}
+p.agree{
+    color: #777;
+    font-size: 13px;
+    width: 316px;
+    margin-top: 20px;
+}
+
+.login-social{
+    margin: 10px 0;
+}
+.login-social .enlace {
+    display: inline-block;
+    background-color: grey;
+    padding: 0.7em 1.5em 0.7em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: .7em;
+    color: white;
+    box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+}
+.enlace.facebook {
+    background-color: #1F5CA1;
+}
+.enlace.google {
+    background-color: #BF002D;
+}
+/*! end login ------------------------------------*/
