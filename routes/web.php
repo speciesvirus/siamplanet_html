@@ -35,3 +35,6 @@ Route::get('/nc', function() {
 Route::get('/nv', function() {
    return view('news.view');
 });
+Route::get('/post', function() {
+    return view('post');
+});

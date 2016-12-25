@@ -57,7 +57,7 @@
             selectOptions.dir = "rtl";
         }
 
-        $('select').select2(selectOptions);
+        $('.header-advance-search select').select2(selectOptions);
     }
 
 	/*-----------------------------------------------------------------------------------*/
