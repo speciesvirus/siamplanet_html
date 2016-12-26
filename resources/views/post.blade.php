@@ -166,6 +166,70 @@
             }
         }
         ekUpload();
+        
+        var slideIndex;
+        $('.add-remove').slick({
+          slidesToShow: 4,
+          slidesToScroll: 4
+        });
+        $('.js-add-slide').on('click', function() {
+          slideIndex++;
+          alert('a');
+          $('.add-remove').slick('slickAdd','<div><h3>' + slideIndex + '</h3></div>');
+        });
+        
+        $('.js-remove-slide').on('click', function() {
+          $('.add-remove').slick('slickRemove',slideIndex - 1);
+          if (slideIndex !== 0){
+            slideIndex--;
+          }
+        });
+        
+        
+        $(function(){
+        	var deleteBox = '<span class="deleteBox"><p>Are you sure you want to delete?</p><span class="cancel">Cancel</span><span class="confirm">Yes</span></span>';
+        	$('.delete').each(function(){
+        		$(this).append(deleteBox);
+        	}).click(function(){
+        		if(!$(this).hasClass('selected')){
+        			$(this).addClass('selected');
+        			var owner = $(this);
+        			
+        			$(this).find('.cancel').unbind('click').bind('click',function(){
+        				owner.removeClass('selected');
+        				return false;
+        			})
+        			
+        			$(this).find('.confirm').unbind('click').bind('click',function(){
+        				$(this).parent().addClass('loading');
+        				var parent = $(this).parent();
+        				
+        				//ajax to delete
+        				
+        				setTimeout(function(){ //On success
+        					parent.addClass('deleted');
+        					setTimeout(function(){
+        						owner.fadeOut(600);
+        						
+        						//remove item deleted
+        						
+        						setTimeout(function(){
+        							owner.find('.deleted').removeClass('loading').removeClass('deleted');
+        							owner.removeClass('selected');
+        							owner.show();
+        						},1000)	
+        					},1000)
+        				},1000)
+        				
+        				return false;
+        			})
+        		}		
+        		return false;
+        	});
+          
+
+  
+})
     </script>
 
     <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
@@ -182,14 +246,27 @@
         <div class="section">
 
 
+            				
+
             <div class="form-horizontal">
-                <fieldset>
-                    <!-- Form Name -->
                     <h3 class="side-list-title">Review</h3>
 
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="documentid">Document ID</label>
                         <div class="col-md-4">
+                        <div class="add-remove">
+                                <div class="project">
+                                    <a href="#delete" class="delete">Delete</a>
+                                    <img src="http://unsplash.it/578/361/?image=26" alt=""/>
+                                </div>
+                                <div class="project"><img src="http://unsplash.it/578/361/?image=39" alt=""/></div>
+                                <div class="project"><img src="http://unsplash.it/578/361/?image=52" alt=""/></div>
+                            </div>
+                
+                            <div class="buttons">
+            					<a href="javascript:void(0)" class="button js-add-slide">Add Slide</a>
+            					<a href="javascript:void(0)" class="button js-remove-slide">Remove Slide</a>
+            				</div>			
                             <form id="file-upload-form" class="uploader">
                                 <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
 
@@ -211,9 +288,6 @@
                             </form>
                         </div>
                     </div>
-
-                </fieldset>
-
 
             </div>
 
