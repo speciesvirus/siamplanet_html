@@ -98,6 +98,7 @@
                     // Thumbnail Preview
                     document.getElementById('file-image').classList.remove("hidden");
                     document.getElementById('file-image').src = URL.createObjectURL(file);
+                    $('#group_items_panel').append('<div class="item_box"><a href="#delete" class="delete"></a><img src="'+URL.createObjectURL(file)+'"></div>');
                 }
                 else {
                     document.getElementById('file-image').classList.add("hidden");
@@ -199,18 +200,21 @@
 
 
                             <div id="group_items_panel" class="ui-sortable">
-                                <div id="1" class="item_box"><img src="img/1.jpg"></div>
-                                <div id="3" class="item_box" style="opacity: 1;"><img src="img/3.jpg"></div>
-                                <div id="2" class="item_box"><img src="img/2.jpg"></div>
-                                <div id="4" class="item_box"><img src="img/4.jpg"></div>
-                                <div id="5" class="item_box"><img src="img/5.jpg"></div>
-                                <div id="6" class="item_box"><img src="img/6.jpg"></div>
-                                <div id="7" class="item_box"><img src="img/7.jpg"></div>
-                                <div id="8" class="item_box"><img src="img/8.jpg"></div>
-                                <div id="9" class="item_box"><img src="img/9.jpg"></div>
-                                <div id="10" class="item_box"><img src="img/10.jpg"></div>
-                                <div id="11" class="item_box"><img src="img/11.jpg"></div>
-                                <div id="12" class="item_box"><img src="img/12.jpg"></div>
+                                <div class="item_box">
+                                    <a href="#delete" class="delete"></a>
+                                    <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/woman-beach2.jpg">
+                                </div>
+                                <div class="item_box" style="opacity: 1;"><img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/tennis1.jpg"></div>
+                                <div class="item_box"><img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/07/football1.jpg"></div>
+                                <div class="item_box"><img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/interview.jpg"></div>
+                                <div class="item_box"><img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/woman-beach2.jpg"></div>
+                                <div class="item_box" style="opacity: 1;"><img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/tennis1.jpg"></div>
+                                <div class="item_box"><img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/07/football1.jpg"></div>
+                                <div class="item_box"><img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/interview.jpg"></div>
+                                                                <div class="item_box"><img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/woman-beach2.jpg"></div>
+                                <div class="item_box" style="opacity: 1;"><img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/tennis1.jpg"></div>
+                                <div class="item_box"><img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/07/football1.jpg"></div>
+                                <div class="item_box"><img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/interview.jpg"></div>
                             </div>
 
                             <form id="file-upload-form" class="uploader">
