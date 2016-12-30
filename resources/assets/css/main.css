@@ -42,12 +42,12 @@
     vertical-align: middle;
 }
 
-#main-nav ul {
+.nav-menu {
     margin-bottom: 0;
     float: right;
 }
 
-#main-nav li {
+.nav-menu li {
     float: left;
     text-transform: uppercase;
     line-height: 50px;
@@ -292,6 +292,49 @@ h1#header {
 #main-nav .container .navigation, #main-nav .container .toggle-menu-container {
     display: none;
 }
+.navbar-nav {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    margin: 15px 4.54545454545% 0;
+    overflow: hidden;
+    position: absolute !important;
+    width: 90.9090909091%;
+    height: 87%;
+}
+.fly-wrap-in {
+    margin-right: 40px;
+    position: relative;
+    height: 100%;
+}
+.fly-side-wrap {
+    background: #555;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    height: 100%;
+}
+ul.fly-bottom-soc {
+    overflow: hidden;
+    width: 100%;
+}
+ul.fly-bottom-soc li a {
+    border-top: 1px solid #444;
+    color: #888;
+    cursor: pointer;
+    float: left;
+    overflow: hidden;
+    text-align: center;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    width: 100%;
+}
+ul.fly-bottom-soc li i {
+    font-size: 20px;
+    padding: 10px;
+    /*width: 20px;*/
+}
 
 @media (max-width: 989px) {
     #main-nav .container .nav-menu {
@@ -303,7 +346,7 @@ h1#header {
     }
 
     #main-nav .container .navigation {
-        background-color: #556;
+
         height: 100%;
         min-height: 100%;
         right: -320px;
@@ -312,11 +355,16 @@ h1#header {
         width: 320px;
         min-width: 320px;
         max-width: 70%;
+        
+        background: #333333;
+        color: rgba(255, 255, 255, 0.8);
+        
         margin: 0;
         padding: 0;
         display: block;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        
     }
 
     /*#wrapper, #main-nav .navigation, .users-tools {*/
@@ -346,7 +394,12 @@ h1#header {
         width: 260px;
         min-width: 260px;
         max-width: 260px;
-        /*right: -260px;*/
+        right: -260px;
+        
+    }
+    body.nav-open #main-nav .container .navigation {
+        left: auto;
+        right: 0;
     }
 
     body.nav-open .wrapper, body.nav-open #main-nav {

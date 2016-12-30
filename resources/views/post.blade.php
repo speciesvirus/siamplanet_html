@@ -21,16 +21,29 @@
     <script src="resources/assets/froala-wysiwyg-editor/js/froala_editor.min.js"></script>
 
     <script src="resources/assets/froala-wysiwyg-editor/js/froala_editor.min.js"></script>
-    <script src="resources/assets/jquery-ui/jquery-ui.js"></script>
+    <script src="resources/assets/tinymce/tinymce.jquery.min.js"></script>
     <script type="text/javascript">
-        $('#edit').froalaEditor();
+        //$('#edit').froalaEditor();
+        tinymce.init({
+          selector: '#edit',
+          height: 500,
+          menubar: false,
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table contextmenu paste code'
+          ],
+          toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+          content_css: '//www.tinymce.com/css/codepen.min.css'
+        });
 //        $('div#froala-editor').froalaEditor('html.get');
 
         // File Upload
         //
+        var arrImage = [];
         function ekUpload(){
             function Init() {
-
+                
                 console.log("Upload Initialised");
 
                 var fileSelect    = document.getElementById('file-upload'),
@@ -92,13 +105,15 @@
 
                 var isGood = (/\.(?=gif|jpg|png|jpeg)/gi).test(imageName);
                 if (isGood) {
+                    var srcImage = URL.createObjectURL(file);
                     document.getElementById('start').classList.add("hidden");
                     document.getElementById('response').classList.remove("hidden");
                     document.getElementById('notimage').classList.add("hidden");
                     // Thumbnail Preview
                     document.getElementById('file-image').classList.remove("hidden");
-                    document.getElementById('file-image').src = URL.createObjectURL(file);
-                    $('#group_items_panel').append('<div class="item_box"><a href="#delete" class="delete"></a><img src="'+URL.createObjectURL(file)+'"></div>');
+                    document.getElementById('file-image').src = srcImage;
+                    $('#group_items_panel').append('<div class="item_box"><a href="#delete" class="delete"></a><img src="'+srcImage+'"></div>');
+                    arrImage.push(srcImage);
                 }
                 else {
                     document.getElementById('file-image').classList.add("hidden");
@@ -171,6 +186,32 @@
         ekUpload();
         $( "#group_items_panel" ).sortable();
         $( "#group_items_panel" ).disableSelection();
+        
+        // $(document).on('click','.item_box', function(){
+
+        //   var f = $(this).find('img').attr('src'); 
+        //   $.each(arrImage, function( index, value ) {
+        //       if(f === value){
+        //          alert( index + ": " + value ); 
+        //       }
+              
+        //     });
+        // });
+        $(document).on('click','.item_box a.delete', function(){
+            var $this = $(this),
+                    r = confirm("Press a button!");
+                    
+            if (r == true) {
+                var f = $this.next().attr('src'); 
+                $this.parent().remove();
+                $.each(arrImage, function( index, value ) {
+                  if(f === value){
+                      arrImage.splice(index, 1);
+                  }
+                });
+
+            }
+        });
     </script>
 
 
@@ -203,6 +244,7 @@
                                 <div class="item_box">
                                     <a href="#delete" class="delete"></a>
                                     <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/woman-beach2.jpg">
+                                    
                                 </div>
                                 <div class="item_box" style="opacity: 1;"><img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/tennis1.jpg"></div>
                                 <div class="item_box"><img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/07/football1.jpg"></div>
@@ -250,7 +292,69 @@
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="documentid">Document ID</label>
                         <div class="col-md-4">
-                            <textarea id="edit" name="content"></textarea>
+                            <!--<textarea id="edit" name="content"></textarea>-->
+                        
+                            <textarea id="edit" name="content">
+                              <p style="text-align: center;">
+                                <img title="TinyMCE Logo" src="//www.tinymce.com/images/glyph-tinymce@2x.png" alt="TinyMCE Logo" width="110" height="97" />
+                              </p>
+                            
+                              <h1 style="text-align: center;">Welcome to the TinyMCE editor demo!</h1>
+                            
+                              <p>
+                                Please try out the features provided in this basic example.<br>
+                                Note that any <strong>MoxieManager</strong> file and image management functionality in this example is part of our commercial offering – the demo is to show the integration.
+                              </p>
+                            
+                              <h2>Got questions or need help?</h2>
+                            
+                              <ul>
+                                <li>Our <a href="http://www.tinymce.com/docs/">documentation</a> is a great resource for learning how to configure TinyMCE.</li>
+                                <li>Have a specific question? Visit the <a href="http://community.tinymce.com/forum/" target="_blank">Community Forum</a>.</li>
+                                <li>We also offer enterprise grade support as part of <a href="www.tinymce.com/pricing">TinyMCE Enterprise</a>.</li>
+                              </ul>
+                            
+                              <h2>A simple table to play with</h2>
+                            
+                              <table style="text-align: center;">
+                                <thead>
+                                  <tr>
+                                    <th>Product</th>
+                                    <th>Cost</th>
+                                    <th>Really?</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>TinyMCE</td>
+                                    <td>Free</td>
+                                    <td>YES!</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Plupload</td>
+                                    <td>Free</td>
+                                    <td>YES!</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            
+                              <h2>Found a bug?</h2>
+                            
+                              <p>
+                                If you think you have found a bug please create an issue on the <a href="https://github.com/tinymce/tinymce/issues">GitHub repo</a> to report it to the developers.
+                              </p>
+                            
+                              <h2>Finally ...</h2>
+                            
+                              <p>
+                                Don't forget to check out our other product <a href="http://www.plupload.com" target="_blank">Plupload</a>, your ultimate upload solution featuring HTML5 upload support.
+                              </p>
+                              <p>
+                                Thanks for supporting TinyMCE! We hope it helps you and your users create great content.<br>All the best from the TinyMCE team.
+                              </p>
+                            </textarea>
+
+
                         </div>
                     </div>
 

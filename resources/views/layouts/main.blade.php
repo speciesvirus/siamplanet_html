@@ -113,19 +113,57 @@
         </div>
         <div class="navigation">
             <div class="nav-container">
-                <ul class="search-tools">
-                    <li class="top-search">
-                        <form class="site-search" action="/property-search">
-                            <input type="text" id="site-search-input" name="q" placeholder="ค้นหา">
-                            <button type="submit" title="ค้นหา"><i class="pgicon pgicon-search"></i></button>
-                            <button type="button" class="navbar-toggle">
-                                <span class="sr-only">การแสดงหรือซ่อนเมนู</span>
-                                <i class="pgicon pgicon-menu"></i>
-                            </button>
-                        </form>
-                    </li>
-                </ul>
-
+                <div class="fly-wrap-in">
+                                    <div class="fly-side-wrap">
+		        	<ul class="fly-bottom-soc left relative">
+					    <li class="fb-soc">
+    						<a href="http://www.facebook.com/envato" target="_blank">
+    						<i class="fa fa-facebook-square fa-2"></i>
+    						</a>
+    					</li>
+						<li class="twit-soc">
+						<a href="http://www.twitter.com/mvpthemes" target="_blank">
+						<i class="fa fa-twitter fa-2"></i>
+						</a>
+					</li>
+													<li class="pin-soc">
+						<a href="http://www.pinterest.com/envato" target="_blank">
+						<i class="fa fa-pinterest fa-2"></i>
+						</a>
+					</li>
+													<li class="inst-soc">
+						<a href="http://www.instagram.com/envato" target="_blank">
+						<i class="fa fa-instagram fa-2"></i>
+						</a>
+					</li>
+													<li class="goog-soc">
+						<a href="https://plus.google.com/+envato/posts" target="_blank">
+						<i class="fa fa-google-plus fa-2"></i>
+						</a>
+					</li>
+													<li class="yt-soc">
+						<a href="https://www.youtube.com/user/envato" target="_blank">
+						<i class="fa fa-youtube-play fa-2"></i>
+						</a>
+					</li>
+													<li class="link-soc">
+						<a href="https://www.linkedin.com/company/envato" target="_blank">
+						<i class="fa fa-linkedin fa-2"></i>
+						</a>
+					</li>
+													<li class="tum-soc">
+						<a href="http://wonderfulworldofwebdesign.tumblr.com/" target="_blank">
+						<i class="fa fa-tumblr fa-2"></i>
+						</a>
+					</li>
+													<li class="rss-soc">
+						<a href="http://www.mvpthemes.com/flexmag/feed/rss/" target="_blank">
+						<i class="fa fa-rss fa-2"></i>
+						</a>
+					</li>
+							</ul>
+            	</div>
+                </div>
                 <ul class="nav navbar-nav">
                     <li class="">
                         <a href="/รวมประกาศขาย" title="ประกาศขายอสังหาริมทรัพย์ในประเทศไทย" class="main-nav-a">ขาย</a>
@@ -148,76 +186,7 @@
                         <a href="/ข่าวอสังหาริมทรัพย์-บทความ" title="ข้อมูลตลาดอสังหาริมทรัพย์ในประเทศไทย"
                            class="main-nav-a">ข่าว</a>
                     </li>
-                    <li class=" dropdown">
-                        <a href="#" title="เพิ่มเติม" class="main-nav-a dropdown-toggle" data-toggle="dropdown">เพิ่มเติม</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li class="">
-                                <a href="/อสังหาริมทรัพย์ในต่างประเทศ"
-                                   title="อสังหาริมทรัพย์ใน ประเทศไทย">ต่างประเทศ</a>
-                            </li>
-                            <li class="">
-                                <a href="/นายหน้า" title="ค้นหาตัวแทนอสังหาริมทรัพย์ในประเทศไทย">ค้นหาตัวแทน</a>
-                            </li>
-                            <li class="">
-                                <a href="/ถามกูรู" title="ถามกูรูเพื่อหาคำตอบเกี่ยวกับอสังหาริมทรัพย์ในประเทศไทย">ถามกูรู</a>
-                            </li>
-                            <li class="role_web_and_normal_show_link">
-                                <a href="/ลงประกาศ" title="ลงประกาศ">ลงประกาศ</a>
-                            </li>
-                            <li class="role_agent_show_link">
-                                <a href="//agentnet.ddproperty.com/ex_listings_active" title="ลงประกาศ">ลงประกาศ</a>
-                            </li>
-                            <li class=" accordion">
-                                <a href="#" title="แหล่งข้อมูลอสังหาริมทรัพย์ในประเทศไทย" class="collapsed"
-                                   data-toggle="collapse" data-target="#main-nav-accordion-1">คู่มือซื้อขาย<i
-                                            class="pgicon pgicon-angle-down"></i><i class="pgicon pgicon-angle-up"></i></a>
-                                <ul class="accordion-menu collapse" id="main-nav-accordion-1">
-                                    <li class="">
-                                        <a href="/คู่มือซื้อขาย" title="แหล่งข้อมูลอสังหาริมทรัพย์ในประเทศไทย">อ่านทั้งหมด</a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/คู่มือซื้อขาย/เตรียมตัวก่อนซื้อ"
-                                           title="ฉันต้องการซื้ออสังหาริมทรัพย์">เตรียมตัวก่อนซื้อ</a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/คู่มือซื้อขาย/เตรียมตัวก่อนขาย"
-                                           title="ฉันต้องการขายอสังหาริมทรัพย์ของฉัน">เตรียมตัวก่อนขาย</a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/คู่มือซื้อขาย/ควรรู้ก่อนให้เช่า"
-                                           title="ฉันต้องการให้เช่าอสังหาริมทรัพย์ของฉัน">ควรรู้ก่อนให้เช่า</a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/คู่มือซื้อขาย/ควรรู้ก่อนเช่า" title="ฉันต้องการเช่าอสังหาริมทรัพย์">ควรรู้ก่อนเช่า</a>
-                                    </li>
-                                    <li class="">
-                                        <a href="/property-mortgages-calculator" title="คำนวนสินเชื่อเพื่อที่อยู่อาศัย">คำนวนสินเชื่อเพื่อที่อยู่อาศัย</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class=" accordion">
-                                <a href="#" title="สำหรับตัวแทน" class="collapsed" data-toggle="collapse"
-                                   data-target="#main-nav-accordion-2">สำหรับตัวแทน<i
-                                            class="pgicon pgicon-angle-down"></i><i class="pgicon pgicon-angle-up"></i></a>
-                                <ul class="accordion-menu collapse" id="main-nav-accordion-2">
-                                    <li class="">
-                                        <a href="/ตัวแทน" title="แพ็คเกจสำหรับตัวแทน">แพ็คเกจสำหรับตัวแทน</a>
-                                    </li>
-                                    <li class="">
-                                        <a href="//agentnet.ddproperty.com/ex_home" title="AgentNet">AgentNet</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
                 </ul>
-
-                <!--// Translation Selector //-->
-                <ul class="language-selector">
-                    <li><a href="/en" class="en" title="EN">EN</a></li>
-                    <li><a href="/" class="th" title="TH">TH</a></li>
-                </ul>
-                <!--// end: Translation Selector //-->
             </div>
         </div>
 
