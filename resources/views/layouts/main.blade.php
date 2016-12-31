@@ -63,17 +63,17 @@
     <link rel="stylesheet" href="resources/assets/css/main.css"/>
 
     <!-- Lea Verou's prefixfree (http://leaverou.github.io/prefixfree/), lets you use un-prefixed properties in your CSS files -->
-    {{--<script src="{{ asset('resources/assets/js/libs/prefixfree.min.js') }}"></script>--}}
-    {{-- open --}}
-    {{--<script src="//resources/assets/js/libs/prefixfree.min.js"></script>--}}
+{{--<script src="{{ asset('resources/assets/js/libs/prefixfree.min.js') }}"></script>--}}
+{{-- open --}}
+{{--<script src="//resources/assets/js/libs/prefixfree.min.js"></script>--}}
 
-    <!-- This is a minimized, base version of Modernizr. (http://modernizr.com)
+<!-- This is a minimized, base version of Modernizr. (http://modernizr.com)
           You will need to create new builds to get the detects you need. -->
-    {{--<script src="{{ asset('resources/assets/js/libs/modernizr-3.2.0.base.js') }}"></script>--}}
-    {{-- open --}}
-    {{--<script src="//resources/assets/js/libs/modernizr-3.2.0.base.js"></script>--}}
+{{--<script src="{{ asset('resources/assets/js/libs/modernizr-3.2.0.base.js') }}"></script>--}}
+{{-- open --}}
+{{--<script src="//resources/assets/js/libs/modernizr-3.2.0.base.js"></script>--}}
 
-    <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
+<!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
     <meta name="twitter:card" content="">
     <meta name="twitter:site" content="">
     <meta name="twitter:title" content="">
@@ -114,55 +114,55 @@
         <div class="navigation">
             <div class="nav-container">
                 <div class="fly-wrap-in">
-                                    <div class="fly-side-wrap">
-		        	<ul class="fly-bottom-soc left relative">
-					    <li class="fb-soc">
-    						<a href="http://www.facebook.com/envato" target="_blank">
-    						<i class="fa fa-facebook-square fa-2"></i>
-    						</a>
-    					</li>
-						<li class="twit-soc">
-						<a href="http://www.twitter.com/mvpthemes" target="_blank">
-						<i class="fa fa-twitter fa-2"></i>
-						</a>
-					</li>
-													<li class="pin-soc">
-						<a href="http://www.pinterest.com/envato" target="_blank">
-						<i class="fa fa-pinterest fa-2"></i>
-						</a>
-					</li>
-													<li class="inst-soc">
-						<a href="http://www.instagram.com/envato" target="_blank">
-						<i class="fa fa-instagram fa-2"></i>
-						</a>
-					</li>
-													<li class="goog-soc">
-						<a href="https://plus.google.com/+envato/posts" target="_blank">
-						<i class="fa fa-google-plus fa-2"></i>
-						</a>
-					</li>
-													<li class="yt-soc">
-						<a href="https://www.youtube.com/user/envato" target="_blank">
-						<i class="fa fa-youtube-play fa-2"></i>
-						</a>
-					</li>
-													<li class="link-soc">
-						<a href="https://www.linkedin.com/company/envato" target="_blank">
-						<i class="fa fa-linkedin fa-2"></i>
-						</a>
-					</li>
-													<li class="tum-soc">
-						<a href="http://wonderfulworldofwebdesign.tumblr.com/" target="_blank">
-						<i class="fa fa-tumblr fa-2"></i>
-						</a>
-					</li>
-													<li class="rss-soc">
-						<a href="http://www.mvpthemes.com/flexmag/feed/rss/" target="_blank">
-						<i class="fa fa-rss fa-2"></i>
-						</a>
-					</li>
-							</ul>
-            	</div>
+                    <div class="fly-side-wrap">
+                        <ul class="fly-bottom-soc left relative">
+                            <li class="fb-soc">
+                                <a href="http://www.facebook.com/envato" target="_blank">
+                                    <i class="fa fa-facebook-square fa-2"></i>
+                                </a>
+                            </li>
+                            <li class="twit-soc">
+                                <a href="http://www.twitter.com/mvpthemes" target="_blank">
+                                    <i class="fa fa-twitter fa-2"></i>
+                                </a>
+                            </li>
+                            <li class="pin-soc">
+                                <a href="http://www.pinterest.com/envato" target="_blank">
+                                    <i class="fa fa-pinterest fa-2"></i>
+                                </a>
+                            </li>
+                            <li class="inst-soc">
+                                <a href="http://www.instagram.com/envato" target="_blank">
+                                    <i class="fa fa-instagram fa-2"></i>
+                                </a>
+                            </li>
+                            <li class="goog-soc">
+                                <a href="https://plus.google.com/+envato/posts" target="_blank">
+                                    <i class="fa fa-google-plus fa-2"></i>
+                                </a>
+                            </li>
+                            <li class="yt-soc">
+                                <a href="https://www.youtube.com/user/envato" target="_blank">
+                                    <i class="fa fa-youtube-play fa-2"></i>
+                                </a>
+                            </li>
+                            <li class="link-soc">
+                                <a href="https://www.linkedin.com/company/envato" target="_blank">
+                                    <i class="fa fa-linkedin fa-2"></i>
+                                </a>
+                            </li>
+                            <li class="tum-soc">
+                                <a href="http://wonderfulworldofwebdesign.tumblr.com/" target="_blank">
+                                    <i class="fa fa-tumblr fa-2"></i>
+                                </a>
+                            </li>
+                            <li class="rss-soc">
+                                <a href="http://www.mvpthemes.com/flexmag/feed/rss/" target="_blank">
+                                    <i class="fa fa-rss fa-2"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="">

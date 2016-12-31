@@ -295,15 +295,16 @@ h1#header {
 .navbar-nav {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    margin: 15px 4.54545454545% 0;
+    padding: 15px 4.54545454545% 0;
+    margin: 0 auto;
     overflow: hidden;
     position: absolute !important;
-    width: 90.9090909091%;
+    width: calc(100% - 40px);
     height: 87%;
 }
 .fly-wrap-in {
-    margin-right: 40px;
-    position: relative;
+    margin-left: 40px;
+    /* position: relative; */
     height: 100%;
 }
 .fly-side-wrap {
@@ -334,6 +335,54 @@ ul.fly-bottom-soc li i {
     font-size: 20px;
     padding: 10px;
     /*width: 20px;*/
+}
+
+ul.fly-bottom-soc li.fb-soc a:hover,
+.post-soc-fb {
+    background: #3b5997;
+    color: #fff;
+}
+
+ul.fly-bottom-soc li.twit-soc a:hover,
+.post-soc-twit {
+    background: #00aced;
+    color: #fff;
+}
+
+ul.fly-bottom-soc li.pin-soc a:hover,
+.post-soc-pin {
+    background: #cb2027;
+    color: #fff;
+}
+
+ul.fly-bottom-soc li.inst-soc a:hover {
+    background: #36658c;
+    color: #fff;
+}
+
+ul.fly-bottom-soc li.goog-soc a:hover {
+    background: #cd3627;
+    color: #fff;
+}
+
+ul.fly-bottom-soc li.yt-soc a:hover {
+    background: #f00;
+    color: #fff;
+}
+
+ul.fly-bottom-soc li.link-soc a:hover {
+    background: #069;
+    color: #fff;
+}
+
+ul.fly-bottom-soc li.tum-soc a:hover {
+    background: #304e6c;
+    color: #fff;
+}
+
+ul.fly-bottom-soc li.rss-soc a:hover {
+    background: #f60;
+    color: #fff;
 }
 
 @media (max-width: 989px) {
