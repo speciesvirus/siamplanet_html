@@ -430,8 +430,13 @@ ul.fly-bottom-soc li.rss-soc a:hover {
         left: -320px;
     }
 }
+@media (min-width: 768px){
+    .navbar-nav>li {
+     float: initial; 
+}
+}
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .navbar-toggle, #wrapper, .header-nav .navigation, .users-tools, .header-bg > .container {
         -webkit-transition: none;
         -o-transition: none;
