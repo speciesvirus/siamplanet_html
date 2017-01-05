@@ -32,7 +32,7 @@ Route::get('/news', function() {
 Route::get('/nc', function() {
    return view('news.category');
 });
-Route::get('/nv', function() {
+Route::get('/news/view', function() {
    return view('news.view');
 });
 Route::get('/post', function() {
