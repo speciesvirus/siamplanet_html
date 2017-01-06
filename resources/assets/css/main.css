@@ -1546,6 +1546,10 @@ CONTENT
     -ms-transition: all 0.5s ease;
 }
 
+.login-page .form-control{
+    max-width: 300px;
+}
+
 /*******************
 FOOTER
 *******************/

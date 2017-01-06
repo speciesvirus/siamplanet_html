@@ -109,21 +109,28 @@
                         <h1 class="top-header">Login Form</h1>
                         <span>Fill out the form below to login to my super awesome imaginary control panel.</span>
                         <div class="login-social">
-                            <a class="enlace facebook" href="#facebook">facebook</a>
-                            <a class="enlace google" href="#google">google</a>
+                            <div class="form-group">
+                                <a class="enlace facebook" href="#facebook">facebook</a>
+                                <a class="enlace google" href="#google">google</a>
+                            </div>
+
                         </div>
 
                     </div>
 
                     <div class="content">
-                        <input name="username" type="text" class="input username" placeholder="Username">
-                        <input name="password" type="password" class="input password" placeholder="Password">
+                        <div class="form-group">
+                            <input name="username" type="text" class="form-control username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <input name="password" type="password" class="form-control password" placeholder="Password">
+                        </div>
+
                     </div>
 
-                    <div class="bottom">
+                    <div class="form-group">
                         <button type="submit" class="proceed">Log-in to your account <i class="ion-ios-arrow-thin-right"></i></button>
                     </div>
-
                 </form>
             </div>
             <div class="div-join">
@@ -133,21 +140,38 @@
 
                     <div>
                         <div class="col-md-6">
-                            <div class="row">
-                                <input name="username" type="text" class="input" placeholder="ชื่อ">
+                            <div class="row" style="margin-right: -10px">
+                                <div class="form-group">
+                                    <input name="username" type="text" class="form-control" placeholder="ชื่อ">
+                                </div>
+
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="row">
-                                <input name="password" type="password" class="input" placeholder="นามสกุล">
+                            <div class="row" style="margin-left: -10px">
+                                <div class="form-group">
+                                    <input name="password" type="password" class="form-control" placeholder="นามสกุล">
+                                </div>
+
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <input name="username" type="text" class="form-control" placeholder="อีเมล">
+                    </div>
+                    <div class="form-group">
+                        <input name="password" type="password" class="form-control" placeholder="หมายเลขโทรศัพท์">
+                    </div>
+                    <div class="form-group">
+                        <input name="username" type="text" class="form-control" placeholder="รหัสผ่าน">
+                    </div>
+                    <div class="form-group">
+                        <input name="password" type="password" class="form-control" placeholder="รหัสผ่านอีกครั้ง">
+                    </div>
 
-                    <input name="username" type="text" class="input" placeholder="อีเมล">
-                    <input name="password" type="password" class="input" placeholder="หมายเลขโทรศัพท์">
-                    <input name="username" type="text" class="input" placeholder="รหัสผ่าน">
-                    <input name="password" type="password" class="input" placeholder="รหัสผ่านอีกครั้ง">
+
+
+
 
                     <p class="agree">เมื่อคลิก สร้างบัญชีผู้ใช้ แสดงว่าคุณยินยอมตาม<a href="/legal/terms" id="terms-link" target="_blank" rel="nofollow">ข้อกำหนด</a>และคุณได้อ่าน<a href="/about/privacy" id="privacy-link" target="_blank" rel="nofollow">นโยบายข้อมูล</a>ของเราแล้ว
                         รวมถึง<a href="/policies/cookies/" id="cookie-use-link" target="_blank" rel="nofollow">การใช้คุกกี้</a></p>
