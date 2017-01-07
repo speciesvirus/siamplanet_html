@@ -166,7 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Laravel\Socialite\SocialiteServiceProvider::class,
         //
 
         /*
@@ -226,6 +226,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /*
+         * Package Service Providers...
+         */
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];
