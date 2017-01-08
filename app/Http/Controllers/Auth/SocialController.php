@@ -70,13 +70,15 @@ class SocialController extends Controller
                 $newSocialUser->email = $email;
                 $name = explode(' ', $user->name);
 
-                if (count($name) >= 1) {
-                    $newSocialUser->first_name = $name[0];
-                }
-
-                if (count($name) >= 2) {
-                    $newSocialUser->last_name = $name[1];
-                }
+//                if (count($name) >= 1) {
+//                    $newSocialUser->first_name = $name[0];
+//                }
+//
+//                if (count($name) >= 2) {
+//                    $newSocialUser->last_name = $name[1];
+//                }
+                $newSocialUser->first_name = count($name) >= 1 ? $name[0] : '';
+                $newSocialUser->last_name = count($name) >= 2 ? $name[1] : '';
 
                 $newSocialUser->password = bcrypt(str_random(16));
                 $newSocialUser->token = str_random(64);
