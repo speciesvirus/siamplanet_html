@@ -103,27 +103,27 @@
 
         <div class="container">
             <div class="div-login">
-                <form name="login-form" class="login-form" action="" method="post">
-
+                <form name="login-form" class="login-form" method="POST" action="{{ route('user.login') }}">
+                    {{ csrf_field() }}
                     <div class="header">
                         <h1 class="top-header">Login Form</h1>
                         <span>Fill out the form below to login to my super awesome imaginary control panel.</span>
                         <div class="login-social">
                             <div class="form-group">
-                                <a class="enlace facebook" href="#facebook">facebook</a>
-                                <a class="enlace google" href="#google">google</a>
+                                <a class="enlace facebook" href="{{ route('social.redirect', 'facebook') }}">facebook</a>
+                                <a class="enlace google" href="{{ route('social.redirect', 'google') }}">google</a>
                             </div>
-
                         </div>
-
                     </div>
 
                     <div class="content">
-                        <div class="form-group">
-                            <input name="username" type="text" class="form-control username" placeholder="Username">
+                        <div class="form-group {{ $errors->has('user') ? 'has-error' : '' }}">
+                            <input name="user" type="text" class="form-control username" placeholder="Username" value="{{ old('user') }}">
+                            <span class="help-inline">{{ $errors->has('user') ? $errors->first('user') : '' }}</span>
                         </div>
-                        <div class="form-group">
-                            <input name="password" type="password" class="form-control password" placeholder="Password">
+                        <div class="form-group {{ $errors->has('pass') ? 'has-error' : '' }}">
+                            <input name="pass" type="password" class="form-control password" placeholder="Password">
+                            <span class="help-inline">{{ $errors->has('pass') ? $errors->first('pass') : '' }}</span>
                         </div>
 
                     </div>
@@ -132,41 +132,57 @@
                         <button type="submit" class="proceed">Log-in to your account <i class="ion-ios-arrow-thin-right"></i></button>
                     </div>
                 </form>
+
+                @if(Session::has('alert-message'))
+
+                    <div class="alert {{ Session::get('code') == 0 ? 'alert-info' : 'alert-warning' }}">
+                        <h3>{{Session::get('alert-message')}}</h3>
+                    </div>
+
+                @endif
+
             </div>
+
             <div class="div-join">
 
                 <h1 class="top-header">Join</h1>
-                <form id="girisyap" name="signup_form" method="post" enctype="multipart/form-data" onsubmit="return false;">
 
+                <form id="girisyap" name="signup_form" method="post"  action="{{ route('join') }}">
+                    {{ csrf_field() }}
                     <div>
                         <div class="col-md-6">
                             <div class="row" style="margin-right: -10px">
-                                <div class="form-group">
-                                    <input name="username" type="text" class="form-control" placeholder="ชื่อ">
+                                <div class="form-group {{ $errors->has('first_name') ? 'has-error' : '' }}">
+                                    <input name="first_name" type="text" class="form-control" placeholder="ชื่อ" value="{{ old('first_name') }}">
+                                    <span class="help-inline">{{ $errors->has('first_name') ? $errors->first('first_name') : '' }}</span>
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="row" style="margin-left: -10px">
-                                <div class="form-group">
-                                    <input name="password" type="password" class="form-control" placeholder="นามสกุล">
+                                <div class="form-group {{ $errors->has('last_name') ? 'has-error' : '' }}">
+                                    <input name="last_name" type="text" class="form-control" placeholder="นามสกุล" value="{{ old('last_name') }}">
+                                    <span class="help-inline">{{ $errors->has('last_name') ? $errors->first('last_name') : '' }}</span>
                                 </div>
 
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <input name="username" type="text" class="form-control" placeholder="อีเมล">
+                    <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
+                        <input name="email" type="email" class="form-control" placeholder="อีเมล" value="{{ old('email') }}">
+                        <span class="help-inline">{{ $errors->has('email') ? $errors->first('email') : '' }}</span>
                     </div>
-                    <div class="form-group">
-                        <input name="password" type="password" class="form-control" placeholder="หมายเลขโทรศัพท์">
+                    <div class="form-group {{ $errors->has('username') ? 'has-error' : '' }}">
+                        <input name="username" type="text" class="form-control" placeholder="ชื่อผู้ใช้" value="{{ old('username') }}">
+                        <span class="help-inline">{{ $errors->has('username') ? $errors->first('username') : '' }}</span>
                     </div>
-                    <div class="form-group">
-                        <input name="username" type="text" class="form-control" placeholder="รหัสผ่าน">
+                    <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
+                        <input name="password" type="password" class="form-control" placeholder="รหัสผ่าน">
+                        <span class="help-inline">{{ $errors->has('password') ? $errors->first('password') : '' }}</span>
                     </div>
-                    <div class="form-group">
-                        <input name="password" type="password" class="form-control" placeholder="รหัสผ่านอีกครั้ง">
+                    <div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
+                        <input name="password_confirmation" type="password" class="form-control" placeholder="รหัสผ่านอีกครั้ง">
+                        <span class="help-inline">{{ $errors->has('password_confirmation') ? $errors->first('password_confirmation') : '' }}</span>
                     </div>
 
 

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use Validator;
+use App\Models\Role;
+use App\Models\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -36,7 +39,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        //$this->middleware('guest');
     }
 
     /**
@@ -45,31 +48,35 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(Request $data)
     {
 //        return Validator::make($data, [
 //            'name' => 'required|max:255',
 //            'email' => 'required|email|max:255|unique:users',
 //            'password' => 'required|min:6|confirmed',
 //        ]);
-        return Validator::make($data,
-            [
-                'first_name'            => 'required',
-                'last_name'             => 'required',
-                'email'                 => 'required|email|unique:users',
-                'password'              => 'required|min:6|max:20',
-                'password_confirmation' => 'required|same:password'
-            ],
-            [
-                'first_name.required'   => 'First Name is required',
-                'last_name.required'    => 'Last Name is required',
-                'email.required'        => 'Email is required',
-                'email.email'           => 'Email is invalid',
-                'password.required'     => 'Password is required',
-                'password.min'          => 'Password needs to have at least 6 characters',
-                'password.max'          => 'Password maximum length is 20 characters'
-            ]
-        );
+        $rules = [
+            'first_name'            => 'required',
+            'last_name'             => 'required',
+            'email'                 => 'required|email|unique:users',
+            'username'              => 'required|min:6|max:20|unique:users',
+            'password'              => 'required|min:6|max:20',
+            'password_confirmation' => 'required|same:password'
+        ];
+        $messages = [
+            'first_name.required'   => 'First Name is required',
+            'last_name.required'    => 'Last Name is required',
+            'email.required'        => 'Email is required',
+            'email.email'           => 'Email is invalid',
+            'username.required'     => 'username is required',
+            'username.min'          => 'username needs to have at least 6 characters',
+            'username.max'          => 'username maximum length is 20 characters',
+            'password.required'     => 'Password is required',
+            'password.min'          => 'Password needs to have at least 6 characters',
+            'password.max'          => 'Password maximum length is 20 characters'
+        ];
+
+        return $this->validate($data, $rules, $messages);
     }
 
     /**
@@ -78,7 +85,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
+    protected function create(Request $data)
     {
 //        return User::create([
 //            'name' => $data['name'],
@@ -89,6 +96,7 @@ class RegisterController extends Controller
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
+            'username' => $data['username'],
             'password' => bcrypt($data['password']),
             'token' => str_random(64),
             'activated' => true
@@ -96,7 +104,15 @@ class RegisterController extends Controller
 
         $role = Role::whereName('user')->first();
         $user->assignRole($role);
-
         return $user;
     }
+
+    protected function register(Request $data)
+    {
+        $this->validator($data);
+        Auth::login($this->create($data), true);
+        return redirect('/');
+    }
+
+
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -39,12 +40,49 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
 
+
+    public function index()
+    {
+        return view('login');
+    }
+
+    public function login(Request $data)
+    {
+        $this->validator($data);
+
+        if (Auth::attempt(['username' => $data['user'], 'password' => $data['pass'], 'activated' => 0], true)) {
+            return redirect()->route('home');
+        }
+        return redirect()->back()->withInput()->with(['alert-message' => 'username or password not found!', 'code' => '1']);
+        //return redirect()->route('login')->with(['alert-message' => 'username or password not found!', 'code' => '1']);
+    }
+
+    protected function validator(Request $data)
+    {
+        $rules = [
+            'user'              => 'required|min:6|max:20',
+            'pass'              => 'required|min:6|max:20'
+        ];
+        $messages = [
+            'user.required'     => 'username is required',
+            'user.min'          => 'username needs to have at least 6 characters',
+            'user.max'          => 'username maximum length is 20 characters',
+            'pass.required'     => 'Password is required',
+            'pass.min'          => 'Password needs to have at least 6 characters',
+            'pass.max'          => 'Password maximum length is 20 characters'
+        ];
+
+        return $this->validate($data, $rules, $messages);
+    }
+
+
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
-    public function logout() {
+    public function logout()
+    {
         Session::flush();
         Auth::logout();
         return redirect()->route('home');

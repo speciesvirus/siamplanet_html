@@ -98,7 +98,7 @@
             <li><a href="#travel">บ้าน</a></li>
             <li><a href="#schedule">คอนโด</a></li>
             <li><a href="#schedule">ข่าว</a></li>
-            <li><a href="#register" class="maia-button">เข้าสู่ระบบ</a></li>
+            <li><a href="{{ route('login') }}" class="maia-button">เข้าสู่ระบบ</a></li>
         </ul>
 
         {{-- toggle menu --}}

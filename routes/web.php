@@ -10,12 +10,16 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-Route::get('/login', function() {
-    return view('login');
-});
-Route::get('/join', function() {
-    return view('join');
-});
+Route::get('/login',
+    ['as' => 'login', 'uses' => 'Auth\LoginController@index']
+);
+Route::post('/login/on',
+    ['as' => 'user.login', 'uses' => 'Auth\LoginController@login']
+);
+Route::post('/join',
+    ['as' => 'join', 'uses' => 'Auth\RegisterController@register']
+);
+
 
 //Route::get('/', function () {
 //    return view('welcome');
@@ -61,14 +65,23 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
 
 });
 
-Route::group(['middleware' => 'authenticate:all'], function()
+Route::group(['middleware' => 'auth:all'], function()
 {
-    $a = 'authenticated.';
-    Route::get('/logout', ['as' => $a . 'logout', 'uses' => 'Auth\LoginController@logout']);
+    $a = 'auth.';
+    Route::get('/logout', [
+        'as' => $a . 'logout',
+        'uses' => 'Auth\LoginController@logout']
+    );
 });
 
 //Auth::routes(['login' => 'auth.login']);
 
 $s = 'social.';
-Route::get('/social/redirect/{provider}',   ['as' => $s . 'redirect',   'uses' => 'Auth\SocialController@getSocialRedirect']);
-Route::get('/social/handle/{provider}',     ['as' => $s . 'handle',     'uses' => 'Auth\SocialController@getSocialHandle']);
+Route::get('/social/redirect/{provider}', [
+    'as' => $s.'redirect',
+        'uses' => 'Auth\SocialController@getSocialRedirect']
+);
+Route::get('/social/handle/{provider}', [
+    'as' => $s.'handle',
+        'uses' => 'Auth\SocialController@getSocialHandle']
+);
