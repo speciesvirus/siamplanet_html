@@ -32,17 +32,16 @@ class SocialController extends Controller
     public function getSocialHandle( $provider )
     {
 
-        if (Input::get('denied') != '') {
+        if (Input::get('error') != '') { // access_denied
 
-            return redirect()->to('/login')
+            return redirect()->route('home')
                 ->with('status', 'danger')
                 ->with('message', 'You did not share your profile data with our social app.');
 
         }
 
-        $user = Socialite::driver( $provider )->user();
 
-        $socialUser = null;
+        $user = Socialite::driver( $provider )->user();
 
         //Check is this email present
         $userCheck = User::where('email', '=', $user->email)->first();

@@ -13,15 +13,15 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
-//        DB::table('roles')->delete();
-//
-//        App\Models\Role::create([
-//            'name'   => 'user'
-//        ]);
-//
-//        App\Models\Role::create([
-//            'name'   => 'administrator'
-//        ]);
+        //DB::table('roles')->delete();
+
+        // App\Models\Role::create([
+        //     'name'   => 'user'
+        // ]);
+
+        // App\Models\Role::create([
+        //     'name'   => 'administrator'
+        // ]);
 
         $adminRole = \App\Models\Role::whereName('administrator')->first();
         $userRole = \App\Models\Role::whereName('user')->first();
