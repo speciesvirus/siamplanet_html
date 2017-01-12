@@ -92,14 +92,9 @@
 <nav id="main-nav" class="clearfix bg">
     <div class="container">
         <a href="#home" id="nav-logo" title="siam planet">Siam Planet</a>
-        <ul class="nav-menu unstyled">
-            <li><a href="#about">ลงประกาศ <span class="yellow">ฟรี!</span></a></li>
-            <li><a href="#event-highlights">ที่ดิน</a></li>
-            <li><a href="#travel">บ้าน</a></li>
-            <li><a href="#schedule">คอนโด</a></li>
-            <li><a href="#schedule">ข่าว</a></li>
-            <li><a href="{{ route('login') }}" class="maia-button">เข้าสู่ระบบ</a></li>
-        </ul>
+
+        {{--!!* Menu Top--}}
+        @include('partials.menu-top')
 
         {{-- toggle menu --}}
         <div class="toggle-menu-container navicon">

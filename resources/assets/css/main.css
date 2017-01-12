@@ -23,7 +23,7 @@
 #main-nav .container {
     display: table;
     width: 100%;
-    padding: 0 15px;
+    padding: 0 30px;
 }
 
 /*#main-nav .nav-container{*/
@@ -37,7 +37,7 @@
     }
 }
 
-#main-nav .container > * {
+#main-nav .container > *:not(.overlay, .popup) {
     display: table-cell;
     vertical-align: middle;
 }
@@ -49,7 +49,7 @@
 
 .nav-menu li {
     float: left;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     line-height: 50px;
     margin-left: 40px;
 }
@@ -1623,3 +1623,52 @@ p.agree{
     background-color: #BF002D;
 }
 /*! end login ------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*!* dialog account --------------------------------*/
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    z-index: 9998;
+}
+
+.popup {
+    background: #E5DDCB;
+    width: 400px;
+    text-align: center;
+    position: fixed;
+    display: none;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2), -1px 0 4px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+.popup.four {
+    top: 0;
+    right: 0;
+    -webkit-transform-origin: top right;
+    transform-origin: top right;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    transition: all .5s cubic-bezier(0.700, -0.370, 0.300, 1.350);
+}
+
+.popup.fourOpen {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
