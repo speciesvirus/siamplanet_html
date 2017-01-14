@@ -43,6 +43,11 @@ Route::get('/post', function() {
     return view('post');
 });
 
+$topic = 'topic.';
+Route::get('/post',
+    ['as' => $topic.'post', 'uses' => 'Topic\PostController@index']
+);
+
 
 //Route::get('/home', 'HomeController@index');
 

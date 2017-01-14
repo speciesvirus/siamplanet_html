@@ -162,7 +162,7 @@
 
     overlay.on('click', function () {
         $(this).fadeOut();
-        popup.removeClass('fourOpen').delay(700).promise().done(function () {
+        popup.removeClass('fourOpen').delay(500).promise().done(function () {
             $(this).hide();
         });
     });

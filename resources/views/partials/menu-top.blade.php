@@ -1,8 +1,6 @@
 
-
-
 <ul class="nav-menu unstyled">
-    <li><a href="#about">ลงประกาศ <span class="yellow">ฟรี!</span></a></li>
+    <li><a href="{{ route('topic.post') }}">ลงประกาศ <span class="yellow">ฟรี!</span></a></li>
     <li><a href="#event-highlights">ที่ดิน</a></li>
     <li><a href="#travel">บ้าน</a></li>
     <li><a href="#schedule">คอนโด</a></li>
@@ -16,14 +14,18 @@
 
 </ul>
 
-<div class="overlay"></div>
-<div class="popup four">
-    <p>This is a simple popup</p>
-    <ul>
-        <li><button id="cpl">Close</button></li>
-        <li><button>View More</button></li>
-    </ul>
-</div>
+@if(Auth()->check())
+    <div class="overlay"></div>
+    <div class="popup four">
+        <ul>
+            {{--<li><button id="cpl">Close</button></li>--}}
+            <li class=""><a href="javascript://">ข้อมูลส่วนตัว</a></li>
+            <li><a href="{{ route('auth.logout') }}" class="">ออกระบบ</a></li>
+        </ul>
+    </div>
+@endif
+
+
 
 
 

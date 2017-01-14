@@ -54,6 +54,10 @@
     margin-left: 40px;
 }
 
+.nav-menu li a {
+    color: #FFFFFF;
+}
+
 #main-nav .maia-button {
     font-weight: 300;
     font-size: 12px;
@@ -109,9 +113,9 @@ a.maia-button {
     text-decoration: none;
 }
 
-#main-nav a {
-    color: #fff;
-}
+/*#main-nav a {*/
+    /*color: #fff;*/
+/*}*/
 
 h1#header {
     text-align: center;
@@ -392,6 +396,24 @@ ul.fly-bottom-soc li.rss-soc a:hover {
 
     #main-nav .container .toggle-menu-container {
         display: table-cell;
+        vertical-align: middle;
+    }
+    .navbar-nav > li.li-user{
+        padding: 10px 0;
+        color: #8c8c8c;
+    }
+    .navbar-nav > li > a {
+        color: #fff;
+    }
+    .navbar-nav > li.li-section{
+        border-top: 1px solid #5c5c5c;
+        padding-top: 10px;
+        margin-top: 10px;
+    }
+
+    .nav> li > a:focus, .nav > li > a:hover {
+        background-color: transparent;
+        color: #ccc;
     }
 
     #main-nav .container .navigation {
@@ -1650,13 +1672,17 @@ p.agree{
 }
 
 .popup {
-    background: #E5DDCB;
-    width: 400px;
+    /*background: #E5DDCB;*/
+    background: rgba(255, 255, 255, 0.9);
+    width: 200px;
+    padding: 20px;
     text-align: center;
     position: fixed;
     display: none;
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2), -1px 0 4px rgba(0, 0, 0, 0.2);
     z-index: 9999;
+    border-bottom-left-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
 }
 .popup.four {
     top: 0;
@@ -1671,4 +1697,13 @@ p.agree{
 .popup.fourOpen {
     -webkit-transform: scale(1);
     transform: scale(1);
+}
+.popup ul {
+    /*text-align: right;*/
+}
+.popup ul li{
+    padding: 5px 0;
+}
+.popup ul li > a{
+    padding: 10px;
 }
