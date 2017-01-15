@@ -284,6 +284,8 @@
                         </div>
                     </div>
 
+
+
                     <!-- Text input -->
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="status">ปี่ที่สร้างเสร็จ</label>
@@ -307,9 +309,17 @@
                     			</span>
                     		</div>
                         </div>
-
                     </div>
 
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="status">ปี่ที่สร้างเสร็จ</label>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-md" placeholder="Content">
+                            <span class="input-group-addon" id="basic-addon2">@example.com</span>
+                        </div>
+                    </div>
+                </div>
 
 
                     <!-- Text input -->
