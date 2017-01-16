@@ -774,3 +774,7 @@ height: 21px;
   -o-transition: background 0.3s;
   transition: background 0.3s;
 }
+
+.input-group .select-btn{
+    min-width: 120px;
+}

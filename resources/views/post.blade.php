@@ -230,7 +230,7 @@
                     <!-- Text input -->
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="status">หัวข้อ</label>
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <input name="status" class="form-control input-md" id="status" type="text" placeholder="Topic">
                         </div>
                     </div>
@@ -238,7 +238,7 @@
                     <!-- Text input -->
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="status">อธิบายหัวข้อ</label>
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <input name="status" class="form-control input-md" id="status" type="text" placeholder="Content">
                         </div>
                     </div>
@@ -246,7 +246,7 @@
                     <!-- Text input -->
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="status">ประเภท</label>
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <input name="status" class="form-control input-md" id="status" type="text" placeholder="Content">
                         </div>
                     </div>
@@ -254,7 +254,7 @@
                     <!-- Text input -->
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="status">ความต้องการ</label>
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <input name="status" class="form-control input-md" id="status" type="text" placeholder="Content">
                         </div>
                     </div>
@@ -262,7 +262,7 @@
                     <!-- Text input -->
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="status">ขนาดพื้นที่</label>
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <input name="status" class="form-control input-md" id="status" type="text" placeholder="Content">
                         </div>
                     </div>
@@ -271,8 +271,17 @@
                     <!-- Text input -->
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="status">ราคา</label>
-                        <div class="col-md-4">
-                            <input name="status" class="form-control input-md" id="status" type="text" placeholder="Content">
+                        <div class="col-md-5">
+                            <div class="input-group">
+                    			<input type="text" class="form-control input-md" placeholder="Content">
+                    			<span class="input-group-btn">
+                    				<select name="txt_ingredient" title="Measure" class="form-control btn btn-default select-btn">
+                    							<option value="barra">ตารางเมตร (sq.m.)</option>
+                    							<option value="cucharada café">ตารางวา (sq.w.)</option>
+                    							<option value="cucharada sopera">c/s cucharada sopera</option>
+                    				</select>
+                    			</span>
+                    		</div>
                         </div>
                     </div>
 
@@ -295,21 +304,31 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status">ปี่ที่สร้างเสร็จ</label>
+                        <label class="col-xs-6 col-sm-3 control-label" for="status">ขนาด</label>
                         <div class="col-md-4">
                             <div class="input-group">
                     			<input type="text" class="form-control input-md" placeholder="Content">
                     			<span class="input-group-btn">
-                    				<select name="txt_ingredient" title="Measure" class="btn btn-default input-md">
-                    					<option disabled="" value="">Measure</option>
-                    							<option value="barra">Barra</option>
-                    							<option value="cucharada café">c/c Cucharada café</option>
+                    				<select name="txt_ingredient" title="Measure" class="form-control btn btn-default">
+                    							<option value="barra">ตารางเมตร (sq.m.)</option>
+                    							<option value="cucharada café">ตารางวา (sq.w.)</option>
                     							<option value="cucharada sopera">c/s cucharada sopera</option>
                     				</select>
                     			</span>
                     		</div>
                         </div>
                     </div>
+
+                    <div class="form-group">
+  <label class="col-md-3 control-label" for="textinput">Text Input</label>
+  <div class="col-md-3">
+  	<input id="textinput" name="textinput" placeholder="placeholder" class="form-control input-md" type="text">
+  </div>
+  <label class="col-md-3 control-label" for="textinput">Text Input</label>
+  <div class="col-md-3">
+  	<input id="textinput" name="textinput" placeholder="placeholder" class="form-control input-md" type="text">
+  </div>
+ </div>
 
                 <div class="form-group">
                     <label class="col-xs-6 col-sm-3 control-label" for="status">ปี่ที่สร้างเสร็จ</label>
