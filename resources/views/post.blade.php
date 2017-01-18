@@ -275,7 +275,7 @@
                             <div class="input-group">
                     			<input type="text" class="form-control input-md" placeholder="Content">
                     			<span class="input-group-btn">
-                    				<select name="txt_ingredient" title="Measure" class="form-control btn btn-default select-btn">
+                    				<select name="txt_ingredient" title="Measure" class="btn btn-default select-btn">
                     							<option value="barra">ตารางเมตร (sq.m.)</option>
                     							<option value="cucharada café">ตารางวา (sq.w.)</option>
                     							<option value="cucharada sopera">c/s cucharada sopera</option>
