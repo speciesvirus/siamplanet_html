@@ -16,33 +16,36 @@
     <script src="resources/assets/bootstrap/dist/js/bootstrap.js"></script>
 
     <script src="resources/assets/tinymce/tinymce.jquery.min.js"></script>
+
+    <script src="resources/assets/select2/dist/js/select2.full.js"></script>
+
     <script type="text/javascript">
         //$('#edit').froalaEditor();
         tinymce.init({
-          selector: '#edit',
-          height: 500,
-          menubar: false,
-          plugins: [
-            'advlist autolink lists link image charmap print preview anchor',
-            'searchreplace visualblocks code fullscreen',
-            'insertdatetime media table contextmenu paste code'
-          ],
-          toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-          content_css: '//www.tinymce.com/css/codepen.min.css'
+            selector: '#edit',
+            height: 500,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table contextmenu paste code'
+            ],
+            toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            content_css: '//www.tinymce.com/css/codepen.min.css'
         });
-//        $('div#froala-editor').froalaEditor('html.get');
+        //        $('div#froala-editor').froalaEditor('html.get');
 
         // File Upload
         //
         var arrImage = [];
-        function ekUpload(){
+        function ekUpload() {
             function Init() {
 
                 console.log("Upload Initialised");
 
-                var fileSelect    = document.getElementById('file-upload'),
-                    fileDrag      = document.getElementById('file-drag'),
-                    submitButton  = document.getElementById('submit-button');
+                var fileSelect = document.getElementById('file-upload'),
+                    fileDrag = document.getElementById('file-drag'),
+                    submitButton = document.getElementById('submit-button');
 
                 fileSelect.addEventListener('change', fileSelectHandler, false);
 
@@ -107,7 +110,7 @@
                     // Thumbnail Preview
                     // document.getElementById('file-image').classList.remove("hidden");
                     // document.getElementById('file-image').src = srcImage;
-                    $('#group_items_panel').append('<div class="item_box"><a href="#delete" class="delete"></a><img src="'+srcImage+'"></div>');
+                    $('#group_items_panel').append('<div class="item_box"><a href="#delete" class="delete"></a><img src="' + srcImage + '"></div>');
                     arrImage.push(srcImage);
                 }
                 else {
@@ -150,7 +153,7 @@
                         // xhr.upload.addEventListener('progress', updateFileProgress, false);
 
                         // File received / failed
-                        xhr.onreadystatechange = function(e) {
+                        xhr.onreadystatechange = function (e) {
                             if (xhr.readyState == 4) {
                                 // Everything is good!
 
@@ -179,8 +182,8 @@
             }
         }
         ekUpload();
-        $( "#group_items_panel" ).sortable();
-        $( "#group_items_panel" ).disableSelection();
+        $("#group_items_panel").sortable();
+        $("#group_items_panel").disableSelection();
 
         // $(document).on('click','.item_box', function(){
 
@@ -192,21 +195,58 @@
 
         //     });
         // });
-        $(document).on('click','.item_box a.delete', function(){
+        $(document).on('click', '.item_box a.delete', function () {
             var $this = $(this),
-                    r = confirm("Press a button!");
+                r = confirm("Press a button!");
 
             if (r == true) {
                 var f = $this.next().attr('src');
                 $this.parent().remove();
-                $.each(arrImage, function( index, value ) {
-                  if(f === value){
-                      arrImage.splice(index, 1);
-                  }
+                $.each(arrImage, function (index, value) {
+                    if (f === value) {
+                        arrImage.splice(index, 1);
+                    }
                 });
 
             }
         });
+
+
+
+
+
+        var $eventLog = $(".js-event-log");
+        var $eventSelect = $("#id_label_multiple");
+
+        $eventSelect.select2({
+            placeholder: "Select a state"
+        });
+//        $eventSelect.on("select2:open", function (e) { log("select2:open", e); });
+//        $eventSelect.on("select2:close", function (e) { log("select2:close", e); });
+        $eventSelect.on("select2:select", function (e) { log("select2:select", e); });
+        $eventSelect.on("select2:unselect", function (e) { log("select2:unselect", e); });
+
+        $eventSelect.on("change", function (e) { log("change"); });
+
+        function log (name, evt) {
+            if (!evt) {
+                var args = "{}";
+            } else {
+                var args = JSON.stringify(evt.params, function (key, value) {
+                    if (value && value.nodeName) return "[DOM node]";
+                    if (value instanceof $.Event) return "[$.Event]";
+                    return value;
+                });
+            }
+            var $e = $("<li>" + name + " -> " + args + "</li>");
+            $eventLog.append($e);
+            //alert("Selected value is: "+$eventSelect.select2("val"));
+//            $e.animate({ opacity: 1 }, 10000, 'linear', function () {
+//                $e.animate({ opacity: 0 }, 2000, 'linear', function () {
+//                    $e.remove();
+//                });
+//            });
+        }
     </script>
 
 
@@ -225,164 +265,125 @@
 
 
             <div class="form-horizontal">
-                    <h3 class="side-list-title">ข้อมูลหลัก</h3>
+                <h3 class="side-list-title">ข้อมูลหลัก</h3>
 
-                    <!-- Text input -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status">หัวข้อ</label>
-                        <div class="col-md-5">
-                            <input name="status" class="form-control input-md" id="status" type="text" placeholder="Topic">
-                        </div>
+                <!-- Text input -->
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="status">หัวข้อ</label>
+                    <div class="col-md-5">
+                        <input name="status" class="form-control input-md" id="status" type="text" placeholder="Topic">
                     </div>
+                </div>
 
-                    <!-- Text input -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status">อธิบายหัวข้อ</label>
-                        <div class="col-md-5">
-                            <input name="status" class="form-control input-md" id="status" type="text" placeholder="Content">
-                        </div>
+                <!-- Text input -->
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="status">อธิบายหัวข้อ</label>
+                    <div class="col-md-5">
+                        <input name="status" class="form-control input-md" id="status" type="text"
+                               placeholder="Content">
                     </div>
+                </div>
 
-                    <!-- Text input -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status">ประเภท</label>
-                        <div class="col-md-5">
-                            <input name="status" class="form-control input-md" id="status" type="text" placeholder="Content">
-                        </div>
+                <!-- Text input -->
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="status">ประเภท</label>
+                    <div class="col-md-5">
+                        <input name="status" class="form-control input-md" id="status" type="text"
+                               placeholder="Content">
                     </div>
+                </div>
 
-                    <!-- Text input -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status">ความต้องการ</label>
-                        <div class="col-md-5">
-                            <input name="status" class="form-control input-md" id="status" type="text" placeholder="Content">
-                        </div>
+                <!-- Text input -->
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="status">ความต้องการ</label>
+                    <div class="col-md-5">
+                        <input name="status" class="form-control input-md" id="status" type="text"
+                               placeholder="Content">
                     </div>
+                </div>
 
-                    <!-- Text input -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status">ขนาดพื้นที่</label>
-                        <div class="col-md-5">
-                            <input name="status" class="form-control input-md" id="status" type="text" placeholder="Content">
-                        </div>
-                    </div>
-
-
-                    <!-- Text input -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status">ราคา</label>
-                        <div class="col-md-5">
-                            <div class="input-group">
-                    			<input type="text" class="form-control input-md" placeholder="Content">
-                    			<span class="input-group-btn">
+                <!-- Text input -->
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="status">ขนาดพื้นที่</label>
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-md" placeholder="Content">
+                            <span class="input-group-btn">
                     				<select name="txt_ingredient" title="Measure" class="btn btn-default select-btn">
                     							<option value="barra">ตารางเมตร (sq.m.)</option>
                     							<option value="cucharada café">ตารางวา (sq.w.)</option>
                     							<option value="cucharada sopera">c/s cucharada sopera</option>
                     				</select>
                     			</span>
-                    		</div>
-                        </div>
-                    </div>
-
-                    <!-- Text input -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status">ชื่อโครงการ</label>
-                        <div class="col-md-4">
-                            <input name="status" class="form-control input-md" id="status" type="text" placeholder="Content">
-                        </div>
-                    </div>
-
-
-
-                    <!-- Text input -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status">ปี่ที่สร้างเสร็จ</label>
-                        <div class="col-md-4">
-                            <input name="status" class="form-control input-md" id="status" type="text" placeholder="Content">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status">ขนาด</label>
-                        <div class="col-md-4">
-                            <div class="input-group">
-                    			<input type="text" class="form-control input-md" placeholder="Content">
-                    			<span class="input-group-btn">
-                    				<select name="txt_ingredient" title="Measure" class="form-control btn btn-default">
-                    							<option value="barra">ตารางเมตร (sq.m.)</option>
-                    							<option value="cucharada café">ตารางวา (sq.w.)</option>
-                    							<option value="cucharada sopera">c/s cucharada sopera</option>
-                    				</select>
-                    			</span>
-                    		</div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-  <label class="col-md-3 control-label" for="textinput">Text Input</label>
-  <div class="col-md-3">
-  	<input id="textinput" name="textinput" placeholder="placeholder" class="form-control input-md" type="text">
-  </div>
-  <label class="col-md-3 control-label" for="textinput">Text Input</label>
-  <div class="col-md-3">
-  	<input id="textinput" name="textinput" placeholder="placeholder" class="form-control input-md" type="text">
-  </div>
- </div>
-
-                <div class="form-group">
-                    <label class="col-xs-6 col-sm-3 control-label" for="status">ปี่ที่สร้างเสร็จ</label>
-                    <div class="col-md-4">
-                        <div class="input-group">
-                            <input type="text" class="form-control input-md" placeholder="Content">
-                            <span class="input-group-addon" id="basic-addon2">@example.com</span>
                         </div>
                     </div>
                 </div>
 
 
-                    <!-- Text input -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status">ราคา</label>
-                        <div class="col-md-4">
-                            <input name="status" class="form-control input-md" id="status" type="text" placeholder="Content">
+                <!-- Text input -->
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="status">ราคา</label>
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-md" placeholder="Content">
+                            <span class="input-group-addon" id="basic-addon2">บาท</span>
                         </div>
                     </div>
+                </div>
+
+                <!-- Text input -->
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="status">ชื่อโครงการ</label>
+                    <div class="col-md-5">
+                        <input name="status" class="form-control input-md" id="status" type="text"
+                               placeholder="Content">
+                    </div>
+                </div>
 
 
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="documentid">ภาพ</label>
-                        <div class="col-md-4">
+                <!-- Text input -->
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="status">ปี่ที่สร้างเสร็จ</label>
+                    <div class="col-md-5">
+                        <input name="status" class="form-control input-md" id="status" type="text"
+                               placeholder="Content">
+                    </div>
+                </div>
 
-                            <div id="group_items_panel" class="ui-sortable">
-                                <!--<div class="item_box">-->
-                                <!--    <a href="#delete" class="delete"></a>-->
-                                <!--    <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/woman-beach2.jpg">-->
 
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="documentid">ภาพ</label>
+                    <div class="col-md-4">
+
+                        <div id="group_items_panel" class="ui-sortable">
+                            <!--<div class="item_box">-->
+                            <!--    <a href="#delete" class="delete"></a>-->
+                            <!--    <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/woman-beach2.jpg">-->
+
+                            <!--</div>-->
+                        </div>
+
+                        <form id="file-upload-form" class="uploader">
+                            <input id="file-upload" type="file" name="fileUpload" accept="image/*"/>
+
+                            <label for="file-upload" id="file-drag">
+                                <img id="file-image" src="#" alt="Preview" class="hidden">
+                                <div id="start">
+                                    <i class="fa fa-download" aria-hidden="true"></i>
+                                    <div>Select a file or drag here</div>
+                                    <div id="notimage" class="hidden">Please select an image</div>
+                                    <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+                                </div>
+                                <!--<div id="response" class="hidden">-->
+                                <!--    <div id="messages"></div>-->
+                                <!--    <progress class="progress" id="file-progress" value="0">-->
+                                <!--        <span>0</span>%-->
+                                <!--    </progress>-->
                                 <!--</div>-->
-                            </div>
-
-                            <form id="file-upload-form" class="uploader">
-                                <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
-
-                                <label for="file-upload" id="file-drag">
-                                    <img id="file-image" src="#" alt="Preview" class="hidden">
-                                    <div id="start">
-                                        <i class="fa fa-download" aria-hidden="true"></i>
-                                        <div>Select a file or drag here</div>
-                                        <div id="notimage" class="hidden">Please select an image</div>
-                                        <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
-                                    </div>
-                                    <!--<div id="response" class="hidden">-->
-                                    <!--    <div id="messages"></div>-->
-                                    <!--    <progress class="progress" id="file-progress" value="0">-->
-                                    <!--        <span>0</span>%-->
-                                    <!--    </progress>-->
-                                    <!--</div>-->
-                                </label>
-                            </form>
-                        </div>
+                            </label>
+                        </form>
                     </div>
+                </div>
 
             </div>
 
@@ -393,13 +394,14 @@
                     <h3 class="side-list-title">Review</h3>
 
                     <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="documentid">Document ID</label>
+                        <label class="col-xs-6 col-sm-3 control-label" for="documentid">ช้อความ</label>
                         <div class="col-md-4">
                             <!--<textarea id="edit" name="content"></textarea>-->
 
                             <textarea id="edit" name="content">
                               <p style="text-align: center;">
-                                <img title="TinyMCE Logo" src="//www.tinymce.com/images/glyph-tinymce@2x.png" alt="TinyMCE Logo" width="110" height="97" />
+                                <img title="TinyMCE Logo" src="//www.tinymce.com/images/glyph-tinymce@2x.png"
+                                     alt="TinyMCE Logo" width="110" height="97"/>
                               </p>
 
                               <h1 style="text-align: center;">Welcome to the TinyMCE editor demo!</h1>
@@ -413,7 +415,8 @@
 
                               <ul>
                                 <li>Our <a href="http://www.tinymce.com/docs/">documentation</a> is a great resource for learning how to configure TinyMCE.</li>
-                                <li>Have a specific question? Visit the <a href="http://community.tinymce.com/forum/" target="_blank">Community Forum</a>.</li>
+                                <li>Have a specific question? Visit the <a href="http://community.tinymce.com/forum/"
+                                                                           target="_blank">Community Forum</a>.</li>
                                 <li>We also offer enterprise grade support as part of <a href="www.tinymce.com/pricing">TinyMCE Enterprise</a>.</li>
                               </ul>
 
@@ -444,13 +447,15 @@
                               <h2>Found a bug?</h2>
 
                               <p>
-                                If you think you have found a bug please create an issue on the <a href="https://github.com/tinymce/tinymce/issues">GitHub repo</a> to report it to the developers.
+                                If you think you have found a bug please create an issue on the <a
+                                          href="https://github.com/tinymce/tinymce/issues">GitHub repo</a> to report it to the developers.
                               </p>
 
                               <h2>Finally ...</h2>
 
                               <p>
-                                Don't forget to check out our other product <a href="http://www.plupload.com" target="_blank">Plupload</a>, your ultimate upload solution featuring HTML5 upload support.
+                                Don't forget to check out our other product <a href="http://www.plupload.com"
+                                                                               target="_blank">Plupload</a>, your ultimate upload solution featuring HTML5 upload support.
                               </p>
                               <p>
                                 Thanks for supporting TinyMCE! We hope it helps you and your users create great content.<br>All the best from the TinyMCE team.
@@ -462,127 +467,100 @@
                     </div>
 
 
-
-                    <!-- Text input -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status">Status</label>
-                        <div class="col-md-4">
-                            <input name="status" class="form-control input-md" id="status" type="text" placeholder="Automatic">
-                        </div>
-                    </div>
-
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="creationdate">Creation Date</label>
-                        <div class="col-md-4">
-                            <input name="creationdate" class="form-control input-md" id="creationdate" type="text" placeholder="DD/MM/YYYY">
-                        </div>
-                    </div>
-
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="requestorname">Requestor Name</label>
-                        <div class="col-md-4">
-                            <input name="requestorname" class="form-control input-md" id="requestorname" type="text" placeholder="Automatic">
-                        </div>
-                    </div>
-
-                    <!-- Select Basic -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="requestordepartment">Requestor's department*</label>
-                        <div class="col-md-4">
-                            <select name="requestordepartment" class="form-control" id="requestordepartment" required="">
-                                <option value="Select">Select</option>
-                                <option value="Downstream">Downstream</option>
-                                <option value="Upstream">Upstream</option>
-                                <option value="Information Services">Information Services</option>
-                                <option value="Corporate Services">Corporate Services</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Select Basic -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="requestorcompany">Requestor's company*</label>
-                        <div class="col-md-4">
-                            <select name="requestorcompany" class="form-control" id="requestorcompany" required="">
-                                <option value="Select">Select</option>
-                                <option value="MOL Plc.">MOL Plc.</option>
-                                <option value="SLOVNAFT, a.s.">SLOVNAFT, a.s.</option>
-                                <option value="IES S.p.A.">IES S.p.A.</option>
-                                <option value="Geoinform Ltd.">Geoinform Ltd.</option>
-                                <option value="Hawasina G.m.b.H. (Oman Branch)">Hawasina G.m.b.H. (Oman Branch)</option>
-                                <option value="Hexan Ltd.">Hexan Ltd.</option>
-                                <option value="Kalegran">Kalegran</option>
-                                <option value="MOL Caspian Ltd.">MOL Caspian Ltd.</option>
-                                <option value="MOL-LUB Ltd.">MOL-LUB Ltd.</option>
-                                <option value="MOL Pakistan">MOL Pakistan</option>
-                                <option value="MOL Romania">MOL Romania</option>
-                                <option value="MOL-Russ">MOL-Russ</option>
-                                <option value="MOL-Trans Ltd.">MOL-Trans Ltd.</option>
-                                <option value="Panta Distribuzione S.p.A.">Panta Distribuzione S.p.A.</option>
-                                <option value="Petrolszolg Ltd.">Petrolszolg Ltd.</option>
-                                <option value="Slovnaft Montaze a opravy a.s.">Slovnaft Montaze a opravy a.s.</option>
-                                <option value="Slovnaft Trans a.s.">Slovnaft Trans a.s.</option>
-                                <option value="TVK Plc.">TVK Plc.</option>
-                                <option value="VÚRUP a.s.">VÚRUP a.s.</option>
-                                <option value="Baitex">Baitex</option>
-                                <option value="Matjushkinskaya Vertical">Matjushkinskaya Vertical</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Textarea -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="internalreferencenumber">Internal reference number*</label>
-                        <div class="col-md-4">
-                            <textarea name="internalreferencenumber" class="form-control" id="internalreferencenumber" required=""></textarea>
-                            <span class="help-block">Use ";" as separators between reference numbers!</span>
-                        </div>
-                    </div>
-
-                    <!-- Textarea -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="subject">Subject*</label>
-                        <div class="col-md-4">
-                            <textarea name="subject" class="form-control" id="subject" required=""></textarea>
-                        </div>
-                    </div>
-
-                    <!-- Multiple Radios -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="financialeffect">Financial effect*</label>
-                        <div class="col-md-4">
-                            <div class="radio">
-                                <label for="financialeffect-0">
-                                    <input name="financialeffect" id="financialeffect-0" type="radio" value="With loss of value">
-                                    With loss of value
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label for="financialeffect-1">
-                                    <input name="financialeffect" id="financialeffect-1" type="radio" value="Without loss of  value">
-                                    Without loss of  value
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-
                 </fieldset>
             </form>
 
+            <div class="form-horizontal">
+                <h3 class="side-list-title">ข้อมูลเพิ่มเติม</h3>
 
+
+                <!-- Text input -->
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="status">สิ่งอำนวยความสะดวก</label>
+                    <div class="col-md-4">
+
+                        <select class="js-example-placeholder-multiple js-states form-control select2-hidden-accessible" id="id_label_multiple" multiple="multiple" tabindex="-1" aria-hidden="true">
+                            <optgroup label="Alaskan/Hawaiian Time Zone">
+                                <option value="AK">Alaska</option>
+                                <option value="HI">Hawaii</option>
+                            </optgroup>
+                            <optgroup label="Pacific Time Zone">
+                                <option value="CA">California</option>
+                                <option value="NV">Nevada</option>
+                                <option value="OR">Oregon</option>
+                                <option value="WA">Washington</option>
+                            </optgroup>
+                            <optgroup label="Mountain Time Zone">
+                                <option value="AZ">Arizona</option>
+                                <option value="CO">Colorado</option>
+                                <option value="ID">Idaho</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="UT">Utah</option>
+                                <option value="WY">Wyoming</option>
+                            </optgroup>
+                            <optgroup label="Central Time Zone">
+                                <option value="AL">Alabama</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TX">Texas</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="WI">Wisconsin</option>
+                            </optgroup>
+                            <optgroup label="Eastern Time Zone">
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="IN">Indiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="OH">Ohio</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WV">West Virginia</option>
+                            </optgroup>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="js-event-log">
+
+                </div>
+
+
+            </div>
 
         </div>
 
 
-
         <div id="fb-root"></div>
-        <script>(function(d, s, id) {
+        <script>(function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
+                js = d.createElement(s);
+                js.id = id;
                 js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1724713611112155";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));</script>

@@ -486,6 +486,14 @@ ul.fly-bottom-soc li.rss-soc a:hover {
 
 /* end mobile menu*/
 
+
+@media (max-width: 991px){
+    .form-horizontal .control-label {
+        text-align: left;
+    }
+}
+
+
 #breadcrumb {
     margin-top: 20px;
     color: #777;

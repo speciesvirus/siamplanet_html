@@ -778,3 +778,7 @@ height: 21px;
 .input-group .select-btn{
     height: 34px;
 }
+
+#id_label_multiple + .select2-container{
+    width: 100% !important;
+}
