@@ -367,7 +367,7 @@
                             <input id="file-upload" type="file" name="fileUpload" accept="image/*"/>
 
                             <label for="file-upload" id="file-drag">
-                                <img id="file-image" src="#" alt="Preview" class="hidden">
+                                {{--<img id="file-image" src="#" alt="Preview" class="hidden">--}}
                                 <div id="start">
                                     <i class="fa fa-download" aria-hidden="true"></i>
                                     <div>Select a file or drag here</div>
@@ -545,8 +545,32 @@
                     </div>
                 </div>
 
-                <div class="js-event-log">
+                <!-- Text input -->
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
+                    <div class="col-md-4">
+                        <div class="facility-img-container">
+                            <div id="file-upload-form" class="facility-img">
+                                <input id="fac-upload-01" type="file" name="fileUpload" accept="image/*"/>
 
+                                <label for="fac-upload-01" id="file-drag">
+                                    {{--<img id="file-image" src="#" alt="Preview" class="hidden">--}}
+                                    <div id="start">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        <div>Select a file or drag here</div>
+                                        <div id="notimage" class="hidden">Please select an image</div>
+                                        <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+                                    </div>
+                                    <!--<div id="response" class="hidden">-->
+                                    <!--    <div id="messages"></div>-->
+                                    <!--    <progress class="progress" id="file-progress" value="0">-->
+                                    <!--        <span>0</span>%-->
+                                    <!--    </progress>-->
+                                    <!--</div>-->
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
 

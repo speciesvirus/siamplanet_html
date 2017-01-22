@@ -782,3 +782,24 @@ height: 21px;
 #id_label_multiple + .select2-container{
     width: 100% !important;
 }
+
+
+.facility-img label {
+    float: left;
+    clear: both;
+    width: 150px;
+    padding: 0.8rem 0.5rem;
+    text-align: center;
+    background: #fff;
+    border-radius: 7px;
+    border: 3px solid #eee;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.facility-img input[type="file"] {
+    display: none;
+}
