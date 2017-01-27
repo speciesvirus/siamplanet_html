@@ -784,22 +784,16 @@ height: 21px;
 }
 
 
-.facility-img label {
-    float: left;
-    clear: both;
-    width: 150px;
-    padding: 0.8rem 0.5rem;
-    text-align: center;
-    background: #fff;
-    border-radius: 7px;
-    border: 3px solid #eee;
-    -webkit-transition: all .2s ease;
-    transition: all .2s ease;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+.form-style-fake {
+    position: absolute;
+    top: 0px;
+    padding: 0px 30px;
 }
-.facility-img input[type="file"] {
-    display: none;
+.form-style-base{position:absolute;top:0px;z-index: 999;opacity: 0;}
+.input-place {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    font-size: 13px;
+    color: gray;
 }
