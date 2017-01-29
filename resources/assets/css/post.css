@@ -793,7 +793,20 @@ height: 21px;
 .input-place {
     position: absolute;
     top: 10px;
-    left: 25px;
+    left: 12px;
     font-size: 13px;
     color: gray;
+}
+.form-control.form-input{
+    width: inherit;
+}
+.fc-d{
+
+}
+.fc-input{
+    position: relative;
+    float: left;
+}
+.fc-d .control-label{
+    text-align: left;
 }

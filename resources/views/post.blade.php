@@ -223,7 +223,22 @@
         });
 //        $eventSelect.on("select2:open", function (e) { log("select2:open", e); });
 //        $eventSelect.on("select2:close", function (e) { log("select2:close", e); });
-        $eventSelect.on("select2:select", function (e) { log("select2:select", e); });
+        $eventSelect.on("select2:select", function (e) {
+            //log("select2:select", e);
+            var model = tagFacility("select2:select", e);
+//            console.log('sss', model.name);
+            var $div = $('.fc-c');
+
+//            var $html = '<label class="col-xs-6 col-sm-3 control-label">adadad</label>'+
+//                '<div class="fc-input">'+
+//                '<input type="file" class="form-control form-input form-style-base">'+
+//                '<input type="text" class="form-control form-input form-style-fake" placeholder="Choose your File" readonly>'+
+//                '<span class="glyphicon glyphicon-open input-place"></span>'+
+//                '</div>';
+//            $div.append($html);
+
+
+        });
         $eventSelect.on("select2:unselect", function (e) { log("select2:unselect", e); });
 
         $eventSelect.on("change", function (e) { log("change"); });
@@ -247,6 +262,40 @@
 //                });
 //            });
         }
+
+        function tagFacility(name, evt) {
+            var model = new $facility();
+            model.id = 'sas';
+            if (!evt) {
+                var args = "{}";
+            } else {
+                var args = JSON.stringify(evt.params, function (key, value) {
+                    if (value && value.nodeName){
+                        console.log('dfsfs', value.data.text);
+                        model.id = value.id;
+                        model.name = value.text;
+
+                        return model;
+                    }
+                    return args;
+                });
+            }
+
+            return model;
+        }
+        var $facility = function () {
+            id : ''
+            name : ''
+        };
+        //form-style-fake
+        $(document).on('change', '.form-style-base', function (e) {
+            var files = e.target.files || e.dataTransfer.files;
+            var $this = $(this);
+            for (var i = 0, f; f = files[i]; i++) {
+                $this.next().val(f.name);
+            }
+        });
+
     </script>
 
 
@@ -548,10 +597,15 @@
                 <!-- Text input -->
                 <div class="form-group">
                     <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
-                    <div class="col-md-4">
-                                <input type="file" id="base-input" class="form-control form-input form-style-base">
-        <input type="text" id="fake-input" class="form-control form-input form-style-fake" placeholder="Choose your File" readonly>
-        <span class="glyphicon glyphicon-open input-place"></span>
+                    <div class="col-md-4 fc-c">
+                        <div class="fc-d">
+                            <label class="col-xs-6 col-sm-3 control-label">adadad</label>
+                            <div class="fc-input">
+                                <input type="file" class="form-control form-input form-style-base">
+                                <input type="text" class="form-control form-input form-style-fake" placeholder="Choose your File" readonly>
+                                <span class="glyphicon glyphicon-open input-place"></span>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
