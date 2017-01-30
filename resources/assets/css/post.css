@@ -801,12 +801,69 @@ height: 21px;
     width: inherit;
 }
 .fc-d{
-
+    margin: 15px 0;
 }
+.fc-d::after, .fc-d::before {
+    display: table;
+    content: " ";
+}
+.fc-d::after {
+    clear: both;
+}
+.fc-c > .fc-d:first-child{
+    margin-top: 0;
+}
+
+
 .fc-input{
     position: relative;
     float: left;
 }
 .fc-d .control-label{
     text-align: left;
+}
+
+
+.google-maps-res::after, .google-maps-res::before {
+    display: table;
+    content: " ";
+}
+.google-maps-res::after {
+    clear: both;
+}
+
+
+    .google-maps {
+        position: relative !important;
+        padding-bottom: 75%;
+        height: 0;
+        overflow: hidden;
+    }
+    .google-maps iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+.select-point > li {
+    background-color: #e4e4e4;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    cursor: default;
+    float: left;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding: 0 5px;
+}
+.select-point > li .select2-selection__choice__remove {
+	color:#999;
+	cursor:pointer;
+	display:inline-block;
+	font-weight:bold;
+	margin-right:2px
+}
+.select-point > li .select2-selection__choice__remove:hover {
+	color:#333
 }

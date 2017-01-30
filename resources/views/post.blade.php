@@ -229,17 +229,27 @@
 //            console.log('sss', model.name);
             var $div = $('.fc-c');
 
-//            var $html = '<label class="col-xs-6 col-sm-3 control-label">adadad</label>'+
-//                '<div class="fc-input">'+
-//                '<input type="file" class="form-control form-input form-style-base">'+
-//                '<input type="text" class="form-control form-input form-style-fake" placeholder="Choose your File" readonly>'+
-//                '<span class="glyphicon glyphicon-open input-place"></span>'+
-//                '</div>';
-//            $div.append($html);
+            var $html = '<div class="fc-d" data-fc="'+ model.id +'"><label class="col-xs-6 col-sm-3 control-label">'+ model.name +'</label>'+
+                '<div class="fc-input">'+
+                '<input type="file" class="form-control form-input form-style-base">'+
+                '<input type="text" class="form-control form-input form-style-fake" placeholder="Choose your File" readonly>'+
+                '<span class="glyphicon glyphicon-open input-place"></span>'+
+                '</div></div>';
+            $div.append($html);
 
 
         });
-        $eventSelect.on("select2:unselect", function (e) { log("select2:unselect", e); });
+        $eventSelect.on("select2:unselect", function (e) {
+            //log("select2:unselect", e);
+            var model = tagFacility("select2:select", e);
+            $(".fc-d").each(function() {
+                var $this = $(this);
+                if($this.data('fc') == model.id){
+                    $this.remove();
+                }
+            });
+
+        });
 
         $eventSelect.on("change", function (e) { log("change"); });
 
@@ -265,22 +275,28 @@
 
         function tagFacility(name, evt) {
             var model = new $facility();
-            model.id = 'sas';
-            if (!evt) {
+              if (!evt) {
                 var args = "{}";
-            } else {
+              } else {
                 var args = JSON.stringify(evt.params, function (key, value) {
-                    if (value && value.nodeName){
-                        console.log('dfsfs', value.data.text);
-                        model.id = value.id;
-                        model.name = value.text;
-
-                        return model;
-                    }
-                    return args;
+                  if (value && value.nodeName) return "[DOM node]";
+                  if (value instanceof $.Event) return "[$.Event]";
+                  return value;
                 });
-            }
+              }
 
+              var json = JSON.parse(args)
+                model.name = json.data.text;
+                model.id = json.data.id;
+
+                    // if (value && value.nodeName){
+                    //     console.log('dfsfs', value.data.text);
+                    //     model.name = value.text;
+
+                    //     return model;
+                    // }
+
+                    //return value;
             return model;
         }
         var $facility = function () {
@@ -296,14 +312,102 @@
             }
         });
 
+
+
+
+
+
+
     </script>
+
+
+
+
 
 
     <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
     <!--<script src="//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"></script>-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGFbK0CvMXKVzCJA_2Fj5B7pItfK0a1QA"></script>
     <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
+<script type="text/javascript">
 
+   var markers = [];
+    var uniqueId = 1;
+
+        var allMyMarkers = [];
+        var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
+        var $marker_url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
+            var image = {
+                url: $marker_url,
+                // This marker is 20 pixels wide by 32 pixels high.
+                scaledSize: new google.maps.Size(20, 20)
+            };
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 9,
+          center: {lat: 14.050942, lng: 100.753091 }
+        });
+
+        map.addListener('click', function(e) {
+          //placeMarkerAndPanTo(e.latLng, map);
+
+            //Determine the location where the user has clicked.
+            var location = e.latLng;
+
+            //Create a marker and placed it on the map.
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                icon: image
+            });
+
+            //Set unique id
+            marker.id = uniqueId;
+            uniqueId++;
+
+            //Attach click event handler to the marker.
+            google.maps.event.addListener(marker, "click", function (e) {
+                var content = 'Latitude: ' + location.lat() + '<br />Longitude: ' + location.lng();
+                content += "<br /><input type = 'button' value = 'Delete' onclick = 'DeleteMarker(" + marker.id + ");' value = 'Delete' />";
+                var infoWindow = new google.maps.InfoWindow({
+                    content: content
+                });
+                infoWindow.open(map, marker);
+            });
+
+            //Add marker to the array.
+            markers.push(marker);
+
+        });
+      function placeMarkerAndPanTo(latLng, map) {
+        var marker = new google.maps.Marker({
+          position: latLng,
+          map: map,
+          icon: image,
+        });
+        map.panTo(latLng);
+        $('.select-point').append('<li">' + feature.properties.title + '</li>');
+
+      }
+
+
+
+       function DeleteMarker(id) {
+        //Find and remove the marker from the Array
+        for (var i = 0; i < markers.length; i++) {
+            if (markers[i].id == id) {
+                //Remove the marker from Map
+                markers[i].setMap(null);
+
+                //Remove the marker from array.
+                markers.splice(i, 1);
+                return;
+            }
+        }
+    };
+
+    </script>
+</script>
 @stop
 
 @section('first-content')
@@ -598,17 +702,51 @@
                 <div class="form-group">
                     <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
                     <div class="col-md-4 fc-c">
-                        <div class="fc-d">
-                            <label class="col-xs-6 col-sm-3 control-label">adadad</label>
-                            <div class="fc-input">
-                                <input type="file" class="form-control form-input form-style-base">
-                                <input type="text" class="form-control form-input form-style-fake" placeholder="Choose your File" readonly>
-                                <span class="glyphicon glyphicon-open input-place"></span>
-                            </div>
-                        </div>
+                        <!--<div class="fc-d">-->
+                        <!--    <label class="col-xs-6 col-sm-3 control-label">adadad</label>-->
+                        <!--    <div class="fc-input">-->
+                        <!--        <input type="file" class="form-control form-input form-style-base">-->
+                        <!--        <input type="text" class="form-control form-input form-style-fake" placeholder="Choose your File" readonly>-->
+                        <!--        <span class="glyphicon glyphicon-open input-place"></span>-->
+                        <!--    </div>-->
+                        <!--</div>-->
 
                     </div>
                 </div>
+
+
+            </div>
+
+
+            <div class="form-horizontal">
+                <h3 class="side-list-title">แผนที่</h3>
+
+
+                <!-- Text input -->
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="status">พื่นที่โครงการ</label>
+                    <div class="col-md-5">
+                        <select class="form-control">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <!-- Text input -->
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
+                    <div class="col-md-4">
+                        <div class="google-maps-res">
+                            <div id="map" class="google-maps"></div>
+                        </div>
+                    </div>
+                </div>
+
 
 
             </div>
