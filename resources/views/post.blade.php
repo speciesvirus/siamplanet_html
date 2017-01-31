@@ -332,7 +332,7 @@
 <script type="text/javascript">
 
    var markers = [];
-    var uniqueId = 1;
+    var uniqueId = 2;
 
         var allMyMarkers = [];
         var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
@@ -349,10 +349,38 @@
         });
 
         map.addListener('click', function(e) {
-          //placeMarkerAndPanTo(e.latLng, map);
 
-            //Determine the location where the user has clicked.
-            var location = e.latLng;
+            var $point = $('#select-point').val();
+            if($point == 1){
+                for (var i = 0; i < markers.length; i++) {
+                    if (markers[i].id == 1) {
+                        //Remove the marker from Map
+                        markers[i].setMap(null);
+
+                        //Remove the marker from array.
+                        markers.splice(i, 1);
+                    }
+                }
+                image.url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
+                placeMarkerAndPanTo(e.latLng, map, 1);
+            }else{
+                image.url = "http://www.freeiconspng.com/uploads/red-location-icon-map-png-4.png"
+                placeMarkerAndPanTo(e.latLng, map, uniqueId);
+                uniqueId++;
+            }
+
+
+
+        });
+      function placeMarkerAndPanTo(latLng, map, key) {
+        // var marker = new google.maps.Marker({
+        //   position: latLng,
+        //   map: map,
+        //   icon: image,
+        // });
+
+        //Determine the location where the user has clicked.
+            var location = latLng;
 
             //Create a marker and placed it on the map.
             var marker = new google.maps.Marker({
@@ -362,8 +390,8 @@
             });
 
             //Set unique id
-            marker.id = uniqueId;
-            uniqueId++;
+            marker.id = key;
+
 
             //Attach click event handler to the marker.
             google.maps.event.addListener(marker, "click", function (e) {
@@ -377,17 +405,7 @@
 
             //Add marker to the array.
             markers.push(marker);
-
-        });
-      function placeMarkerAndPanTo(latLng, map) {
-        var marker = new google.maps.Marker({
-          position: latLng,
-          map: map,
-          icon: image,
-        });
-        map.panTo(latLng);
-        $('.select-point').append('<li">' + feature.properties.title + '</li>');
-
+            //map.panTo(latLng);
       }
 
 
@@ -726,8 +744,8 @@
                 <div class="form-group">
                     <label class="col-xs-6 col-sm-3 control-label" for="status">พื่นที่โครงการ</label>
                     <div class="col-md-5">
-                        <select class="form-control">
-                          <option>1</option>
+                        <select class="form-control" id="select-point">
+                          <option value="1">1</option>
                           <option>2</option>
                           <option>3</option>
                           <option>4</option>
