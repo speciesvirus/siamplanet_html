@@ -425,7 +425,6 @@
     };
 
     </script>
-</script>
 @stop
 
 @section('first-content')
@@ -766,6 +765,66 @@
                 </div>
 
 
+
+                <div class="form-horizontal">
+                    <h3 class="side-list-title">Keyword</h3>
+
+                    <!-- Text input -->
+                    <div class="form-group">
+                        <label class="col-xs-6 col-sm-3 control-label" for="status">Tag</label>
+                        <div class="col-md-5">
+                            <input name="status" class="form-control input-md" id="status" type="text" placeholder="Topic">
+                        </div>
+                    </div>
+
+                    <!-- Text input -->
+                    <div class="form-group">
+                        <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
+                        <div class="col-md-5">
+                            <input name="status" class="form-control input-md" id="status" type="text"
+                                   placeholder="Content">
+                        </div>
+                    </div>
+
+                    <!-- Text input -->
+                    <div class="form-group">
+                        <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
+                        <div class="col-md-5">
+                            <input name="status" class="form-control input-md" id="status" type="text"
+                                   placeholder="Content">
+                        </div>
+                    </div>
+
+                    <!-- Text input -->
+                    <div class="form-group">
+                        <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
+                        <div class="col-md-5">
+                            <input name="status" class="form-control input-md" id="status" type="text"
+                                   placeholder="Content">
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+                <div class="form-horizontal">
+                    <h3 class="side-list-title"></h3>
+                    <!-- Text input -->
+                    <div class="form-group">
+                        <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
+                        <div class="col-md-5">
+                            <a href="#" class="btn btn-primary" role="button">ลงประกาศ</a>
+                            &nbsp
+                            <a href="#" class="btn btn-default" role="button">ยกเลิกข้อมูล</a>
+                        </div>
+                    </div>
+
+
+                </div>
 
             </div>
 
