@@ -441,7 +441,7 @@
                 <div class="form-group">
                     <label class="col-xs-6 col-sm-3 control-label" for="status">หัวข้อ</label>
                     <div class="col-md-5">
-                        <input name="status" class="form-control input-md" id="status" type="text" placeholder="Topic">
+                        <input name="topic" class="form-control input-md" type="text" placeholder="topic">
                     </div>
                 </div>
 
@@ -449,8 +449,8 @@
                 <div class="form-group">
                     <label class="col-xs-6 col-sm-3 control-label" for="status">อธิบายหัวข้อ</label>
                     <div class="col-md-5">
-                        <input name="status" class="form-control input-md" id="status" type="text"
-                               placeholder="Content">
+                        <input name="topic_des" class="form-control input-md" type="text"
+                               placeholder="topic description">
                     </div>
                 </div>
 
@@ -458,8 +458,8 @@
                 <div class="form-group">
                     <label class="col-xs-6 col-sm-3 control-label" for="status">ประเภท</label>
                     <div class="col-md-5">
-                        <input name="status" class="form-control input-md" id="status" type="text"
-                               placeholder="Content">
+                        <input name="type" class="form-control input-md" type="text"
+                               placeholder="type">
                     </div>
                 </div>
 
@@ -467,8 +467,8 @@
                 <div class="form-group">
                     <label class="col-xs-6 col-sm-3 control-label" for="status">ความต้องการ</label>
                     <div class="col-md-5">
-                        <input name="status" class="form-control input-md" id="status" type="text"
-                               placeholder="Content">
+                        <input name="sale" class="form-control input-md" type="text"
+                               placeholder="sale">
                     </div>
                 </div>
 
@@ -477,9 +477,9 @@
                     <label class="col-xs-6 col-sm-3 control-label" for="status">ขนาดพื้นที่</label>
                     <div class="col-md-5">
                         <div class="input-group">
-                            <input type="text" class="form-control input-md" placeholder="Content">
+                            <input type="text" name="area_size" class="form-control input-md" placeholder="area size">
                             <span class="input-group-btn">
-                    				<select name="txt_ingredient" title="Measure" class="btn btn-default select-btn">
+                    				<select name="area_size_unit" title="Measure" class="btn btn-default select-btn">
                     							<option value="barra">ตารางเมตร (sq.m.)</option>
                     							<option value="cucharada café">ตารางวา (sq.w.)</option>
                     							<option value="cucharada sopera">c/s cucharada sopera</option>
@@ -495,7 +495,7 @@
                     <label class="col-xs-6 col-sm-3 control-label" for="status">ราคา</label>
                     <div class="col-md-5">
                         <div class="input-group">
-                            <input type="text" class="form-control input-md" placeholder="Content">
+                            <input type="text" class="form-control input-md" name="price" placeholder="Content">
                             <span class="input-group-addon" id="basic-addon2">บาท</span>
                         </div>
                     </div>
@@ -505,8 +505,8 @@
                 <div class="form-group">
                     <label class="col-xs-6 col-sm-3 control-label" for="status">ชื่อโครงการ</label>
                     <div class="col-md-5">
-                        <input name="status" class="form-control input-md" id="status" type="text"
-                               placeholder="Content">
+                        <input name="project" class="form-control input-md" type="text"
+                               placeholder="project">
                     </div>
                 </div>
 
@@ -515,8 +515,8 @@
                 <div class="form-group">
                     <label class="col-xs-6 col-sm-3 control-label" for="status">ปี่ที่สร้างเสร็จ</label>
                     <div class="col-md-5">
-                        <input name="status" class="form-control input-md" id="status" type="text"
-                               placeholder="Content">
+                        <input name="complete" class="form-control input-md" type="text"
+                               placeholder="complete">
                     </div>
                 </div>
 
@@ -649,7 +649,7 @@
                     <label class="col-xs-6 col-sm-3 control-label" for="status">สิ่งอำนวยความสะดวก</label>
                     <div class="col-md-4">
 
-                        <select class="js-example-placeholder-multiple js-states form-control select2-hidden-accessible" id="id_label_multiple" multiple="multiple" tabindex="-1" aria-hidden="true">
+                        <select name="facility" class="js-example-placeholder-multiple js-states form-control select2-hidden-accessible" id="id_label_multiple" multiple="multiple" tabindex="-1" aria-hidden="true">
                             <optgroup label="Alaskan/Hawaiian Time Zone">
                                 <option value="AK">Alaska</option>
                                 <option value="HI">Hawaii</option>
@@ -773,7 +773,7 @@
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="status">Tag</label>
                         <div class="col-md-5">
-                            <input name="status" class="form-control input-md" id="status" type="text" placeholder="Topic">
+                            <input name="tag1" class="form-control input-md" type="text" placeholder="tag">
                         </div>
                     </div>
 
@@ -781,8 +781,8 @@
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
                         <div class="col-md-5">
-                            <input name="status" class="form-control input-md" id="status" type="text"
-                                   placeholder="Content">
+                            <input name="tag2" class="form-control input-md" id="status" type="text"
+                                   placeholder="tag">
                         </div>
                     </div>
 
@@ -790,8 +790,8 @@
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
                         <div class="col-md-5">
-                            <input name="status" class="form-control input-md" id="status" type="text"
-                                   placeholder="Content">
+                            <input name="tag3" class="form-control input-md" id="status" type="text"
+                                   placeholder="tag">
                         </div>
                     </div>
 
@@ -799,8 +799,8 @@
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
                         <div class="col-md-5">
-                            <input name="status" class="form-control input-md" id="status" type="text"
-                                   placeholder="Content">
+                            <input name="tag4" class="form-control input-md" id="status" type="text"
+                                   placeholder="tag">
                         </div>
                     </div>
 
@@ -817,9 +817,9 @@
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
                         <div class="col-md-5">
-                            <a href="#" class="btn btn-primary" role="button">ลงประกาศ</a>
+                            <a href="#" id="submit" class="btn btn-primary" role="button">ลงประกาศ</a>
                             &nbsp
-                            <a href="#" class="btn btn-default" role="button">ยกเลิกข้อมูล</a>
+                            <a href="#" id="clear" class="btn btn-default" role="button">ยกเลิกข้อมูล</a>
                         </div>
                     </div>
 
