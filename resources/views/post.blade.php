@@ -314,7 +314,19 @@
 
 
 
+        $('#submit').click(function(){
+            var $value = $('#id_label_multiple').val().toString(),
+                $str = $value.split(",");
 
+            $.each($str, function( index, value ) {
+              //alert( index + ": " + value );
+              var $fac_file = $('.fc-c').find('div[data-fc="'+ value +'"]').find('input[type=file]').val();
+            //   var $fac_file = $('.fc-d').data('fc', value).find('input[type=file]').val();
+               alert($fac_file);
+            });
+            //alert($('#id_label_multiple').val());
+
+        });
 
 
 
@@ -432,7 +444,7 @@
         <h1 class="entry-title">ลงประกาศ </h1>
 
         <div class="section">
-
+            <form name="post-form" class="post-form" method="POST" action="{{ route('user.login') }}">
 
             <div class="form-horizontal">
                 <h3 class="side-list-title">ข้อมูลหลัก</h3>
@@ -828,6 +840,7 @@
 
             </div>
 
+        </form>
         </div>
 
 
