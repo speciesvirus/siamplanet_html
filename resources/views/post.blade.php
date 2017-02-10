@@ -545,7 +545,7 @@
                             <!--</div>-->
                         </div>
 
-                        <form id="file-upload-form" class="uploader">
+                        <div id="file-upload-form" class="uploader">
                             <input id="file-upload" type="file" name="fileUpload" accept="image/*"/>
 
                             <label for="file-upload" id="file-drag">
@@ -563,7 +563,7 @@
                                 <!--    </progress>-->
                                 <!--</div>-->
                             </label>
-                        </form>
+                        </div>
                     </div>
                 </div>
 
