@@ -54,6 +54,11 @@ return [
             'visibility' => 'public',
         ],
 
+        'images' => [
+            'driver' => 'local',
+            'root' => base_path(),//storage_path('resources/images'),
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => 'your-key',
