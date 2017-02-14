@@ -19,7 +19,15 @@ Route::post('/login/on',
 Route::post('/join',
     ['as' => 'join', 'uses' => 'Auth\RegisterController@register']
 );
-
+// Route::get('/images/{q?}', function ($q = null) {
+//     $path = app_path();
+//     return Storage::disk('local')->get('Images/'.$q);
+//     return response()->file(resource_path('images/'.$q));
+// });
+Route::get('/images/{q?}', [
+    'uses' => 'ImageController@index',
+    'as' => 'images.q'
+]);
 
 //Route::get('/', function () {
 //    return view('welcome');
