@@ -17,10 +17,15 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->text('title');
             $table->text('subtitle');
-            $table->integer('project_type_id')->unsigned()->index();
-            $table->foreign('project_type_id')->references('id')->on('project_type')->onDelete('cascade');
-            $table->integer('sale_type_id')->unsigned()->index();
-            $table->foreign('sale_type_id')->references('id')->on('sale_type')->onDelete('cascade');
+            $table->integer('product_type_id')->unsigned()->index();
+            $table->foreign('product_type_id')->references('id')->on('product_type')->onDelete('cascade');
+            $table->integer('product_sale_id')->unsigned()->index();
+            $table->foreign('product_sale_id')->references('id')->on('product_sale')->onDelete('cascade');
+            $table->decimal('area', 5, 2)->unsigned();
+            $table->integer('amount')->unsigned();
+            $table->string('name');
+            $table->string('complete');
+            $table->text('centent');
             $table->timestamps();
         });
     }
