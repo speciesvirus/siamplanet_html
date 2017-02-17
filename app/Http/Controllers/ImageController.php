@@ -17,10 +17,8 @@ class ImageController extends Controller
     {
         $q = $data['q'];
         if($q){
-            // echo 'asa - >'.$q;
-            // $response = Response::make(File::get(resource_path('images/'.$q)));
-            // $response->header('Content-Type', 'image/jpeg');
-            // return $response;
+            //!* If you using XAMPP, you enable extension=php_fileinfo.dll in php.ini
+
             $path = resource_path('images/'.$q);
             $file = File::get($path);
             $type = File::mimeType($path);
@@ -28,7 +26,7 @@ class ImageController extends Controller
             $response = Response::make($file);
             $response->header("Content-Type", $type);
             return $response;
-            //return Storage::disk('images')->get('resources/images/'.$q)->header('Content-Type', 'image/png');
+//            return Storage::disk('images')->get('resources/images/'.$q)->header('Content-Type', $type);
         }
 
     }

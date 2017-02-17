@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductImagesTable extends Migration
+class CreateProductHasFacilitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateProductImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_images', function (Blueprint $table) {
+        Schema::create('product_has_facilities', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id')->unsigned()->index();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->integer('facility_id')->unsigned()->index();
+            $table->foreign('facility_id')->references('id')->on('product_facilities')->onDelete('no action');
             $table->string('image');
             $table->integer('sort')->unsigned();
             $table->char('active', 1);
@@ -31,6 +33,6 @@ class CreateProductImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_images');
+        Schema::dropIfExists('product_has_facilities');
     }
 }

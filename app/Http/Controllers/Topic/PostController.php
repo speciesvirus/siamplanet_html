@@ -3,13 +3,20 @@
 namespace App\Http\Controllers\Topic;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product\ProductUnit;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function index()
     {
-        return view('post');
+        $unit = ProductUnit::where('active', 'A')->orderBy('sort')->pluck('unit', 'id');
+
+        return view('post')->with([
+            'unit' => $unit,
+            'code' => '1'
+        ]);
+
     }
 
     public function post(Request $data)

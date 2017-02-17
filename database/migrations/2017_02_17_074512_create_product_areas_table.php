@@ -15,7 +15,8 @@ class CreateProductAreasTable extends Migration
     {
         Schema::create('product_areas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('facility');
+            $table->string('area');
+            $table->string('image');
             $table->integer('sort')->unsigned();
             $table->char('active', 1);
             $table->timestamps();

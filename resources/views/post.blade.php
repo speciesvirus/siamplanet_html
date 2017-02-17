@@ -491,11 +491,13 @@
                         <div class="input-group">
                             <input type="text" name="area_size" class="form-control input-md" placeholder="area size">
                             <span class="input-group-btn">
-                    				<select name="area_size_unit" title="Measure" class="btn btn-default select-btn">
-                    							<option value="barra">ตารางเมตร (sq.m.)</option>
-                    							<option value="cucharada café">ตารางวา (sq.w.)</option>
-                    							<option value="cucharada sopera">c/s cucharada sopera</option>
-                    				</select>
+
+                                {{ Form::select('area_size_unit', $unit, old('area_size_unit'), ['class'=> 'btn btn-default select-btn'])  }}
+                    				{{--<select name="area_size_unit" title="Measure" class="btn btn-default select-btn">--}}
+                    							{{--<option value="barra">ตารางเมตร (sq.m.)</option>--}}
+                    							{{--<option value="cucharada café">ตารางวา (sq.w.)</option>--}}
+                    							{{--<option value="cucharada sopera">c/s cucharada sopera</option>--}}
+                    				{{--</select>--}}
                     			</span>
                         </div>
                     </div>
@@ -754,6 +756,7 @@
                 <!-- Text input -->
                 <div class="form-group">
                     <label class="col-xs-6 col-sm-3 control-label" for="status">พื่นที่โครงการ</label>
+
                     <div class="col-md-5">
                         <select class="form-control" id="select-point">
                           <option value="1">1</option>
