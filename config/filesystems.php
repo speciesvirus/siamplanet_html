@@ -56,7 +56,7 @@ return [
 
         'images' => [
             'driver' => 'local',
-            'root' => base_path(),//storage_path('resources/images'),
+            'root' => resource_path('images/'),//storage_path('resources/images'),
         ],
 
         's3' => [

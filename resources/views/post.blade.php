@@ -22,7 +22,7 @@
     <script type="text/javascript">
         //$('#edit').froalaEditor();
         tinymce.init({
-            selector: '#edit',
+            selector: '#content',
             height: 500,
             menubar: false,
             plugins: [
@@ -91,7 +91,7 @@
 
             function parseFile(file) {
 
-                console.log(file.name);
+                //console.log(file.name);
                 // output(
                 //     '<strong>' + encodeURI(file.name) + '</strong>'
                 // );
@@ -111,7 +111,12 @@
                     // document.getElementById('file-image').classList.remove("hidden");
                     // document.getElementById('file-image').src = srcImage;
                     $('#group_items_panel').append('<div class="item_box"><a href="#delete" class="delete"></a><img src="' + srcImage + '"></div>');
+
+                    var f = $('#file-upload').val();
                     arrImage.push(srcImage);
+
+                    //$("#image-files").val(arrImage);
+                    console.log(f);
                 }
                 else {
                     // document.getElementById('file-image').classList.add("hidden");
@@ -207,7 +212,7 @@
                         arrImage.splice(index, 1);
                     }
                 });
-
+                $("#image-files").val(arrImage);
             }
         });
 
@@ -221,8 +226,8 @@
         $eventSelect.select2({
             placeholder: "Select a state"
         });
-//        $eventSelect.on("select2:open", function (e) { log("select2:open", e); });
-//        $eventSelect.on("select2:close", function (e) { log("select2:close", e); });
+        //        $eventSelect.on("select2:open", function (e) { log("select2:open", e); });
+        //        $eventSelect.on("select2:close", function (e) { log("select2:close", e); });
         $eventSelect.on("select2:select", function (e) {
             //log("select2:select", e);
             var model = tagFacility("select2:select", e);
@@ -275,28 +280,28 @@
 
         function tagFacility(name, evt) {
             var model = new $facility();
-              if (!evt) {
+            if (!evt) {
                 var args = "{}";
-              } else {
+            } else {
                 var args = JSON.stringify(evt.params, function (key, value) {
-                  if (value && value.nodeName) return "[DOM node]";
-                  if (value instanceof $.Event) return "[$.Event]";
-                  return value;
+                    if (value && value.nodeName) return "[DOM node]";
+                    if (value instanceof $.Event) return "[$.Event]";
+                    return value;
                 });
-              }
+            }
 
-              var json = JSON.parse(args)
-                model.name = json.data.text;
-                model.id = json.data.id;
+            var json = JSON.parse(args)
+            model.name = json.data.text;
+            model.id = json.data.id;
 
-                    // if (value && value.nodeName){
-                    //     console.log('dfsfs', value.data.text);
-                    //     model.name = value.text;
+            // if (value && value.nodeName){
+            //     console.log('dfsfs', value.data.text);
+            //     model.name = value.text;
 
-                    //     return model;
-                    // }
+            //     return model;
+            // }
 
-                    //return value;
+            //return value;
             return model;
         }
         var $facility = function () {
@@ -319,10 +324,10 @@
                 $str = $value.split(",");
 
             $.each($str, function( index, value ) {
-              //alert( index + ": " + value );
-              var $fac_file = $('.fc-c').find('div[data-fc="'+ value +'"]').find('input[type=file]').val();
-            //   var $fac_file = $('.fc-d').data('fc', value).find('input[type=file]').val();
-               alert($fac_file);
+                //alert( index + ": " + value );
+                var $fac_file = $('.fc-c').find('div[data-fc="'+ value +'"]').find('input[type=file]').val();
+                //   var $fac_file = $('.fc-d').data('fc', value).find('input[type=file]').val();
+                alert($fac_file);
             });
             //alert($('#id_label_multiple').val());
 
@@ -341,23 +346,23 @@
     <!--<script src="//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"></script>-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGFbK0CvMXKVzCJA_2Fj5B7pItfK0a1QA"></script>
     <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
-<script type="text/javascript">
+    <script type="text/javascript">
 
-   var markers = [];
-    var uniqueId = 2;
+        var markers = [];
+        var uniqueId = 2;
 
         var allMyMarkers = [];
         var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
         var $marker_url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
-            var image = {
-                url: $marker_url,
-                // This marker is 20 pixels wide by 32 pixels high.
-                scaledSize: new google.maps.Size(20, 20)
-            };
+        var image = {
+            url: $marker_url,
+            // This marker is 20 pixels wide by 32 pixels high.
+            scaledSize: new google.maps.Size(20, 20)
+        };
 
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 9,
-          center: {lat: 14.050942, lng: 100.753091 }
+            zoom: 9,
+            center: {lat: 14.050942, lng: 100.753091 }
         });
 
         map.addListener('click', function(e) {
@@ -384,14 +389,14 @@
 
 
         });
-      function placeMarkerAndPanTo(latLng, map, key) {
-        // var marker = new google.maps.Marker({
-        //   position: latLng,
-        //   map: map,
-        //   icon: image,
-        // });
+        function placeMarkerAndPanTo(latLng, map, key) {
+            // var marker = new google.maps.Marker({
+            //   position: latLng,
+            //   map: map,
+            //   icon: image,
+            // });
 
-        //Determine the location where the user has clicked.
+            //Determine the location where the user has clicked.
             var location = latLng;
 
             //Create a marker and placed it on the map.
@@ -418,23 +423,23 @@
             //Add marker to the array.
             markers.push(marker);
             //map.panTo(latLng);
-      }
-
-
-
-       function DeleteMarker(id) {
-        //Find and remove the marker from the Array
-        for (var i = 0; i < markers.length; i++) {
-            if (markers[i].id == id) {
-                //Remove the marker from Map
-                markers[i].setMap(null);
-
-                //Remove the marker from array.
-                markers.splice(i, 1);
-                return;
-            }
         }
-    };
+
+
+
+        function DeleteMarker(id) {
+            //Find and remove the marker from the Array
+            for (var i = 0; i < markers.length; i++) {
+                if (markers[i].id == id) {
+                    //Remove the marker from Map
+                    markers[i].setMap(null);
+
+                    //Remove the marker from array.
+                    markers.splice(i, 1);
+                    return;
+                }
+            }
+        };
 
     </script>
 @stop
@@ -444,100 +449,107 @@
         <h1 class="entry-title">ลงประกาศ </h1>
 
         <div class="section">
-            <form name="post-form" class="post-form" method="POST" action="{{ route('user.login') }}">
-
+            {!! Form::open(array('url'=>route('product.post'),'method'=>'POST', 'files'=>true, 'class'=>'post-form')) !!}
+            {{--<form name="post-form" class="post-form" method="post" action="{{ route('product.post') }}" enctype="multipart/form-data">--}}
+            {{ csrf_field() }}
             <div class="form-horizontal">
                 <h3 class="side-list-title">ข้อมูลหลัก</h3>
 
                 <!-- Text input -->
-                <div class="form-group">
-                    <label class="col-xs-6 col-sm-3 control-label" for="status">หัวข้อ</label>
+                <div class="form-group {{ $errors->has('topic') ? 'has-error' : '' }}">
+                    <label class="col-xs-6 col-sm-3 control-label required" for="topic">หัวข้อ</label>
                     <div class="col-md-5">
-                        <input name="topic" class="form-control input-md" type="text" placeholder="topic">
+                        <input name="topic" id="topic" class="form-control input-md" type="text" placeholder="topic" value="{{ old('topic') }}">
+                        <span class="help-inline">{{ $errors->has('topic') ? $errors->first('topic') : '' }}</span>
+                    </div>
+                </div>
+
+                <!-- Text input -->
+                <div class="form-group {{ $errors->has('topic_des') ? 'has-error' : '' }}">
+                    <label class="col-xs-6 col-sm-3 control-label required" for="topic_des">อธิบายหัวข้อ</label>
+                    <div class="col-md-5">
+                        <input name="topic_des" id="topic_des" class="form-control input-md" type="text"
+                               placeholder="topic description"  value="{{ old('topic_des') }}">
+                        <span class="help-inline">{{ $errors->has('topic_des') ? $errors->first('topic_des') : '' }}</span>
                     </div>
                 </div>
 
                 <!-- Text input -->
                 <div class="form-group">
-                    <label class="col-xs-6 col-sm-3 control-label" for="status">อธิบายหัวข้อ</label>
+                    <label class="col-xs-6 col-sm-3 control-label">ประเภท</label>
                     <div class="col-md-5">
-                        <input name="topic_des" class="form-control input-md" type="text"
-                               placeholder="topic description">
+                        {{ Form::select('type', $type, old('type'), ['class' => 'form-control input-md'])  }}
                     </div>
                 </div>
 
                 <!-- Text input -->
                 <div class="form-group">
-                    <label class="col-xs-6 col-sm-3 control-label" for="status">ประเภท</label>
+                    <label class="col-xs-6 col-sm-3 control-label">ความต้องการ</label>
                     <div class="col-md-5">
-                        <input name="type" class="form-control input-md" type="text"
-                               placeholder="type">
+                        {{ Form::select('sale', $sale, old('sale'), ['class' => 'form-control input-md'])  }}
                     </div>
                 </div>
 
                 <!-- Text input -->
-                <div class="form-group">
-                    <label class="col-xs-6 col-sm-3 control-label" for="status">ความต้องการ</label>
-                    <div class="col-md-5">
-                        <input name="sale" class="form-control input-md" type="text"
-                               placeholder="sale">
-                    </div>
-                </div>
-
-                <!-- Text input -->
-                <div class="form-group">
-                    <label class="col-xs-6 col-sm-3 control-label" for="status">ขนาดพื้นที่</label>
+                <div class="form-group {{ $errors->has('size') ? 'has-error' : '' }}">
+                    <label class="col-xs-6 col-sm-3 control-label required" for="size">ขนาดพื้นที่</label>
                     <div class="col-md-5">
                         <div class="input-group">
-                            <input type="text" name="area_size" class="form-control input-md" placeholder="area size">
+                            <input type="text" name="size" class="form-control input-md" placeholder="area size" value="{{ old('size') }}">
                             <span class="input-group-btn">
 
-                                {{ Form::select('area_size_unit', $unit, old('area_size_unit'), ['class'=> 'btn btn-default select-btn'])  }}
-                    				{{--<select name="area_size_unit" title="Measure" class="btn btn-default select-btn">--}}
-                    							{{--<option value="barra">ตารางเมตร (sq.m.)</option>--}}
-                    							{{--<option value="cucharada café">ตารางวา (sq.w.)</option>--}}
-                    							{{--<option value="cucharada sopera">c/s cucharada sopera</option>--}}
-                    				{{--</select>--}}
-                    			</span>
+                                    {{ Form::select('size_unit', $unit, old('size_unit'), ['class'=> 'btn btn-default select-btn'])  }}
+                                {{--<select name="area_size_unit" title="Measure" class="btn btn-default select-btn">--}}
+                                {{--<option value="barra">ตารางเมตร (sq.m.)</option>--}}
+                                {{--<option value="cucharada café">ตารางวา (sq.w.)</option>--}}
+                                {{--<option value="cucharada sopera">c/s cucharada sopera</option>--}}
+                                {{--</select>--}}
+                                    </span>
+
+
                         </div>
+                        <span class="help-inline">{{ $errors->has('size') ? $errors->first('size') : '' }}</span>
                     </div>
                 </div>
 
 
                 <!-- Text input -->
-                <div class="form-group">
-                    <label class="col-xs-6 col-sm-3 control-label" for="status">ราคา</label>
+                <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
+                    <label class="col-xs-6 col-sm-3 control-label required" for="price">ราคา</label>
                     <div class="col-md-5">
                         <div class="input-group">
-                            <input type="text" class="form-control input-md" name="price" placeholder="Content">
+                            <input type="text" name="price" class="form-control input-md" placeholder="price" value="{{ old('price') }}">
                             <span class="input-group-addon" id="basic-addon2">บาท</span>
                         </div>
+                        <span class="help-inline">{{ $errors->has('price') ? $errors->first('price') : '' }}</span>
                     </div>
                 </div>
 
                 <!-- Text input -->
                 <div class="form-group">
-                    <label class="col-xs-6 col-sm-3 control-label" for="status">ชื่อโครงการ</label>
+                    <label class="col-xs-6 col-sm-3 control-label" for="project">ชื่อโครงการ</label>
                     <div class="col-md-5">
                         <input name="project" class="form-control input-md" type="text"
-                               placeholder="project">
+                               placeholder="project" value="{{ old('project') }}">
+                        <span class="help-inline">{{ $errors->has('project') ? $errors->first('project') : '' }}</span>
                     </div>
                 </div>
 
 
                 <!-- Text input -->
                 <div class="form-group">
-                    <label class="col-xs-6 col-sm-3 control-label" for="status">ปี่ที่สร้างเสร็จ</label>
+                    <label class="col-xs-6 col-sm-3 control-label" for="year">ปี่ที่สร้างเสร็จ</label>
                     <div class="col-md-5">
-                        <input name="complete" class="form-control input-md" type="text"
-                               placeholder="complete">
+                        <input name="year" class="form-control input-md" type="text"
+                               placeholder="complete" value="{{ old('year') }}">
+                        <span class="help-inline">{{ $errors->has('year') ? $errors->first('year') : '' }}</span>
                     </div>
                 </div>
 
 
                 <div class="form-group">
                     <label class="col-xs-6 col-sm-3 control-label" for="documentid">ภาพ</label>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
 
                         <div id="group_items_panel" class="ui-sortable">
                             <!--<div class="item_box">-->
@@ -548,8 +560,9 @@
                         </div>
 
                         <div id="file-upload-form" class="uploader">
-                            <input id="file-upload" type="file" name="fileUpload" accept="image/*"/>
-
+                            {{--<input id="file-upload" type="file" accept="image/*" multiple/>--}}
+                            {{ Form::file('images[]', array('multiple'=>true, 'id' => 'file-upload')) }}
+                            {{--<input id="image-files" type="file[]" name="images[]" multiple/>--}}
                             <label for="file-upload" id="file-drag">
                                 {{--<img id="file-image" src="#" alt="Preview" class="hidden">--}}
                                 <div id="start">
@@ -571,88 +584,88 @@
 
             </div>
 
-            <form class="form-horizontal">
+            <div class="form-horizontal">
                 <fieldset>
 
                     <!-- Form Name -->
                     <h3 class="side-list-title">Review</h3>
 
                     <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="documentid">ช้อความ</label>
+                        <label class="col-xs-6 col-sm-3 control-label required" for="edit">ช้อความ</label>
                         <div class="col-md-4">
                             <!--<textarea id="edit" name="content"></textarea>-->
 
-                            <textarea id="edit" name="content">
-                              <p style="text-align: center;">
-                                <img title="TinyMCE Logo" src="//www.tinymce.com/images/glyph-tinymce@2x.png"
-                                     alt="TinyMCE Logo" width="110" height="97"/>
-                              </p>
+                            <textarea id="content" name="content">
+                                  <p style="text-align: center;">
+                                    <img title="TinyMCE Logo" src="//www.tinymce.com/images/glyph-tinymce@2x.png"
+                                         alt="TinyMCE Logo" width="110" height="97"/>
+                                  </p>
 
-                              <h1 style="text-align: center;">Welcome to the TinyMCE editor demo!</h1>
+                                  <h1 style="text-align: center;">Welcome to the TinyMCE editor demo!</h1>
 
-                              <p>
-                                Please try out the features provided in this basic example.<br>
-                                Note that any <strong>MoxieManager</strong> file and image management functionality in this example is part of our commercial offering – the demo is to show the integration.
-                              </p>
+                                  <p>
+                                    Please try out the features provided in this basic example.<br>
+                                    Note that any <strong>MoxieManager</strong> file and image management functionality in this example is part of our commercial offering – the demo is to show the integration.
+                                  </p>
 
-                              <h2>Got questions or need help?</h2>
+                                  <h2>Got questions or need help?</h2>
 
-                              <ul>
-                                <li>Our <a href="http://www.tinymce.com/docs/">documentation</a> is a great resource for learning how to configure TinyMCE.</li>
-                                <li>Have a specific question? Visit the <a href="http://community.tinymce.com/forum/"
-                                                                           target="_blank">Community Forum</a>.</li>
-                                <li>We also offer enterprise grade support as part of <a href="www.tinymce.com/pricing">TinyMCE Enterprise</a>.</li>
-                              </ul>
+                                  <ul>
+                                    <li>Our <a href="http://www.tinymce.com/docs/">documentation</a> is a great resource for learning how to configure TinyMCE.</li>
+                                    <li>Have a specific question? Visit the <a href="http://community.tinymce.com/forum/"
+                                                                               target="_blank">Community Forum</a>.</li>
+                                    <li>We also offer enterprise grade support as part of <a href="www.tinymce.com/pricing">TinyMCE Enterprise</a>.</li>
+                                  </ul>
 
-                              <h2>A simple table to play with</h2>
+                                  <h2>A simple table to play with</h2>
 
-                              <table style="text-align: center;">
-                                <thead>
-                                  <tr>
-                                    <th>Product</th>
-                                    <th>Cost</th>
-                                    <th>Really?</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>TinyMCE</td>
-                                    <td>Free</td>
-                                    <td>YES!</td>
-                                  </tr>
-                                  <tr>
-                                    <td>Plupload</td>
-                                    <td>Free</td>
-                                    <td>YES!</td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                                  <table style="text-align: center;">
+                                    <thead>
+                                      <tr>
+                                        <th>Product</th>
+                                        <th>Cost</th>
+                                        <th>Really?</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td>TinyMCE</td>
+                                        <td>Free</td>
+                                        <td>YES!</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Plupload</td>
+                                        <td>Free</td>
+                                        <td>YES!</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
 
-                              <h2>Found a bug?</h2>
+                                  <h2>Found a bug?</h2>
 
-                              <p>
-                                If you think you have found a bug please create an issue on the <a
-                                          href="https://github.com/tinymce/tinymce/issues">GitHub repo</a> to report it to the developers.
-                              </p>
+                                  <p>
+                                    If you think you have found a bug please create an issue on the <a
+                                              href="https://github.com/tinymce/tinymce/issues">GitHub repo</a> to report it to the developers.
+                                  </p>
 
-                              <h2>Finally ...</h2>
+                                  <h2>Finally ...</h2>
 
-                              <p>
-                                Don't forget to check out our other product <a href="http://www.plupload.com"
-                                                                               target="_blank">Plupload</a>, your ultimate upload solution featuring HTML5 upload support.
-                              </p>
-                              <p>
-                                Thanks for supporting TinyMCE! We hope it helps you and your users create great content.<br>All the best from the TinyMCE team.
-                              </p>
-                            </textarea>
-
+                                  <p>
+                                    Don't forget to check out our other product <a href="http://www.plupload.com"
+                                                                                   target="_blank">Plupload</a>, your ultimate upload solution featuring HTML5 upload support.
+                                  </p>
+                                  <p>
+                                    Thanks for supporting TinyMCE! We hope it helps you and your users create great content.<br>All the best from the TinyMCE team.
+                                  </p>
+                                </textarea>
+                            <span class="help-inline">{{ $errors->has('content') ? $errors->first('content') : '' }}</span>
 
                         </div>
                     </div>
 
 
                 </fieldset>
-            </form>
+            </div>
 
             <div class="form-horizontal">
                 <h3 class="side-list-title">ข้อมูลเพิ่มเติม</h3>
@@ -661,70 +674,78 @@
                 <!-- Text input -->
                 <div class="form-group">
                     <label class="col-xs-6 col-sm-3 control-label" for="status">สิ่งอำนวยความสะดวก</label>
-                    <div class="col-md-4">
+                    <div class="col-md-5">
 
-                        <select name="facility" class="js-example-placeholder-multiple js-states form-control select2-hidden-accessible" id="id_label_multiple" multiple="multiple" tabindex="-1" aria-hidden="true">
-                            <optgroup label="Alaskan/Hawaiian Time Zone">
-                                <option value="AK">Alaska</option>
-                                <option value="HI">Hawaii</option>
-                            </optgroup>
-                            <optgroup label="Pacific Time Zone">
-                                <option value="CA">California</option>
-                                <option value="NV">Nevada</option>
-                                <option value="OR">Oregon</option>
-                                <option value="WA">Washington</option>
-                            </optgroup>
-                            <optgroup label="Mountain Time Zone">
-                                <option value="AZ">Arizona</option>
-                                <option value="CO">Colorado</option>
-                                <option value="ID">Idaho</option>
-                                <option value="MT">Montana</option>
-                                <option value="NE">Nebraska</option>
-                                <option value="NM">New Mexico</option>
-                                <option value="ND">North Dakota</option>
-                                <option value="UT">Utah</option>
-                                <option value="WY">Wyoming</option>
-                            </optgroup>
-                            <optgroup label="Central Time Zone">
-                                <option value="AL">Alabama</option>
-                                <option value="AR">Arkansas</option>
-                                <option value="IL">Illinois</option>
-                                <option value="IA">Iowa</option>
-                                <option value="KS">Kansas</option>
-                                <option value="KY">Kentucky</option>
-                                <option value="LA">Louisiana</option>
-                                <option value="MN">Minnesota</option>
-                                <option value="MS">Mississippi</option>
-                                <option value="MO">Missouri</option>
-                                <option value="OK">Oklahoma</option>
-                                <option value="SD">South Dakota</option>
-                                <option value="TX">Texas</option>
-                                <option value="TN">Tennessee</option>
-                                <option value="WI">Wisconsin</option>
-                            </optgroup>
-                            <optgroup label="Eastern Time Zone">
-                                <option value="CT">Connecticut</option>
-                                <option value="DE">Delaware</option>
-                                <option value="FL">Florida</option>
-                                <option value="GA">Georgia</option>
-                                <option value="IN">Indiana</option>
-                                <option value="ME">Maine</option>
-                                <option value="MD">Maryland</option>
-                                <option value="MA">Massachusetts</option>
-                                <option value="MI">Michigan</option>
-                                <option value="NH">New Hampshire</option>
-                                <option value="NJ">New Jersey</option>
-                                <option value="NY">New York</option>
-                                <option value="NC">North Carolina</option>
-                                <option value="OH">Ohio</option>
-                                <option value="PA">Pennsylvania</option>
-                                <option value="RI">Rhode Island</option>
-                                <option value="SC">South Carolina</option>
-                                <option value="VT">Vermont</option>
-                                <option value="VA">Virginia</option>
-                                <option value="WV">West Virginia</option>
-                            </optgroup>
-                        </select>
+                        {{ Form::select('facility', $facility, old('facility'),[
+                                'id' => 'id_label_multiple',
+                                'class' => 'js-example-placeholder-multiple js-states form-control select2-hidden-accessible',
+                                'multiple' => 'multiple',
+                                'tabindex' => '-1',
+                                'aria-hidden' => 'true'
+                            ])
+                         }}
+                        {{--<select name="facility" class="js-example-placeholder-multiple js-states form-control select2-hidden-accessible" id="id_label_multiple" multiple="multiple" tabindex="-1" aria-hidden="true">--}}
+                        {{--<optgroup label="Alaskan/Hawaiian Time Zone">--}}
+                        {{--<option value="AK">Alaska</option>--}}
+                        {{--<option value="HI">Hawaii</option>--}}
+                        {{--</optgroup>--}}
+                        {{--<optgroup label="Pacific Time Zone">--}}
+                        {{--<option value="CA">California</option>--}}
+                        {{--<option value="NV">Nevada</option>--}}
+                        {{--<option value="OR">Oregon</option>--}}
+                        {{--<option value="WA">Washington</option>--}}
+                        {{--</optgroup>--}}
+                        {{--<optgroup label="Mountain Time Zone">--}}
+                        {{--<option value="AZ">Arizona</option>--}}
+                        {{--<option value="CO">Colorado</option>--}}
+                        {{--<option value="ID">Idaho</option>--}}
+                        {{--<option value="MT">Montana</option>--}}
+                        {{--<option value="NE">Nebraska</option>--}}
+                        {{--<option value="NM">New Mexico</option>--}}
+                        {{--<option value="ND">North Dakota</option>--}}
+                        {{--<option value="UT">Utah</option>--}}
+                        {{--<option value="WY">Wyoming</option>--}}
+                        {{--</optgroup>--}}
+                        {{--<optgroup label="Central Time Zone">--}}
+                        {{--<option value="AL">Alabama</option>--}}
+                        {{--<option value="AR">Arkansas</option>--}}
+                        {{--<option value="IL">Illinois</option>--}}
+                        {{--<option value="IA">Iowa</option>--}}
+                        {{--<option value="KS">Kansas</option>--}}
+                        {{--<option value="KY">Kentucky</option>--}}
+                        {{--<option value="LA">Louisiana</option>--}}
+                        {{--<option value="MN">Minnesota</option>--}}
+                        {{--<option value="MS">Mississippi</option>--}}
+                        {{--<option value="MO">Missouri</option>--}}
+                        {{--<option value="OK">Oklahoma</option>--}}
+                        {{--<option value="SD">South Dakota</option>--}}
+                        {{--<option value="TX">Texas</option>--}}
+                        {{--<option value="TN">Tennessee</option>--}}
+                        {{--<option value="WI">Wisconsin</option>--}}
+                        {{--</optgroup>--}}
+                        {{--<optgroup label="Eastern Time Zone">--}}
+                        {{--<option value="CT">Connecticut</option>--}}
+                        {{--<option value="DE">Delaware</option>--}}
+                        {{--<option value="FL">Florida</option>--}}
+                        {{--<option value="GA">Georgia</option>--}}
+                        {{--<option value="IN">Indiana</option>--}}
+                        {{--<option value="ME">Maine</option>--}}
+                        {{--<option value="MD">Maryland</option>--}}
+                        {{--<option value="MA">Massachusetts</option>--}}
+                        {{--<option value="MI">Michigan</option>--}}
+                        {{--<option value="NH">New Hampshire</option>--}}
+                        {{--<option value="NJ">New Jersey</option>--}}
+                        {{--<option value="NY">New York</option>--}}
+                        {{--<option value="NC">North Carolina</option>--}}
+                        {{--<option value="OH">Ohio</option>--}}
+                        {{--<option value="PA">Pennsylvania</option>--}}
+                        {{--<option value="RI">Rhode Island</option>--}}
+                        {{--<option value="SC">South Carolina</option>--}}
+                        {{--<option value="VT">Vermont</option>--}}
+                        {{--<option value="VA">Virginia</option>--}}
+                        {{--<option value="WV">West Virginia</option>--}}
+                        {{--</optgroup>--}}
+                        {{--</select>--}}
 
                     </div>
                 </div>
@@ -758,13 +779,18 @@
                     <label class="col-xs-6 col-sm-3 control-label" for="status">พื่นที่โครงการ</label>
 
                     <div class="col-md-5">
-                        <select class="form-control" id="select-point">
-                          <option value="1">1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
+                        {{--<select class="form-control" id="select-point">--}}
+                        {{--<option value="1">1</option>--}}
+                        {{--<option>2</option>--}}
+                        {{--<option>3</option>--}}
+                        {{--<option>4</option>--}}
+                        {{--<option>5</option>--}}
+                        {{--</select>--}}
+                        {{ Form::select('area', $area, old('area'),[
+                                'id' => 'select-point',
+                                'class' => 'form-control input-md'
+                            ])
+                         }}
                     </div>
                 </div>
 
@@ -832,7 +858,8 @@
                     <div class="form-group">
                         <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
                         <div class="col-md-5">
-                            <a href="#" id="submit" class="btn btn-primary" role="button">ลงประกาศ</a>
+                            <input type="submit" class="btn btn-primary" value="ลงประกาศ">
+                            {{--<a href="#" id="submit" class="btn btn-primary" role="button">ลงประกาศ</a>--}}
                             &nbsp
                             <a href="#" id="clear" class="btn btn-default" role="button">ยกเลิกข้อมูล</a>
                         </div>
@@ -843,7 +870,8 @@
 
             </div>
 
-        </form>
+            {{--</form>--}}
+            {!! Form::close() !!}
         </div>
 
 

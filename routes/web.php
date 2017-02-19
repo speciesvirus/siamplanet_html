@@ -51,13 +51,15 @@ Route::get('/nv', function() {
 //    return view('post');
 //});
 Route::get('/post',
-    ['as' => 'post', 'uses' => 'Topic\PostController@index']
+    ['as' => 'product.view', 'uses' => 'Topic\PostController@index']
 );
-
-$topic = 'topic.';
-Route::get('/post',
-    ['as' => $topic.'post', 'uses' => 'Topic\PostController@index']
+Route::post('/post',
+    ['as' => 'product.post', 'uses' => 'Topic\PostController@post']
 );
+//$topic = 'topic.';
+//Route::get('/post',
+//    ['as' => $topic.'post', 'uses' => 'Topic\PostController@index']
+//);
 
 
 //Route::get('/home', 'HomeController@index');

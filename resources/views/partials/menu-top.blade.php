@@ -1,6 +1,6 @@
 
 <ul class="nav-menu unstyled">
-    <li><a href="{{ route('topic.post') }}">ลงประกาศ <span class="yellow">ฟรี!</span></a></li>
+    <li><a href="{{ route('product.view') }}">ลงประกาศ <span class="yellow">ฟรี!</span></a></li>
     <li><a href="#event-highlights">ที่ดิน</a></li>
     <li><a href="#travel">บ้าน</a></li>
     <li><a href="#schedule">คอนโด</a></li>
