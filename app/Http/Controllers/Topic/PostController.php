@@ -30,18 +30,19 @@ class PostController extends Controller
 
     public function post(Request $data)
     {
-        //$this->validator($data);
+        $this->validator($data);
 
         if(auth()){
             echo 'a';
         }
 
         $destinationPath = resource_path('images/');
-        $i = 1;
+
         // getting all of the post data
         $files = Input::file('images');
         // Making counting of uploaded images
         $file_count = count($files);
+        echo 'a => '.$file_count;
         // start count how many uploaded
         $uploadcount = 0;
         foreach($files as $file) {
@@ -76,7 +77,7 @@ class PostController extends Controller
             'size'               => 'required|numeric',
             'size_unit'          => 'required',
             'price'              => 'required|numeric',
-            'images'             => 'required',
+            'images'             => 'required|image',
             'content'            => 'required|min:6',
         ];
         $messages = [

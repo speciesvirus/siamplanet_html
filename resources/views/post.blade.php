@@ -112,11 +112,29 @@
                     // document.getElementById('file-image').src = srcImage;
                     $('#group_items_panel').append('<div class="item_box"><a href="#delete" class="delete"></a><img src="' + srcImage + '"></div>');
 
-                    var f = $('#file-upload').val();
-                    arrImage.push(srcImage);
+                    //var f = $('#file-upload').val();
+                    arrImage.push(file);
 
+                    var $this = $('#file-upload'), $clone = $this.clone().attr('id', 'file-img').attr('name', 'images');
+                    $('#post-form').append($clone);
+                    //$this.after($clone).appendTo("#post-form");
+                    //console.log("bb : ", document.getElementById('field2'));
+                    // console.log("get : ", arrImage);
+                    // var files = document.getElementById("file-upload").files;
+                    // for (var i = 0; i < files.length; i++)
+                    // {
+                    //     document.getElementById('image-files').files[i] = file;
+                    //     console.log("set : ", files[i]);
+                    //     console.log("get : ", document.getElementById('image-files').files[i]);
+                    // }
+                    // var r = document.getElementById("image-files").files;
+                    // for (var i = 0; i < r.length; i++)
+                    // {
+                    //     console.log("get : ", r[i]);
+                    // }
+                    //var file = document.getElementById('myFile').files[0];
                     //$("#image-files").val(arrImage);
-                    console.log(f);
+                    //console.log(f);
                 }
                 else {
                     // document.getElementById('file-image').classList.add("hidden");
@@ -124,7 +142,7 @@
                     // document.getElementById('start').classList.remove("hidden");
                     // document.getElementById('response').classList.add("hidden");
                     alert('ไฟล์ภาพไม่ถูกต้อง');
-                    document.getElementById("file-upload-form").reset();
+                    //document.getElementById("file-upload-form").reset();
                 }
             }
 
@@ -449,7 +467,7 @@
         <h1 class="entry-title">ลงประกาศ </h1>
 
         <div class="section">
-            {!! Form::open(array('url'=>route('product.post'),'method'=>'POST', 'files'=>true, 'class'=>'post-form')) !!}
+            {!! Form::open(array('url'=>route('product.post'),'method'=>'POST', 'files'=>true, 'class'=>'post-form', 'id'=>'post-form')) !!}
             {{--<form name="post-form" class="post-form" method="post" action="{{ route('product.post') }}" enctype="multipart/form-data">--}}
             {{ csrf_field() }}
             <div class="form-horizontal">
@@ -547,8 +565,8 @@
                 </div>
 
 
-                <div class="form-group">
-                    <label class="col-xs-6 col-sm-3 control-label" for="documentid">ภาพ</label>
+                <div class="form-group {{ $errors->has('images') ? 'has-error' : '' }}">
+                    <label class="col-xs-6 col-sm-3 control-label required" >ภาพ</label>
                     <div class="col-md-5">
 
                         <div id="group_items_panel" class="ui-sortable">
@@ -561,8 +579,8 @@
 
                         <div id="file-upload-form" class="uploader">
                             {{--<input id="file-upload" type="file" accept="image/*" multiple/>--}}
-                            {{ Form::file('images[]', array('multiple'=>true, 'id' => 'file-upload')) }}
-                            {{--<input id="image-files" type="file[]" name="images[]" multiple/>--}}
+                            {{ Form::file('files[]', array('multiple'=>true, 'id' => 'file-upload')) }}
+                            {{--<input id="image-files" type="file" name="images[]" multiple/>--}}
                             <label for="file-upload" id="file-drag">
                                 {{--<img id="file-image" src="#" alt="Preview" class="hidden">--}}
                                 <div id="start">
@@ -579,6 +597,7 @@
                                 <!--</div>-->
                             </label>
                         </div>
+                        <span class="help-inline">{{ $errors->has('images') ? $errors->first('images') : '' }}</span>
                     </div>
                 </div>
 
