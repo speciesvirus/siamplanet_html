@@ -9,9 +9,7 @@ use App\Models\Product\ProductSale;
 use App\Models\Product\ProductType;
 use App\Models\Product\ProductUnit;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -28,26 +26,22 @@ class PostController extends Controller
 
     }
 
-    public function post(Request $data)
+    public function post(Request $request)
     {
-        $this->validator($data);
-
-        if(auth()){
-            echo 'a';
-        }
+        //$this->validator($data);
 
         $destinationPath = resource_path('images/');
 
-        // getting all of the post data
-        $files = Input::file('images');
-        // Making counting of uploaded images
-        $file_count = count($files);
-        echo 'a => '.$file_count;
-        // start count how many uploaded
-        $uploadcount = 0;
-        foreach($files as $file) {
-            $filename = $file->getClientOriginalName();
-            $upload_success = $file->move($destinationPath, $filename);
+        $input = $request->except('_token');
+        echo 'count => '.count($input);
+        foreach ($input as $key => $value) {
+            if (strpos($key, 'pimg') !== false) {
+                $file = $request->file($key);
+                $filename = $file->getClientOriginalName();
+                $upload_success = $file->move($destinationPath, $filename);
+                echo '</br>'.$key;
+            }
+
         }
 
 //        foreach($data['images'] as $raw){
@@ -60,10 +54,6 @@ class PostController extends Controller
 //                $i++;
 //            }
 //        }
-
-
-
-
         //return redirect()->back()->withInput()->with(['alert-message' => 'username or password not found!', 'code' => '1']);
     }
 

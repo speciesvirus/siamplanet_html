@@ -37,7 +37,8 @@
 
         // File Upload
         //
-        var arrImage = [];
+        var arrImage = [],
+            $img = 1;
         function ekUpload() {
             function Init() {
 
@@ -115,8 +116,11 @@
                     //var f = $('#file-upload').val();
                     arrImage.push(file);
 
-                    var $this = $('#file-upload'), $clone = $this.clone().attr('id', 'file-img').attr('name', 'images');
+                    var $this = $('#file-upload'),
+                        $clone = $this.clone().attr('name', 'pimg' + $img).attr('id', null);
                     $('#post-form').append($clone);
+
+                    $img++;
                     //$this.after($clone).appendTo("#post-form");
                     //console.log("bb : ", document.getElementById('field2'));
                     // console.log("get : ", arrImage);
@@ -579,7 +583,7 @@
 
                         <div id="file-upload-form" class="uploader">
                             {{--<input id="file-upload" type="file" accept="image/*" multiple/>--}}
-                            {{ Form::file('files[]', array('multiple'=>true, 'id' => 'file-upload')) }}
+                            {{ Form::file('files[]', array('multiple'=>false, 'id' => 'file-upload')) }}
                             {{--<input id="image-files" type="file" name="images[]" multiple/>--}}
                             <label for="file-upload" id="file-drag">
                                 {{--<img id="file-image" src="#" alt="Preview" class="hidden">--}}

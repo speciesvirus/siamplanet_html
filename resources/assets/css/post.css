@@ -698,7 +698,7 @@ ul.social li.social-linkedin a:hover {
     background: linear-gradient(to right, #393f90 0%, #454cad 50%);
     border-radius: 4px;
 }
-.uploader input[type="file"], input[name="images[]"]  {
+.uploader input[type="file"] {
     display: none;
 }
 .uploader div {
