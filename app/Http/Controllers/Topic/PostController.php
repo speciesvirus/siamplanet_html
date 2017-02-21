@@ -28,21 +28,21 @@ class PostController extends Controller
 
     public function post(Request $request)
     {
-        //$this->validator($data);
+        $this->validator($request);
 
         $destinationPath = resource_path('images/');
-
         $input = $request->except('_token');
-        echo 'count => '.count($input);
+        $img = true;
         foreach ($input as $key => $value) {
             if (strpos($key, 'pimg') !== false) {
                 $file = $request->file($key);
                 $filename = $file->getClientOriginalName();
                 $upload_success = $file->move($destinationPath, $filename);
-                echo '</br>'.$key;
+                $img = false;
             }
-
         }
+
+        if($img) return redirect()->back()->withInput()->withErrors(['images' => 'images is required']);
 
 //        foreach($data['images'] as $raw){
 //            $files = explode(',', $raw);
@@ -67,7 +67,7 @@ class PostController extends Controller
             'size'               => 'required|numeric',
             'size_unit'          => 'required',
             'price'              => 'required|numeric',
-            'images'             => 'required|image',
+//            'pimg1'              => 'required|image|nullable',
             'content'            => 'required|min:6',
         ];
         $messages = [
