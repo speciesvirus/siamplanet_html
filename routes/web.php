@@ -56,6 +56,10 @@ Route::get('/post',
 Route::post('/post',
     ['as' => 'product.post', 'uses' => 'Topic\PostController@post']
 );
+
+Route::post('/post/validator',
+    ['as' => 'product.validator', 'uses' => 'Topic\PostController@formValidator']
+);
 //$topic = 'topic.';
 //Route::get('/post',
 //    ['as' => $topic.'post', 'uses' => 'Topic\PostController@index']

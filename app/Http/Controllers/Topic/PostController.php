@@ -89,4 +89,38 @@ class PostController extends Controller
 
         return $this->validate($data, $rules, $messages);
     }
+
+    protected function formValidator(Request $request)
+    {
+        $rules = [
+            'topic'              => 'required|min:6',
+            'topic_des'          => 'required|min:6|different:topic',
+            'type'               => 'required',
+            'sale'               => 'required',
+            'size'               => 'required|numeric',
+            'size_unit'          => 'required',
+            'price'              => 'required|numeric',
+//            'pimg1'              => 'required|image|nullable',
+            'content'            => 'required|min:6',
+        ];
+        $messages = [
+            'topic.required'      => 'topic is required',
+            'topic.min'           => 'topic needs to have more characters',
+            'topic_des.required'  => 'topic description maximum length is 20 characters',
+            'topic_des.min'       => 'topic description needs to have more characters',
+            'topic_des.different' => 'topic description needs to have different with topic',
+            'type.required'       => 'type is required',
+            'sale.required'       => 'sale is required',
+            'size.required'       => 'size is required',
+            'size.numeric'        => 'size need to have numeric',
+            'size_unit.required'  => 'size unit is required',
+            'price.required'      => 'price is required',
+            'price.numeric'       => 'sale need to have numeric',
+            'content.required'    => 'content is required',
+            'content.min'         => 'content needs to have more characters',
+        ];
+
+        //return response()->json($this->validate($request, $rules, $messages), 200);
+        return response()->json(null , 200);
+    }
 }

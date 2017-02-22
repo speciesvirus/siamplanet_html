@@ -19,6 +19,7 @@
 
     <script src="resources/assets/select2/dist/js/select2.full.js"></script>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGFbK0CvMXKVzCJA_2Fj5B7pItfK0a1QA"></script>
     <script type="text/javascript">
         //$('#edit').froalaEditor();
         tinymce.init({
@@ -38,7 +39,9 @@
         // File Upload
         //
         var arrImage = [],
-            $img = 1;
+            arrFacility = [],
+            arrArea = [];
+
         function ekUpload() {
             function Init() {
 
@@ -112,16 +115,12 @@
                     // Thumbnail Preview
                     // document.getElementById('file-image').classList.remove("hidden");
                     // document.getElementById('file-image').src = srcImage;
-                    $('#group_items_panel').append('<div class="item_box"><a href="#delete" class="delete"></a><img src="' + srcImage + '"></div>');
+                    //$('#group_items_panel').append('<div class="item_box"><a href="#delete" class="delete"></a><img src="' + srcImage + '"></div>');
+                    $('.item_box').append('<li><div class="image_box"><a href="#delete" class="delete" data-name="'+ file.name +'"></a><img class="image photo" src="' + srcImage + '"></div></li>');
 
                     //var f = $('#file-upload').val();
                     arrImage.push(file);
 
-                    var $this = $('#file-upload'),
-                        $clone = $this.clone().attr('name', 'pimg' + $img).attr('id', null);
-                    $('#post-form').append($clone);
-
-                    $img++;
                     //$this.after($clone).appendTo("#post-form");
                     //console.log("bb : ", document.getElementById('field2'));
                     // console.log("get : ", arrImage);
@@ -228,14 +227,13 @@
                 r = confirm("Press a button!");
 
             if (r == true) {
-                var f = $this.next().attr('src');
-                $this.parent().remove();
+                var f = $this.data('name');
+                $this.parents('li').remove();
                 $.each(arrImage, function (index, value) {
-                    if (f === value) {
+                    if (f == value.name) {
                         arrImage.splice(index, 1);
                     }
                 });
-                $("#image-files").val(arrImage);
             }
         });
 
@@ -313,7 +311,7 @@
                 });
             }
 
-            var json = JSON.parse(args)
+            var json = JSON.parse(args);
             model.name = json.data.text;
             model.id = json.data.id;
 
@@ -360,40 +358,95 @@
 
         var form = $("#post-form");
 
-        // $.ajax({
-        //     url     : form.attr("action"),
-        //     type    : form.attr("method"),
-        //     data    : form.serialize(),
-        //     dataType: "json",
-        //     success : function ( json )
-        //     {
-        //         console.log(json);
-        //     },
-        //     error   : function ( jqXhr, json, errorThrown )
-        //     {
-        //         var errors = jqXhr.responseJSON;
-        //         var errorsHtml= '';
-        //         $.each( errors, function( key, value ) {
-        //             errorsHtml += '<li>' + value[0] + '</li>';
-        //         });
-        //         console.log(errorsHtml);
-        //     }
-        // });
+        form.submit(function (e) {
+            e.preventDefault();
+            if(validator()){
+//                var formm = document.getElementById('post-form');
+//                var formData = new FormData(formm);
+//                formData.append('arrImage', arrImage);
+//                formData.append('arrFacility', arrFacility);
+//                formData.append('arrArea', arrArea);
+                $.ajax({
+                    url     : '{{ route('product.post') }}',
+                    type    : form.attr("method"),
+                    data    : formData,
+                    dataType: "json",
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    success : function ( json )
+                    {
+                        console.log(json);
+
+                    },
+                    error   : function ( jqXhr, json, errorThrown )
+                    {
+
+                        console.log(jqXhr);
+                    }
+                });
+            }
+
+        });
 
 
 
-    </script>
+        function validator() {
+            var $is = true;
+            $('.form-group').removeClass('has-error').find('span.help-inline').html('');
+            $('#file-upload-form').parents('.form-group').removeClass('has-error').find('span.help-inline').html('');
+            $.ajax({
+                url     : '{{ route('product.validator') }}',
+                type    : form.attr("method"),
+                data    : form.serialize(),
+                dataType: "json",
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                success : function ( json )
+                {
+                    if(arrImage.length < 1){
+                        $('#file-upload-form').parents('.form-group').addClass('has-error').find('span.help-inline').html('image is required');
+                        return false;
+                    }
+
+                    var $value = $('#id_label_multiple').val();
+                    if($value != null){
+                        $value = $('#id_label_multiple').val().toString();
+                        var $str = $value.split(",");
+
+                        $.each($str, function( index, value ) {
+                            var $fac_file = $('.fc-c').find('div[data-fc="'+ value +'"]').find('input[type=file]')[0].files[0];
+                            arrFacility.push({id:index, file:$fac_file});
+                        });
+                    }
+
+                    $is = true;
+                    return true;
+
+                },
+                error   : function ( jqXhr, json, errorThrown )
+                {
+                    var errors = jqXhr.responseJSON;
+                    var errorsHtml= '';
+                    $.each( errors, function( key, value ) {
+                        errorsHtml += '<li>' + value[0] + '</li>';
+                        $('input[name="'+key+'"]').parents('.form-group').addClass('has-error').find('span.help-inline').html(value);
+                    });
+
+                    if(arrImage.length < 1){
+                        $('#file-upload-form').parents('.form-group').addClass('has-error').find('span.help-inline').html('image is required');
+                        return;
+                    }
+                    $is = true;
+                    console.log(errors);
+                    return false;
+                }
+            });
+            return $is;
+        }
 
 
-
-
-
-
-    <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
-    <!--<script src="//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"></script>-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGFbK0CvMXKVzCJA_2Fj5B7pItfK0a1QA"></script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
-    <script type="text/javascript">
 
         var markers = [];
         var uniqueId = 2;
@@ -423,17 +476,24 @@
 
                         //Remove the marker from array.
                         markers.splice(i, 1);
+
+                        for (var j = 0; j < arrArea.length; j++) {
+                            if (arrArea[j].id == 1) {
+                                arrArea.splice(j, 1);
+                            }
+                        }
+
                     }
                 }
                 image.url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
                 placeMarkerAndPanTo(e.latLng, map, 1);
+                arrArea.push({id : $point, key : 1, lat : e.latLng.lat(),lng : e.latLng.lng()});
             }else{
                 image.url = "http://www.freeiconspng.com/uploads/red-location-icon-map-png-4.png"
                 placeMarkerAndPanTo(e.latLng, map, uniqueId);
+                arrArea.push({id : $point, key : uniqueId, lat : e.latLng.lat(),lng : e.latLng.lng()});
                 uniqueId++;
             }
-
-
 
         });
         function placeMarkerAndPanTo(latLng, map, key) {
@@ -483,12 +543,30 @@
 
                     //Remove the marker from array.
                     markers.splice(i, 1);
-                    return;
+                    //return;
                 }
             }
-        };
+
+            for (var i = 0; i < arrArea.length; i++) {
+                if (arrArea[i].key == id) {
+                    arrArea.splice(i, 1);
+                }
+            }
+        }
+
 
     </script>
+
+
+
+
+
+
+    <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
+    <!--<script src="//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"></script>-->
+
+    <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
+
 @stop
 
 @section('first-content')
@@ -509,6 +587,7 @@
                         <input name="topic" id="topic" class="form-control input-md" type="text" placeholder="topic" value="{{ old('topic') }}">
                         <span class="help-inline">{{ $errors->has('topic') ? $errors->first('topic') : '' }}</span>
                     </div>
+
                 </div>
 
                 <!-- Text input -->
@@ -519,6 +598,7 @@
                                placeholder="topic description"  value="{{ old('topic_des') }}">
                         <span class="help-inline">{{ $errors->has('topic_des') ? $errors->first('topic_des') : '' }}</span>
                     </div>
+
                 </div>
 
                 <!-- Text input -->
@@ -578,8 +658,8 @@
                     <div class="col-md-5">
                         <input name="project" class="form-control input-md" type="text"
                                placeholder="project" value="{{ old('project') }}">
-                        <span class="help-inline">{{ $errors->has('project') ? $errors->first('project') : '' }}</span>
                     </div>
+                    <span class="help-inline">{{ $errors->has('project') ? $errors->first('project') : '' }}</span>
                 </div>
 
 
@@ -589,8 +669,8 @@
                     <div class="col-md-5">
                         <input name="year" class="form-control input-md" type="text"
                                placeholder="complete" value="{{ old('year') }}">
-                        <span class="help-inline">{{ $errors->has('year') ? $errors->first('year') : '' }}</span>
                     </div>
+                    <span class="help-inline">{{ $errors->has('year') ? $errors->first('year') : '' }}</span>
                 </div>
 
 
@@ -598,14 +678,7 @@
                     <label class="col-xs-6 col-sm-3 control-label required" >ภาพ</label>
                     <div class="col-md-5">
 
-                        <div id="group_items_panel" class="ui-sortable">
-                            <!--<div class="item_box">-->
-                            <!--    <a href="#delete" class="delete"></a>-->
-                            <!--    <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/woman-beach2.jpg">-->
-
-                            <!--</div>-->
-                            <ul class="item_box"></ul>
-                        </div>
+                        <ul class="item_box" id="group_items_panel" class="ui-sortable"></ul>
 
                         <div id="file-upload-form" class="uploader">
                             {{--<input id="file-upload" type="file" accept="image/*" multiple/>--}}
@@ -629,6 +702,7 @@
                         </div>
                         <span class="help-inline">{{ $errors->has('images') ? $errors->first('images') : '' }}</span>
                     </div>
+
                 </div>
 
             </div>
@@ -707,9 +781,9 @@
                                     Thanks for supporting TinyMCE! We hope it helps you and your users create great content.<br>All the best from the TinyMCE team.
                                   </p>
                                 </textarea>
-                            <span class="help-inline">{{ $errors->has('content') ? $errors->first('content') : '' }}</span>
 
                         </div>
+                        <span class="help-inline">{{ $errors->has('content') ? $errors->first('content') : '' }}</span>
                     </div>
 
 
