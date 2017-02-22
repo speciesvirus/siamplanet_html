@@ -743,15 +743,23 @@ ul.social li.social-linkedin a:hover {
     float: left;
 }
 .item_box {
-    /*background: none repeat scroll 0 0 #EFEFEF;*/
-    /*border: 0px solid #EEEEEE;*/
-    float: left;
-    height: 69.5px;
-    margin: 5px;
-    /*outline: 1px solid #CFCFCF;*/
-    width: 100px;
+
+    /*float: left;*/
+    /*height: 69.5px;*/
+    /*margin: 5px;*/
+    /*width: 100px;*/
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
+}
+.item_box > li {
+    display: block;
+    float: left;
+    height: 65px;
+    line-height: 65px;
+    list-style-type: none;
+    margin: 9px 5px;
+    position: relative;
+    text-align: center;
 }
 .delete {
     position: absolute;
@@ -775,6 +783,9 @@ height: 21px;
   transition: background 0.3s;
 }
 
+.item_box .image{
+    max-height: 65px;
+}
 .input-group .select-btn{
     height: 34px;
 }
@@ -868,8 +879,9 @@ height: 21px;
 	color:#333
 }
 
-.has-error .input-group-addon. {
+.has-error .input-group-addon {
     color: #a94442;
     background-color: #f2dede;
     border-color: #a94442;
 }
+

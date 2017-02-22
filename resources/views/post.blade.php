@@ -78,6 +78,7 @@
 
                 // Process all File objects
                 for (var i = 0, f; f = files[i]; i++) {
+                    console.log(f);
                     parseFile(f);
                     uploadFile(f);
                 }
@@ -357,6 +358,30 @@
 
 
 
+        var form = $("#post-form");
+
+        // $.ajax({
+        //     url     : form.attr("action"),
+        //     type    : form.attr("method"),
+        //     data    : form.serialize(),
+        //     dataType: "json",
+        //     success : function ( json )
+        //     {
+        //         console.log(json);
+        //     },
+        //     error   : function ( jqXhr, json, errorThrown )
+        //     {
+        //         var errors = jqXhr.responseJSON;
+        //         var errorsHtml= '';
+        //         $.each( errors, function( key, value ) {
+        //             errorsHtml += '<li>' + value[0] + '</li>';
+        //         });
+        //         console.log(errorsHtml);
+        //     }
+        // });
+
+
+
     </script>
 
 
@@ -579,11 +604,12 @@
                             <!--    <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/woman-beach2.jpg">-->
 
                             <!--</div>-->
+                            <ul class="item_box"></ul>
                         </div>
 
                         <div id="file-upload-form" class="uploader">
                             {{--<input id="file-upload" type="file" accept="image/*" multiple/>--}}
-                            {{ Form::file('files[]', array('multiple'=>false, 'id' => 'file-upload')) }}
+                            {{ Form::file('files[]', array('multiple'=>true, 'id' => 'file-upload')) }}
                             {{--<input id="image-files" type="file" name="images[]" multiple/>--}}
                             <label for="file-upload" id="file-drag">
                                 {{--<img id="file-image" src="#" alt="Preview" class="hidden">--}}
