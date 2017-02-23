@@ -10,6 +10,9 @@ use App\Models\Product\ProductType;
 use App\Models\Product\ProductUnit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Crypt;
+use Carbon\Carbon;
+
 
 class PostController extends Controller
 {
@@ -28,21 +31,39 @@ class PostController extends Controller
 
     public function post(Request $request)
     {
-        $this->validator($request);
+        //$this->validator($request);
 
-        $destinationPath = resource_path('images/');
+        // $destinationPath = resource_path('images/');
+        // $input = $request->except('_token');
+        // $img = true;
+        // foreach ($input as $key => $value) {
+        //     if (strpos($key, 'pimg') !== false) {
+        //         $file = $request->file($key);
+        //         $filename = $file->getClientOriginalName();
+        //         $upload_success = $file->move($destinationPath, $filename);
+        //         $img = false;
+        //     }
+        // }
+
         $input = $request->except('_token');
         $img = true;
-        foreach ($input as $key => $value) {
-            if (strpos($key, 'pimg') !== false) {
-                $file = $request->file($key);
-                $filename = $file->getClientOriginalName();
-                $upload_success = $file->move($destinationPath, $filename);
-                $img = false;
-            }
-        }
+        $destinationPath = resource_path('images/');
 
-        if($img) return redirect()->back()->withInput()->withErrors(['images' => 'images is required']);
+        $encrypted = Crypt::encryptString('Hello world.');
+        $decrypted = Crypt::decryptString($encrypted);
+        $mytime = Carbon\Carbon::now();
+
+        foreach ($input as $key => $value) {
+
+
+            //echo $key .' - '. $value;
+
+              //$filename = $file->getClientOriginalName();
+            //  $upload_success = $file->move($destinationPath, $filename);
+
+        }
+        return response()->json(['alert-message' => $mytime->toDateTimeString()] , 200);
+        //if($img) return redirect()->back()->withInput()->withErrors(['images' => 'images is required']);
 
 //        foreach($data['images'] as $raw){
 //            $files = explode(',', $raw);

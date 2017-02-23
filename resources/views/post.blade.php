@@ -359,44 +359,13 @@
         var form = $("#post-form");
 
         form.submit(function (e) {
+            arrFacility = [];
             e.preventDefault();
-            if(validator()){
-//                var formm = document.getElementById('post-form');
-//                var formData = new FormData(formm);
-//                formData.append('arrImage', arrImage);
-//                formData.append('arrFacility', arrFacility);
-//                formData.append('arrArea', arrArea);
-                $.ajax({
-                    url     : '{{ route('product.post') }}',
-                    type    : form.attr("method"),
-                    data    : formData,
-                    dataType: "json",
-                    headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    success : function ( json )
-                    {
-                        console.log(json);
-
-                    },
-                    error   : function ( jqXhr, json, errorThrown )
-                    {
-
-                        console.log(jqXhr);
-                    }
-                });
-            }
-
-        });
-
-
-
-        function validator() {
             var $is = true;
             $('.form-group').removeClass('has-error').find('span.help-inline').html('');
             $('#file-upload-form').parents('.form-group').removeClass('has-error').find('span.help-inline').html('');
             $.ajax({
-                url     : '{{ route('product.validator') }}',
+                url     : "{{ route('product.validator') }}",
                 type    : form.attr("method"),
                 data    : form.serialize(),
                 dataType: "json",
@@ -405,10 +374,10 @@
                 },
                 success : function ( json )
                 {
-                    if(arrImage.length < 1){
-                        $('#file-upload-form').parents('.form-group').addClass('has-error').find('span.help-inline').html('image is required');
-                        return false;
-                    }
+                    // if(arrImage.length < 1){
+                    //     $('#file-upload-form').parents('.form-group').addClass('has-error').find('span.help-inline').html('image is required');
+                    //     return false;
+                    // }
 
                     var $value = $('#id_label_multiple').val();
                     if($value != null){
@@ -420,6 +389,8 @@
                             arrFacility.push({id:index, file:$fac_file});
                         });
                     }
+
+                    uploadFiles();
 
                     $is = true;
                     return true;
@@ -444,6 +415,51 @@
                 }
             });
             return $is;
+
+
+
+        });
+
+
+
+        function uploadFiles() {
+            var data = new FormData();
+                $.each(arrImage, function(key, value)
+                {
+                    data.append(key, value);
+                });
+                $.each(arrFacility, function(key, value)
+                {
+                    console.log('aa ', key + ' ' + value);
+                    data.append(key, value);
+                });
+//                var formm = document.getElementById('post-form');
+//                var formData = new FormData(formm);
+//                formData.append('arrImage', arrImage);
+//                formData.append('arrFacility', arrFacility);
+//                formData.append('arrArea', arrArea);
+                $.ajax({
+                    url     : "{{ route('product.post') }}",
+                    type    : form.attr("method"),
+                    data: data,
+                    cache: false,
+                    dataType: 'json',
+                    processData: false, // Don't process the files
+                    contentType: false, // Set content type to false as jQuery will
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    success : function ( json )
+                    {
+                        console.log(json);
+
+                    },
+                    error   : function ( jqXhr, json, errorThrown )
+                    {
+
+                        console.log(jqXhr);
+                    }
+                });
         }
 
 
