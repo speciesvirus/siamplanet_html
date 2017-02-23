@@ -40,7 +40,8 @@
         //
         var arrImage = [],
             arrFacility = [],
-            arrArea = [];
+            arrArea = [],
+            arrFile = [];
 
         function ekUpload() {
             function Init() {
@@ -333,6 +334,7 @@
         $(document).on('change', '.form-style-base', function (e) {
             var files = e.target.files || e.dataTransfer.files;
             var $this = $(this);
+            $this.next().val('');
             for (var i = 0, f; f = files[i]; i++) {
                 $this.next().val(f.name);
             }
@@ -359,11 +361,12 @@
         var form = $("#post-form");
 
         form.submit(function (e) {
-            arrFacility = [];
             e.preventDefault();
-            var $is = true;
+
+            arrFacility = [];
             $('.form-group').removeClass('has-error').find('span.help-inline').html('');
             $('#file-upload-form').parents('.form-group').removeClass('has-error').find('span.help-inline').html('');
+
             $.ajax({
                 url     : "{{ route('product.validator') }}",
                 type    : form.attr("method"),
@@ -386,7 +389,7 @@
 
                         $.each($str, function( index, value ) {
                             var $fac_file = $('.fc-c').find('div[data-fc="'+ value +'"]').find('input[type=file]')[0].files[0];
-                            arrFacility.push({id:index, file:$fac_file});
+                            arrFacility.push({id:value, file:$fac_file});
                         });
                     }
 
@@ -414,52 +417,82 @@
                     return false;
                 }
             });
-            return $is;
 
 
 
         });
 
-
-
         function uploadFiles() {
-            var data = new FormData();
-                $.each(arrImage, function(key, value)
-                {
-                    data.append(key, value);
-                });
-                $.each(arrFacility, function(key, value)
-                {
-                    console.log('aa ', key + ' ' + value);
-                    data.append(key, value);
-                });
-//                var formm = document.getElementById('post-form');
-//                var formData = new FormData(formm);
-//                formData.append('arrImage', arrImage);
-//                formData.append('arrFacility', arrFacility);
-//                formData.append('arrArea', arrArea);
-                $.ajax({
-                    url     : "{{ route('product.post') }}",
-                    type    : form.attr("method"),
-                    data: data,
-                    cache: false,
-                    dataType: 'json',
-                    processData: false, // Don't process the files
-                    contentType: false, // Set content type to false as jQuery will
-                    headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    success : function ( json )
-                    {
-                        console.log(json);
+            arrFile = [];
+            var data = new FormData(),
+                $key = 0;
+            $.each(arrImage, function(key, value)
+            {
+                data.append($key, value);
+                $key++;
+                arrFile.push({type:'product', image: ''});
+            });
+            $.each(arrFacility, function(key, value)
+            {
+                if(value.file != null){
+                    data.append($key, value.file);
+                    $key++;
+                    arrFile.push({type:'facility', id: value.id, image: ''});
+                }
+            });
 
-                    },
-                    error   : function ( jqXhr, json, errorThrown )
+            $.ajax({
+                url     : "{{ route('product.image') }}",
+                type    : form.attr("method"),
+                data: data,
+                cache: false,
+                dataType: 'json',
+                processData: false, // Don't process the files
+                contentType: false, // Set content type to false as jQuery will
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                success : function ( json )
+                {
+                    $.each(json['images'], function(key, value)
                     {
+                        arrFile[key].image = value;
+                    });
+                    uploadData();
+                },
+                error   : function ( jqXhr, json, errorThrown )
+                {
+                    console.log(jqXhr);
+                }
+            });
+        }
 
-                        console.log(jqXhr);
-                    }
-                });
+        function uploadData() {
+            $.ajax({
+                url     : "{{ route('product.post') }}",
+                type    : form.attr("method"),
+                data    : form.serialize() + "&arrFile=" + arrFile + "&arrArea=" + arrArea,
+                dataType: "json",
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                success : function ( json )
+                {
+                    console.log('result : ', json);
+
+                },
+                error   : function ( jqXhr, json, errorThrown )
+                {
+                    var errors = jqXhr.responseJSON;
+                    var errorsHtml= '';
+                    $.each( errors, function( key, value ) {
+                        errorsHtml += '<li>' + value[0] + '</li>';
+                        $('input[name="'+key+'"]').parents('.form-group').addClass('has-error').find('span.help-inline').html(value);
+                    });
+                    console.log(errors);
+
+                }
+            });
         }
 
 

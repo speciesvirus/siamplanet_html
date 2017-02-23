@@ -53,13 +53,20 @@ Route::get('/nv', function() {
 Route::get('/post',
     ['as' => 'product.view', 'uses' => 'Topic\PostController@index']
 );
-Route::post('/post',
-    ['as' => 'product.post', 'uses' => 'Topic\PostController@post']
-);
 
-Route::post('/post/validator',
-    ['as' => 'product.validator', 'uses' => 'Topic\PostController@formValidator']
-);
+Route::group(['middleware' => ['web']], function () {
+    Route::post('/post',
+        ['as' => 'product.post', 'uses' => 'Topic\PostController@post']
+    );
+
+    Route::post('/post/validator',
+        ['as' => 'product.validator', 'uses' => 'Topic\PostController@formValidator']
+    );
+    Route::post('/post/image',
+        ['as' => 'product.image', 'uses' => 'Topic\PostController@image']
+    );
+});
+
 //$topic = 'topic.';
 //Route::get('/post',
 //    ['as' => $topic.'post', 'uses' => 'Topic\PostController@index']

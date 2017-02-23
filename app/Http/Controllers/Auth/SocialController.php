@@ -85,7 +85,7 @@ class SocialController extends Controller
 
                 $socialData = new Social();
                 $socialData->social_id = $user->id;
-                $socialData->provider= $provider;
+                $socialData->provider = $provider;
                 $newSocialUser->social()->save($socialData);
 
                 // Add role

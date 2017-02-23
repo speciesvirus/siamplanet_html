@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Topic;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product\Product;
 use App\Models\Product\ProductArea;
 use App\Models\Product\ProductFacility;
 use App\Models\Product\ProductSale;
 use App\Models\Product\ProductType;
 use App\Models\Product\ProductUnit;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Crypt;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+
 
 
 class PostController extends Controller
@@ -29,40 +29,54 @@ class PostController extends Controller
 
     }
 
+    public function image(Request $request)
+    {
+        //$this->validator($request);
+
+         $destinationPath = resource_path('images/');
+         $input = $request->except('_token');
+         $image_encrypted = [];
+         foreach ($input as $key => $value) {
+             $file = $request->file($key);
+             $filename = $file->getClientOriginalName();
+             $timestamp = Carbon::now()->toDayDateTimeString();
+             $randomKey = str_random(5);
+             $filename = base64_encode($filename . $timestamp . $randomKey).'.jpg';
+             $upload_success = $file->move($destinationPath, $filename);
+             array_push($image_encrypted, $filename);
+         }
+
+        return response()->json(['images' => $image_encrypted] , 200);
+
+    }
+
     public function post(Request $request)
     {
         //$this->validator($request);
 
-        // $destinationPath = resource_path('images/');
-        // $input = $request->except('_token');
-        // $img = true;
-        // foreach ($input as $key => $value) {
-        //     if (strpos($key, 'pimg') !== false) {
-        //         $file = $request->file($key);
-        //         $filename = $file->getClientOriginalName();
-        //         $upload_success = $file->move($destinationPath, $filename);
-        //         $img = false;
-        //     }
-        // }
+//        $input = $request->except('_token');
+//        $img = true;
+//        $destinationPath = resource_path('images/');
+//
+//        $encrypted = Crypt::encryptString('Hello world.');
+//        $decrypted = Crypt::decryptString($encrypted);
+//        $mytime = Carbon::now();
+//
+//        foreach ($input as $key => $value) {
+//
+//        }
 
         $input = $request->except('_token');
-        $img = true;
-        $destinationPath = resource_path('images/');
-
-        $encrypted = Crypt::encryptString('Hello world.');
-        $decrypted = Crypt::decryptString($encrypted);
-        $mytime = Carbon\Carbon::now();
-
+        $aa = [];
         foreach ($input as $key => $value) {
-
-
-            //echo $key .' - '. $value;
-
-              //$filename = $file->getClientOriginalName();
-            //  $upload_success = $file->move($destinationPath, $filename);
-
+            array_push($aa, $key);
         }
-        return response()->json(['alert-message' => $mytime->toDateTimeString()] , 200);
+
+        $product = new Product();
+        $product->topic = $request->input('topic');
+
+        return response()->json($input , 200);
+
         //if($img) return redirect()->back()->withInput()->withErrors(['images' => 'images is required']);
 
 //        foreach($data['images'] as $raw){
