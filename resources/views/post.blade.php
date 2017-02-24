@@ -483,13 +483,13 @@
                 },
                 error   : function ( jqXhr, json, errorThrown )
                 {
-                    var errors = jqXhr.responseJSON;
-                    var errorsHtml= '';
-                    $.each( errors, function( key, value ) {
-                        errorsHtml += '<li>' + value[0] + '</li>';
-                        $('input[name="'+key+'"]').parents('.form-group').addClass('has-error').find('span.help-inline').html(value);
-                    });
-                    console.log(errors);
+                    // var errors = jqXhr.responseJSON;
+                    // var errorsHtml= '';
+                    // $.each( errors, function( key, value ) {
+                    //     errorsHtml += '<li>' + value[0] + '</li>';
+                    //     $('input[name="'+key+'"]').parents('.form-group').addClass('has-error').find('span.help-inline').html(value);
+                    // });
+                    console.log(jqXhr);
 
                 }
             });

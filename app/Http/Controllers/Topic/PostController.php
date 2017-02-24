@@ -69,13 +69,32 @@ class PostController extends Controller
         $input = $request->except('_token');
         $aa = [];
         foreach ($input as $key => $value) {
-            array_push($aa, $key);
+        $array = array(
+            "foo" => $key,
+            "bar" => $value,
+        );
+            array_push($aa, $array);
         }
 
         $product = new Product();
-        $product->topic = $request->input('topic');
+        $product->title = $request->input('topic');
+        $product->subtitle = $request->input('topic_des');
+        $product->product_type_id = $request->input('type');
+        $product->product_sale_id = $request->input('sale');
+        $product->unit = $request->input('size');
+        $product->product_unit_id = $request->input('size_unit');
+        $product->amount = $request->input('price');
+        $product->name = $request->input('project');
+        $product->complete = $request->input('year');
+        $product->content = $request->input('content');
 
-        return response()->json($input , 200);
+        // $type = ProductType::find($request->input('type'));
+        // $sale = ProductSale::find($request->input('sale'));
+        // $unit = ProductUnit::find($request->input('size_unit'));
+        // $product->account()->associate($account);
+        $product->save();
+
+        return response()->json($aa , 200);
 
         //if($img) return redirect()->back()->withInput()->withErrors(['images' => 'images is required']);
 

@@ -25,8 +25,8 @@ class CreateProductsTable extends Migration
             $table->integer('product_unit_id')->unsigned()->index();
             $table->foreign('product_unit_id')->references('id')->on('product_units')->onDelete('no action');
             $table->integer('amount')->unsigned();
-            $table->string('name');
-            $table->string('complete');
+            $table->string('name')->nullable();
+            $table->string('complete')->nullable();
             $table->text('content');
             $table->timestamps();
         });
