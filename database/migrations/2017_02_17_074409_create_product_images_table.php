@@ -18,8 +18,8 @@ class CreateProductImagesTable extends Migration
             $table->integer('product_id')->unsigned()->index();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->string('image');
-            $table->integer('sort')->unsigned();
-            $table->char('active', 1);
+            $table->integer('sort')->unsigned()->nullable();
+            $table->char('active', 1)->default('A');
             $table->timestamps();
         });
     }

@@ -55,16 +55,17 @@ Route::get('/post',
 );
 
 Route::group(['middleware' => ['web']], function () {
+
     Route::post('/post',
         ['as' => 'product.post', 'uses' => 'Topic\PostController@post']
     );
-
     Route::post('/post/validator',
         ['as' => 'product.validator', 'uses' => 'Topic\PostController@formValidator']
     );
     Route::post('/post/image',
         ['as' => 'product.image', 'uses' => 'Topic\PostController@image']
     );
+
 });
 
 //$topic = 'topic.';

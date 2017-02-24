@@ -16,8 +16,8 @@ class CreateProductUnitsTable extends Migration
         Schema::create('product_units', function (Blueprint $table) {
             $table->increments('id');
             $table->string('unit');
-            $table->integer('sort')->unsigned();
-            $table->char('active', 1);
+            $table->integer('sort')->unsigned()->nullable();
+            $table->char('active', 1)->default('A');
             $table->timestamps();
         });
     }

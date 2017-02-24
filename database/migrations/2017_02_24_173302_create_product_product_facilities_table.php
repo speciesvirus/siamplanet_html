@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductHasAreasTable extends Migration
+class CreateProductProductFacilitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateProductHasAreasTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_has_areas', function (Blueprint $table) {
+        Schema::create('product_product_facility', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id')->unsigned()->index();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->integer('area_id')->unsigned()->index();
-            $table->foreign('area_id')->references('id')->on('product_areas')->onDelete('no action');
-            $table->string('area');
-            $table->string('lat');
-            $table->string('lng');
-            $table->char('active', 1);
+            $table->integer('product_facility_id')->unsigned()->index();
+            $table->foreign('product_facility_id')->references('id')->on('product_facilities')->onDelete('no action');
+            $table->string('image');
+            $table->integer('sort')->unsigned()->nullable();
+            $table->char('active', 1)->default('A');
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ class CreateProductHasAreasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_has_areas');
+        Schema::dropIfExists('product_product_facility');
     }
 }

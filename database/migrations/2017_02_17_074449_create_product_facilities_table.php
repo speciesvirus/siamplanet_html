@@ -16,8 +16,8 @@ class CreateProductFacilitiesTable extends Migration
         Schema::create('product_facilities', function (Blueprint $table) {
             $table->increments('id');
             $table->string('facility');
-            $table->integer('sort')->unsigned();
-            $table->char('active', 1);
+            $table->integer('sort')->unsigned()->nullable();
+            $table->char('active', 1)->default('A');
             $table->timestamps();
         });
     }

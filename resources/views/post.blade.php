@@ -377,10 +377,10 @@
                 },
                 success : function ( json )
                 {
-                    // if(arrImage.length < 1){
-                    //     $('#file-upload-form').parents('.form-group').addClass('has-error').find('span.help-inline').html('image is required');
-                    //     return false;
-                    // }
+                     if(arrImage.length < 1){
+                         $('#file-upload-form').parents('.form-group').addClass('has-error').find('span.help-inline').html('image is required');
+                         return false;
+                     }
 
                     var $value = $('#id_label_multiple').val();
                     if($value != null){
@@ -395,26 +395,19 @@
 
                     uploadFiles();
 
-                    $is = true;
-                    return true;
-
                 },
                 error   : function ( jqXhr, json, errorThrown )
                 {
                     var errors = jqXhr.responseJSON;
-                    var errorsHtml= '';
                     $.each( errors, function( key, value ) {
-                        errorsHtml += '<li>' + value[0] + '</li>';
                         $('input[name="'+key+'"]').parents('.form-group').addClass('has-error').find('span.help-inline').html(value);
                     });
 
                     if(arrImage.length < 1){
                         $('#file-upload-form').parents('.form-group').addClass('has-error').find('span.help-inline').html('image is required');
-                        return;
+                        return false;
                     }
-                    $is = true;
-                    console.log(errors);
-                    return false;
+
                 }
             });
 
@@ -467,11 +460,39 @@
             });
         }
 
+        function _inputName($name) {
+            return form.find('input[name="'+ $name +'"]').val();
+        }
+        function _textName($name) {
+            return form.find('textarea[name="'+ $name +'"]').val();
+        }
+        function _selectName($name) {
+            return form.find('select[name="'+ $name +'"]').val();
+        }
+
         function uploadData() {
+
             $.ajax({
                 url     : "{{ route('product.post') }}",
                 type    : form.attr("method"),
-                data    : form.serialize() + "&arrFile=" + arrFile + "&arrArea=" + arrArea,
+//                data    : form.serialize() + "&arrFile=" + arrFile + "&arrArea=" + arrArea,
+                data : {
+                    topic : _inputName('topic'),
+                    topic_des : _inputName('topic_des'),
+                    type : _selectName('type'),
+                    sale : _selectName('sale'),
+                    size : _inputName('size'),
+                    size_unit : _selectName('size_unit'),
+                    price : _inputName('price'),
+                    project : _inputName('project'),
+                    year : _inputName('year'),
+                    content : _textName('content'),
+                    tag1 : _inputName('tag1'),
+                    tag2 : _inputName('tag2'),
+                    tag3 : _inputName('tag3'),
+                    arrFile : arrFile,
+                    arrArea : arrArea
+                },
                 dataType: "json",
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
@@ -493,6 +514,7 @@
 
                 }
             });
+
         }
 
 
@@ -536,12 +558,15 @@
                 }
                 image.url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
                 placeMarkerAndPanTo(e.latLng, map, 1);
-                arrArea.push({id : $point, key : 1, lat : e.latLng.lat(),lng : e.latLng.lng()});
+                arrArea.push({id : $point, key : 1, name : null, lat : e.latLng.lat(), lng : e.latLng.lng()});
             }else{
-                image.url = "http://www.freeiconspng.com/uploads/red-location-icon-map-png-4.png"
-                placeMarkerAndPanTo(e.latLng, map, uniqueId);
-                arrArea.push({id : $point, key : uniqueId, lat : e.latLng.lat(),lng : e.latLng.lng()});
-                uniqueId++;
+                var retVal = prompt("โปรดกรอกชื่อสถานที่ : ", "ชื่อสถานที่");
+                if(retVal != null){
+                    image.url = "http://www.freeiconspng.com/uploads/red-location-icon-map-png-4.png";
+                    placeMarkerAndPanTo(e.latLng, map, uniqueId);
+                    arrArea.push({id : $point, key : uniqueId, name : retVal, lat : e.latLng.lat(), lng : e.latLng.lng()});
+                    uniqueId++;
+                }
             }
 
         });
@@ -1007,18 +1032,6 @@
                                    placeholder="tag">
                         </div>
                     </div>
-
-                    <!-- Text input -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
-                        <div class="col-md-5">
-                            <input name="tag4" class="form-control input-md" id="status" type="text"
-                                   placeholder="tag">
-                        </div>
-                    </div>
-
-
-
 
 
                 </div>

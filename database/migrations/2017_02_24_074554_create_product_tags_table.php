@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductHasFacilitiesTable extends Migration
+class CreateProductTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateProductHasFacilitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_has_facilities', function (Blueprint $table) {
+        Schema::create('product_tags', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id')->unsigned()->index();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->integer('facility_id')->unsigned()->index();
-            $table->foreign('facility_id')->references('id')->on('product_facilities')->onDelete('no action');
-            $table->string('image');
-            $table->integer('sort')->unsigned();
-            $table->char('active', 1);
-            $table->timestamps();
+            $table->string('tag1')->nullable();
+            $table->string('tag2')->nullable();
+            $table->string('tag3')->nullable();
         });
     }
 
@@ -33,6 +30,6 @@ class CreateProductHasFacilitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_has_facilities');
+        Schema::dropIfExists('product_tags');
     }
 }
