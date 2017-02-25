@@ -38,9 +38,10 @@ Route::get('/view', function () {
 Route::get('/test', function() {
    return view('test');
 });
-Route::get('/news', function() {
-   return view('news.news');
-});
+Route::get('/news',
+    ['as' => 'news', 'uses' => 'NewsController@index']
+);
+
 Route::get('/nc', function() {
    return view('news.category');
 });
@@ -50,6 +51,7 @@ Route::get('/nv', function() {
 //Route::get('/post', function() {
 //    return view('post');
 //});
+
 Route::get('/post',
     ['as' => 'product.view', 'uses' => 'Topic\PostController@index']
 );
@@ -79,7 +81,12 @@ Route::group(['middleware' => ['web']], function () {
 
 
 
-Route::get('/',['as' => 'home','uses' =>'HomeController@index']);
+Route::get('/',
+    ['as' => 'home','uses' =>'HomeController@index']);
+
+Route::get('/{product?}',
+    ['as' => 'product', 'uses' => 'HomeController@product']
+);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], function()
 {

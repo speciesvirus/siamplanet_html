@@ -15,6 +15,9 @@ class Product extends Model
     public function productUnit() {
         return $this->belongsTo('App\Models\Product\ProductUnit');
     }
+    public function province() {
+        return $this->belongsTo('App\Models\Province');
+    }
     public function image() {
         return $this->hasOne('App\Models\Product\ProductImage');
     }

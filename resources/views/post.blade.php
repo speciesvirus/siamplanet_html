@@ -19,7 +19,7 @@
 
     <script src="resources/assets/select2/dist/js/select2.full.js"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGFbK0CvMXKVzCJA_2Fj5B7pItfK0a1QA"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB3IoUnmudz6RdeSALRXdrE7XjJSPZVhs"></script>
     <script type="text/javascript">
         //$('#edit').froalaEditor();
         tinymce.init({
@@ -41,7 +41,8 @@
         var arrImage = [],
             arrFacility = [],
             arrArea = [],
-            arrFile = [];
+            arrFile = [],
+            arrGeo = [];
 
         function ekUpload() {
             function Init() {
@@ -82,7 +83,6 @@
 
                 // Process all File objects
                 for (var i = 0, f; f = files[i]; i++) {
-                    console.log(f);
                     parseFile(f);
                     uploadFile(f);
                 }
@@ -491,7 +491,8 @@
                     tag2 : _inputName('tag2'),
                     tag3 : _inputName('tag3'),
                     arrFile : arrFile,
-                    arrArea : arrArea
+                    arrArea : arrArea,
+                    arrGeo : arrGeo
                 },
                 dataType: "json",
                 headers: {
@@ -536,6 +537,8 @@
             center: {lat: 14.050942, lng: 100.753091 }
         });
 
+        var geocoder = new google.maps.Geocoder();
+
         map.addListener('click', function(e) {
 
             var $point = $('#select-point').val();
@@ -559,6 +562,20 @@
                 image.url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
                 placeMarkerAndPanTo(e.latLng, map, 1);
                 arrArea.push({id : $point, key : 1, name : null, lat : e.latLng.lat(), lng : e.latLng.lng()});
+
+                arrGeo = [];
+                geocoder.geocode({
+                    'latLng': e.latLng
+                }, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (results[0]) {
+                            $.each(results[0]['address_components'], function (index, value) {
+                                arrGeo.push(value['long_name']);
+                            });
+                        }
+                    }
+                });
+
             }else{
                 var retVal = prompt("โปรดกรอกชื่อสถานที่ : ", "ชื่อสถานที่");
                 if(retVal != null){

@@ -28,6 +28,8 @@ class CreateProductsTable extends Migration
             $table->string('name')->nullable();
             $table->string('complete')->nullable();
             $table->text('content');
+            $table->integer('province_id')->unsigned()->index()->nullable();
+            $table->foreign('province_id')->references('id')->on('provinces')->onDelete('no action');
             $table->timestamps();
         });
     }

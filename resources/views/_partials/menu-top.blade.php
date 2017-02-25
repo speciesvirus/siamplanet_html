@@ -4,7 +4,7 @@
     <li><a href="#event-highlights">ที่ดิน</a></li>
     <li><a href="#travel">บ้าน</a></li>
     <li><a href="#schedule">คอนโด</a></li>
-    <li><a href="#schedule">ข่าว</a></li>
+    <li><a href="{{ route('news') }}">ข่าว</a></li>
 
     @if(Auth()->check())
         <li><a href="javascript://" id="opl">{{ Auth::user()->first_name }}</a></li>

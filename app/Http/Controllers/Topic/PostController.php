@@ -11,6 +11,7 @@ use App\Models\Product\ProductSale;
 use App\Models\Product\ProductTag;
 use App\Models\Product\ProductType;
 use App\Models\Product\ProductUnit;
+use App\Models\Province;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -69,6 +70,29 @@ class PostController extends Controller
         $product->productType()->associate($type);
         $product->productSale()->associate($sale);
         $product->productUnit()->associate($unit);
+
+        // product province
+        $arrGeo = $request->input('arrGeo');
+        if($arrGeo){
+
+            $province = null;
+
+            foreach ($arrGeo as $key => $value) {
+                if(stripos($value, 'Chang Wat') === 0){
+                    $province = substr($value, 10);
+                    break;
+                }elseif (stripos($value, 'Bangkok') === 0){
+                    $province = $value;
+                    break;
+                }
+            }
+
+            if($province){
+                $pro = Province::whereEn($province)->first();
+                $product->province()->associate($pro);
+            }
+        }
+
         $product->save();
 
         // insert product tag
@@ -101,6 +125,8 @@ class PostController extends Controller
             }
         }
 
+
+        //return response()->json($aa , 200);
         return response()->json("success." , 200);
 
         //if($img) return redirect()->back()->withInput()->withErrors(['images' => 'images is required']);
