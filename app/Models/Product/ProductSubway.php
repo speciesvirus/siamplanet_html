@@ -4,7 +4,7 @@ namespace App\Models\Product;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductProductArea extends Model
+class ProductSubway extends Model
 {
     public $timestamps = false;
 }

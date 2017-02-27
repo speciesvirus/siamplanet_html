@@ -24,7 +24,9 @@ class Product extends Model
     public function tag() {
         return $this->hasOne('App\Models\Product\ProductTag');
     }
-
+    public function subway() {
+        return $this->hasOne('App\Models\Product\ProductSubway');
+    }
 
     public function facility()
     {

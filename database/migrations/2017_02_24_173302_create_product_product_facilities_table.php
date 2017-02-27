@@ -21,8 +21,6 @@ class CreateProductProductFacilitiesTable extends Migration
             $table->foreign('product_facility_id')->references('id')->on('product_facilities')->onDelete('no action');
             $table->string('image');
             $table->integer('sort')->unsigned()->nullable();
-            $table->char('active', 1)->default('A');
-            $table->timestamps();
         });
     }
 

@@ -114,12 +114,12 @@
                 <div class="inline-fields clearfix">
                     <div class="option-bar property-location">
                         <select name="location" id="location" data-title="Location" class="search-select">
-                            <option value="any">จังหวัด ทั้งหมด</option>
+                            <option value="any">ประเภท ทั้งหมด</option>
                         </select>
                     </div>
                     <div class="option-bar property-type">
                         <select name="type" id="select-property-type" class="search-select">
-                            <option value="any" selected="selected">ประเภท ทั้งหมด</option>
+                            <option value="any" selected="selected">ราคา ทั้งหมด</option>
                             <option value="commercial"> Commercial</option>
                             <option value="office">- Office</option>
                             <option value="shop">- Shop</option>
@@ -133,7 +133,7 @@
                     </div>
                     <div class="option-bar property-status">
                         <select name="status" id="select-status" class="search-select">
-                            <option value="any" selected="selected">ราคา ทั้งหมด</option>
+                            <option value="any" selected="selected">ขนาด ทั้งหมด</option>
                             <option value="for-rent"> Căn hộ</option>
                             <option value="for-sale"> Biệt thư</option>
                             <option value="for-sale"> Chung cư</option>
@@ -165,13 +165,13 @@
                     </div>
                     <div class="option-bar property-min-price">
                         <select name="min-price" id="select-min-price" class="search-select">
-                            <option value="any" selected="selected">ขนาดพื้นที่ ทั้งหมด</option>
+                            <option value="any" selected="selected">บริเวณรถไฟฟ้า ทั้งหมด</option>
                             <option value="1000">$1,000</option>
                         </select>
                     </div>
                     <div class="option-bar property-bathrooms">
                         <select name="bathrooms" id="select-bathrooms" class="search-select">
-                            <option value="any" selected="selected">โฉนด ทั้งหมด</option>
+                            <option value="any" selected="selected">จังหวัด ทั้งหมด</option>
                             <option value="1">ประกาศเก่า</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -184,43 +184,44 @@
                             <option value="10">10</option>
                         </select>
                     </div>
-                    <div class="option-bar property-max-price">
-                        <select name="max-price" id="select-max-price" class="search-select">
-                            <option value="any" selected="selected">ประกาศล่าสุด</option>
-                            <option value="5000">$5,000</option>
-                            <option value="10000">$10,000</option>
-                            <option value="50000">$50,000</option>
-                            <option value="100000">$100,000</option>
-                            <option value="200000">$200,000</option>
-                            <option value="300000">$300,000</option>
-                        </select>
-                    </div>
-                    <div class="option-bar property-max-price">
-                        <select name="max-price" id="select-max-price" class="search-select">
-                            <option value="any" selected="selected">ห้องนอน ทั้งหมด</option>
-                            <option value="5000">$5,000</option>
-                            <option value="10000">$10,000</option>
-                            <option value="50000">$50,000</option>
-                        </select>
-                    </div>
-                    <div class="option-bar property-max-price">
-                        <select name="max-price" id="select-max-price" class="search-select">
-                            <option value="any" selected="selected">ห้องนอน ทั้งหมด</option>
-                            <option value="5000">$5,000</option>
-                            <option value="10000">$10,000</option>
-                        </select>
-                    </div>
-                    <div class="option-bar property-max-price">
-                        <select name="max-price" id="select-max-price" class="search-select">
-                            <option value="any" selected="selected">เฟอร์นิเจอร์ ทั้งหมด</option>
-                            <option value="5000">$5,000</option>
-                            <option value="10000">$10,000</option>
-                        </select>
-                    </div>
                     <div class="option-bar property-keyword">
                         <input type="text" name="keyword" id="keyword-txt" value="" placeholder="คำค้นหา (Keyword)"
                                title="Please only provide digits!"/>
                     </div>
+                    {{--<div class="option-bar property-max-price">--}}
+                        {{--<select name="max-price" id="select-max-price" class="search-select">--}}
+                            {{--<option value="any" selected="selected">ประกาศล่าสุด</option>--}}
+                            {{--<option value="5000">$5,000</option>--}}
+                            {{--<option value="10000">$10,000</option>--}}
+                            {{--<option value="50000">$50,000</option>--}}
+                            {{--<option value="100000">$100,000</option>--}}
+                            {{--<option value="200000">$200,000</option>--}}
+                            {{--<option value="300000">$300,000</option>--}}
+                        {{--</select>--}}
+                    {{--</div>--}}
+                    {{--<div class="option-bar property-max-price">--}}
+                        {{--<select name="max-price" id="select-max-price" class="search-select">--}}
+                            {{--<option value="any" selected="selected">บริเวณรถไฟฟ้า ทั้งหมด</option>--}}
+                            {{--<option value="5000">$5,000</option>--}}
+                            {{--<option value="10000">$10,000</option>--}}
+                            {{--<option value="50000">$50,000</option>--}}
+                        {{--</select>--}}
+                    {{--</div>--}}
+                    {{--<div class="option-bar property-max-price">--}}
+                        {{--<select name="max-price" id="select-max-price" class="search-select">--}}
+                            {{--<option value="any" selected="selected">เฟอร์นิเจอร์ ทั้งหมด</option>--}}
+                            {{--<option value="5000">$5,000</option>--}}
+                            {{--<option value="10000">$10,000</option>--}}
+                        {{--</select>--}}
+                    {{--</div>--}}
+                    {{--<div class="option-bar property-max-price">--}}
+                        {{--<select name="max-price" id="select-max-price" class="search-select">--}}
+                            {{--<option value="any" selected="selected">จังหวัด ทั้งหมด</option>--}}
+                            {{--<option value="5000">$5,000</option>--}}
+                            {{--<option value="10000">$10,000</option>--}}
+                        {{--</select>--}}
+                    {{--</div>--}}
+
                 </div>
                 <!-- .hidden-fields -->
             </form>

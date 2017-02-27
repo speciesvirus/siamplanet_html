@@ -19,7 +19,7 @@
 
     <script src="resources/assets/select2/dist/js/select2.full.js"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB3IoUnmudz6RdeSALRXdrE7XjJSPZVhs"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB3IoUnmudz6RdeSALRXdrE7XjJSPZVhs&libraries=places"></script>
     <script type="text/javascript">
         //$('#edit').froalaEditor();
         tinymce.init({
@@ -42,7 +42,9 @@
             arrFacility = [],
             arrArea = [],
             arrFile = [],
-            arrGeo = [];
+            arrGeo = [],
+            arrAround = [];
+
 
         function ekUpload() {
             function Init() {
@@ -492,7 +494,8 @@
                     tag3 : _inputName('tag3'),
                     arrFile : arrFile,
                     arrArea : arrArea,
-                    arrGeo : arrGeo
+                    arrGeo : arrGeo,
+                    arrAround : arrAround
                 },
                 dataType: "json",
                 headers: {
@@ -522,6 +525,9 @@
 
         var markers = [];
         var uniqueId = 2;
+        var infowindow;
+        var origin = [];
+        var destination = [];
 
         var allMyMarkers = [];
         var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
@@ -576,6 +582,39 @@
                     }
                 });
 
+
+
+
+                // around area
+                infowindow = new google.maps.InfoWindow();
+                var service = new google.maps.places.PlacesService(map);
+                service.nearbySearch({
+                    location: e.latLng,
+                    radius: 800,
+                    type: ['subway_station']
+                }, function(results, status) {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+
+                        origin = [];
+                        destination = [];
+                        arrAround = [];
+
+                        origin.push({lat: e.latLng.lat(), lng: e.latLng.lng()});
+                        for (var i = 0; i < results.length; i++) {
+                            createMarker(results[i]);
+                        }
+
+                        var service = new google.maps.DistanceMatrixService();
+                        service.getDistanceMatrix(
+                            {
+                                origins: origin,
+                                destinations: destination,
+                                travelMode: 'WALKING'
+                            }, callback_distance);
+                    }
+                });
+
+
             }else{
                 var retVal = prompt("โปรดกรอกชื่อสถานที่ : ", "ชื่อสถานที่");
                 if(retVal != null){
@@ -587,6 +626,63 @@
             }
 
         });
+
+        function callback_distance(response, status) {
+            // See Parsing the Results for
+            // the basics of a callback function.
+
+            if (status == 'OK') {
+                for (var i = 0; i < response['rows'].length; i++) {
+                    var el =  response['rows'][i];
+                    for (var j = 0; j < el['elements'].length; j++) {
+                        arrAround[j].distance = el['elements'][j]['distance']['value'];
+                    }
+                }
+            }
+        }
+
+        function callback_around(results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    createMarker(results[i]);
+                }
+            }
+        }
+
+        function createMarker(place) {
+
+            if(place.name.trim() != 'รถไฟฟ้ามหานคร คลองเตย' && place.name.trim() != 'Hua Lamphong MRT Station' && place.name.trim() != 'MRT ลาดพร้าว'){
+//                var marker = new google.maps.Marker({
+//                    map: map,
+//                    position: place.geometry.location
+//                });
+//
+//                google.maps.event.addListener(marker, 'click', function() {
+//                    infowindow.setContent(place.name);
+//                    infowindow.open(map, this);
+//                });
+
+                destination.push({lat: place.geometry.location.lat(), lng: place.geometry.location.lng()});
+                arrAround.push({name : place.name , distance : '', lat : place.geometry.location.lat(), lng : place.geometry.location.lng()});
+            }
+
+//            var origin1 = new google.maps.LatLng(e.latLng.lat(), e.latLng.lng());
+//            var destinationA = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
+//            var service = new google.maps.DistanceMatrixService();
+//            service.getDistanceMatrix(
+//                {
+//                    origins: [origin1],
+//                    destinations: [destinationA],
+//                    travelMode: 'WALKING',
+//                        transitOptions: TransitOptions,
+//                        drivingOptions: DrivingOptions,
+//                        unitSystem: UnitSystem,
+//                        avoidHighways: Boolean,
+//                        avoidTolls: Boolean,
+//                }, callback_distance);
+
+        }
+
         function placeMarkerAndPanTo(latLng, map, key) {
             // var marker = new google.maps.Marker({
             //   position: latLng,

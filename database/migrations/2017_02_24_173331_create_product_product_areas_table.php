@@ -22,8 +22,6 @@ class CreateProductProductAreasTable extends Migration
             $table->string('area');
             $table->string('lat');
             $table->string('lng');
-            $table->char('active', 1)->default('A');
-            $table->timestamps();
         });
     }
 

@@ -8,6 +8,7 @@ use App\Models\Product\ProductArea;
 use App\Models\Product\ProductFacility;
 use App\Models\Product\ProductImage;
 use App\Models\Product\ProductSale;
+use App\Models\Product\ProductSubway;
 use App\Models\Product\ProductTag;
 use App\Models\Product\ProductType;
 use App\Models\Product\ProductUnit;
@@ -125,6 +126,17 @@ class PostController extends Controller
             }
         }
 
+        $arrAround = $request->input('arrAround');
+        if($arrAround){
+            foreach ($arrAround as $key => $value) {
+                $subway = new ProductSubway();
+                $subway->name = $value['name'];
+                $subway->distance = $value['distance'];
+                $subway->lat = $value['lat'];
+                $subway->lng = $value['lng'];
+                $product->tag()->save($subway);
+            }
+        }
 
         //return response()->json($aa , 200);
         return response()->json("success." , 200);
