@@ -55,7 +55,9 @@ Route::get('/nv', function() {
 Route::get('/post',
     ['as' => 'product.view', 'uses' => 'Topic\PostController@index']
 );
-
+Route::post('/search/{q?}',
+    ['as' => 'search', 'uses' => 'SearchController@index']
+);
 Route::group(['middleware' => ['web']], function () {
 
     Route::post('/post',
@@ -82,11 +84,15 @@ Route::group(['middleware' => ['web']], function () {
 
 
 Route::get('/',
-    ['as' => 'home','uses' =>'HomeController@index']);
-
+    ['as' => 'home','uses' =>'HomeController@index']
+);
+Route::get('/{type?}/{page?}',
+    ['as' => 'home.search', 'uses' => 'HomeController@index']
+);
 Route::get('/{product?}',
     ['as' => 'product', 'uses' => 'HomeController@product']
 );
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], function()
 {
