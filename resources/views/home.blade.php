@@ -13,6 +13,12 @@
         if (window.location.hash && window.location.hash == '#_=_') {
             window.location.hash = '';
         }
+
+        $(document).on('click', '.pagination button', function () {
+            var $this = $(this).find('a').attr('href');
+            //alert($(this).find('a').attr('class'));
+            if(typeof $this != 'undefined') window.location.href = $this;
+        })
     </script>
 @stop
 
@@ -20,7 +26,10 @@
     <div class="col-md-9">
         <div class="row">
 
-            <h1 class="entry-title">Simplicity2の子テーマ</h1>
+            <div class="container">
+                <h1 class="entry-title">-Nainam-</h1>
+            </div>
+
 
             <div class="col-md-6">
                 <div class="blog-card">
@@ -41,6 +50,7 @@
                         <h2>356,000,000 ฿ / ขาย / <a href="#">คอนโด</a></h2>
                         <h3>34 ไร่ 3 งาน 100 ตารางวา / 125 ฿ : ตารางเมตร</h3>
                         <p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
+                        <p class="province">กรุงเทพ</p>
                         <div class="card-media-body-supporting-bottom">
                             <!--<span class="card-media-body-supporting-bottom-text subtle">Mezzanine, San Francisco, CA</span>-->
                             <span class="card-media-body-supporting-bottom-text subtle u-float-right">1 ชั่วโมง ที่แล้ว</span>
@@ -130,29 +140,54 @@
             <div class="pagination__container">
                 <div class="pagination__wrapper">
                     <ul class="pagination">
-                        <li><button class="prev" title="previous page">&#10094;</button></li>
-                        <li>
-                            <button title="first page - page 1">1</button>
-                        </li>
-                        <li>
-                            <span>...</span>
-                        </li>
-                        <li>
-                            <button title="page 8">8</button>
-                        </li>
-                        <li>
-                            <button class="active" title="current page - page 9">9</button>
-                        </li>
-                        <li>
-                            <button title="page 10">10</button>
-                        </li>
-                        <li>
-                            <span>...</span>
-                        </li>
-                        <li>
-                            <button title="last page - page 69">69</button>
-                        </li>
-                        <li><button class="next" title="next page">&#10095;</button></li>
+
+                        @if($pagination->lastPage() > 1)
+                            <li><button class="prev" title="previous page"><a href="{{ $pagination->previousPageUrl() }}">&#10094;</a></button></li>
+                        @endif
+
+                            @for ($i = ($pagination->currentPage() - $pagination->perPage()); $i < (($pagination->currentPage() + $pagination->perPage())); $i++)
+
+                                @if(($i > 0) && ($i <= $pagination->total()))
+                                    @if($i == $pagination->currentPage())
+                                        <li>
+                                            <button class="active" title="current page - page 9">{{ $pagination->currentPage() }}</button>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <button title="page 8"><a href="{{ $pagination->url($i) }}">{{ $i }}</a></button>
+                                        </li>
+                                    @endif
+                                @endif
+
+                            @endfor
+
+                            @if($pagination->currentPage() != $pagination->lastPage())
+                                <li><button class="next" title="next page"><a href="{{ $pagination->nextPageUrl() }}">&#10095;</a></button></li>
+                            @endif
+
+                        {{--<li><button class="prev" title="previous page">&#10094;</button></li>--}}
+                        {{--<li>--}}
+                            {{--<button title="first page - page 1">1</button>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<span>...</span>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<button title="page 8">8</button>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<button class="active" title="current page - page 9">9</button>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<button title="page 10">10</button>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<span>...</span>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<button title="last page - page 69">69</button>--}}
+                        {{--</li>--}}
+                        {{--<li><button class="next" title="next page">&#10095;</button></li>--}}
                     </ul>
                 </div>
             </div>

@@ -28,27 +28,23 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $url = URL::to('/').'?type=';
 
         $type = $request['type'];
-        $url .= $type ? $type : 'all';
+        $cur_type = $type ? $type : 'all';
 
+        $url = URL::to('/').'?type='.$cur_type;
         $page = $request['page'];
-        $url .= $page ? '&page='.($page+1) : '&page=2';
+        //$url .= $page ? '&page='.($page+1) : '&page=2';
         if($page){
-
             //$url .= '&page='.$page;
             Paginator::currentPageResolver(function() use ($page) {
                 return $page;
             });
 
         }
-
-        $product = Product::paginate(15);
-
-        // if($product->currentPage() < $product->lastPage())
-        $product->withPath($url);
-
+        $product = Product::paginate(5);
+        $product->withPath($url)->setPageName('page');
+//        dd($product);
         return view('home', ['pagination' => $product]);
     }
 
