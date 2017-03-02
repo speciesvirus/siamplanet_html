@@ -30,111 +30,75 @@
                 <h1 class="entry-title">-Nainam-</h1>
             </div>
 
-
-            <div class="col-md-6">
-                <div class="blog-card">
-                    <div class="photo photo1"></div>
-                    <ul class="details">
-                        <li class="author"><a href="#">Angel Real Estate Consultancy Co.,Ltd (ARE)</a></li>
-                        <li class="phone"><a href="#">กดเพื่อดูเบอร์</a></li>
-                        <li class="share">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <div class="description">
-                        <h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
-                        <h2>356,000,000 ฿ / ขาย / <a href="#">คอนโด</a></h2>
-                        <h3>34 ไร่ 3 งาน 100 ตารางวา / 125 ฿ : ตารางเมตร</h3>
-                        <p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
-                        <p class="province">กรุงเทพ</p>
-                        <div class="card-media-body-supporting-bottom">
-                            <!--<span class="card-media-body-supporting-bottom-text subtle">Mezzanine, San Francisco, CA</span>-->
-                            <span class="card-media-body-supporting-bottom-text subtle u-float-right">1 ชั่วโมง ที่แล้ว</span>
+            @foreach($pagination->items() as $item)
+                <div class="col-md-6">
+                    <div class="blog-card">
+                        <div class="photo photo1" style="background: url({{ route('images.q').'?q='.$item['attributes']['image'] }}) center no-repeat;background-size: cover;"></div>
+                        <ul class="details">
+                            <li class="author"><a href="#">Angel Real Estate Consultancy Co.,Ltd (ARE)</a></li>
+                            <li class="phone"><a href="#">กดเพื่อดูเบอร์</a></li>
+                            <li class="share">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="description">
+                            <h1>{{ $item['attributes']['title'] }}</h1>
+                            <h2>{{ $item['attributes']['amount'] }} ฿ / {{ $item['attributes']['sale'] }} / <a href="#">{{ $item['attributes']['type'] }}</a></h2>
+                            <h3>{{ $item['attributes']['unit'] }} / 125 ฿ : ตารางเมตร</h3>
+                            <p class="summary">{{ $item['attributes']['subtitle'] }}</p>
+                            <p class="province">{{ $item['attributes']['province'] }}</p>
+                            <div class="card-media-body-supporting-bottom">
+                                <!--<span class="card-media-body-supporting-bottom-text subtle">Mezzanine, San Francisco, CA</span>-->
+                                <span class="card-media-body-supporting-bottom-text subtle u-float-right">{{ $trans_time($item['attributes']['created_at']) }}</span>
+                            </div>
+                            <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
+                                <span class="card-media-body-supporting-bottom-text subtle">ดู 256,802 ครั้ง</span>
+                                <a href="#/"
+                                   class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>
+                            </div>
                         </div>
-                        <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
-                            <span class="card-media-body-supporting-bottom-text subtle">ดู 256,802 ครั้ง</span>
-                            <a href="#/"
-                               class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>
-                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
 
 
-            <div class="col-md-6">
-                <div class="blog-card">
-                    <div class="photo photo1"></div>
-                    <ul class="details">
-                        <li class="author"><a href="#">John Doe</a></li>
-                        <li class="date">Aug. 24, 2015</li>
-                        <li class="tags">
-                            <ul>
-                                <li><a href="#">Learn</a></li>
-                                <li><a href="#">Code</a></li>
-                                <li><a href="#">HTML</a></li>
-                                <li><a href="#">CSS</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <div class="description">
-                        <h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
-                        <h2>ขาย || <a href="#">คอนโด</a></h2>
-                        <p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
-                    </div>
-                </div>
-            </div>
+            {{--<div class="col-md-6">--}}
+                {{--<div class="blog-card">--}}
+                    {{--<div class="photo photo1"></div>--}}
+                    {{--<ul class="details">--}}
+                        {{--<li class="author"><a href="#">Angel Real Estate Consultancy Co.,Ltd (ARE)</a></li>--}}
+                        {{--<li class="phone"><a href="#">กดเพื่อดูเบอร์</a></li>--}}
+                        {{--<li class="share">--}}
+                            {{--<ul>--}}
+                                {{--<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>--}}
+                                {{--<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>--}}
+                                {{--<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>--}}
+                            {{--</ul>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                    {{--<div class="description">--}}
+                        {{--<h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>--}}
+                        {{--<h2>356,000,000 ฿ / ขาย / <a href="#">คอนโด</a></h2>--}}
+                        {{--<h3>34 ไร่ 3 งาน 100 ตารางวา / 125 ฿ : ตารางเมตร</h3>--}}
+                        {{--<p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>--}}
+                        {{--<p class="province">กรุงเทพ</p>--}}
+                        {{--<div class="card-media-body-supporting-bottom">--}}
+                            {{--<!--<span class="card-media-body-supporting-bottom-text subtle">Mezzanine, San Francisco, CA</span>-->--}}
+                            {{--<span class="card-media-body-supporting-bottom-text subtle u-float-right">1 ชั่วโมง ที่แล้ว</span>--}}
+                        {{--</div>--}}
+                        {{--<div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">--}}
+                            {{--<span class="card-media-body-supporting-bottom-text subtle">ดู 256,802 ครั้ง</span>--}}
+                            {{--<a href="#/"--}}
+                               {{--class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
-
-            <div class="col-md-6">
-                <div class="blog-card">
-                    <div class="photo photo1"></div>
-                    <ul class="details">
-                        <li class="author"><a href="#">John Doe</a></li>
-                        <li class="date">Aug. 24, 2015</li>
-                        <li class="share">
-                            <ul>
-                                <li><a href="#">Learn</a></li>
-                                <li><a href="#">Code</a></li>
-                                <li><a href="#">HTML</a></li>
-                                <li><a href="#">CSS</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <div class="description">
-                        <h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
-                        <h2>ขาย || <a href="#">คอนโด</a></h2>
-                        <p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-6">
-                <div class="blog-card">
-                    <div class="photo photo1"></div>
-                    <ul class="details">
-                        <li class="author"><a href="#">John Doe</a></li>
-                        <li class="date">Aug. 24, 2015</li>
-                        <li class="tags">
-                            <ul>
-                                <li><a href="#">Learn</a></li>
-                                <li><a href="#">Code</a></li>
-                                <li><a href="#">HTML</a></li>
-                                <li><a href="#">CSS</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <div class="description">
-                        <h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>
-                        <h2>ขาย || <a href="#">คอนโด</a></h2>
-                        <p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>
-                    </div>
-                </div>
-            </div>
 
 
             <div class="pagination__container">

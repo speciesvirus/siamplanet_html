@@ -20,6 +20,11 @@ class ComposerServiceProvider extends ServiceProvider
             , 'App\Http\ViewComposers\NavigatorComposer'
         );
 
+        View::composer(
+            ['home', 'product', 'product.view']
+            , 'App\Http\ViewComposers\ProductComposer'
+        );
+
         // Using Closure based composers...
 //        View::composer('*', function ($view) {
 //
