@@ -492,6 +492,8 @@
                     tag1 : _inputName('tag1'),
                     tag2 : _inputName('tag2'),
                     tag3 : _inputName('tag3'),
+                    seller : _inputName('seller'),
+                    phone : _inputName('phone'),
                     arrFile : arrFile,
                     arrArea : arrArea,
                     arrGeo : arrGeo,
@@ -1122,33 +1124,60 @@
 
                     <!-- Text input -->
                     <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status">Tag</label>
+                        <label class="col-xs-6 col-sm-3 control-label">Tag</label>
                         <div class="col-md-5">
-                            <input name="tag1" class="form-control input-md" type="text" placeholder="tag">
+                            <input name="tag1" class="form-control input-md" type="text" placeholder="tag" value="{{ old('tag1') }}">
                         </div>
                     </div>
 
                     <!-- Text input -->
                     <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
+                        <label class="col-xs-6 col-sm-3 control-label"></label>
                         <div class="col-md-5">
-                            <input name="tag2" class="form-control input-md" id="status" type="text"
-                                   placeholder="tag">
+                            <input name="tag2" class="form-control input-md" type="text"
+                                   placeholder="tag" value="{{ old('tag2') }}">
                         </div>
                     </div>
 
                     <!-- Text input -->
                     <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
+                        <label class="col-xs-6 col-sm-3 control-label"></label>
                         <div class="col-md-5">
-                            <input name="tag3" class="form-control input-md" id="status" type="text"
-                                   placeholder="tag">
+                            <input name="tag3" class="form-control input-md" type="text"
+                                   placeholder="tag" value="{{ old('tag3') }}">
                         </div>
                     </div>
 
 
                 </div>
 
+
+
+                <div class="form-horizontal">
+                    <h3 class="side-list-title">ข้อมูลผู้ขาย</h3>
+
+                    <!-- Text input -->
+                    <div class="form-group {{ $errors->has('seller') ? 'has-error' : '' }}">
+                        <label class="col-xs-6 col-sm-3 control-label required">ติดต่อคุณ</label>
+                        <div class="col-md-5">
+                            <input name="seller" class="form-control input-md" type="text" placeholder="seller"
+                                   value="{{ old('seller') }}">
+                            <span class="help-inline">{{ $errors->has('seller') ? $errors->first('seller') : '' }}</span>
+                        </div>
+                    </div>
+
+                    <!-- Text input -->
+                    <div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
+                        <label class="col-xs-6 col-sm-3 control-label required" for="status">เบอร์โทร</label>
+                        <div class="col-md-5">
+                            <input name="phone" class="form-control input-md" id="status" type="text" placeholder="phone"
+                                   value="{{ old('phone') }}">
+                            <span class="help-inline">{{ $errors->has('phone') ? $errors->first('phone') : '' }}</span>
+                        </div>
+                    </div>
+
+
+                </div>
 
                 <div class="form-horizontal">
                     <h3 class="side-list-title"></h3>

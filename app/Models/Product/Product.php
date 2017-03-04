@@ -30,7 +30,7 @@ class Product extends Model
 
     public function facility()
     {
-        return $this->belongsToMany('App\Models\Product\ProductFacility')->withTimestamps();
+        return $this->belongsToMany('App\Models\Product\ProductFacility');
         //return $this->belongsToMany('App\Models\Product\ProductFacility');
     }
     public function assignFacility($facility, $image)
@@ -44,7 +44,7 @@ class Product extends Model
 
     public function area()
     {
-        return $this->belongsToMany('App\Models\Product\ProductArea')->withTimestamps();
+        return $this->belongsToMany('App\Models\Product\ProductArea');
     }
     public function assignArea($area, $name, $lat, $lng)
     {

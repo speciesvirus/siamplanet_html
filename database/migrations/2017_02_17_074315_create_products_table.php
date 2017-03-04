@@ -24,12 +24,16 @@ class CreateProductsTable extends Migration
             $table->decimal('unit', 5, 2)->unsigned();
             $table->integer('product_unit_id')->unsigned()->index();
             $table->foreign('product_unit_id')->references('id')->on('product_units')->onDelete('no action');
-            $table->integer('amount')->unsigned();
-            $table->string('name')->nullable();
+            $table->integer('price')->unsigned();
+            $table->string('project')->nullable();
             $table->string('complete')->nullable();
             $table->text('content');
             $table->integer('province_id')->unsigned()->index()->nullable();
             $table->foreign('province_id')->references('id')->on('provinces')->onDelete('no action');
+            $table->string('seller');
+            $table->string('phone');
+            $table->integer('view')->default(0);
+            $table->integer('phone_view')->default(0);
             $table->timestamps();
         });
     }

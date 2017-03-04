@@ -46,17 +46,21 @@ class HomeController extends Controller
             ->join('product_sales', 'product_sales.id', '=', 'products.product_sale_id')
             ->join('product_units', 'product_units.id', '=', 'products.product_unit_id')
             ->join('provinces', 'provinces.id', '=', 'products.province_id')
-            ->leftJoin('product_images', 'product_images.product_id', '=', 'products.id')
+            ->leftJoin('product_images', function ($join) {
+                $join->on('product_images.product_id', '=', 'products.id')->where('product_images.sort', '=', 1);
+            })
             ->select(
                 'products.id', 'products.title', 'products.subtitle', 'product_types.type',
-                'product_sales.sale', 'product_units.unit', 'provinces.name as province', 'products.unit',
+                'products.seller', 'products.phone', 'products.view',
+                'product_sales.sale', 'product_units.id as unit_id', 'provinces.name as province',
                 'product_images.image', DB::raw('CONCAT(products.unit, " ", product_units.unit) as unit'),
-                'products.amount', DB::raw('SUBSTRING(products.content,1,50) as content'), 'products.created_at'
+                'products.price', DB::raw('SUBSTRING(products.content,1,50) as content'), 'products.created_at'
             )
-            //->toSql();
-            ->paginate(5);
-        $product->withPath($url)->setPageName('page');
+            ->orderBy('products.id')->paginate(10);
+
         //dd($product);
+        //$product->withPath($url)->setPageName('page');
+
         return view('home', ['pagination' => $product]);
     }
 
@@ -69,10 +73,29 @@ class HomeController extends Controller
     {
         $p = Product::find($product);
         if($p){
+            $product = Product::find($product);
+            $view = ++$product->view;
+            $product->view = $view;
+            $product->save();
             return view('view',['product' => $p]);
         }
 
         return redirect()->route('home');
 
+    }
+
+    /**
+     * Show the only product.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function phone(Request $request)
+    {
+        $product = Product::find($request['id']);
+        $phone_count = ++$product->phone_view;
+        $product->phone_view = $phone_count;
+        $product->save();
+
+        return response()->json(['phone' => $product['phone']], 200);
     }
 }

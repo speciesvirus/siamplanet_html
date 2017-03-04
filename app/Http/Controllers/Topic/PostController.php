@@ -42,14 +42,20 @@ class PostController extends Controller
          foreach ($input as $key => $value) {
              $file = $request->file($key);
              $filename = $file->getClientOriginalName();
-             $timestamp = Carbon::now()->toDayDateTimeString();
-             $randomKey = str_random(5);
-             $filename = base64_encode($filename . $timestamp . $randomKey).'.jpg';
+             $filename =  $this->getImageName($filename);
              $upload_success = $file->move($destinationPath, $filename);
+             array_push($image_encrypted, $filename);
          }
 
         return response()->json(['images' => $image_encrypted] , 200);
 
+    }
+
+    public function getImageName($filename)
+    {
+        $timestamp = Carbon::now()->toDayDateTimeString();
+        $randomKey = str_random(5);
+        return base64_encode($filename . $timestamp . $randomKey).'.jpg';
     }
 
     public function post(Request $request)
@@ -60,10 +66,12 @@ class PostController extends Controller
         $product->title = $request->input('topic');
         $product->subtitle = $request->input('topic_des');
         $product->unit = $request->input('size');
-        $product->amount = $request->input('price');
-        $product->name = $request->input('project');
+        $product->price = $request->input('price');
+        $product->project = $request->input('project');
         $product->complete = $request->input('year');
         $product->content = $request->input('content');
+        $product->seller = $request->input('seller');
+        $product->phone = $request->input('phone');
 
         $type = ProductType::find($request->input('type'));
         $sale = ProductSale::find($request->input('sale'));
@@ -107,9 +115,11 @@ class PostController extends Controller
         if(!$arrFile) return response()->json("Image not found!" , 200);
 
         foreach ($arrFile as $key => $value) {
+            $sort = ( $key + 1 );
             if($value['type'] == 'product'){
                 $image = new ProductImage();
                 $image->image = $value['image'];
+                $image->sort = $sort;
                 $product->image()->save($image);
             }else if($value['type'] == 'facility'){
                 $facility = ProductFacility::find($value['id']);
@@ -137,9 +147,9 @@ class PostController extends Controller
                 $product->tag()->save($subway);
             }
         }
-
-        //return response()->json($aa , 200);
         return response()->json("success." , 200);
+        //return response()->json($aa , 200);
+
 
         //if($img) return redirect()->back()->withInput()->withErrors(['images' => 'images is required']);
 
@@ -168,6 +178,8 @@ class PostController extends Controller
             'price'              => 'required|numeric',
 //            'pimg1'              => 'required|image|nullable',
             'content'            => 'required|min:6',
+            'seller'             => 'required',
+            'phone'              => 'required|numeric|min:9|digits_between:9,10',
         ];
         $messages = [
             'topic.required'      => 'topic is required',
@@ -200,6 +212,8 @@ class PostController extends Controller
             'size_unit'          => 'required',
             'price'              => 'required|numeric',
             'content'            => 'required|min:6',
+            'seller'             => 'required',
+            'phone'              => 'required|numeric|min:9|digits_between:9,10',
         ];
         $messages = [
             'topic.required'      => 'topic is required',

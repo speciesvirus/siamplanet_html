@@ -768,6 +768,10 @@ section:first-child {
     margin: 0;
 }
 
+.blog-card .description h1 > a {
+    color: inherit;
+}
+
 .blog-card .description h2 {
     color: #9b9b9b;
     font-size: 14px;
@@ -1752,7 +1756,8 @@ p.agree{
 .pagination__container{
     position: relative;
     clear: both;
-    top: 1.5rem;
+    top: 2rem;
+    margin: 3rem 0;
 }
 .pagination__wrapper {
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, white 17%, white 83%, rgba(255, 255, 255, 0) 100%);
@@ -1760,7 +1765,7 @@ p.agree{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=1 );
     height: 50px;
     /*left: 50%;*/
-    position: absolute;
+    /*position: absolute;*/
     text-align: center;
     /*-webkit-transform: translate(-50%, -50%);*/
     /*transform: translate(-50%, -50%);*/

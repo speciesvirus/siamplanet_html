@@ -18,7 +18,30 @@
             var $this = $(this).find('a').attr('href');
             //alert($(this).find('a').attr('class'));
             if(typeof $this != 'undefined') window.location.href = $this;
-        })
+        });
+
+        $(document).on('click', '.phone a', function () {
+            var $this = $(this),
+                $id = $this.parents('.blog-card').data('id');
+            $.ajax({
+                url     : "{{ route('phone.view') }}",
+                type    : "post",
+                data    : { id: $id },
+                dataType: "json",
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                success : function ( json )
+                {
+                    $this.html(json.phone);
+                },
+                error   : function ( jqXhr, json, errorThrown )
+                {
+                    var errors = jqXhr.responseJSON;
+                    console.log(errors);
+                }
+            });
+        });
     </script>
 @stop
 
@@ -32,11 +55,11 @@
 
             @foreach($pagination->items() as $item)
                 <div class="col-md-6">
-                    <div class="blog-card">
+                    <div class="blog-card" data-id="{{ $item['attributes']['id'] }}">
                         <div class="photo photo1" style="background: url({{ route('images.q').'?q='.$item['attributes']['image'] }}) center no-repeat;background-size: cover;"></div>
                         <ul class="details">
-                            <li class="author"><a href="#">Angel Real Estate Consultancy Co.,Ltd (ARE)</a></li>
-                            <li class="phone"><a href="#">กดเพื่อดูเบอร์</a></li>
+                            <li class="author"><a href="#">{{ $item['attributes']['seller'] }}</a></li>
+                            <li class="phone"><a href="javascript://">กดเพื่อดูเบอร์</a></li>
                             <li class="share">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -46,9 +69,9 @@
                             </li>
                         </ul>
                         <div class="description">
-                            <h1>{{ $item['attributes']['title'] }}</h1>
-                            <h2>{{ $item['attributes']['amount'] }} ฿ / {{ $item['attributes']['sale'] }} / <a href="#">{{ $item['attributes']['type'] }}</a></h2>
-                            <h3>{{ $item['attributes']['unit'] }} / 125 ฿ : ตารางเมตร</h3>
+                            <h1><a href="{{ route('product').'/'.$item['attributes']['id'] }}">{{ $item['attributes']['title'] }}</a></h1>
+                            <h2>{{ number_format($item['attributes']['price']) }} ฿ / {{ $item['attributes']['sale'] }} / <a href="#">{{ $item['attributes']['type'] }}</a></h2>
+                            <h3>{{ $item['attributes']['unit'] }} / {{ $cal_unit($item['attributes']['price'], $item['attributes']['unit'], $item['attributes']['unit_id']) }} ฿ : ตารางเมตร</h3>
                             <p class="summary">{{ $item['attributes']['subtitle'] }}</p>
                             <p class="province">{{ $item['attributes']['province'] }}</p>
                             <div class="card-media-body-supporting-bottom">
@@ -56,7 +79,7 @@
                                 <span class="card-media-body-supporting-bottom-text subtle u-float-right">{{ $trans_time($item['attributes']['created_at']) }}</span>
                             </div>
                             <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
-                                <span class="card-media-body-supporting-bottom-text subtle">ดู 256,802 ครั้ง</span>
+                                <span class="card-media-body-supporting-bottom-text subtle">ดู {{ number_format($item['attributes']['view']) }} ครั้ง</span>
                                 <a href="#/"
                                    class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>
                             </div>
