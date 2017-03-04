@@ -36,16 +36,20 @@ class PostController extends Controller
     public function image(Request $request)
     {
 
-         $destinationPath = resource_path('images/');
-         $input = $request->except('_token');
-         $image_encrypted = [];
-         foreach ($input as $key => $value) {
-             $file = $request->file($key);
-             $filename = $file->getClientOriginalName();
-             $filename =  $this->getImageName($filename);
-             $upload_success = $file->move($destinationPath, $filename);
-             array_push($image_encrypted, $filename);
-         }
+        $destinationPath = resource_path('images/');
+        $input = $request->except('_token');
+        $image_encrypted = [];
+
+        foreach ($input as $key => $value) {
+            $file = $request->file($key);
+            $filename = null;
+            if($file){
+                $filename = $file->getClientOriginalName();
+                $filename = $this->getImageName($filename);
+                $upload_success = $file->move($destinationPath, $filename);
+            }
+            array_push($image_encrypted, ['index' => $key, 'name' => $filename]);
+        }
 
         return response()->json(['images' => $image_encrypted] , 200);
 

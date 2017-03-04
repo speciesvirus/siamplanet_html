@@ -48,7 +48,7 @@ class HomeController extends Controller
         $product = Product::join('product_types', 'product_types.id', '=', 'products.product_type_id')
             ->join('product_sales', 'product_sales.id', '=', 'products.product_sale_id')
             ->join('product_units', 'product_units.id', '=', 'products.product_unit_id')
-            ->join('provinces', 'provinces.id', '=', 'products.province_id')
+            ->leftJoin('provinces', 'provinces.id', '=', 'products.province_id')
             ->leftJoin('product_images', function ($join) {
                 $join->on('product_images.product_id', '=', 'products.id')->where('product_images.sort', '=', 1);
             })
@@ -83,7 +83,7 @@ class HomeController extends Controller
             $facility = ProductProductFacility::selectOnProduct($p->id);
             $image = ProductImage::selectOnProduct($p->id);
             $area = ProductProductArea::selectOnProduct($p->id);
-dd($product);
+//dd($area);
             return view('view',[
                 'product' => $product[0]['attributes'],
                 'product_img' => $image,

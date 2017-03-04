@@ -19,7 +19,7 @@ class CreateProductProductFacilitiesTable extends Migration
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->integer('product_facility_id')->unsigned()->index();
             $table->foreign('product_facility_id')->references('id')->on('product_facilities')->onDelete('no action');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->integer('sort')->unsigned()->nullable();
         });
     }

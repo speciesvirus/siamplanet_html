@@ -487,8 +487,8 @@
 
             <ul class="nav">
                 <li class="nav-one"><a href="#filter-mademoiselle" class="">{{ $product['type'] }}</a></li>
-                <li class="nav-two"><a class="" href="#filter-scene">{{ $product['project'] }}</a></li>
-                <li class="nav-three"><a class="" href="#filter-carnets">แล้วเสร็จ {{ $product['complete'] }}</a></li>
+                <li class="nav-two"><a class="" href="#filter-scene">{{ $product['project'] == null ? '-' : $product['project'] }}</a></li>
+                <li class="nav-three"><a class="" href="#filter-carnets">แล้วเสร็จ {{ $product['complete'] == null ? '-' : $product['complete'] }}</a></li>
                 <li class="nav-four last"><a class="current" href="#filter-jetedis">{{ $product['sale'] }}</a></li>
 
             </ul>
@@ -504,7 +504,7 @@
                     </li>
                     <li><a style="display: block;" href="#!" class="all"
                            data-country="{{ number_format($product['unit'], 2, '.', ',').' '.$product['unit_name'] }}">พื้นที่</a></li>
-                    <li><a style="display: block;" href="#!" class="all zwitserland" data-country="{{ $product['province'] }}">จังหวัด</a>
+                    <li><a style="display: block;" href="#!" class="all zwitserland" data-country="{{ $product['province'] == null ? '-' : $product['province'] }}">จังหวัด</a>
                     </li>
                 </ul>
 
@@ -515,34 +515,48 @@
         
         <div class="bs-docs-section">
             <h1 class="page-header" id="type">รายละเอียด</h1>
-            <div class="row">
-                <div class="col-md-3">พื้นที่ใกล้เคียง</div>
-                <div class="col-md-9">
 
-                    <ul class="features-list">
-                        <li class="list-item two-column features-item distance-essential-property">
-                            <div>Utapao International Airport</div>
-                            <div>31.88 km</div>
-                        </li>
-                        <li class="list-item two-column features-item distance-essential-property">
-                            <div>Utapao International Airport</div>
-                            <div>31.88 km</div>
-                        </li>
-                        <li class="list-item two-column features-item distance-essential-property">
-                            <div>Utapao International Airport</div>
-                            <div>31.88 km</div>
-                        </li>
-                        <li class="list-item two-column features-item distance-essential-property">
-                            <div>Utapao International Airport</div>
-                            <div>31.88 km</div>
-                        </li>
-                        <li class="list-item two-column features-item distance-essential-property">
-                            <div>Utapao International Airport</div>
-                            <div>31.88 km</div>
-                        </li>
-                    </ul>
+            @if(!$product_area->isEmpty())
+                <div class="row">
+                    <div class="col-md-3">พื้นที่ใกล้เคียง</div>
+                    <div class="col-md-9">
+
+                        <ul class="features-list">
+                            @foreach($product_area as $item)
+                                @if($item['attributes']['area_id'] != 1)
+                                    <li class="list-item two-column features-item distance-essential-property">
+                                        <div>{{ $item['attributes']['area'] }}</div>
+                                        <div>31.88 km</div>
+                                    </li>
+                                @endif
+                            @endforeach
+
+                            {{--<li class="list-item two-column features-item distance-essential-property">--}}
+                            {{--<div>Utapao International Airport</div>--}}
+                            {{--<div>31.88 km</div>--}}
+                            {{--</li>--}}
+                            {{--<li class="list-item two-column features-item distance-essential-property">--}}
+                            {{--<div>Utapao International Airport</div>--}}
+                            {{--<div>31.88 km</div>--}}
+                            {{--</li>--}}
+                            {{--<li class="list-item two-column features-item distance-essential-property">--}}
+                            {{--<div>Utapao International Airport</div>--}}
+                            {{--<div>31.88 km</div>--}}
+                            {{--</li>--}}
+                            {{--<li class="list-item two-column features-item distance-essential-property">--}}
+                            {{--<div>Utapao International Airport</div>--}}
+                            {{--<div>31.88 km</div>--}}
+                            {{--</li>--}}
+                            {{--<li class="list-item two-column features-item distance-essential-property">--}}
+                            {{--<div>Utapao International Airport</div>--}}
+                            {{--<div>31.88 km</div>--}}
+                            {{--</li>--}}
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            @endif
+
+
             <div class="row">
                 <div class="col-md-3">สิ่งอำนวยความสะดวก</div>
                 <div class="col-md-9">
@@ -557,70 +571,70 @@
                             </div>
                             <span class="f-name">การรักษาความปลอดภัย (24 ชั่วโมง)</span>
                         </li>
-                        <li class="list-item three-column features-item">
-                            <div class="check active">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
-                                          id="path-1" class="cls-2" fill-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <span class="f-name">เช็คอิน/เช็คเอาต์ด่วน</span>
-                        </li>
-                        <li class="list-item three-column features-item">
-                            <div class="check">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
-                                          id="path-1" class="cls-2" fill-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <span class="f-name">ทางสำหรับรถเข็น</span>
-                        </li>
-                        <li class="list-item three-column features-item">
-                            <div class="check">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
-                                          id="path-1" class="cls-2" fill-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <span class="f-name">นำสัตว์เลี้ยงเข้าพักได้</span>
-                        </li>
+                        {{--<li class="list-item three-column features-item">--}}
+                            {{--<div class="check active">--}}
+                                {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                                     {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
+                                    {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
+                                          {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
+                                {{--</svg>--}}
+                            {{--</div>--}}
+                            {{--<span class="f-name">เช็คอิน/เช็คเอาต์ด่วน</span>--}}
+                        {{--</li>--}}
+                        {{--<li class="list-item three-column features-item">--}}
+                            {{--<div class="check">--}}
+                                {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                                     {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
+                                    {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
+                                          {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
+                                {{--</svg>--}}
+                            {{--</div>--}}
+                            {{--<span class="f-name">ทางสำหรับรถเข็น</span>--}}
+                        {{--</li>--}}
+                        {{--<li class="list-item three-column features-item">--}}
+                            {{--<div class="check">--}}
+                                {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                                     {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
+                                    {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
+                                          {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
+                                {{--</svg>--}}
+                            {{--</div>--}}
+                            {{--<span class="f-name">นำสัตว์เลี้ยงเข้าพักได้</span>--}}
+                        {{--</li>--}}
 
 
-                        <div class="collapse toggle">
-                            <li class="list-item three-column features-item">
-                                <div class="check">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
-                                              id="path-1" class="cls-2" fill-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <span class="f-name">ลิฟ</span>
-                            </li>
-                            <li class="list-item three-column features-item">
-                                <div class="check">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
-                                              id="path-1" class="cls-2" fill-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <span class="f-name">นำสัตว์เลี้ยงเข้าพักได้</span>
-                            </li>
-                            <li class="list-item three-column features-item">
-                                <div class="check">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                        <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
-                                              id="path-1" class="cls-2" fill-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                                <span class="f-name">Utapao International</span>
-                            </li>
-                        </div>
+                        {{--<div class="collapse toggle">--}}
+                            {{--<li class="list-item three-column features-item">--}}
+                                {{--<div class="check">--}}
+                                    {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                                         {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
+                                        {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
+                                              {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
+                                    {{--</svg>--}}
+                                {{--</div>--}}
+                                {{--<span class="f-name">ลิฟ</span>--}}
+                            {{--</li>--}}
+                            {{--<li class="list-item three-column features-item">--}}
+                                {{--<div class="check">--}}
+                                    {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                                         {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
+                                        {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
+                                              {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
+                                    {{--</svg>--}}
+                                {{--</div>--}}
+                                {{--<span class="f-name">นำสัตว์เลี้ยงเข้าพักได้</span>--}}
+                            {{--</li>--}}
+                            {{--<li class="list-item three-column features-item">--}}
+                                {{--<div class="check">--}}
+                                    {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                                         {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
+                                        {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
+                                              {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
+                                    {{--</svg>--}}
+                                {{--</div>--}}
+                                {{--<span class="f-name">Utapao International</span>--}}
+                            {{--</li>--}}
+                        {{--</div>--}}
 
                         <div class="show-more">
                             <a href="javascript://" data-toggle="collapse" data-target=".toggle">
@@ -638,7 +652,7 @@
 
         <div class="bs-docs-section">
             <div class="listing-details-text">
-                {{ $product['content'] }}
+                {!! $product['content'] !!}
             </div>
         </div>
 

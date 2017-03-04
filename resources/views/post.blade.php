@@ -431,9 +431,11 @@
             {
                 if(value.file != null){
                     data.append($key, value.file);
-                    $key++;
-                    arrFile.push({type:'facility', id: value.id, image: ''});
+                }else{
+                    data.append($key, null);
                 }
+                $key++;
+                arrFile.push({type:'facility', id: value.id, image: null});
             });
 
             $.ajax({
@@ -451,7 +453,7 @@
                 {
                     $.each(json['images'], function(key, value)
                     {
-                        arrFile[key].image = value;
+                        arrFile[value['index']].image = value['name'];
                     });
                     uploadData();
                 },
