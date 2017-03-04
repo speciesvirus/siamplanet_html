@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product\Product;
+use App\Models\Product\ProductImage;
+use App\Models\Product\ProductProductArea;
+use App\Models\Product\ProductProductFacility;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
@@ -73,11 +76,20 @@ class HomeController extends Controller
     {
         $p = Product::find($product);
         if($p){
-            $product = Product::find($product);
-            $view = ++$product->view;
-            $product->view = $view;
-            $product->save();
-            return view('view',['product' => $p]);
+            $view = ++$p->view;
+            $p->view = $view;
+            $p->save();
+            $product = Product::selectOnProduct($p->id);
+            $facility = ProductProductFacility::selectOnProduct($p->id);
+            $image = ProductImage::selectOnProduct($p->id);
+            $area = ProductProductArea::selectOnProduct($p->id);
+dd($product);
+            return view('view',[
+                'product' => $product[0]['attributes'],
+                'product_img' => $image,
+                'product_facility' => $facility,
+                'product_area' => $area
+            ]);
         }
 
         return redirect()->route('home');

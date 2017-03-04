@@ -12,4 +12,9 @@ class ProductImage extends Model
     {
         return $this->belongsTo('App\Models\Product\Product');
     }
+    public static function selectOnProduct($product)
+    {
+        return ProductImage::where('product_id', $product)->get();
+    }
+
 }

@@ -31,7 +31,7 @@
             slidesToShow: 1,
             arrows: false,
             asNavFor: '.project-strip',
-            autoplay: true,
+            autoplay: false,
             autoplaySpeed: 3000
         });
 
@@ -440,7 +440,7 @@
 
 @section('first-content')
     <div class="col-md-9">
-        <h1 class="entry-title">Simplicity2の子テーマ</h1>
+        <h1 class="entry-title">{{ $product['subtitle'] }}</h1>
 
         <div class="section section-project">
             <div class="project-carousel">
@@ -453,26 +453,32 @@
                     </div>
                 </div>
                 <div class="project-screen">
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=26" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=39" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=52" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=65" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=78" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=91" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=104" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=117" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=130" alt=""/></div>
+                    @foreach($product_img as $image)
+                        <div class="project"><img src="{{ route('images.q').'?q='.$image['attributes']['image'] }}" alt=""/></div>
+                    @endforeach
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=26" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=39" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=52" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=65" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=78" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=91" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=104" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=117" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=130" alt=""/></div>--}}
                 </div>
                 <div class="project-strip">
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=26" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=39" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=52" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=65" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=78" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=91" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=104" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=117" alt=""/></div>
-                    <div class="project"><img src="http://unsplash.it/578/361/?image=130" alt=""/></div>
+                    @foreach($product_img as $image)
+                        <div class="project"><img src="{{ route('images.q').'?q='.$image['attributes']['image'] }}" alt=""/></div>
+                    @endforeach
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=26" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=39" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=52" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=65" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=78" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=91" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=104" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=117" alt=""/></div>--}}
+                    {{--<div class="project"><img src="http://unsplash.it/578/361/?image=130" alt=""/></div>--}}
                 </div>
             </div>
         </div>
@@ -480,10 +486,10 @@
         <div class="vertical-tabs">
 
             <ul class="nav">
-                <li class="nav-one"><a href="#filter-mademoiselle" class="">คอนโด </a></li>
-                <li class="nav-two"><a class="" href="#filter-scene">SANSIRI - แสนสิริ จำกัด</a></li>
-                <li class="nav-three"><a class="" href="#filter-carnets">แล้วเสร็จ 2013</a></li>
-                <li class="nav-four last"><a class="current" href="#filter-jetedis">ชั้น 6</a></li>
+                <li class="nav-one"><a href="#filter-mademoiselle" class="">{{ $product['type'] }}</a></li>
+                <li class="nav-two"><a class="" href="#filter-scene">{{ $product['project'] }}</a></li>
+                <li class="nav-three"><a class="" href="#filter-carnets">แล้วเสร็จ {{ $product['complete'] }}</a></li>
+                <li class="nav-four last"><a class="current" href="#filter-jetedis">{{ $product['sale'] }}</a></li>
 
             </ul>
 
@@ -491,14 +497,14 @@
 
                 <ul id="filter-jetedis" class="hide-shift">
                     <li><a style="display: block;" href="#!" class="all zwitserland"
-                           data-country="8,000,000 บาท">ราคา</a>
+                           data-country="{{ number_format($product['price']) }} บาท">ราคา</a>
                     </li>
                     <li><a style="display: block;" href="#!" class="all frankrijk active"
-                           data-country="250,141 บาท / ตารางเมตร ">ราคาเฉลี่ย</a>
+                           data-country="{{ $cal_unit($product['price'], $product['unit'], $product['unit_id']) }} บาท / ตารางเมตร ">ราคาเฉลี่ย</a>
                     </li>
                     <li><a style="display: block;" href="#!" class="all"
-                           data-country="31 ตารางเมตร">พื้นที่</a></li>
-                    <li><a style="display: block;" href="#!" class="all zwitserland" data-country="1 งาน">ขนาดที่ดิน</a>
+                           data-country="{{ number_format($product['unit'], 2, '.', ',').' '.$product['unit_name'] }}">พื้นที่</a></li>
+                    <li><a style="display: block;" href="#!" class="all zwitserland" data-country="{{ $product['province'] }}">จังหวัด</a>
                     </li>
                 </ul>
 
@@ -632,36 +638,7 @@
 
         <div class="bs-docs-section">
             <div class="listing-details-text">
-                <h1 class="listing-title">ขายคอนโด ห้องจริงสวยมาก เดอะ พีค รัชดา-ห้วยขวาง ใกล้ รถไฟฟ้าใต้ดิน 1 ห้องนอน
-                    (The Peak Ratchada Huaykwang) 1k. m. to MRT</h1>
-
-                ขาย คอนโด เดอะ พีค 1 ห้องนอน 1 ห้องน้ำ พื้นที่ 47.22 ตรม. ห้องอยู่ชั้น 8 หัวมุม ประตูห้องไม่ติดกับใคร
-                พร้อมเฟอร์นิเจอร์ ตกแต่ง Build in ,walk in closet ,เตียง ,โซฟา,โต๊ะทานข้าว, และเครื่องใช้ไฟฟ้า อาทิ แอร์
-                2 เครื่อง, TV,เครื่องทำน้ำอุ่น, ที่ดูดควัน, เตาอบ, ไมโครเวฟ ยี่ห้อ Franke พื้นที่ใช้สอยทำอย่างลงตัว
-                มีชั้นเก็บของทั้งห้อง<br>
-                สิ่งอำนวยความสะดวกในโครงการ มินิมาร์ท ร้านซัก อบ รีด ฟิตเนส , ลานจอดรถยนต์และจักรยานยนต์ สวนหย่อมดาดฟ้า
-                ระบบรักษาความปลอดภัย , กล่องวงจรปิด , คีย์การ์ด , wifi , ยิม<br>
-                สามารถจอดรถได้ 1 คัน <br>
-                ที่ตั้ง ซอยประชาราษฎร์บำเพ็ญ 16 ห่างจาก ถนนประชาราษฎร์บำเพ็ญ ใกล้รถไฟฟ้า MRT ห้วยขวาง<br>
-                <br>
-                ขาย 2,600,000 บาท (ไม่รวมค่าใช้จ่ายที่สำนักงานที่ดิน) ห้องนี้คุ้มสุดๆ บอกเลย<br>
-                สนใจติดต่อ คุณขวัญ 092-551-3003<br>
-                <br>
-                ร้านค้าในบริเวณรอบๆคอนโด:<br>
-                ห้วยขวางเทอร์เรซ ห่างจากคอนโด 1.3 กิโลเมตร (ขับรถ 6 นาที)<br>
-                ห้วยขวางอเวนิว – 1.6 กิโลเมตร (ขับรถ 7 นาที)<br>
-                <br>
-                โรงเรียนที่ใกล้ที่สุดในบริเวณ<br>
-                โรงเรียนอนุบาลโชคชัย (ครูเกียว) ระยะทางประมาณ 530 เมตร เดินทาง (ประมาณ เดิน 6 นาที)<br>
-                โรงเรียนจันทร์หุ่นบำเพ็ญ – 840 เมตร (ขับรถ 3 นาที)<br>
-                โรงเรียนอนุบาลสีชมพู – 970 เมตร (ขับรถ 4 นาที)<br>
-                โรงเรียนนานาชาติเดอะรีเจ้นท์ – 1<br>
-                <br>
-                โรงพยาบาลโกลเด้นเยียส์เนอสซิ่งโฮม เป็นโรงพยาบาลที่ใกล้ที่สุดซึ่งตั้งอยู่ 2.4 กิโลเมตร
-                จากคอนโดมิเนียมจะใช้เวลาประมาณ ขับรถ 8 นาทีไปที่นั่น<br>
-                <br>
-                <br>
-                ทำการตลาดโดย บริษัท เก้า เก้า เก้า เรียลเอสเตท แอนด์ (เดวิลอปเม้น ไทยแลนด์) บริการรับฝากขาย บ้านที่ดิน
+                {{ $product['content'] }}
             </div>
         </div>
 

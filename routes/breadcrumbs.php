@@ -23,7 +23,7 @@ Breadcrumbs::register('news', function($breadcrumbs)
 Breadcrumbs::register('product', function($breadcrumbs, $product)
 {
     $breadcrumbs->parent('home');
-    $breadcrumbs->push($product->title, route('product'));
+    $breadcrumbs->push($product['title'], route('product'));
 });
 
 // Home > Blog > [Category]

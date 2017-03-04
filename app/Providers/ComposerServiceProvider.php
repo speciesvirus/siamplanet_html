@@ -16,19 +16,19 @@ class ComposerServiceProvider extends ServiceProvider
     {
         // Using class based composers...
         View::composer(
-            ['home', 'product', 'product.view']
+            ['home', 'view'] //*! file view .blade
             , 'App\Http\ViewComposers\NavigatorComposer'
         );
 
         View::composer(
-            ['home', 'product', 'product.view']
+            ['home', 'view']
             , 'App\Http\ViewComposers\ProductComposer'
         );
 
         // Using Closure based composers...
-//        View::composer('*', function ($view) {
-//
-//        });
+        View::composer('*', function ($view) {
+            //$view->with('categories', Categories::where('parent_id',NULL)->orderBy('id')->get());
+        });
     }
 
     /**
