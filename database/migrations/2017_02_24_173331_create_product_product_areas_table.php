@@ -20,6 +20,7 @@ class CreateProductProductAreasTable extends Migration
             $table->integer('product_area_id')->unsigned()->index();
             $table->foreign('product_area_id')->references('id')->on('product_areas')->onDelete('no action');
             $table->string('area');
+            $table->integer('distance');
             $table->string('lat');
             $table->string('lng');
         });

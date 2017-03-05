@@ -47,9 +47,9 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Models\Product\ProductArea');
     }
-    public function assignArea($area, $name, $lat, $lng)
+    public function assignArea($area, $name, $distance, $lat, $lng)
     {
-        return $this->area()->attach($area, ['area' => $name, 'lat' => $lat, 'lng' => $lng]);
+        return $this->area()->attach($area, ['area' => $name, 'distance' => $distance, 'lat' => $lat, 'lng' => $lng]);
     }
     public function removeArea($area)
     {

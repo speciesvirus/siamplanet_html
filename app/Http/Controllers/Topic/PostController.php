@@ -136,7 +136,7 @@ class PostController extends Controller
             foreach ($arrArea as $key => $value) {
                 $area = ProductArea::find($value['id']);
                 $area_name = $value['name'] ? $value['name'] : $request->input('topic') ;
-                $product->assignArea($area, $area_name, $value['lat'], $value['lng']);
+                $product->assignArea($area, $area_name, $value['distance'], $value['lat'], $value['lng']);
             }
         }
 

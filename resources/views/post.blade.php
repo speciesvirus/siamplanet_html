@@ -614,7 +614,7 @@
                                 origins: origin,
                                 destinations: destination,
                                 travelMode: 'WALKING'
-                            }, callback_distance);
+                            }, callback_around);
                     }
                 });
 
@@ -622,19 +622,37 @@
             }else{
                 var retVal = prompt("โปรดกรอกชื่อสถานที่ : ", "ชื่อสถานที่");
                 if(retVal != null){
-                    image.url = "http://www.freeiconspng.com/uploads/red-location-icon-map-png-4.png";
-                    placeMarkerAndPanTo(e.latLng, map, uniqueId);
-                    arrArea.push({id : $point, key : uniqueId, name : retVal, lat : e.latLng.lat(), lng : e.latLng.lng()});
-                    uniqueId++;
+
+                    var service = new google.maps.DistanceMatrixService();
+                    service.getDistanceMatrix(
+                        {
+                            origins: origin,
+                            destinations: destination,
+                            travelMode: 'DRIVING'
+                        }, function(response, status) {
+                            if (status == 'OK') {
+                                for (var i = 0; i < response['rows'].length; i++) {
+                                    var el =  response['rows'][i];
+                                    for (var j = 0; j < el['elements'].length; j++) {
+
+                                        var $distance = el['elements'][j]['distance']['value'];
+                                        image.url = "http://www.freeiconspng.com/uploads/red-location-icon-map-png-4.png";
+                                        placeMarkerAndPanTo(e.latLng, map, uniqueId);
+                                        arrArea.push({id : $point, key : uniqueId, name : retVal, distance : $distance, lat : e.latLng.lat(), lng : e.latLng.lng()});
+                                        uniqueId++;
+
+                                    }
+                                }
+                            }
+                        });
                 }
             }
 
         });
 
-        function callback_distance(response, status) {
+        function callback_around(response, status) {
             // See Parsing the Results for
             // the basics of a callback function.
-
             if (status == 'OK') {
                 for (var i = 0; i < response['rows'].length; i++) {
                     var el =  response['rows'][i];
@@ -645,12 +663,8 @@
             }
         }
 
-        function callback_around(results, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    createMarker(results[i]);
-                }
-            }
+        function callback_area(response, status) {
+
         }
 
         function createMarker(place) {
