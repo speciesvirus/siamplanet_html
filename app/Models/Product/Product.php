@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\DB;
 
 class Product extends Model
 {
+    public function user() {
+        return $this->belongsTo('App\Models\User');
+    }
     public function productType() {
         return $this->belongsTo('App\Models\Product\ProductType');
     }
@@ -63,11 +66,13 @@ class Product extends Model
             ->join('product_sales', 'product_sales.id', '=', 'products.product_sale_id')
             ->join('product_units', 'product_units.id', '=', 'products.product_unit_id')
             ->leftJoin('provinces', 'provinces.id', '=', 'products.province_id')
+            ->leftJoin('users', 'users.id', '=', 'products.user_id')
             ->select(
                 'products.id', 'products.title', 'products.subtitle', 'product_types.type',
                 'products.seller', 'products.phone', 'products.view', 'products.project',
                 'product_sales.sale', 'product_units.id as unit_id', 'provinces.name as province',
                 'products.unit', 'products.complete', 'product_units.unit as unit_name',
+                'users.id as user_id', 'users.email',
                 //DB::raw('CONCAT(products.unit, " ", product_units.unit) as unit'),
                 'products.price', 'products.content', 'products.created_at'
             )->where('products.id', $product)->get();

@@ -1888,3 +1888,15 @@ p.agree{
     font-size: 14px;
 }
 
+
+
+.features-item .hover_img{
+    position: absolute;
+    right: 23px;
+    width: 150px;
+    top: -85px;
+    display: none;
+}
+.features-item.features-item:hover span .hover_img{
+    display:block;
+}

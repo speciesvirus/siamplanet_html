@@ -54,6 +54,62 @@
             $('.project-screen').slick("slickPrev");
         });
 
+        $(document).on('click', '.phone a', function () {
+            var $this = $(this),
+                $id = '{{ $product['id'] }}';
+            $.ajax({
+                url     : "{{ route('phone.view') }}",
+                type    : "post",
+                data    : { id: $id },
+                dataType: "json",
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                success : function ( json )
+                {
+                    $this.parent().html(json.phone);
+                },
+                error   : function ( jqXhr, json, errorThrown )
+                {
+                    var errors = jqXhr.responseJSON;
+                    console.log(errors);
+                }
+            });
+        });
+
+        var $send = $('#send-message');
+        $send.submit(function (e) {
+            e.preventDefault();
+            $send.find('input').removeClass('has-error')
+            $send.find('textarea').removeClass('has-error');
+            $.ajax({
+                url     : "{{ route('product.contact') }}",
+                type    : $send.attr("method"),
+                data    : $send.serialize(),
+                dataType: "json",
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                success : function ( json )
+                {
+                    $send.find('input[type!="hidden"][type!="submit"]').val('');
+                    $send.find('textarea').val('');
+                    $('.wpcf7-response-output').html('');
+                    alert(json['alert-message']);
+                },
+                error   : function ( jqXhr, json, errorThrown )
+                {
+                    var errors = jqXhr.responseJSON;
+                    $.each( errors, function( key, value ) {
+                        $('input[name="'+key+'"]').addClass('has-error');
+                        $('textarea[name="'+key+'"]').addClass('has-error');
+                        $('.wpcf7-response-output').html('* ' + value);
+                    });
+                }
+            });
+        });
+
+
     </script>
 
     <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
@@ -454,7 +510,9 @@
                 </div>
                 <div class="project-screen">
                     @foreach($product_img as $image)
-                        <div class="project"><img src="{{ route('images.q').'?q='.$image['attributes']['image'] }}" alt=""/></div>
+                        <div class="project">
+                            <img src="{{ route('images.q').'?q='.$image['attributes']['image'] }}" alt=""/>
+                        </div>
                     @endforeach
                     {{--<div class="project"><img src="http://unsplash.it/578/361/?image=26" alt=""/></div>--}}
                     {{--<div class="project"><img src="http://unsplash.it/578/361/?image=39" alt=""/></div>--}}
@@ -526,7 +584,7 @@
                                 @if($item['attributes']['area_id'] != 1)
                                     <li class="list-item two-column features-item distance-essential-property">
                                         <div>{{ $item['attributes']['area'] }}</div>
-                                        <div>31.88 km</div>
+                                        <div>{{ number_format(($item['attributes']['distance'] / 1000), 2, '.', ',') }} km</div>
                                     </li>
                                 @endif
                             @endforeach
@@ -556,97 +614,110 @@
                 </div>
             @endif
 
+            @if(!$product_facility->isEmpty())
+                <div class="row">
+                    <div class="col-md-3">สิ่งอำนวยความสะดวก</div>
+                    <div class="col-md-9">
+                        <ul class="features-list">
+                            @foreach($product_facility as $item)
+                                <li class="list-item three-column features-item {{ $item['attributes']['image'] != '' ? 'active' : '' }}">
+                                    <div class="check {{ $item['attributes']['image'] != '' ? 'active' : '' }}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                             preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
+                                            <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
+                                                  id="path-1" class="cls-2" fill-rule="evenodd"/>
+                                        </svg>
+                                    </div>
+                                    <span class="f-name">{{ $item['attributes']['facility'] }}
+                                        @if($item['attributes']['image'] != '')
+                                            <div class="hover_img">
+                                            <span><img src="{{ route('images.q').'?q='.$item['attributes']['image'] }}" alt="image" /></span>
+                                        </div>
+                                        @endif
+                                    </span>
+                                </li>
+                            @endforeach
 
-            <div class="row">
-                <div class="col-md-3">สิ่งอำนวยความสะดวก</div>
-                <div class="col-md-9">
-                    <ul class="features-list">
-                        <li class="list-item three-column features-item">
-                            <div class="check">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                     preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">
-                                    <path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"
-                                          id="path-1" class="cls-2" fill-rule="evenodd"/>
-                                </svg>
-                            </div>
-                            <span class="f-name">การรักษาความปลอดภัย (24 ชั่วโมง)</span>
-                        </li>
-                        {{--<li class="list-item three-column features-item">--}}
+                            {{--<li class="list-item three-column features-item">--}}
                             {{--<div class="check active">--}}
-                                {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
-                                     {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
-                                    {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
-                                          {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
-                                {{--</svg>--}}
+                            {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                            {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
+                            {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
+                            {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
+                            {{--</svg>--}}
                             {{--</div>--}}
                             {{--<span class="f-name">เช็คอิน/เช็คเอาต์ด่วน</span>--}}
-                        {{--</li>--}}
-                        {{--<li class="list-item three-column features-item">--}}
+                            {{--</li>--}}
+                            {{--<li class="list-item three-column features-item">--}}
                             {{--<div class="check">--}}
-                                {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
-                                     {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
-                                    {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
-                                          {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
-                                {{--</svg>--}}
+                            {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                            {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
+                            {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
+                            {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
+                            {{--</svg>--}}
                             {{--</div>--}}
                             {{--<span class="f-name">ทางสำหรับรถเข็น</span>--}}
-                        {{--</li>--}}
-                        {{--<li class="list-item three-column features-item">--}}
+                            {{--</li>--}}
+                            {{--<li class="list-item three-column features-item">--}}
                             {{--<div class="check">--}}
-                                {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
-                                     {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
-                                    {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
-                                          {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
-                                {{--</svg>--}}
+                            {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                            {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
+                            {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
+                            {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
+                            {{--</svg>--}}
                             {{--</div>--}}
                             {{--<span class="f-name">นำสัตว์เลี้ยงเข้าพักได้</span>--}}
-                        {{--</li>--}}
+                            {{--</li>--}}
 
 
-                        {{--<div class="collapse toggle">--}}
+                            {{--<div class="collapse toggle">--}}
                             {{--<li class="list-item three-column features-item">--}}
-                                {{--<div class="check">--}}
-                                    {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
-                                         {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
-                                        {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
-                                              {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
-                                    {{--</svg>--}}
-                                {{--</div>--}}
-                                {{--<span class="f-name">ลิฟ</span>--}}
+                            {{--<div class="check">--}}
+                            {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                            {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
+                            {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
+                            {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
+                            {{--</svg>--}}
+                            {{--</div>--}}
+                            {{--<span class="f-name">ลิฟ</span>--}}
                             {{--</li>--}}
                             {{--<li class="list-item three-column features-item">--}}
-                                {{--<div class="check">--}}
-                                    {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
-                                         {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
-                                        {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
-                                              {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
-                                    {{--</svg>--}}
-                                {{--</div>--}}
-                                {{--<span class="f-name">นำสัตว์เลี้ยงเข้าพักได้</span>--}}
+                            {{--<div class="check">--}}
+                            {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                            {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
+                            {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
+                            {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
+                            {{--</svg>--}}
+                            {{--</div>--}}
+                            {{--<span class="f-name">นำสัตว์เลี้ยงเข้าพักได้</span>--}}
                             {{--</li>--}}
                             {{--<li class="list-item three-column features-item">--}}
-                                {{--<div class="check">--}}
-                                    {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
-                                         {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
-                                        {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
-                                              {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
-                                    {{--</svg>--}}
-                                {{--</div>--}}
-                                {{--<span class="f-name">Utapao International</span>--}}
+                            {{--<div class="check">--}}
+                            {{--<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"--}}
+                            {{--preserveAspectRatio="xMidYMid" viewBox="0 0 61 52" class="check-icon">--}}
+                            {{--<path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z"--}}
+                            {{--id="path-1" class="cls-2" fill-rule="evenodd"/>--}}
+                            {{--</svg>--}}
+                            {{--</div>--}}
+                            {{--<span class="f-name">Utapao International</span>--}}
                             {{--</li>--}}
-                        {{--</div>--}}
+                            {{--</div>--}}
 
-                        <div class="show-more">
-                            <a href="javascript://" data-toggle="collapse" data-target=".toggle">
-                                <span class="show-less">ดูเพิ่มเติม</span>
-                                <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
-                            </a>
-                        </div>
+                                @if(count($product_facility) > 5)
+                                    <div class="show-more">
+                                        <a href="javascript://" data-toggle="collapse" data-target=".toggle">
+                                            <span class="show-less">ดูเพิ่มเติม</span>
+                                            <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                @endif
 
 
-                    </ul>
+
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            @endif
 
         </div>
 
@@ -674,101 +745,105 @@
                 <div class="col-md-9">
                     <ul class="features-list">
                         <li class="list-item one-column features-item">
-                            <div>คุณจิตตภู รักศิลป์ (ปลาย)</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">อีเมล : </div>
-                <div class="col-md-9">
-                    <ul class="features-list">
-                        <li class="list-item one-column features-item">
-                            <div>Speciesvirus@gmail.com</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">เบอร์โทรศัพท์ : </div>
-                <div class="col-md-9">
-                    <ul class="features-list">
-                        <li class="list-item one-column features-item">
-                            <div>097414xxxx</div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3">ข้อความ : </div>
-                <div class="col-md-9">
-                    <ul class="features-list">
-                        <li class="list-item one-column features-item">
-                            <p>If you have any question or remarks about Trefecta, fill in your details below, and we will contact you
-                                as soon as possible.<br></p>
+                            <div>{{ $product['seller'] }}</div>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <div role="form" class="wpcf7" id="wpcf7-f167-p96-o1" lang="en-US" dir="ltr">
-                <div class="screen-reader-response"></div>
-                <form action="/about/contact/#wpcf7-f167-p96-o1" method="post" class="wpcf7-form"
-                      novalidate="novalidate">
-                    <div style="display: none;">
-                        <input type="hidden" name="_wpcf7" value="167">
-                        <input type="hidden" name="_wpcf7_version" value="4.3">
-                        <input type="hidden" name="_wpcf7_locale" value="en_US">
-                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f167-p96-o1">
-                        <input type="hidden" name="_wpnonce" value="088807312a">
+            @if($product['user_id'])
+                <div class="row">
+                    <div class="col-md-3">อีเมล : </div>
+                    <div class="col-md-9">
+                        <ul class="features-list">
+                            <li class="list-item one-column features-item">
+                                <div>{{ $product['email'] }}</div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="wpcf7-response-output wpcf7-display-none"></div>
-                    <div class="fields">
-                        <div class="col col-1"><span class="wpcf7-form-control-wrap firstname"><input type="text"
-                                                                                                      name="firstname"
-                                                                                                      value="" size="40"
-                                                                                                      class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                                                                      aria-required="true"
-                                                                                                      aria-invalid="false"
-                                                                                                      placeholder="First name"></span>
-                        </div>
-                        <div class="col col-2"><span class="wpcf7-form-control-wrap lastname"><input type="text"
-                                                                                                     name="lastname"
-                                                                                                     value="" size="40"
-                                                                                                     class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                                                                     aria-required="true"
-                                                                                                     aria-invalid="false"
-                                                                                                     placeholder="Last name"></span>
-                        </div>
-                        <div class="col col-1"><span class="wpcf7-form-control-wrap emailaddress"><input type="email"
-                                                                                                         name="emailaddress"
-                                                                                                         value=""
-                                                                                                         size="40"
-                                                                                                         class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
-                                                                                                         aria-required="true"
-                                                                                                         aria-invalid="false"
-                                                                                                         placeholder="E-mail address"></span>
-                        </div>
-                        <div class="col col-2"><span class="wpcf7-form-control-wrap phone"><input type="text"
-                                                                                                  name="phone" value=""
-                                                                                                  size="40"
-                                                                                                  class="wpcf7-form-control wpcf7-text"
-                                                                                                  aria-invalid="false"
-                                                                                                  placeholder="Phone number"></span>
-                        </div>
+                </div>
+            @endif
+
+            <div class="row">
+                <div class="col-md-3">เบอร์โทรศัพท์ : </div>
+                <div class="col-md-9">
+                    <ul class="features-list">
+                        <li class="list-item one-column features-item">
+                            <div class="phone"><a href="javascript://">{{ substr($product['phone'], 0, -4).'xxxx' }}</a></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            @if($product['user_id'])
+
+                <div class="row">
+                    <div class="col-md-3">ข้อความ : </div>
+                    <div class="col-md-9">
+                        <ul class="features-list">
+                            <li class="list-item one-column features-item">
+                                <p>If you have any question or remarks about Trefecta, fill in your details below, and we will contact you
+                                    as soon as possible.<br></p>
+                            </li>
+                        </ul>
                     </div>
-                    <div>
+                </div>
+
+                <div>
+                    <form action="" method="post" class="wpcf7-form" novalidate="novalidate" id="send-message">
+                        <div style="display: none;">
+                            <input type="hidden" name="product" value="{{ $product['id'] }}">
+                        </div>
+
+                        <div class="wpcf7-response-output wpcf7-display-none"></div>
+                        <div class="fields">
+                            <div class="col col-1">
+                                <span class="wpcf7-form-control-wrap firstname">
+                                    <input type="text" name="first_name" value="{{ old('first_name') }}" size="40"
+                                           class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required {{ $errors->has('first_name') ? ' has-error' : '' }}"
+                                           aria-required="true" aria-invalid="false" placeholder="First name">
+                                </span>
+                            </div>
+                            <div class="col col-2">
+                                <span class="wpcf7-form-control-wrap lastname">
+                                    <input type="text" name="last_name" value="{{ old('last_name') }}" size="40"
+                                           class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required {{ $errors->has('last_name') ? ' has-error' : '' }}"
+                                           aria-required="true" aria-invalid="false" placeholder="Last name">
+                                </span>
+                            </div>
+                            <div class="col col-1">
+                                <span class="wpcf7-form-control-wrap emailaddress">
+                                    <input type="email" name="email" value="{{ old('email') }}" size="40"
+                                           class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email {{ $errors->has('email') ? ' has-error' : '' }}"
+                                           aria-required="true" aria-invalid="false" placeholder="E-mail address">
+                                </span>
+                            </div>
+                            <div class="col col-2">
+                                <span class="wpcf7-form-control-wrap phone">
+                                    <input type="text" name="phone" value="{{ old('phone') }}" size="40"
+                                           class="wpcf7-form-control wpcf7-text {{ $errors->has('phone') ? ' has-error' : '' }}"
+                                           aria-invalid="false" placeholder="Phone number">
+                                </span>
+                            </div>
+                        </div>
+                        <div>
                         <span class="wpcf7-form-control-wrap comments">
                             <textarea name="comments" cols="40" rows="20"
-                                      class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required"
-                                      placeholder="Comments/question"></textarea>
+                                      class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required {{ $errors->has('comments') ? ' has-error' : '' }}"
+                                      placeholder="Comments/question">{{ old('comments') }}</textarea>
                         </span>
-                    </div>
-                    <div class="form-buttons"><input type="submit" value="Send message"
-                                                     class="wpcf7-form-control wpcf7-submit button bronze"><img
-                                class="ajax-loader" style="visibility: hidden;"></div>
-                </form>
-            </div>
+                        </div>
+
+                        <div class="form-buttons">
+                            <input type="submit" value="Send message" class="wpcf7-form-control wpcf7-submit button bronze">
+                        </div>
+                    </form>
+                </div>
+
+            @endif
+
+
+
 
 
         </div>

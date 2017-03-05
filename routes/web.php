@@ -61,6 +61,9 @@ Route::post('/search/{q?}',
 Route::post('/phone/{product?}',
     ['as' => 'phone.view', 'uses' => 'HomeController@phone']
 );
+Route::post('/product/contact',
+    ['as' => 'product.contact', 'uses' => 'ProductController@contact']
+);
 Route::group(['middleware' => ['web']], function () {
 
     Route::post('/post',
@@ -89,6 +92,16 @@ Route::group(['middleware' => ['web']], function () {
 Route::get('/',
     ['as' => 'home','uses' =>'HomeController@index']
 );
+
+Route::group(['middleware' => 'auth:all'], function()
+{
+    $a = 'auth.';
+    Route::get('/logout', [
+            'as' => $a . 'logout',
+            'uses' => 'Auth\LoginController@logout']
+    );
+});
+
 Route::get('/{product?}',
     ['as' => 'product', 'uses' => 'HomeController@product']
 );
@@ -112,14 +125,7 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
 
 });
 
-Route::group(['middleware' => 'auth:all'], function()
-{
-    $a = 'auth.';
-    Route::get('/logout', [
-        'as' => $a . 'logout',
-        'uses' => 'Auth\LoginController@logout']
-    );
-});
+
 
 //Auth::routes(['login' => 'auth.login']);
 

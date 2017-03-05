@@ -48,28 +48,28 @@ class DatabaseSeeder extends Seeder
 //        $user->assignRole($userRole);
 
 
-        $faker = Faker::create();
-        foreach (range(1,100) as $index) {
-            \Illuminate\Support\Facades\DB::table('products')->insert([
-                'title'    => $faker->paragraph,
-                'subtitle'     =>  $faker->paragraph,
-                'product_type_id'         => $faker->numberBetween(1,4),
-                'product_sale_id'      => $faker->numberBetween(1,2),
-                'unit'         => $faker->numberBetween(21,70),
-                'product_unit_id'     => $faker->numberBetween(1,2),
-                'price'     => $faker->numberBetween(50000,1200000),
-                'project'     => $faker->word,
-                'complete'     => $faker->numberBetween(1980,2017),
-                'content'     => $faker->paragraph,
-                'province_id'     => $faker->numberBetween(1,77),
-                'seller'     => $faker->name,
-                'phone'     => $faker->phoneNumber,
-                'view'     => $faker->numberBetween(1,500),
-                'phone_view'     => $faker->numberBetween(1,500),
-                'created_at'     => $faker->dateTimeBetween('-3 years', 'now'),
-                'updated_at'     => $faker->dateTimeBetween('-3 years', 'now'),
-            ]);
-        }
+//        $faker = Faker::create();
+//        foreach (range(1,100) as $index) {
+//            \Illuminate\Support\Facades\DB::table('products')->insert([
+//                'title'    => $faker->paragraph,
+//                'subtitle'     =>  $faker->paragraph,
+//                'product_type_id'         => $faker->numberBetween(1,4),
+//                'product_sale_id'      => $faker->numberBetween(1,2),
+//                'unit'         => $faker->numberBetween(21,70),
+//                'product_unit_id'     => $faker->numberBetween(1,2),
+//                'price'     => $faker->numberBetween(50000,1200000),
+//                'project'     => $faker->word,
+//                'complete'     => $faker->numberBetween(1980,2017),
+//                'content'     => $faker->paragraph,
+//                'province_id'     => $faker->numberBetween(1,77),
+//                'seller'     => $faker->name,
+//                'phone'     => $faker->phoneNumber,
+//                'view'     => $faker->numberBetween(1,500),
+//                'phone_view'     => $faker->numberBetween(1,500),
+//                'created_at'     => $faker->dateTimeBetween('-3 years', 'now'),
+//                'updated_at'     => $faker->dateTimeBetween('-3 years', 'now'),
+//            ]);
+//        }
 
 
     }

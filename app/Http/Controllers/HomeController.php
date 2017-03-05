@@ -9,7 +9,6 @@ use App\Models\Product\ProductProductFacility;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 
 class HomeController extends Controller
@@ -64,6 +63,7 @@ class HomeController extends Controller
         //dd($product);
         //$product->withPath($url)->setPageName('page');
 
+
         return view('home', ['pagination' => $product]);
     }
 
@@ -83,7 +83,7 @@ class HomeController extends Controller
             $facility = ProductProductFacility::selectOnProduct($p->id);
             $image = ProductImage::selectOnProduct($p->id);
             $area = ProductProductArea::selectOnProduct($p->id);
-//dd($area);
+//dd($product);
             return view('view',[
                 'product' => $product[0]['attributes'],
                 'product_img' => $image,

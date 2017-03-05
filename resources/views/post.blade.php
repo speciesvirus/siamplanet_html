@@ -571,8 +571,9 @@
                 }
                 image.url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
                 placeMarkerAndPanTo(e.latLng, map, 1);
-                arrArea.push({id : $point, key : 1, name : null, lat : e.latLng.lat(), lng : e.latLng.lng()});
+                arrArea.push({id : $point, key : 1, name : null, distance : 0, lat : e.latLng.lat(), lng : e.latLng.lng()});
 
+                //!* find province name
                 arrGeo = [];
                 geocoder.geocode({
                     'latLng': e.latLng
@@ -620,14 +621,31 @@
 
 
             }else{
+
+                var origin_area = [];
+                var destination_area = [];
+
+                $.each(arrArea, function(key, value){
+                    if(value['key'] == 1){
+                        origin_area.push({lat: value['lat'], lng:value['lng']});
+                    }
+                });
+
+                if(origin_area.length < 1){
+                    alert('โปรดเลือกสถานที่ตั้งโครงการก่อน!');
+                    return;
+                }
+
+                destination_area.push({lat: e.latLng.lat(), lng: e.latLng.lng()});
+
                 var retVal = prompt("โปรดกรอกชื่อสถานที่ : ", "ชื่อสถานที่");
                 if(retVal != null){
 
                     var service = new google.maps.DistanceMatrixService();
                     service.getDistanceMatrix(
                         {
-                            origins: origin,
-                            destinations: destination,
+                            origins: origin_area,
+                            destinations: destination_area,
                             travelMode: 'DRIVING'
                         }, function(response, status) {
                             if (status == 'OK') {
@@ -645,6 +663,7 @@
                                 }
                             }
                         });
+
                 }
             }
 

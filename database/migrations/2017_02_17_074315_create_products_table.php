@@ -34,6 +34,8 @@ class CreateProductsTable extends Migration
             $table->string('phone');
             $table->integer('view')->default(0);
             $table->integer('phone_view')->default(0);
+            $table->integer('user_id')->unsigned()->index()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('no action');
             $table->timestamps();
         });
     }

@@ -13,9 +13,10 @@ use App\Models\Product\ProductTag;
 use App\Models\Product\ProductType;
 use App\Models\Product\ProductUnit;
 use App\Models\Province;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class PostController extends Controller
@@ -84,6 +85,13 @@ class PostController extends Controller
         $product->productSale()->associate($sale);
         $product->productUnit()->associate($unit);
 
+        $user = Auth::id();
+        if ($user)
+        {
+            $user = User::find($user);
+            $product->user()->associate($user);
+        }
+
         // product province
         $arrGeo = $request->input('arrGeo');
         if($arrGeo){
@@ -151,6 +159,7 @@ class PostController extends Controller
                 $product->tag()->save($subway);
             }
         }
+
         return response()->json("success." , 200);
         //return response()->json($aa , 200);
 

@@ -19,6 +19,7 @@
 
 .slick-slide img {
     margin: auto;
+    max-height: 395px;
 }
 
 .project-strip {
@@ -73,6 +74,7 @@
     border-right: .4rem solid orange;
     box-shadow: .2rem -.2rem 0 black;
 }
+
 
 /*.arrow:hover.left {*/
 /*left: -.2rem;*/
@@ -438,6 +440,10 @@
     height: 80px;
 }
 
+.contact-section form input[type=text].has-error, .contact-section form textarea.has-error{
+    border: 1px solid #a94442;
+}
+
 .contact-section form input::-moz-placeholder,
 .contact-section form input::-webkit-input-placeholder,
 .contact-section form input:-ms-input-placeholder,
@@ -481,6 +487,12 @@
     padding-right: 0;
     /*font-size: 0.75em;*/
 }
+
+.wpcf7-response-output{
+    margin: 10px;
+    color: #a94442;
+}
+
 .social-section, .map-section, .contact-section{
     margin-top: 30px;
 }
