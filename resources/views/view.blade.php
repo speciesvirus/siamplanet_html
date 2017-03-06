@@ -114,68 +114,98 @@
 
     <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
     <!--<script src="//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"></script>-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGFbK0CvMXKVzCJA_2Fj5B7pItfK0a1QA"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjr8I22XjxkcgiX6Fgb4Ct_F0-dQ2xgJo"></script>
     <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
     <script type="text/javascript">
 
-        var geojsonFeature = {
-            "type": "FeatureCollection",
-            "features": [{
-                "type": "Feature",
-                "properties": {
-                    "head": "",
-                    "title": "คอนโดมิเนียม เดอะคีย์สาทร-ราชพฤกษ์",
-                    "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
-                    "description": "<p>First-year students on our BA programmes may have the chance to visit Leeds city centre, where we look at shopping areas and regeneration along the waterfront.</P><p>The trip gives us a chance to compare areas like the Victoria Quarter, Kirkgate Market and the Corn Exchange and discuss how they are branded to attract shoppers.</p><p> We also visit Holbeck Urban Village, which calls itself a “pioneer of urban regeneration”, and Urban Splash’s development in Saxton to explore the issue of gentrification.</p><p>During fieldwork in Leeds you may also have the chance to study:</p> <ul> <li>Clarence Dock and the Royal Armouries</li> <li>Developments near the Centenary Bridge</li> <li>The village of Saltaire, north of Bradford</li> </ul> <p>Field study like this develops important skills of observation, critique and policy analysis, as well as leading into later human geography modules.</p>",
-                    "gallery": []
-                },
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [13.7146687, 100.4654378]
-                }
-            },
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Scarborough_Header.jpg",
-                        "title": "Wutthakat BTS Station",
-                        "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
-                        "description": "<p>In October our first-year physical geography students join staff for an &quot;ice-breaker&quot; field weekend in Scarborough. The trip helps students make friends and teach them the basic skills they’ll need as physical geographers.</p><p>During the first day we tour the countryside to look at geology, glaciation and how the beautiful landscape of the North Yorkshire Moors was formed.</p><p>We make stops at:</p> <ul> <li>Scarp edges at the wolds near Market Weighton</li> <li>Millingtondale</li> <li>The Hole of Horcrum</li> <li>Newtondale</li> </ul> <p>At these stops the students work in small groups to investigate the landscape, discuss ideas of how individual landforms developed and discuss their ideas with a member of staff. This is physical geography at its most traditional, but the approaches and thinking that underpin this work are excellent preparation for the students later in their degree.</p><p> On the second day students work in small groups to explore the land at Jugger Howe. They measure hill slopes and soil saturation as well as investigating the amount of vegetation cover.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_1.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_5.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_8.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [13.7146391, 100.4654378]
-                    }
-                },
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Scarborough_Header.jpg",
-                        "title": "วัดนาคปรก",
-                        "icon": "https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png",
-                        "description": "<p>In October our first-year physical geography students join staff for an &quot;ice-breaker&quot; field weekend in Scarborough. The trip helps students make friends and teach them the basic skills they’ll need as physical geographers.</p><p>During the first day we tour the countryside to look at geology, glaciation and how the beautiful landscape of the North Yorkshire Moors was formed.</p><p>We make stops at:</p> <ul> <li>Scarp edges at the wolds near Market Weighton</li> <li>Millingtondale</li> <li>The Hole of Horcrum</li> <li>Newtondale</li> </ul> <p>At these stops the students work in small groups to investigate the landscape, discuss ideas of how individual landforms developed and discuss their ideas with a member of staff. This is physical geography at its most traditional, but the approaches and thinking that underpin this work are excellent preparation for the students later in their degree.</p><p> On the second day students work in small groups to explore the land at Jugger Howe. They measure hill slopes and soil saturation as well as investigating the amount of vegetation cover.</p>",
-                        "gallery": [
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_1.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_2.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_4.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_5.jpg"],
-                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_8.jpg"]
-                        ]
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [13.7150131, 100.4653149]
-                    }
-                }
-            ]
-        };
+        var $geo = [];
+
+
+            var geojsonFeature = {
+                "type": "FeatureCollection",
+                "features": [
+                    @if(!$product_area->isEmpty())
+                        @foreach($product_area as $item)
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "head": "",
+                                "title": "{{ $item['attributes']['area'] }}",
+                                "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
+                                "description": "{{ $item['attributes']['area'] }}",
+                                "gallery": []
+                            },
+                            "geometry": {
+                                "type": "Point",
+                                "coordinates": [{{ $item['attributes']['lat'] }}, {{ $item['attributes']['lng'] }}]
+                            }
+                        },
+                        @endforeach
+                    @endif
+                ]
+            };
+
+
+//        var geojsonFeature = {
+//            "type": "FeatureCollection",
+//            "features": [{
+//                "type": "Feature",
+//                "properties": {
+//                    "head": "",
+//                    "title": "คอนโดมิเนียม เดอะคีย์สาทร-ราชพฤกษ์",
+//                    "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
+//                    "description": "<p>First-year students on our BA programmes may have the chance to visit Leeds city centre, where we look at shopping areas and regeneration along the waterfront.</P><p>The trip gives us a chance to compare areas like the Victoria Quarter, Kirkgate Market and the Corn Exchange and discuss how they are branded to attract shoppers.</p><p> We also visit Holbeck Urban Village, which calls itself a “pioneer of urban regeneration”, and Urban Splash’s development in Saxton to explore the issue of gentrification.</p><p>During fieldwork in Leeds you may also have the chance to study:</p> <ul> <li>Clarence Dock and the Royal Armouries</li> <li>Developments near the Centenary Bridge</li> <li>The village of Saltaire, north of Bradford</li> </ul> <p>Field study like this develops important skills of observation, critique and policy analysis, as well as leading into later human geography modules.</p>",
+//                    "gallery": []
+//                },
+//                "geometry": {
+//                    "type": "Point",
+//                    "coordinates": [13.7146687, 100.4654378]
+//                }
+//            },
+//                {
+//                    "type": "Feature",
+//                    "properties": {
+//                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Scarborough_Header.jpg",
+//                        "title": "Wutthakat BTS Station",
+//                        "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
+//                        "description": "<p>In October our first-year physical geography students join staff for an &quot;ice-breaker&quot; field weekend in Scarborough. The trip helps students make friends and teach them the basic skills they’ll need as physical geographers.</p><p>During the first day we tour the countryside to look at geology, glaciation and how the beautiful landscape of the North Yorkshire Moors was formed.</p><p>We make stops at:</p> <ul> <li>Scarp edges at the wolds near Market Weighton</li> <li>Millingtondale</li> <li>The Hole of Horcrum</li> <li>Newtondale</li> </ul> <p>At these stops the students work in small groups to investigate the landscape, discuss ideas of how individual landforms developed and discuss their ideas with a member of staff. This is physical geography at its most traditional, but the approaches and thinking that underpin this work are excellent preparation for the students later in their degree.</p><p> On the second day students work in small groups to explore the land at Jugger Howe. They measure hill slopes and soil saturation as well as investigating the amount of vegetation cover.</p>",
+//                        "gallery": [
+//                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_1.jpg"],
+//                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_2.jpg"],
+//                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_4.jpg"],
+//                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_5.jpg"],
+//                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_8.jpg"]
+//                        ]
+//                    },
+//                    "geometry": {
+//                        "type": "Point",
+//                        "coordinates": [13.7146391, 100.4654378]
+//                    }
+//                },
+//                {
+//                    "type": "Feature",
+//                    "properties": {
+//                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Scarborough_Header.jpg",
+//                        "title": "วัดนาคปรก",
+//                        "icon": "https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png",
+//                        "description": "<p>In October our first-year physical geography students join staff for an &quot;ice-breaker&quot; field weekend in Scarborough. The trip helps students make friends and teach them the basic skills they’ll need as physical geographers.</p><p>During the first day we tour the countryside to look at geology, glaciation and how the beautiful landscape of the North Yorkshire Moors was formed.</p><p>We make stops at:</p> <ul> <li>Scarp edges at the wolds near Market Weighton</li> <li>Millingtondale</li> <li>The Hole of Horcrum</li> <li>Newtondale</li> </ul> <p>At these stops the students work in small groups to investigate the landscape, discuss ideas of how individual landforms developed and discuss their ideas with a member of staff. This is physical geography at its most traditional, but the approaches and thinking that underpin this work are excellent preparation for the students later in their degree.</p><p> On the second day students work in small groups to explore the land at Jugger Howe. They measure hill slopes and soil saturation as well as investigating the amount of vegetation cover.</p>",
+//                        "gallery": [
+//                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_1.jpg"],
+//                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_2.jpg"],
+//                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_4.jpg"],
+//                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_5.jpg"],
+//                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_8.jpg"]
+//                        ]
+//                    },
+//                    "geometry": {
+//                        "type": "Point",
+//                        "coordinates": [13.7150131, 100.4653149]
+//                    }
+//                }
+//            ]
+//        };
+
+
 
         var allMyMarkers = [];
 
@@ -444,8 +474,29 @@
             var selectedID = $(this).attr('id');
             toggleBounce($(".poi").index(this));
 
+            var directionsDisplay = new google.maps.DirectionsRenderer;
+            var directionsService = new google.maps.DirectionsService;
+            calculateAndDisplayRoute(directionsService, directionsDisplay);
+
         });
 
+        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+            var selectedMode = 'DRIVING'; // DRIVING,WALKING,BICYCLING,TRANSIT
+            directionsService.route({
+                origin: {lat: 13.714673596647813, lng: 100.46762108802795},  // Haight.
+                destination: {lat: 13.713203957489238, lng: 100.4675044119358},  // Ocean Beach.
+                // Note that Javascript allows us to access the constant
+                // using square brackets and a string value as its
+                // "property."
+                travelMode: google.maps.TravelMode[selectedMode]
+            }, function(response, status) {
+                if (status == 'OK') {
+                    directionsDisplay.setDirections(response);
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+            });
+        }
 
         function toggleBounce(selectedID) {
 
