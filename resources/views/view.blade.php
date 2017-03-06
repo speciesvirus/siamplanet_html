@@ -210,9 +210,10 @@
         var allMyMarkers = [];
 
         //set your google maps parameters
-        var $latitude = 13.71466247885533,
-            $longitude = 100.4676117002964,
+        var $latitude = geojsonFeature.features[0].geometry.coordinates[0],
+            $longitude = geojsonFeature.features[0].geometry.coordinates[1],
             $map_zoom = 17;
+
 
         //google map custom marker icon - .png fallback for IE11
         var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
@@ -436,6 +437,10 @@
             }
         };
 
+        var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true}); //!*({suppressMarkers: true}) don't show marker
+        var directionsService = new google.maps.DirectionsService;
+        directionsDisplay.setMap(map);
+
         function addMarker(feature, featureID) {
 
             var image = {
@@ -463,10 +468,14 @@
 
         $('.poi').on('click', function () {
 
-            $title = $(this).html();
+            var $title = $(this).html(),
+                $lat = '',
+                $lng = '';
 
             for (var i = 0, jsonFeature; jsonFeature = geojsonFeature.features[i]; i++) {
                 if (jsonFeature.properties.title === $title) {
+                    $lat = jsonFeature.geometry.coordinates[0];
+                    $lng = jsonFeature.geometry.coordinates[1];
                     map.panTo(new google.maps.LatLng(jsonFeature.geometry.coordinates[0], jsonFeature.geometry.coordinates[1]));
                 }
             }
@@ -474,17 +483,15 @@
             var selectedID = $(this).attr('id');
             toggleBounce($(".poi").index(this));
 
-            var directionsDisplay = new google.maps.DirectionsRenderer;
-            var directionsService = new google.maps.DirectionsService;
-            calculateAndDisplayRoute(directionsService, directionsDisplay);
+            calculateAndDisplayRoute(directionsService, directionsDisplay, $lat, $lng);
 
         });
 
-        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        function calculateAndDisplayRoute(directionsService, directionsDisplay, lat, lng) {
             var selectedMode = 'DRIVING'; // DRIVING,WALKING,BICYCLING,TRANSIT
             directionsService.route({
-                origin: {lat: 13.714673596647813, lng: 100.46762108802795},  // Haight.
-                destination: {lat: 13.713203957489238, lng: 100.4675044119358},  // Ocean Beach.
+                origin: {lat: $latitude, lng: $longitude},  // Haight.
+                destination: {lat: lat, lng: lng},  // Ocean Beach.
                 // Note that Javascript allows us to access the constant
                 // using square brackets and a string value as its
                 // "property."
@@ -492,6 +499,12 @@
             }, function(response, status) {
                 if (status == 'OK') {
                     directionsDisplay.setDirections(response);
+                    new google.maps.Marker({
+                        position: null,
+                        map: map,
+                        icon: null,
+                        title: null
+                    });
                 } else {
                     window.alert('Directions request failed due to ' + status);
                 }
