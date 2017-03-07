@@ -786,6 +786,8 @@
         </div>
 
         <div class="bs-docs-section">
+            <h2>สอบถามข้อมูลเพิ่มเติม</h2>
+             <!--<h1 class="page-header" id="type">ข้อความ</h1>-->
             <div class="listing-details-text">
                 {!! $product['content'] !!}
             </div>
