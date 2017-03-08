@@ -53,7 +53,13 @@ Route::get('/nv', function() {
 //});
 
 Route::get('/post',
-    ['as' => 'product.view', 'uses' => 'Topic\PostController@index']
+    ['as' => 'post', 'uses' => 'Topic\PostController@index']
+);
+Route::get('/post/review',
+    ['as' => 'post.review', 'uses' => 'Topic\PostController@review']
+);
+Route::get('/post/product',
+    ['as' => 'post.product', 'uses' => 'Topic\PostController@product']
 );
 Route::post('/search/{q?}',
     ['as' => 'search', 'uses' => 'SearchController@index']

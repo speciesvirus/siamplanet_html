@@ -76,9 +76,11 @@ class HomeController extends Controller
     {
         $p = Product::find($product);
         if($p){
+            //!* update view
             $view = ++$p->view;
             $p->view = $view;
             $p->save();
+            
             $product = Product::selectOnProduct($p->id);
             $facility = ProductProductFacility::selectOnProduct($p->id);
             $image = ProductImage::selectOnProduct($p->id);

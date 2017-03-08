@@ -23,8 +23,26 @@ class PostController extends Controller
 {
     public function index()
     {
+        return view('post.post');
+    }
+    
+    public function review()
+    {
         //$unit = ProductUnit::where('active', 'A')->orderBy('sort')->pluck('unit', 'id');
-        return view('post')->with([
+        return view('post.review')->with([
+            'unit' => ProductUnit::ddl(),
+            'type' => ProductType::ddl(),
+            'sale' => ProductSale::ddl(),
+            'area' => ProductArea::ddl(),
+            'facility' => ProductFacility::ddl()
+        ]);
+
+    }
+    
+    public function product()
+    {
+        //$unit = ProductUnit::where('active', 'A')->orderBy('sort')->pluck('unit', 'id');
+        return view('post.product')->with([
             'unit' => ProductUnit::ddl(),
             'type' => ProductType::ddl(),
             'sale' => ProductSale::ddl(),

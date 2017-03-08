@@ -13,6 +13,24 @@ Breadcrumbs::register('product.view', function($breadcrumbs)
     $breadcrumbs->push('Post', route('product.view'));
 });
 
+Breadcrumbs::register('post', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Post', route('home'));
+});
+
+Breadcrumbs::register('post.review', function($breadcrumbs)
+{
+    $breadcrumbs->parent('post');
+    $breadcrumbs->push('Review', route('post.review'));
+});
+
+Breadcrumbs::register('post.product', function($breadcrumbs)
+{
+    $breadcrumbs->parent('post');
+    $breadcrumbs->push('Product', route('post.product'));
+});
+
 // Home > Blog
 Breadcrumbs::register('news', function($breadcrumbs)
 {
