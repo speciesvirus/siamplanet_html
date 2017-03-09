@@ -48,12 +48,12 @@
     <link rel="shortcut icon" href="favicon.ico"/>
 
     <!-- concatenate and minify for production -->
-    <link rel="stylesheet" href="{{ secure_asset('resources/assets/css/reset.css') }}" />
-    <link rel="stylesheet" href="{{ secure_asset('resources/assets/css/style.css') }}" />
-    <link rel="stylesheet" href="{{ secure_asset('resources/assets/bootstrap/dist/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ secure_asset('resources/assets/font-awesome/css/font-awesome.min.css') }}" />
-    <link rel="stylesheet" href="{{ secure_asset('resources/assets/select2/dist/css/select2.min.css') }}" />
-    <link rel="stylesheet" href="{{ secure_asset('resources/assets/css/main.css') }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/reset.css',Request::secure()) }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/style.css',Request::secure()) }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/bootstrap/dist/css/bootstrap.min.css',Request::secure()) }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/font-awesome/css/font-awesome.min.css',Request::secure()) }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/select2/dist/css/select2.min.css',Request::secure()) }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/main.css',Request::secure()) }}" />
     {{--<link rel="stylesheet" href="resources/assets/bootstrap/dist/css/bootstrap.min.css"/>--}}
     {{--<link rel="stylesheet" href="resources/assets/font-awesome/css/font-awesome.min.css"/>--}}
     {{--<link rel="stylesheet" href="resources/assets/css/reset.css"/>--}}
