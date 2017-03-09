@@ -9,15 +9,15 @@
 @stop
 
 @section('script')
-    <!--<script src="{{ asset('/resources/assets/slick-carousel/slick/slick.min.js') }}"></script>-->
-    <script src="{{ asset('resources/assets/jquery-ui/jquery-ui.min.js') }}"></script>
-    <link rel="stylesheet" href="{{ asset('resources/assets/css/post.css') }}"/>
+    <!--<script src="{{ asset('/resources/assets/slick-carousel/slick/slick.min.js', true) }}"></script>-->
+    <script src="{{ asset('resources/assets/jquery-ui/jquery-ui.min.js', true) }}"></script>
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/post.css', true) }}"/>
 
-    <script src="{{ asset('resources/assets/bootstrap/dist/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('resources/assets/bootstrap/dist/js/bootstrap.js', true) }}"></script>
 
-    <script src="{{ asset('resources/assets/tinymce/tinymce.jquery.min.js') }}"></script>
+    <script src="{{ asset('resources/assets/tinymce/tinymce.jquery.min.js', true) }}"></script>
 
-    <script src="{{ asset('resources/assets/select2/dist/js/select2.full.js') }}"></script>
+    <script src="{{ asset('resources/assets/select2/dist/js/select2.full.js', true) }}"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB3IoUnmudz6RdeSALRXdrE7XjJSPZVhs&libraries=places"></script>
     <script type="text/javascript">

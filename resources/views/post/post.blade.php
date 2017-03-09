@@ -9,30 +9,9 @@
 @stop
 
 @section('script')
-    <!--<script src="{{ asset('/resources/assets/slick-carousel/slick/slick.min.js') }}"></script>-->
-    <script src="resources/assets/jquery-ui/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="resources/assets/css/post.css"/>
-
-    <script src="resources/assets/bootstrap/dist/js/bootstrap.js"></script>
-
-    <script src="resources/assets/tinymce/tinymce.jquery.min.js"></script>
-
-    <script src="resources/assets/select2/dist/js/select2.full.js"></script>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB3IoUnmudz6RdeSALRXdrE7XjJSPZVhs&libraries=places"></script>
-
-    <script type="text/javascript"></script>
-
-
-
-
-
-
-    <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
-    <!--<script src="//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"></script>-->
-
-    <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
-
+    <script src="{{ asset('resources/assets/jquery-ui/jquery-ui.min.js', true) }}"></script>
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/post.css', true) }}"/>
+    <script src="{{ asset('resources/assets/bootstrap/dist/js/bootstrap.js', true) }}"></script>
 @stop
 
 @section('first-content')
