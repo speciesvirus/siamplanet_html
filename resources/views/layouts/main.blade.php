@@ -48,19 +48,19 @@
     <link rel="shortcut icon" href="favicon.ico"/>
 
     <!-- concatenate and minify for production -->
-<!--<link rel="stylesheet" href="{{ asset('resources/assets/css/reset.css') }}" />-->
-<!--<link rel="stylesheet" href="{{ asset('resources/assets/css/style.css') }}" />-->
-<!--<link rel="stylesheet" href="{{ asset('resources/assets/bootstrap/dist/css/bootstrap.min.css') }}" />-->
-<!--<link rel="stylesheet" href="{{ asset('resources/assets/font-awesome/css/font-awesome.min.css') }}" />-->
-<!--<link rel="stylesheet" href="{{ asset('resources/assets/select2/dist/css/select2.min.css') }}" />-->
-<!--<link rel="stylesheet" href="{{ asset('resources/assets/css/main.css') }}" />-->
-    <link rel="stylesheet" href="resources/assets/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="resources/assets/font-awesome/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="resources/assets/css/reset.css"/>
-    <link rel="stylesheet" href="resources/assets/css/style.css"/>
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/reset.css') }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/bootstrap/dist/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/font-awesome/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/select2/dist/css/select2.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/main.css') }}" />
+    {{--<link rel="stylesheet" href="resources/assets/bootstrap/dist/css/bootstrap.min.css"/>--}}
+    {{--<link rel="stylesheet" href="resources/assets/font-awesome/css/font-awesome.min.css"/>--}}
+    {{--<link rel="stylesheet" href="resources/assets/css/reset.css"/>--}}
+    {{--<link rel="stylesheet" href="resources/assets/css/style.css"/>--}}
 
-    <link rel="stylesheet" href="resources/assets/select2/dist/css/select2.min.css"/>
-    <link rel="stylesheet" href="resources/assets/css/main.css"/>
+    {{--<link rel="stylesheet" href="resources/assets/select2/dist/css/select2.min.css"/>--}}
+    {{--<link rel="stylesheet" href="resources/assets/css/main.css"/>--}}
 
     <!-- Lea Verou's prefixfree (http://leaverou.github.io/prefixfree/), lets you use un-prefixed properties in your CSS files -->
 {{--<script src="{{ asset('resources/assets/js/libs/prefixfree.min.js') }}"></script>--}}
@@ -298,13 +298,13 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>window.jQuery || document.write("<script src='{{ asset('resources/assets/js/components/jquery-1.11.3.min.js') }}'>\x3C/script>")</script>
 
-<!--<script src="{{ asset('resources/assets/select2/dist/js/select2.full.min.js') }}"></script>-->
-<script src="resources/assets/select2/dist/js/select2.full.min.js"></script>
+<script src="{{ asset('resources/assets/select2/dist/js/select2.full.min.js') }}"></script>
+{{--<script src="resources/assets/select2/dist/js/select2.full.min.js"></script>--}}
 @yield('script')
 <!-- this is where we put our custom functions -->
 <!-- don't forget to concatenate and minify for production -->
-<!--<script src="{{ asset('resources/assets/js/functions.js') }}"></script>-->
-<script src="resources/assets/js/functions.js"></script>
+<script src="{{ asset('resources/assets/js/functions.js') }}"></script>
+{{--<script src="resources/assets/js/functions.js"></script>--}}
 {{--<script>$(document).ready(initPage);</script>--}}
 
 <!-- Asynchronous google analytics; this is the official snippet.

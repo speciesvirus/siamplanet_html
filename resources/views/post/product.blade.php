@@ -10,14 +10,14 @@
 
 @section('script')
     <!--<script src="{{ asset('/resources/assets/slick-carousel/slick/slick.min.js') }}"></script>-->
-    <script src="resources/assets/jquery-ui/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="resources/assets/css/post.css"/>
+    <script src="{{ asset('resources/assets/jquery-ui/jquery-ui.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/post.css') }}"/>
 
-    <script src="resources/assets/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="{{ asset('resources/assets/bootstrap/dist/js/bootstrap.js') }}"></script>
 
-    <script src="resources/assets/tinymce/tinymce.jquery.min.js"></script>
+    <script src="{{ asset('resources/assets/tinymce/tinymce.jquery.min.js') }}"></script>
 
-    <script src="resources/assets/select2/dist/js/select2.full.js"></script>
+    <script src="{{ asset('resources/assets/select2/dist/js/select2.full.js') }}"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB3IoUnmudz6RdeSALRXdrE7XjJSPZVhs&libraries=places"></script>
     <script type="text/javascript">

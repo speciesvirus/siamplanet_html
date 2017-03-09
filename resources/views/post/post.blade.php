@@ -40,13 +40,48 @@
         <h1 class="entry-title">ลงประกาศ </h1>
 
 
-        <div>
+        <h2 class="entry-title text-center">เลือกลงประกาศที่คุณต้องการ</h2>
+
+        <div class="row">
             <div class="col-xs-6">
-                <div class="longshadows">
-                    <h2>Long Shadows</h2>
+                <a href="{{ route('post.product') }}" class="post-type-btn">
+                    <div class="longshadows">
+                        <div class="img-con">
+                            <img src="{{ asset('resources/images/post-product.png') }}">
+                        </div>
+
+                        <h2>ลงประกาศฟรี!</h2>
+                    </div>
+                </a>
+
+                <div class="post-des">
+                    <h2>ลงประกาศฟรี!</h2>
+                    <ul>
+                        <li>ต้องการประกาศขายหรือเช่า</li>
+                        <li>บอกรายละเอียดให้ผู้อื่น</li>
+                    </ul>
+                    <span><a href="{{ route('post.product') }}">คลิกลงประกาศ</a></span>
                 </div>
             </div>
-            <div class="col-xs-6"></div>
+            <div class="col-xs-6">
+                <a href="{{ route('post.product') }}" class="post-type-btn">
+                    <div class="longshadows">
+                        <div class="img-con">
+                            <img src="{{ asset('resources/images/post-review.png') }}">
+                        </div>
+                        <h2>ลงประกาศโครงการ</h2>
+                    </div>
+                </a>
+
+                <div class="post-des">
+                    <h2>ลงประกาศโครงการ</h2>
+                    <ul>
+                        <li>ต้องการประกาศขายหรือเช่า</li>
+                        <li>บอกรายละเอียดให้ผู้อื่น</li>
+                    </ul>
+                    <span><a href="{{ route('post.product') }}">คลิกรีวิว</a></span>
+                </div>
+            </div>
         </div>
     </div>
 
