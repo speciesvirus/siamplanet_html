@@ -9,9 +9,9 @@
 @stop
 
 @section('script')
-    <script src="{{ asset('resources/assets/jquery-ui/jquery-ui.min.js', true) }}"></script>
-    <link rel="stylesheet" href="{{ asset('resources/assets/css/post.css', true) }}"/>
-    <script src="{{ asset('resources/assets/bootstrap/dist/js/bootstrap.js', true) }}"></script>
+    <script src="{{ asset('resources/assets/jquery-ui/jquery-ui.min.js', env('HTTPS')) }}"></script>
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/post.css', env('HTTPS')) }}"/>
+    <script src="{{ asset('resources/assets/bootstrap/dist/js/bootstrap.js', env('HTTPS')) }}"></script>
 @stop
 
 @section('first-content')

@@ -48,12 +48,13 @@
     <link rel="shortcut icon" href="favicon.ico"/>
 
     <!-- concatenate and minify for production -->
-    <link rel="stylesheet" href="{{ asset('resources/assets/css/reset.css', true) }}" />
-    <link rel="stylesheet" href="{{ asset('resources/assets/css/style.css', true) }}" />
-    <link rel="stylesheet" href="{{ asset('resources/assets/bootstrap/dist/css/bootstrap.min.css', true) }}" />
-    <link rel="stylesheet" href="{{ asset('resources/assets/font-awesome/css/font-awesome.min.css', true) }}" />
-    <link rel="stylesheet" href="{{ asset('resources/assets/select2/dist/css/select2.min.css', true) }}" />
-    <link rel="stylesheet" href="{{ asset('resources/assets/css/main.css', true) }}" />
+
+    <link rel="stylesheet" href="{{ asset('resources/assets/bootstrap/dist/css/bootstrap.min.css', env('HTTPS')) }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/font-awesome/css/font-awesome.min.css', env('HTTPS')) }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/reset.css', env('HTTPS')) }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/style.css', env('HTTPS')) }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/select2/dist/css/select2.min.css', env('HTTPS')) }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/main.css', env('HTTPS')) }}" />
     {{--<link rel="stylesheet" href="resources/assets/bootstrap/dist/css/bootstrap.min.css"/>--}}
     {{--<link rel="stylesheet" href="resources/assets/font-awesome/css/font-awesome.min.css"/>--}}
     {{--<link rel="stylesheet" href="resources/assets/css/reset.css"/>--}}
@@ -296,14 +297,14 @@
 
 <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>window.jQuery || document.write("<script src='{{ asset('resources/assets/js/components/jquery-1.11.3.min.js') }}'>\x3C/script>")</script>
+<script>window.jQuery || document.write("<script src='{{ asset('resources/assets/js/components/jquery-1.11.3.min.js', env('HTTPS')) }}'>\x3C/script>")</script>
 
-<script src="{{ asset('resources/assets/select2/dist/js/select2.full.min.js', true) }}"></script>
+<script src="{{ asset('resources/assets/select2/dist/js/select2.full.min.js', env('HTTPS')) }}"></script>
 {{--<script src="resources/assets/select2/dist/js/select2.full.min.js"></script>--}}
 @yield('script')
 <!-- this is where we put our custom functions -->
 <!-- don't forget to concatenate and minify for production -->
-<script src="{{ asset('resources/assets/js/functions.js', true) }}"></script>
+<script src="{{ asset('resources/assets/js/functions.js', env('HTTPS')) }}"></script>
 {{--<script src="resources/assets/js/functions.js"></script>--}}
 {{--<script>$(document).ready(initPage);</script>--}}
 
