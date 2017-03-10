@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="col-xs-6">
-                <a href="{{ route('post.product') }}" class="post-type-btn">
+                <a href="{{ route('post.review') }}" class="post-type-btn">
                     <div class="longshadows">
                         <div class="img-con">
                             <img src="{{ asset('resources/images/post-review.png') }}">
@@ -58,7 +58,7 @@
                         <li>ต้องการประกาศขายหรือเช่า</li>
                         <li>บอกรายละเอียดให้ผู้อื่น</li>
                     </ul>
-                    <span><a href="{{ route('post.product') }}">คลิกรีวิว</a></span>
+                    <span><a href="{{ route('post.review') }}">คลิกรีวิว</a></span>
                 </div>
             </div>
         </div>

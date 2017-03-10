@@ -50,7 +50,7 @@
     <!-- concatenate and minify for production -->
 
     <link rel="stylesheet" href="{{ asset('resources/assets/bootstrap/dist/css/bootstrap.min.css', env('HTTPS')) }}" />
-    <link rel="stylesheet" href="{{ asset('resources/assets/font-awesome/css/font-awesome.min.css', env('HTTPS')) }}" />
+    <link rel="stylesheet" href="{{ asset('resources/assets/font-awesome/css/font-awesome.min.css', false) }}" />
     <link rel="stylesheet" href="{{ asset('resources/assets/css/reset.css', env('HTTPS')) }}" />
     <link rel="stylesheet" href="{{ asset('resources/assets/css/style.css', env('HTTPS')) }}" />
     <link rel="stylesheet" href="{{ asset('resources/assets/select2/dist/css/select2.min.css', env('HTTPS')) }}" />
