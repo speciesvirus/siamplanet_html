@@ -824,47 +824,13 @@
                 </div>
 
                 <!-- Text input -->
-                <div class="form-group">
+                <div class="form-group hidden">
                     <label class="col-xs-6 col-sm-3 control-label">ความต้องการ</label>
                     <div class="col-md-5">
                         {{ Form::select('sale', $sale, old('sale'), ['class' => 'form-control input-md'])  }}
                     </div>
                 </div>
 
-                <!-- Text input -->
-                <div class="form-group {{ $errors->has('size') ? 'has-error' : '' }}">
-                    <label class="col-xs-6 col-sm-3 control-label required" for="size">ขนาดพื้นที่</label>
-                    <div class="col-md-5">
-                        <div class="input-group">
-                            <input type="text" name="size" class="form-control input-md" placeholder="area size" value="{{ old('size') }}">
-                            <span class="input-group-btn">
-
-                                    {{ Form::select('size_unit', $unit, old('size_unit'), ['class'=> 'btn btn-default select-btn'])  }}
-                                {{--<select name="area_size_unit" title="Measure" class="btn btn-default select-btn">--}}
-                                {{--<option value="barra">ตารางเมตร (sq.m.)</option>--}}
-                                {{--<option value="cucharada café">ตารางวา (sq.w.)</option>--}}
-                                {{--<option value="cucharada sopera">c/s cucharada sopera</option>--}}
-                                {{--</select>--}}
-                                    </span>
-
-
-                        </div>
-                        <span class="help-inline">{{ $errors->has('size') ? $errors->first('size') : '' }}</span>
-                    </div>
-                </div>
-
-
-                <!-- Text input -->
-                <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
-                    <label class="col-xs-6 col-sm-3 control-label required" for="price">ราคา</label>
-                    <div class="col-md-5">
-                        <div class="input-group">
-                            <input type="text" name="price" class="form-control input-md" placeholder="price" value="{{ old('price') }}">
-                            <span class="input-group-addon" id="basic-addon2">บาท</span>
-                        </div>
-                        <span class="help-inline">{{ $errors->has('price') ? $errors->first('price') : '' }}</span>
-                    </div>
-                </div>
 
                 <!-- Text input -->
                 <div class="form-group">
@@ -885,6 +851,66 @@
                                placeholder="complete" value="{{ old('year') }}">
                     </div>
                     <span class="help-inline">{{ $errors->has('year') ? $errors->first('year') : '' }}</span>
+                </div>
+
+                <!-- Text input -->
+                <div class="form-group {{ $errors->has('size') ? 'has-error' : '' }}">
+                    <label class="col-xs-6 col-sm-3 control-label required" for="size">ขนาดพื้นที่</label>
+                    <div class="col-sm-9">
+                        <label class="col-xs-6 col-sm-1 control-label" for="size">ตั้งแต่</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <input type="text" name="size" class="form-control input-md" placeholder="area size" value="{{ old('size') }}">
+                                <span class="input-group-btn">
+                                    {{ Form::select('size_unit', $unit, old('size_unit'), ['class'=> 'btn btn-default select-btn'])  }}
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="size"></label>
+                    <div class="col-sm-9">
+                        <label class="col-xs-6 col-sm-1 control-label" for="size">ถึง</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <input type="text" name="size" class="form-control input-md" placeholder="area size" value="{{ old('size') }}">
+                                <span class="input-group-btn">
+                                    {{ Form::select('size_unit', $unit, old('size_unit'), ['class'=> 'btn btn-default select-btn'])  }}
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="help-inline">{{ $errors->has('size') ? $errors->first('size') : '' }}</span>
+                </div>
+
+                <!-- Text input -->
+                <div class="form-group {{ $errors->has('price') ? 'has-error' : '' }}">
+                    <label class="col-xs-6 col-sm-3 control-label required" for="price">ราคา</label>
+                    <div class="col-sm-9">
+                        <label class="col-xs-6 col-sm-1 control-label" for="size">ตั้งแต่</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <input type="text" name="price" class="form-control input-md" placeholder="price" value="{{ old('price') }}">
+                                <span class="input-group-addon" id="basic-addon2">บาท</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-6 col-sm-3 control-label" for="size"></label>
+                    <div class="col-sm-9">
+                        <label class="col-xs-6 col-sm-1 control-label" for="size">ถึง</label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <input type="text" name="price" class="form-control input-md" placeholder="price" value="{{ old('price') }}">
+                                <span class="input-group-addon" id="basic-addon2">บาท</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="help-inline">{{ $errors->has('price') ? $errors->first('price') : '' }}</span>
                 </div>
 
 

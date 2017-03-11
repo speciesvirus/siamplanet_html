@@ -940,3 +940,11 @@ h2.entry-title {
 .post-des > span{
     margin: 20px;
 }
+.input-to-div{
+    float: left;
+}
+span.input-to{
+    height: 34px;
+    display: table-cell;
+    vertical-align: middle;
+}
