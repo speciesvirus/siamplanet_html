@@ -781,21 +781,11 @@
 
     </script>
 
-
-
-
-
-
-    <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
-    <!--<script src="//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"></script>-->
-
-    <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
-
 @stop
 
 @section('first-content')
     <div class="col-md-9">
-        <h1 class="entry-title">ลงประกาศ </h1>
+        <h1 class="entry-title">ลงประกาศรีวิว</h1>
 
         <div class="section">
             {!! Form::open(array('url'=>route('product.post'),'method'=>'POST', 'files'=>true, 'class'=>'post-form', 'id'=>'post-form')) !!}
@@ -826,10 +816,10 @@
                 </div>
 
                 <!-- Text input -->
-                <div class="form-group">
+                <div class="form-group hidden">
                     <label class="col-xs-6 col-sm-3 control-label">ประเภท</label>
                     <div class="col-md-5">
-                        {{ Form::select('type', $type, old('type'), ['class' => 'form-control input-md'])  }}
+                        {{ Form::select('type', $type, 5, ['class' => 'form-control input-md'])  }}
                     </div>
                 </div>
 
