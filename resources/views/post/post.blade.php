@@ -26,7 +26,7 @@
                 <a href="{{ route('post.product') }}" class="post-type-btn">
                     <div class="longshadows">
                         <div class="img-con">
-                            <img src="{{ asset('resources/images/post-product.png') }}">
+                            <img src="{{ asset('resources/assets/images/post-product.png') }}">
                         </div>
 
                         <h2>ลงประกาศฟรี!</h2>
@@ -46,7 +46,7 @@
                 <a href="{{ route('post.review') }}" class="post-type-btn">
                     <div class="longshadows">
                         <div class="img-con">
-                            <img src="{{ asset('resources/images/post-review.png') }}">
+                            <img src="{{ asset('resources/assets/images/post-review.png') }}">
                         </div>
                         <h2>ลงประกาศโครงการ</h2>
                     </div>

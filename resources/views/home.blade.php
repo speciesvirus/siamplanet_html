@@ -50,7 +50,7 @@
         <div class="row">
 
             <div class="container">
-                <h1 class="entry-title">-Nainam-</h1>
+                <h1 class="entry-title"></h1>
             </div>
 
             @foreach($pagination->items() as $item)
