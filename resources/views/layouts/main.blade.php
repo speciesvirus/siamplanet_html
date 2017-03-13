@@ -97,7 +97,7 @@
 
         </a>
         <a href="{{ route('home') }}" id="nav-logo" title="siam planet">Nainam</a>
-
+<h1 data-heading="Dimensions">Dimensions</h1>
         {{--!!* Menu Top--}}
         @include('_partials.menu-top')
 
