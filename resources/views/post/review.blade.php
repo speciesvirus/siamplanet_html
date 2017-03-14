@@ -781,6 +781,56 @@
 
     </script>
 
+    <script type="text/javascript">
+        $(function () {
+
+            $('#add-block-unit').click(function () {
+
+                var $html = '<div class="block-unit">'+
+                    '<div class="remove-block-unit">'+
+                        '<span><i class="fa fa-times-circle" aria-hidden="true"></i></span>'+
+                    '</div>'+
+
+                    '<div class="form-group">'+
+                        '<label class="col-xs-6 col-sm-3 control-label required">ยูนิตโครงการ</label>'+
+                        '<div class="col-md-5">'+
+                            '<input name="tag1" class="form-control input-md" type="text" placeholder="tag">'+
+                        '</div>'+
+                    '</div>'+
+
+                    '<div class="form-group">'+
+                        '<label class="col-xs-6 col-sm-3 control-label required">ขนาดพื้นที่</label>'+
+                        '<div class="col-md-5">'+
+                            '<div class="input-group">'+
+                                '<input type="text" name="size" class="form-control input-md" placeholder="area size">'+
+                                '<span class="input-group-btn">'+
+                                '{{ Form::select('size_unit', $unit, old('size_unit'), ['class'=> 'btn btn-default select-btn'])  }}'+
+                                '</span>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+
+                    '<div class="form-group">'+
+                        '<label class="col-xs-6 col-sm-3 control-label required">ภาพ</label>'+
+                            '<div class="col-md-5">'+
+                                '<div class="fc-input">'+
+                                    '<input class="form-control form-input form-style-base" type="file">'+
+                                    '<input class="form-control form-input form-style-fake" placeholder="Choose your File" readonly="" type="text">'+
+                                    '<span class="glyphicon glyphicon-open input-place" aria-hidden="true"></span>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>' ;
+
+                $(this).parent().parent().before($html);
+            });
+
+            $(document).on('click', '.remove-block-unit > span', function () {
+                $(this).parents('.block-unit').remove();
+            });
+
+        });
+    </script>
 @stop
 
 @section('first-content')
@@ -914,39 +964,86 @@
                 <div class="form-horizontal">
                     <h3 class="side-list-title">ผังโครงการ และข้อมูลโครงการของโครงการนี้</h3>
 
-                    <!-- Text input -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label">ยูนิตโครงการ</label>
-                        <div class="col-md-5">
-                            <input name="tag1" class="form-control input-md" type="text" placeholder="tag" value="{{ old('tag1') }}">
+                    <div class="block-unit nm">
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-6 col-sm-3 control-label required">ยูนิตโครงการ</label>
+                            <div class="col-md-5">
+                                <input name="tag1" class="form-control input-md" type="text" placeholder="tag" value="{{ old('tag1') }}">
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Text input -->
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label">ขนาดพื้นที่</label>
-                        <div class="col-md-5">
-                            <div class="input-group">
-                                <input type="text" name="size" class="form-control input-md" placeholder="area size" value="{{ old('size') }}">
-                                <span class="input-group-btn">
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-6 col-sm-3 control-label required">ขนาดพื้นที่</label>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <input type="text" name="size" class="form-control input-md" placeholder="area size" value="{{ old('size') }}">
+                                    <span class="input-group-btn">
                                     {{ Form::select('size_unit', $unit, old('size_unit'), ['class'=> 'btn btn-default select-btn'])  }}
                                     </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-6 col-sm-3 control-label required">ภาพ</label>
+                            <div class="col-md-5">
+                                <div class="fc-input">
+                                    <input class="form-control form-input form-style-base" type="file">
+                                    <input class="form-control form-input form-style-fake" placeholder="Choose your File" readonly="" type="text">
+                                    <span class="glyphicon glyphicon-open input-place" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block-unit">
+                        <div class="remove-block-unit">
+                            <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+                        </div>
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-6 col-sm-3 control-label required">ยูนิตโครงการ</label>
+                            <div class="col-md-5">
+                                <input name="tag1" class="form-control input-md" type="text" placeholder="tag" value="{{ old('tag1') }}">
+                            </div>
+                        </div>
+
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-6 col-sm-3 control-label required">ขนาดพื้นที่</label>
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <input type="text" name="size" class="form-control input-md" placeholder="area size" value="{{ old('size') }}">
+                                    <span class="input-group-btn">
+                                    {{ Form::select('size_unit', $unit, old('size_unit'), ['class'=> 'btn btn-default select-btn'])  }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-6 col-sm-3 control-label required">ภาพ</label>
+                            <div class="col-md-5">
+                                <div class="fc-input">
+                                    <input class="form-control form-input form-style-base" type="file">
+                                    <input class="form-control form-input form-style-fake" placeholder="Choose your File" readonly="" type="text">
+                                    <span class="glyphicon glyphicon-open input-place" aria-hidden="true"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Text input -->
                     <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label">ภาพ</label>
+                        <label class="col-xs-6 col-sm-3 control-label"></label>
                         <div class="col-md-5">
-                            <div class="fc-input">
-                                <input class="form-control form-input form-style-base" type="file">
-                                <input class="form-control form-input form-style-fake" placeholder="Choose your File" readonly="" type="text">
-                                <span class="glyphicon glyphicon-open input-place" aria-hidden="true"></span>
-                            </div>
+                            <input type="button" class="btn btn-primary" id="add-block-unit" value="+ เพิ่มยูนิตโครงการ">
                         </div>
                     </div>
-
 
                 </div>
 
@@ -1050,68 +1147,6 @@
                                 'aria-hidden' => 'true'
                             ])
                          }}
-                        {{--<select name="facility" class="js-example-placeholder-multiple js-states form-control select2-hidden-accessible" id="id_label_multiple" multiple="multiple" tabindex="-1" aria-hidden="true">--}}
-                        {{--<optgroup label="Alaskan/Hawaiian Time Zone">--}}
-                        {{--<option value="AK">Alaska</option>--}}
-                        {{--<option value="HI">Hawaii</option>--}}
-                        {{--</optgroup>--}}
-                        {{--<optgroup label="Pacific Time Zone">--}}
-                        {{--<option value="CA">California</option>--}}
-                        {{--<option value="NV">Nevada</option>--}}
-                        {{--<option value="OR">Oregon</option>--}}
-                        {{--<option value="WA">Washington</option>--}}
-                        {{--</optgroup>--}}
-                        {{--<optgroup label="Mountain Time Zone">--}}
-                        {{--<option value="AZ">Arizona</option>--}}
-                        {{--<option value="CO">Colorado</option>--}}
-                        {{--<option value="ID">Idaho</option>--}}
-                        {{--<option value="MT">Montana</option>--}}
-                        {{--<option value="NE">Nebraska</option>--}}
-                        {{--<option value="NM">New Mexico</option>--}}
-                        {{--<option value="ND">North Dakota</option>--}}
-                        {{--<option value="UT">Utah</option>--}}
-                        {{--<option value="WY">Wyoming</option>--}}
-                        {{--</optgroup>--}}
-                        {{--<optgroup label="Central Time Zone">--}}
-                        {{--<option value="AL">Alabama</option>--}}
-                        {{--<option value="AR">Arkansas</option>--}}
-                        {{--<option value="IL">Illinois</option>--}}
-                        {{--<option value="IA">Iowa</option>--}}
-                        {{--<option value="KS">Kansas</option>--}}
-                        {{--<option value="KY">Kentucky</option>--}}
-                        {{--<option value="LA">Louisiana</option>--}}
-                        {{--<option value="MN">Minnesota</option>--}}
-                        {{--<option value="MS">Mississippi</option>--}}
-                        {{--<option value="MO">Missouri</option>--}}
-                        {{--<option value="OK">Oklahoma</option>--}}
-                        {{--<option value="SD">South Dakota</option>--}}
-                        {{--<option value="TX">Texas</option>--}}
-                        {{--<option value="TN">Tennessee</option>--}}
-                        {{--<option value="WI">Wisconsin</option>--}}
-                        {{--</optgroup>--}}
-                        {{--<optgroup label="Eastern Time Zone">--}}
-                        {{--<option value="CT">Connecticut</option>--}}
-                        {{--<option value="DE">Delaware</option>--}}
-                        {{--<option value="FL">Florida</option>--}}
-                        {{--<option value="GA">Georgia</option>--}}
-                        {{--<option value="IN">Indiana</option>--}}
-                        {{--<option value="ME">Maine</option>--}}
-                        {{--<option value="MD">Maryland</option>--}}
-                        {{--<option value="MA">Massachusetts</option>--}}
-                        {{--<option value="MI">Michigan</option>--}}
-                        {{--<option value="NH">New Hampshire</option>--}}
-                        {{--<option value="NJ">New Jersey</option>--}}
-                        {{--<option value="NY">New York</option>--}}
-                        {{--<option value="NC">North Carolina</option>--}}
-                        {{--<option value="OH">Ohio</option>--}}
-                        {{--<option value="PA">Pennsylvania</option>--}}
-                        {{--<option value="RI">Rhode Island</option>--}}
-                        {{--<option value="SC">South Carolina</option>--}}
-                        {{--<option value="VT">Vermont</option>--}}
-                        {{--<option value="VA">Virginia</option>--}}
-                        {{--<option value="WV">West Virginia</option>--}}
-                        {{--</optgroup>--}}
-                        {{--</select>--}}
 
                     </div>
                 </div>
@@ -1119,17 +1154,7 @@
                 <!-- Text input -->
                 <div class="form-group">
                     <label class="col-xs-6 col-sm-3 control-label" for="status"></label>
-                    <div class="col-md-4 fc-c">
-                        <!--<div class="fc-d">-->
-                        <!--    <label class="col-xs-6 col-sm-3 control-label">adadad</label>-->
-                        <!--    <div class="fc-input">-->
-                        <!--        <input type="file" class="form-control form-input form-style-base">-->
-                        <!--        <input type="text" class="form-control form-input form-style-fake" placeholder="Choose your File" readonly>-->
-                        <!--        <span class="glyphicon glyphicon-open input-place"></span>-->
-                        <!--    </div>-->
-                        <!--</div>-->
-
-                    </div>
+                    <div class="col-md-4 fc-c"></div>
                 </div>
 
 
@@ -1145,13 +1170,6 @@
                     <label class="col-xs-6 col-sm-3 control-label" for="status">พื่นที่โครงการ</label>
 
                     <div class="col-md-5">
-                        {{--<select class="form-control" id="select-point">--}}
-                        {{--<option value="1">1</option>--}}
-                        {{--<option>2</option>--}}
-                        {{--<option>3</option>--}}
-                        {{--<option>4</option>--}}
-                        {{--<option>5</option>--}}
-                        {{--</select>--}}
                         {{ Form::select('area', $area, old('area'),[
                                 'id' => 'select-point',
                                 'class' => 'form-control input-md'
@@ -1202,9 +1220,7 @@
                         </div>
                     </div>
 
-
                 </div>
-
 
 
                 <div class="form-horizontal">

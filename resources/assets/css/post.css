@@ -948,3 +948,23 @@ span.input-to{
     display: table-cell;
     vertical-align: middle;
 }
+
+.block-unit{
+    padding: 15px 0 10px;
+    border: 1px solid #eee;
+    margin: 15px 0;
+    position: relative;
+}
+.block-unit.nm{
+    margin: 0 0 15px;
+}
+.remove-block-unit{
+    position: absolute;
+    right: -9px;
+    top: -14px;
+}
+.remove-block-unit > span{
+    font-size: 20px;
+    cursor: pointer;
+    color: #e32;
+}

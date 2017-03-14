@@ -57,15 +57,12 @@
     <link rel="stylesheet" href="{{ asset('resources/assets/css/main.css', env('HTTPS')) }}" />
 
     <!-- Lea Verou's prefixfree (http://leaverou.github.io/prefixfree/), lets you use un-prefixed properties in your CSS files -->
-{{--<script src="{{ asset('resources/assets/js/libs/prefixfree.min.js') }}"></script>--}}
-{{-- open --}}
-{{--<script src="//resources/assets/js/libs/prefixfree.min.js"></script>--}}
+    <script src="{{ asset('resources/assets/prefixfree/prefixfree.min.js', env('HTTPS')) }}"></script>
 
-<!-- This is a minimized, base version of Modernizr. (http://modernizr.com)
+    <!-- This is a minimized, base version of Modernizr. (http://modernizr.com)
           You will need to create new builds to get the detects you need. -->
-{{--<script src="{{ asset('resources/assets/js/libs/modernizr-3.2.0.base.js') }}"></script>--}}
-{{-- open --}}
-{{--<script src="//resources/assets/js/libs/modernizr-3.2.0.base.js"></script>--}}
+    <script src="{{ asset('resources/assets/js/components/modernizr-3.2.0.base.js', env('HTTPS')) }}"></script>
+
 
 <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
     <meta name="twitter:card" content="">
@@ -290,16 +287,13 @@
 </div>
 
 <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>window.jQuery || document.write("<script src='{{ asset('resources/assets/js/components/jquery-1.11.3.min.js', env('HTTPS')) }}'>\x3C/script>")</script>
+<script src="{{ asset('resources/assets/js/components/jquery-1.11.3.min.js', env('HTTPS')) }}"></script>
 
 <script src="{{ asset('resources/assets/select2/dist/js/select2.full.min.js', env('HTTPS')) }}"></script>
-{{--<script src="resources/assets/select2/dist/js/select2.full.min.js"></script>--}}
 @yield('script')
 <!-- this is where we put our custom functions -->
 <!-- don't forget to concatenate and minify for production -->
 <script src="{{ asset('resources/assets/js/functions.js', env('HTTPS')) }}"></script>
-{{--<script src="resources/assets/js/functions.js"></script>--}}
 {{--<script>$(document).ready(initPage);</script>--}}
 
 <!-- Asynchronous google analytics; this is the official snippet.
