@@ -910,6 +910,45 @@
                 </div>
 
             </div>
+            
+                <div class="form-horizontal">
+                    <h3 class="side-list-title">ผังโครงการ และข้อมูลโครงการของโครงการนี้</h3>
+
+                    <!-- Text input -->
+                    <div class="form-group">
+                        <label class="col-xs-6 col-sm-3 control-label">ยูนิตโครงการ</label>
+                        <div class="col-md-5">
+                            <input name="tag1" class="form-control input-md" type="text" placeholder="tag" value="{{ old('tag1') }}">
+                        </div>
+                    </div>
+
+                    <!-- Text input -->
+                    <div class="form-group">
+                        <label class="col-xs-6 col-sm-3 control-label">ขนาดพื้นที่</label>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <input type="text" name="size" class="form-control input-md" placeholder="area size" value="{{ old('size') }}">
+                                <span class="input-group-btn">
+                                    {{ Form::select('size_unit', $unit, old('size_unit'), ['class'=> 'btn btn-default select-btn'])  }}
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text input -->
+                    <div class="form-group">
+                        <label class="col-xs-6 col-sm-3 control-label">ภาพ</label>
+                        <div class="col-md-5">
+                            <div class="fc-input">
+                                <input class="form-control form-input form-style-base" type="file">
+                                <input class="form-control form-input form-style-fake" placeholder="Choose your File" readonly="" type="text">
+                                <span class="glyphicon glyphicon-open input-place" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
 
             <div class="form-horizontal">
                 <fieldset>
