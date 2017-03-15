@@ -794,7 +794,7 @@
                     '<div class="form-group">'+
                         '<label class="col-xs-6 col-sm-3 control-label required">ยูนิตโครงการ</label>'+
                         '<div class="col-md-5">'+
-                            '<input name="tag1" class="form-control input-md" type="text" placeholder="tag">'+
+                            '<input class="form-control input-md" type="text" placeholder="name">'+
                         '</div>'+
                     '</div>'+
 
@@ -802,9 +802,9 @@
                         '<label class="col-xs-6 col-sm-3 control-label required">ขนาดพื้นที่</label>'+
                         '<div class="col-md-5">'+
                             '<div class="input-group">'+
-                                '<input type="text" name="size" class="form-control input-md" placeholder="area size">'+
+                                '<input type="text" class="form-control input-md" placeholder="area size">'+
                                 '<span class="input-group-btn">'+
-                                '{{ Form::select('size_unit', $unit, old('size_unit'), ['class'=> 'btn btn-default select-btn'])  }}'+
+                                '{{ Form::select('size_unit_project', $unit, old('size_unit'), ['class'=> 'btn btn-default select-btn'])  }}'+
                                 '</span>'+
                             '</div>'+
                         '</div>'+
