@@ -34,6 +34,19 @@
             toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
             content_css: '//www.tinymce.com/css/codepen.min.css'
         });
+
+        tinymce.init({
+            selector: '.u_content',
+            height: 300,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table contextmenu paste code'
+            ],
+            toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            content_css: '//www.tinymce.com/css/codepen.min.css'
+        });
         //        $('div#froala-editor').froalaEditor('html.get');
 
         // File Upload
@@ -43,7 +56,8 @@
             arrArea = [],
             arrFile = [],
             arrGeo = [],
-            arrAround = [];
+            arrAround = [],
+            arrProject = [];
 
 
         function ekUpload() {
@@ -379,14 +393,17 @@
                 },
                 success : function ( json )
                 {
-                     if(arrImage.length < 1){
-                         $('#file-upload-form').parents('.form-group').addClass('has-error').find('span.help-inline').html('image is required');
-                         return false;
-                     }
+
+                    pushProject(inputProjectValidate());
+
+                    if(arrImage.length < 1){
+                        $('#file-upload-form').parents('.form-group').addClass('has-error').find('span.help-inline').html('image is required');
+                        return false;
+                    }
 
                     var $value = $('#id_label_multiple').val();
                     if($value != null){
-                        $value = $('#id_label_multiple').val().toString();
+                        $value = $value.toString();
                         var $str = $value.split(",");
 
                         $.each($str, function( index, value ) {
@@ -402,8 +419,11 @@
                 {
                     var errors = jqXhr.responseJSON;
                     $.each( errors, function( key, value ) {
+                        $('textarea[name="'+key+'"]').parents('.form-group').addClass('has-error').find('span.help-inline').html(value);
                         $('input[name="'+key+'"]').parents('.form-group').addClass('has-error').find('span.help-inline').html(value);
                     });
+
+                    pushProject(inputProjectValidate());
 
                     if(arrImage.length < 1){
                         $('#file-upload-form').parents('.form-group').addClass('has-error').find('span.help-inline').html('image is required');
@@ -416,19 +436,62 @@
 
 
         });
+        
+        function inputProjectValidate() {
+            if($('select[name="type"]').val() == 5){
+                var $c = true;
+                $('.block-unit input, .block-unit textarea').each(function () {
+                    var $this = $(this);
+                    if($this.val().trim() == ""){
+                        var $html = 'field is required';
+                        $this.parents('.form-group:not(.not-validate)').addClass('has-error').find('span.help-inline').html($html);
+
+                        if(!$this.parents('.form-group').hasClass('not-validate')){
+                            $c = false;
+                        }
+                    }
+                });
+
+                return $c;
+            }
+        }
+
+        function pushProject($valid) {
+            arrProject = [];
+            if(!$valid) return false;
+
+            $('.block-unit').each(function () {
+                var $this = $(this),
+                    $temp = [],
+                    $index = ($this.index() - 1);
+                arrProject.push({
+                    index:$index,
+                    name:$this.find('input.input-u-p').val(),
+                    size:$this.find('input.input-u-s').val(),
+                    unit:$this.find('select.input-u-u').val(),
+                    price:$this.find('input.input-u-pr').val(),
+                    content:$this.find('textarea.input-u-c').val(),
+                    image:[]
+                });
+                $.each($this.find('.input-u-f'), function( index, value ) {
+                    if($(this)[0].files[0]){
+                        $temp.push({index:$index, file:$(this)[0].files[0]});
+                    }
+                });
+                arrProject[$index].image = $temp
+            });
+        }
 
         function uploadFiles() {
             arrFile = [];
             var data = new FormData(),
                 $key = 0;
-            $.each(arrImage, function(key, value)
-            {
+            $.each(arrImage, function(key, value){
                 data.append($key, value);
                 $key++;
                 arrFile.push({type:'product', image: ''});
             });
-            $.each(arrFacility, function(key, value)
-            {
+            $.each(arrFacility, function(key, value){
                 if(value.file != null){
                     data.append($key, value.file);
                 }else{
@@ -436,6 +499,14 @@
                 }
                 $key++;
                 arrFile.push({type:'facility', id: value.id, image: null});
+            });
+            $.each(arrProject, function(key, value){
+                $.each(value.image, function(k, img){
+                    data.append($key, img.file);
+                    $key++;
+                    arrFile.push({type:'project',id: value['index'] , image: ''});
+                    arrProject[key].image[k].file = null;
+                });
             });
 
             $.ajax({
@@ -449,16 +520,13 @@
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
-                success : function ( json )
-                {
-                    $.each(json['images'], function(key, value)
-                    {
+                success : function ( json ){
+                    $.each(json['images'], function(key, value){
                         arrFile[value['index']].image = value['name'];
                     });
                     uploadData();
                 },
-                error   : function ( jqXhr, json, errorThrown )
-                {
+                error   : function ( jqXhr, json, errorThrown ){
                     console.log(jqXhr);
                 }
             });
@@ -475,7 +543,6 @@
         }
 
         function uploadData() {
-
             $.ajax({
                 url     : "{{ route('product.post') }}",
                 type    : form.attr("method"),
@@ -499,7 +566,8 @@
                     arrFile : arrFile,
                     arrArea : arrArea,
                     arrGeo : arrGeo,
-                    arrAround : arrAround
+                    arrAround : arrAround,
+                    arrProject : arrProject
                 },
                 dataType: "json",
                 headers: {
@@ -794,7 +862,8 @@
                     '<div class="form-group">'+
                         '<label class="col-xs-6 col-sm-3 control-label required">ยูนิตโครงการ</label>'+
                         '<div class="col-md-5">'+
-                            '<input class="form-control input-md" type="text" placeholder="name">'+
+                            '<input class="form-control input-md input-u-p" type="text" placeholder="name">'+
+                            '<span class="help-inline"></span>'+
                         '</div>'+
                     '</div>'+
 
@@ -802,27 +871,80 @@
                         '<label class="col-xs-6 col-sm-3 control-label required">ขนาดพื้นที่</label>'+
                         '<div class="col-md-5">'+
                             '<div class="input-group">'+
-                                '<input type="text" class="form-control input-md" placeholder="area size">'+
+                                '<input type="text" class="form-control input-md input-u-s" placeholder="area size">'+
                                 '<span class="input-group-btn">'+
-                                '{{ Form::select('size_unit_project', $unit, old('size_unit'), ['class'=> 'btn btn-default select-btn'])  }}'+
+                                '{{ Form::select('size_unit_project', $unit, "", ['class'=> 'btn btn-default select-btn input-u-u'])  }}'+
                                 '</span>'+
                             '</div>'+
+                            '<span class="help-inline"></span>'+
+                        '</div>'+
+                    '</div>'+
+
+                    '<div class="form-group">'+
+                        '<label class="col-xs-6 col-sm-3 control-label required">ราคา</label>'+
+                        '<div class="col-md-5">'+
+                            '<input class="form-control input-md input-u-pr" type="text" placeholder="price">'+
+                            '<span class="help-inline"></span>'+
                         '</div>'+
                     '</div>'+
 
                     '<div class="form-group">'+
                         '<label class="col-xs-6 col-sm-3 control-label required">ภาพ</label>'+
-                            '<div class="col-md-5">'+
-                                '<div class="fc-input">'+
-                                    '<input class="form-control form-input form-style-base" type="file">'+
-                                    '<input class="form-control form-input form-style-fake" placeholder="Choose your File" readonly="" type="text">'+
-                                    '<span class="glyphicon glyphicon-open input-place" aria-hidden="true"></span>'+
-                                '</div>'+
+                        '<div class="col-md-5">'+
+                            '<div class="fc-input">'+
+                                '<input class="form-control form-input form-style-base input-u-f" type="file">'+
+                                '<input class="form-control form-input form-style-fake" placeholder="Choose your File" readonly="" type="text">'+
+                                '<span class="glyphicon glyphicon-open input-place" aria-hidden="true"></span>'+
                             '</div>'+
                         '</div>'+
-                    '</div>' ;
+                    '</div>'+
+
+                    '<div class="form-group not-validate">'+
+                        '<label class="col-xs-6 col-sm-3 control-label">&nbsp</label>'+
+                        '<div class="col-md-5">'+
+                            '<div class="fc-input">'+
+                                '<input class="form-control form-input form-style-base input-u-f" type="file">'+
+                                '<input class="form-control form-input form-style-fake" placeholder="Choose your File" readonly="" type="text">'+
+                                '<span class="glyphicon glyphicon-open input-place" aria-hidden="true"></span>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+
+                    '<div class="form-group not-validate">'+
+                        '<label class="col-xs-6 col-sm-3 control-label">&nbsp</label>'+
+                        '<div class="col-md-5">'+
+                            '<div class="fc-input">'+
+                                '<input class="form-control form-input form-style-base input-u-f" type="file">'+
+                                '<input class="form-control form-input form-style-fake" placeholder="Choose your File" readonly="" type="text">'+
+                                '<span class="glyphicon glyphicon-open input-place" aria-hidden="true"></span>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+
+                    '<div class="form-group">'+
+                        '<label class="col-xs-6 col-sm-3 control-label required" for="edit">ช้อความ</label>'+
+                        '<div class="col-md-8">'+
+                            '<textarea class="u_content input-u-c"></textarea>'+
+                            '<span class="help-inline"></span>'+
+                        '</div>'+
+                    '</div>'+
+
+                    '</div>';
 
                 $(this).parent().parent().before($html);
+
+                tinymce.init({
+                    selector: '.u_content',
+                    height: 300,
+                    menubar: false,
+                    plugins: [
+                        'advlist autolink lists link image charmap print preview anchor',
+                        'searchreplace visualblocks code fullscreen',
+                        'insertdatetime media table contextmenu paste code'
+                    ],
+                    toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                    content_css: '//www.tinymce.com/css/codepen.min.css'
+                });
             });
 
             $(document).on('click', '.remove-block-unit > span', function () {
@@ -877,7 +999,7 @@
                 <div class="form-group hidden">
                     <label class="col-xs-6 col-sm-3 control-label">ความต้องการ</label>
                     <div class="col-md-5">
-                        {{ Form::select('sale', $sale, old('sale'), ['class' => 'form-control input-md'])  }}
+                        {{ Form::select('sale', $sale, 1, ['class' => 'form-control input-md'])  }}
                     </div>
                 </div>
 
@@ -969,7 +1091,8 @@
                         <div class="form-group">
                             <label class="col-xs-6 col-sm-3 control-label required">ยูนิตโครงการ</label>
                             <div class="col-md-5">
-                                <input name="tag1" class="form-control input-md" type="text" placeholder="tag" value="{{ old('tag1') }}">
+                                <input class="form-control input-md input-u-p" type="text" placeholder="name">
+                                <span class="help-inline"></span>
                             </div>
                         </div>
 
@@ -978,11 +1101,21 @@
                             <label class="col-xs-6 col-sm-3 control-label required">ขนาดพื้นที่</label>
                             <div class="col-md-5">
                                 <div class="input-group">
-                                    <input type="text" name="size" class="form-control input-md" placeholder="area size" value="{{ old('size') }}">
+                                    <input type="text" class="form-control input-md input-u-s" placeholder="size">
                                     <span class="input-group-btn">
-                                    {{ Form::select('size_unit', $unit, old('size_unit'), ['class'=> 'btn btn-default select-btn'])  }}
+                                    {{ Form::select('size_unit_project', $unit, "", ['class'=> 'btn btn-default select-btn input-u-u'])  }}
                                     </span>
                                 </div>
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
+
+                        <!-- Text input -->
+                        <div class="form-group">
+                            <label class="col-xs-6 col-sm-3 control-label required">ราคา</label>
+                            <div class="col-md-5">
+                                <input class="form-control input-md input-u-pr" type="text" placeholder="price">
+                                <span class="help-inline"></span>
                             </div>
                         </div>
 
@@ -991,51 +1124,42 @@
                             <label class="col-xs-6 col-sm-3 control-label required">ภาพ</label>
                             <div class="col-md-5">
                                 <div class="fc-input">
-                                    <input class="form-control form-input form-style-base" type="file">
+                                    <input class="form-control form-input form-style-base input-u-f" type="file">
                                     <input class="form-control form-input form-style-fake" placeholder="Choose your File" readonly="" type="text">
                                     <span class="glyphicon glyphicon-open input-place" aria-hidden="true"></span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="block-unit">
-                        <div class="remove-block-unit">
-                            <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
-                        </div>
-                        <!-- Text input -->
-                        <div class="form-group">
-                            <label class="col-xs-6 col-sm-3 control-label required">ยูนิตโครงการ</label>
-                            <div class="col-md-5">
-                                <input name="tag1" class="form-control input-md" type="text" placeholder="tag" value="{{ old('tag1') }}">
-                            </div>
-                        </div>
-
-                        <!-- Text input -->
-                        <div class="form-group">
-                            <label class="col-xs-6 col-sm-3 control-label required">ขนาดพื้นที่</label>
-                            <div class="col-md-5">
-                                <div class="input-group">
-                                    <input type="text" name="size" class="form-control input-md" placeholder="area size" value="{{ old('size') }}">
-                                    <span class="input-group-btn">
-                                    {{ Form::select('size_unit', $unit, old('size_unit'), ['class'=> 'btn btn-default select-btn'])  }}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Text input -->
-                        <div class="form-group">
-                            <label class="col-xs-6 col-sm-3 control-label required">ภาพ</label>
+                        <div class="form-group not-validate">
+                            <label class="col-xs-6 col-sm-3 control-label">&nbsp</label>
                             <div class="col-md-5">
                                 <div class="fc-input">
-                                    <input class="form-control form-input form-style-base" type="file">
+                                    <input class="form-control form-input form-style-base input-u-f" type="file">
                                     <input class="form-control form-input form-style-fake" placeholder="Choose your File" readonly="" type="text">
                                     <span class="glyphicon glyphicon-open input-place" aria-hidden="true"></span>
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group not-validate">
+                            <label class="col-xs-6 col-sm-3 control-label">&nbsp</label>
+                            <div class="col-md-5">
+                                <div class="fc-input">
+                                    <input class="form-control form-input form-style-base input-u-f" type="file">
+                                    <input class="form-control form-input form-style-fake" placeholder="Choose your File" readonly="" type="text">
+                                    <span class="glyphicon glyphicon-open input-place" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-xs-6 col-sm-3 control-label required" for="edit">ช้อความ</label>
+                            <div class="col-md-8">
+                                <textarea class="u_content input-u-c"></textarea>
+                                <span class="help-inline"></span>
+                            </div>
+                        </div>
                     </div>
+
 
                     <!-- Text input -->
                     <div class="form-group">
@@ -1121,9 +1245,9 @@
                                     Thanks for supporting TinyMCE! We hope it helps you and your users create great content.<br>All the best from the TinyMCE team.
                                   </p>
                                 </textarea>
-
+                            <span class="help-inline">{{ $errors->has('content') ? $errors->first('content') : '' }}</span>
                         </div>
-                        <span class="help-inline">{{ $errors->has('content') ? $errors->first('content') : '' }}</span>
+
                     </div>
 
 

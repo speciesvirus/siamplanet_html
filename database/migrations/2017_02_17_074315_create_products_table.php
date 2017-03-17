@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->foreign('product_type_id')->references('id')->on('product_types')->onDelete('no action');
             $table->integer('product_sale_id')->unsigned()->index();
             $table->foreign('product_sale_id')->references('id')->on('product_sales')->onDelete('no action');
-            $table->decimal('unit', 5, 2)->unsigned();
+            $table->decimal('unit', 8, 2)->unsigned();
             $table->integer('product_unit_id')->unsigned()->index();
             $table->foreign('product_unit_id')->references('id')->on('product_units')->onDelete('no action');
             $table->integer('price')->unsigned();

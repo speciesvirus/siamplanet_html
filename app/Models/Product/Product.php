@@ -31,6 +31,9 @@ class Product extends Model
     public function subway() {
         return $this->hasOne('App\Models\Product\ProductSubway');
     }
+    public function project() {
+        return $this->hasOne('App\Models\Product\ProductProject');
+    }
 
     public function facility()
     {
@@ -58,7 +61,6 @@ class Product extends Model
     {
         return $this->area()->detach($area);
     }
-
 
     public static function selectOnProduct($product)
     {

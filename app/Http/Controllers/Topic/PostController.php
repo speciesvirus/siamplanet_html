@@ -7,6 +7,8 @@ use App\Models\Product\Product;
 use App\Models\Product\ProductArea;
 use App\Models\Product\ProductFacility;
 use App\Models\Product\ProductImage;
+use App\Models\Product\ProductProject;
+use App\Models\Product\ProductProjectImage;
 use App\Models\Product\ProductSale;
 use App\Models\Product\ProductSubway;
 use App\Models\Product\ProductTag;
@@ -174,7 +176,30 @@ class PostController extends Controller
                 $subway->distance = $value['distance'];
                 $subway->lat = $value['lat'];
                 $subway->lng = $value['lng'];
-                $product->tag()->save($subway);
+                $product->subway()->save($subway);
+            }
+        }
+
+        $arrProject = $request->input('arrProject');
+        if($arrProject){
+            foreach ($arrProject as $key => $value) {
+                $project = new ProductProject();
+                $project->name = $value['name'];
+                $project->unit = $value['size'];
+                $project->product_unit_id = $value['unit'];
+                $project->price = $value['price'];
+                $project->content = $value['content'];
+                $product->project()->save($project);
+
+                foreach ($arrFile as $k => $v) {
+                    if($v['type'] == 'project'){
+                        if($value['index'] == $v['id']){
+                            $image = new ProductProjectImage();
+                            $image->image = $v['image'];
+                            $project->image()->save($image);
+                        }
+                    }
+                }
             }
         }
 
@@ -207,7 +232,6 @@ class PostController extends Controller
             'size'               => 'required|numeric',
             'size_unit'          => 'required',
             'price'              => 'required|numeric',
-//            'pimg1'              => 'required|image|nullable',
             'content'            => 'required|min:6',
             'seller'             => 'required',
             'phone'              => 'required|numeric|min:9|digits_between:9,10',

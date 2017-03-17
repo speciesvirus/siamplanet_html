@@ -57,7 +57,7 @@
     <link rel="stylesheet" href="{{ asset('resources/assets/css/main.css', env('HTTPS')) }}" />
 
     <!-- Lea Verou's prefixfree (http://leaverou.github.io/prefixfree/), lets you use un-prefixed properties in your CSS files -->
-    <script src="{{ asset('resources/assets/prefixfree/prefixfree.min.js', env('HTTPS')) }}"></script>
+    {{--<script src="{{ asset('resources/assets/prefixfree/prefixfree.min.js', env('HTTPS')) }}"></script>--}}
 
     <!-- This is a minimized, base version of Modernizr. (http://modernizr.com)
           You will need to create new builds to get the detects you need. -->
@@ -105,12 +105,12 @@
             <form class="advance-search-form" action="#" method="get">
                 <div class="inline-fields clearfix">
                     <div class="option-bar property-location">
-                        <select name="location" id="location" data-title="Location" class="search-select">
+                        <select name="s_location" id="location" data-title="Location" class="search-select">
                             <option value="any">ประเภท ทั้งหมด</option>
                         </select>
                     </div>
                     <div class="option-bar property-type">
-                        <select name="type" id="select-property-type" class="search-select">
+                        <select name="s_type" id="select-property-type" class="search-select">
                             <option value="any" selected="selected">ราคา ทั้งหมด</option>
                             <option value="commercial"> Commercial</option>
                             <option value="office">- Office</option>
@@ -124,7 +124,7 @@
                         </select>
                     </div>
                     <div class="option-bar property-status">
-                        <select name="status" id="select-status" class="search-select">
+                        <select name="s_status" id="select-status" class="search-select">
                             <option value="any" selected="selected">ขนาด ทั้งหมด</option>
                             <option value="for-rent"> Căn hộ</option>
                             <option value="for-sale"> Biệt thư</option>
@@ -149,20 +149,20 @@
                 <!-- .inline-fields -->
                 <div class="hidden-fields clearfix">
                     <div class="option-bar property-bedrooms">
-                        <select name="bedrooms" id="select-bedrooms" class="search-select">
+                        <select name="s_sale" id="select-bedrooms" class="search-select">
                             <option value="any" selected="selected">ประกาศ ทั้งหมด</option>
                             <option value="1">ขาย</option>
                             <option value="2">เช่า</option>
                         </select>
                     </div>
                     <div class="option-bar property-min-price">
-                        <select name="min-price" id="select-min-price" class="search-select">
+                        <select name="s_subway" id="select-min-price" class="search-select">
                             <option value="any" selected="selected">บริเวณรถไฟฟ้า ทั้งหมด</option>
                             <option value="1000">$1,000</option>
                         </select>
                     </div>
                     <div class="option-bar property-bathrooms">
-                        <select name="bathrooms" id="select-bathrooms" class="search-select">
+                        <select name="s_province" id="select-bathrooms" class="search-select">
                             <option value="any" selected="selected">จังหวัด ทั้งหมด</option>
                             <option value="1">ประกาศเก่า</option>
                             <option value="2">2</option>
@@ -177,7 +177,7 @@
                         </select>
                     </div>
                     <div class="option-bar property-keyword">
-                        <input type="text" name="keyword" id="keyword-txt" value="" placeholder="คำค้นหา (Keyword)"
+                        <input type="text" name="s_keyword" id="keyword-txt" value="" placeholder="คำค้นหา (Keyword)"
                                title="Please only provide digits!"/>
                     </div>
                     {{--<div class="option-bar property-max-price">--}}
