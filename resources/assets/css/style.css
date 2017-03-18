@@ -36,10 +36,6 @@ mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: b
 /*input:-moz-placeholder { color:#a9a9a9; }*/
 /*textarea:-moz-placeholder { color:#a9a9a9; }*/
 
-/* let's give blockquotes *some* default styling, because unstyled blockquotes are dangerous */
-blockquote {padding: 16px; background: #eee;}
-
-
 h1, h2, h3, h4, h5, h6 {
     margin: 0 0 10px;
     font-family: inherit;

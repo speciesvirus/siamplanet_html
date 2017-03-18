@@ -38,20 +38,16 @@ Route::get('/view', function () {
 Route::get('/test', function() {
    return view('test');
 });
+
 Route::get('/news',
     ['as' => 'news', 'uses' => 'NewsController@index']
 );
-
-Route::get('/nc', function() {
-   return view('news.category');
-});
-Route::get('/nv', function() {
-   return view('news.view');
-});
-//Route::get('/post', function() {
-//    return view('post');
-//});
-
+Route::get('/news/category',
+    ['as' => 'news.category', 'uses' => 'NewsController@category']
+);
+Route::get('/news/view',
+    ['as' => 'news.view', 'uses' => 'NewsController@view']
+);
 Route::get('/post',
     ['as' => 'post', 'uses' => 'Topic\PostController@index']
 );

@@ -7,8 +7,8 @@ use App\Models\Product\Product;
 use App\Models\Product\ProductArea;
 use App\Models\Product\ProductFacility;
 use App\Models\Product\ProductImage;
-use App\Models\Product\ProductProject;
-use App\Models\Product\ProductProjectImage;
+use App\Models\Product\ProductReview;
+use App\Models\Product\ProductReviewImage;
 use App\Models\Product\ProductSale;
 use App\Models\Product\ProductSubway;
 use App\Models\Product\ProductTag;
@@ -183,7 +183,7 @@ class PostController extends Controller
         $arrProject = $request->input('arrProject');
         if($arrProject){
             foreach ($arrProject as $key => $value) {
-                $project = new ProductProject();
+                $project = new ProductReview();
                 $project->name = $value['name'];
                 $project->unit = $value['size'];
                 $project->product_unit_id = $value['unit'];
@@ -194,7 +194,7 @@ class PostController extends Controller
                 foreach ($arrFile as $k => $v) {
                     if($v['type'] == 'project'){
                         if($value['index'] == $v['id']){
-                            $image = new ProductProjectImage();
+                            $image = new ProductReviewImage();
                             $image->image = $v['image'];
                             $project->image()->save($image);
                         }

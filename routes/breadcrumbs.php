@@ -38,6 +38,18 @@ Breadcrumbs::register('news', function($breadcrumbs)
     $breadcrumbs->push('News', route('news'));
 });
 
+Breadcrumbs::register('news.category', function($breadcrumbs)
+{
+    $breadcrumbs->parent('news');
+    $breadcrumbs->push('Category', route('news.category'));
+});
+
+Breadcrumbs::register('news.view', function($breadcrumbs)
+{
+    $breadcrumbs->parent('news');
+    $breadcrumbs->push('View', route('news.view'));
+});
+
 Breadcrumbs::register('product', function($breadcrumbs, $product)
 {
     $breadcrumbs->parent('home');

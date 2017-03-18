@@ -16,12 +16,12 @@ class ComposerServiceProvider extends ServiceProvider
     {
         // Using class based composers...
         View::composer(
-            ['home', 'view'] //*! file view .blade
+            ['home', 'view', 'review'] //*! file view .blade
             , 'App\Http\ViewComposers\NavigatorComposer'
         );
 
         View::composer(
-            ['home', 'view']
+            ['home', 'view', 'review']
             , 'App\Http\ViewComposers\ProductComposer'
         );
 

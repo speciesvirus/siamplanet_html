@@ -6,6 +6,10 @@ use App\Models\Product\Product;
 use App\Models\Product\ProductImage;
 use App\Models\Product\ProductProductArea;
 use App\Models\Product\ProductProductFacility;
+use App\Models\Product\ProductProject;
+use App\Models\Product\ProductProjectImage;
+use App\Models\Product\ProductReview;
+use App\Models\Product\ProductReviewImage;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
@@ -86,12 +90,27 @@ class HomeController extends Controller
             $image = ProductImage::selectOnProduct($p->id);
             $area = ProductProductArea::selectOnProduct($p->id);
 //dd($product);
-            return view('view',[
+
+            $param = [
                 'product' => $product[0]['attributes'],
                 'product_img' => $image,
                 'product_facility' => $facility,
-                'product_area' => $area
-            ]);
+                'product_area' => $area,
+            ];
+
+            if($p->product_type_id === 5){
+                $review = ProductReview::selectOnProduct($p->id);
+                $reviewId = [];
+                foreach ($review as $key => $value){
+                    array_push($reviewId, $value['attributes']['id']);
+                }
+                $review_img = ProductReviewImage::selectOnProduct($reviewId);
+                $param['product_review']  = $review;
+                $param['product_review_image']  = $review_img;
+                return view('review', $param);
+            }
+
+            return view('view', $param);
         }
 
         return redirect()->route('home');

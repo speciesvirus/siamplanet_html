@@ -15,4 +15,14 @@ class NewsController extends Controller
     {
         return view('news.news');
     }
+
+    public function category()
+    {
+        return view('news.category');
+    }
+
+    public function view()
+    {
+        return view('news.view');
+    }
 }

@@ -32,7 +32,7 @@ class Product extends Model
         return $this->hasOne('App\Models\Product\ProductSubway');
     }
     public function project() {
-        return $this->hasOne('App\Models\Product\ProductProject');
+        return $this->hasOne('App\Models\Product\ProductReview');
     }
 
     public function facility()

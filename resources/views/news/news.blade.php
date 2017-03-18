@@ -10,10 +10,10 @@
 
 @section('script')
 
-    <link rel="stylesheet" href="../resources/assets/css/post.css"/>
-    <link rel="stylesheet" href="../resources/assets/css/news.css"/>
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/post.css', env('HTTPS')) }}"/>
+    <link rel="stylesheet" href="{{ asset('resources/assets/css/news.css', env('HTTPS')) }}"/>
 
-    <script src="../resources/assets/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="{{ asset('resources/assets/bootstrap/dist/js/bootstrap.js', env('HTTPS')) }}"></script>
 
     <script type="text/javascript">
 

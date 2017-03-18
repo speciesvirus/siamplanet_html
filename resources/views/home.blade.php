@@ -134,14 +134,14 @@
 
                             @for ($i = ($pagination->currentPage() - $pagination->perPage()); $i < (($pagination->currentPage() + $pagination->perPage())); $i++)
 
-                                @if(($i > 0) && ($i <= $pagination->total()))
+                                @if(($i > 0) && ($i <= ($pagination->total() / $pagination->perPage()) + 1))
                                     @if($i == $pagination->currentPage())
                                         <li>
-                                            <button class="active" title="current page - page 9">{{ $pagination->currentPage() }}</button>
+                                            <button class="active" title="current page - page {{ $pagination->currentPage() }}">{{ $pagination->currentPage() }}</button>
                                         </li>
                                     @else
                                         <li>
-                                            <button title="page 8"><a href="{{ $pagination->url($i) }}">{{ $i }}</a></button>
+                                            <button title="page {{ $i }}"><a href="{{ $pagination->url($i) }}">{{ $i }}</a></button>
                                         </li>
                                     @endif
                                 @endif
