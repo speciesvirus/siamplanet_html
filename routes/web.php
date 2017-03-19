@@ -39,15 +39,34 @@ Route::get('/test', function() {
    return view('test');
 });
 
+
+
+// *! test
+Route::get('/news/insert',
+    ['as' => 'news.insert', 'uses' => 'NewsController@insert']
+);
+Route::post('/news/insert/post',
+    ['as' => 'news.insert.post', 'uses' => 'NewsController@post_insert']
+);
+// *! test
+
+
+
+
 Route::get('/news',
     ['as' => 'news', 'uses' => 'NewsController@index']
 );
-Route::get('/news/category',
+Route::get('/news/category/{category?}',
     ['as' => 'news.category', 'uses' => 'NewsController@category']
 );
-Route::get('/news/view',
+Route::get('/news/tag/{tag?}',
+    ['as' => 'news.tag', 'uses' => 'NewsController@tag']
+);
+Route::get('/news/{news?}',
     ['as' => 'news.view', 'uses' => 'NewsController@view']
 );
+
+
 Route::get('/post',
     ['as' => 'post', 'uses' => 'Topic\PostController@index']
 );

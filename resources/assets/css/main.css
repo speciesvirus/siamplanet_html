@@ -971,17 +971,11 @@ section:first-child {
 /*-----------------------------------------------------------------------------------*/
 .related-entry {
     line-height: 150%;
-    margin-bottom: 10px;
+    margin-top: 3px;
+    margin-bottom: 15px;
     margin-right: 10px;
     clear: both;
     overflow: auto;
-}
-
-.related-entry-thumb {
-    float: left;
-    margin-top: 3px;
-    margin-bottom: 5px;
-    padding-bottom: 5px;
 }
 
 .related-entry::after {
@@ -992,9 +986,9 @@ section:first-child {
 
 .related-entry-thumb {
     float: left;
-    margin-top: 3px;
-    margin-bottom: 5px;
-    padding-bottom: 5px;
+    /*margin-top: 3px;*/
+    /*margin-bottom: 5px;*/
+    /*padding-bottom: 5px;*/
 }
 
 .related-entry-thumb a {
@@ -1021,12 +1015,12 @@ section:first-child {
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
-    color: #333;
+    /*color: #333;*/
 }
 
 .related-entry-snippet {
     margin: 0 0 5px 0;
-    color: #555;
+    /*color: #555;*/
 }
 
 .related-entry-read {

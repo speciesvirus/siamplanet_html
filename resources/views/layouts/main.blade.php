@@ -223,6 +223,10 @@
     </div>
         @if(isset($product))
             {!! Breadcrumbs::render('product', $product) !!}
+        @elseif(isset($news))
+            {!! Breadcrumbs::render('news.view', $news) !!}
+        @elseif(isset($category))
+            {!! Breadcrumbs::render('news.category', $category) !!}
         @else
             {!! Breadcrumbs::render() !!}
         @endif

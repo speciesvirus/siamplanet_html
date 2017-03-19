@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\News\NewsCategory;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,6 +30,11 @@ class ComposerServiceProvider extends ServiceProvider
         // Using Closure based composers...
         View::composer('*', function ($view) {
             //$view->with('categories', Categories::where('parent_id',NULL)->orderBy('id')->get());
+
+            $view->with([
+                'category_name' => function($categoryId) { return $this->selectCategory($categoryId); }
+            ]);
+
         });
     }
 
@@ -39,5 +46,17 @@ class ComposerServiceProvider extends ServiceProvider
     public function register()
     {
         //
+    }
+
+    public function selectCategory($categoryId){
+
+        if(!session('category')){
+            session(['category' => NewsCategory::get()]);
+        }
+
+        foreach (session('category') as $value){
+            if($value->id == $categoryId) return $value->category;
+        }
+
     }
 }

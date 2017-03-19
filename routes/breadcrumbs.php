@@ -38,16 +38,16 @@ Breadcrumbs::register('news', function($breadcrumbs)
     $breadcrumbs->push('News', route('news'));
 });
 
-Breadcrumbs::register('news.category', function($breadcrumbs)
+Breadcrumbs::register('news.category', function($breadcrumbs, $category)
 {
     $breadcrumbs->parent('news');
-    $breadcrumbs->push('Category', route('news.category'));
+    $breadcrumbs->push(strlen($category) != mb_strlen($category, 'utf-8') ? $category : ucwords(strtolower($category)), route('news.category'));
 });
 
-Breadcrumbs::register('news.view', function($breadcrumbs)
+Breadcrumbs::register('news.view', function($breadcrumbs, $news)
 {
     $breadcrumbs->parent('news');
-    $breadcrumbs->push('View', route('news.view'));
+    $breadcrumbs->push($news->title, route('news.view'));
 });
 
 Breadcrumbs::register('product', function($breadcrumbs, $product)

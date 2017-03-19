@@ -20,6 +20,12 @@
 
     </script>
 
+    <style>
+        .page section:nth-child(2) {
+            margin-top: 3px;
+        }
+    </style>
+
 @stop
 
 @section('first-content')
@@ -27,109 +33,35 @@
     <h1 class="entry-title"></h1>
 
     <div id="feat-top-wrap" class="left relative">
-        <div class="col-xs-6 col-sm-3">
-            <div class="row">
-                <div class="feat-wide5-main">
-                    <a href="http://www.mvpthemes.com/flexmag/only-three-players-have-a-winning-record-against-rafael-nadal/"
-                       rel="bookmark">
-                        <div class="feat-wide5-img left relative">
-                            <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/woman-beach2.jpg"
-                                 class="unlazy reg-img wp-post-image">
-                        </div><!--feat-wide5-img-->
-                        <div class="feat-wide5-text">
-                            <span class="feat-cat">Sports</span>
-                            <h2>Only three players have a winning record against Rafael Nadal</h2>
-                        </div><!--feat-wide5-text-->
-                        <div class="feat-info-wrap">
-                            <div class="feat-info-views">
-                                <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">44.0K</span>
-                            </div><!--feat-info-views-->
-                            <div class="feat-info-comm">
-                                <i class="fa fa-comment"></i> <span class="feat-info-text">13</span>
-                            </div><!--feat-info-comm-->
-                        </div><!--feat-info-wrap-->
-                    </a>
-                </div><!--feat-wide5-main-->
+
+        @foreach($news_top as $value)
+            <div class="col-xs-6 col-sm-3">
+                <div class="row">
+                    <div class="feat-wide5-main">
+                        {{--http://www.mvpthemes.com/flexmag/only-three-players-have-a-winning-record-against-rafael-nadal/--}}
+                        <a href="{{ route('news.view').'/'.$value->id }}" rel="bookmark">
+                            <div class="feat-wide5-img left relative">
+                                <img src="{{ route('images.q').'?q='.$value->image }}"
+                                     class="unlazy reg-img wp-post-image">
+                            </div><!--feat-wide5-img-->
+                            <div class="feat-wide5-text">
+                                <span class="feat-cat">{{ $category_name($value->category_id) }}</span>
+                                <h2>{{ $value->title }}</h2>
+                            </div><!--feat-wide5-text-->
+                            <div class="feat-info-wrap">
+                                <div class="feat-info-views">
+                                    <i class="fa fa-eye fa-2"></i> <span
+                                            class="feat-info-text">{{ $value->view }}</span>
+                                </div>
+                                {{--<div class="feat-info-comm">--}}
+                                {{--<i class="fa fa-comment"></i> <span class="feat-info-text">13</span>--}}
+                                {{--</div>--}}
+                            </div><!--feat-info-wrap-->
+                        </a>
+                    </div><!--feat-wide5-main-->
+                </div>
             </div>
-        </div>
-        <div class="col-xs-6 col-sm-3">
-            <div class="row">
-                <div class="feat-wide5-main">
-                    <a href="http://www.mvpthemes.com/flexmag/only-three-players-have-a-winning-record-against-rafael-nadal/"
-                       rel="bookmark">
-                        <div class="feat-wide5-img left relative">
-                            <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/09/tennis1.jpg"
-                                 class="unlazy reg-img wp-post-image">
-                        </div><!--feat-wide5-img-->
-                        <div class="feat-wide5-text">
-                            <span class="feat-cat">Sports</span>
-                            <h2>Only three players have a winning record against Rafael Nadal</h2>
-                        </div><!--feat-wide5-text-->
-                        <div class="feat-info-wrap">
-                            <div class="feat-info-views">
-                                <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">44.0K</span>
-                            </div><!--feat-info-views-->
-                            <div class="feat-info-comm">
-                                <i class="fa fa-comment"></i> <span class="feat-info-text">13</span>
-                            </div><!--feat-info-comm-->
-                        </div><!--feat-info-wrap-->
-                    </a>
-                </div><!--feat-wide5-main-->
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-3">
-            <div class="row">
-                <div class="feat-wide5-main">
-                    <a href="http://www.mvpthemes.com/flexmag/terrell-owens-says-he-doesnt-care-about-the-hall-of-fame/"
-                       rel="bookmark">
-                        <div class="feat-wide5-img left relative">
-                            <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/07/football1.jpg"
-                                 class="unlazy reg-img wp-post-image" alt="">
-                        </div><!--feat-wide5-img-->
-                        <div class="feat-vid-but">
-                            <i class="fa fa-play fa-3"></i>
-                        </div><!--feat-vid-but-->
-                        <div class="feat-wide5-text">
-                            <span class="feat-cat">Sports</span>
-                            <h2>Terrell Owens says he doesn’t care about the Hall of Fame</h2>
-                        </div><!--feat-wide5-text-->
-                        <div class="feat-info-wrap">
-                            <div class="feat-info-views">
-                                <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">53.7K</span>
-                            </div><!--feat-info-views-->
-                            <div class="feat-info-comm">
-                                <i class="fa fa-comment"></i> <span class="feat-info-text">9</span>
-                            </div><!--feat-info-comm-->
-                        </div><!--feat-info-wrap-->
-                    </a>
-                </div><!--feat-wide5-main-->
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-3">
-            <div class="row">
-                <div class="feat-wide5-main">
-                    <a href="http://www.mvpthemes.com/flexmag/googles-alphabet-rollout-could-still-be-a-qwikster-like-farce/"
-                       rel="bookmark">
-                        <div class="feat-wide5-img left relative">
-                            <img src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/interview.jpg"
-                                 class="unlazy reg-img wp-post-image">
-                        </div><!--feat-wide5-img-->
-                        <div class="feat-wide5-text">
-                            <span class="feat-cat">Business</span>
-                            <h2>Google’s Alphabet rollout could still be a Qwikster-like farce</h2>
-                        </div><!--feat-wide5-text-->
-                        <div class="feat-info-wrap">
-                            <div class="feat-info-views">
-                                <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">26.7K</span>
-                            </div><!--feat-info-views-->
-                            <div class="feat-info-comm">
-                                <i class="fa fa-comment"></i> <span class="feat-info-text">7</span>
-                            </div><!--feat-info-comm-->
-                        </div><!--feat-info-wrap-->
-                    </a>
-                </div><!--feat-wide5-main-->
-            </div>
-        </div>
+        @endforeach
 
     </div>
 @stop
@@ -137,105 +69,68 @@
 @section('second-content')
 
     <div class="col-md-9">
-        <h3 class="side-list-title">Featured News</h3>
+        <h3 class="side-list-title">อสังหาริมทรัพย์</h3>
         <div id="mvp_tagrow_widget-2" class="home-widget left relative mvp_tagrow_widget">
             <div class="row-widget-wrap left relative">
                 <ul class="row-widget-list">
-                    <li>
-                        <a href="http://www.mvpthemes.com/flexmag/yes-there-are-now-jeans-that-can-charge-your-phone/" rel="bookmark">
-                            <div class="row-widget-img left relative">
-                                <img width="300" height="180" src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/woman-jeans-300x180.jpg" class="reg-img wp-post-image" alt="">
-                                <div class="feat-info-wrap">
-                                    <div class="feat-info-views">
-                                        <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">33.0K</span>
-                                    </div><!--feat-info-views-->
-                                    <div class="feat-info-comm">
-                                        <i class="fa fa-comment"></i> <span class="feat-info-text">2</span>
-                                    </div><!--feat-info-comm-->
-                                </div><!--feat-info-wrap-->
-                            </div><!--row-widget-img-->
-                            <div class="row-widget-text left relative">
-                                <span class="side-list-cat">Fashion</span>
-                                <p>Yes, there are now jeans that can charge your phone</p>
-                            </div><!--row-widget-text-->
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.mvpthemes.com/flexmag/5-straight-outta-compton-cameos-that-will-make-you-do-a-double-take/" rel="bookmark">
-                            <div class="row-widget-img left relative">
-                                <img width="300" height="180" src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/music-dj-300x180.jpg" class="reg-img wp-post-image" alt="">
-                                <div class="feat-info-wrap">
-                                    <div class="feat-info-views">
-                                        <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">50.7K</span>
-                                    </div><!--feat-info-views-->
-                                    <div class="feat-info-comm">
-                                        <i class="fa fa-comment"></i> <span class="feat-info-text">2</span>
-                                    </div><!--feat-info-comm-->
-                                </div><!--feat-info-wrap-->
-                            </div><!--row-widget-img-->
-                            <div class="row-widget-text left relative">
-                                <span class="side-list-cat">Entertainment</span>
-                                <p>5 ’Straight Outta Compton’ cameos that will make you do a double take</p>
-                            </div><!--row-widget-text-->
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.mvpthemes.com/flexmag/googles-alphabet-rollout-could-still-be-a-qwikster-like-farce/" rel="bookmark">
-                            <div class="row-widget-img left relative">
-                                <img width="300" height="180" src="http://www.mvpthemes.com/flexmag/wp-content/uploads/2015/08/interview-300x180.jpg" class="reg-img wp-post-image" alt="">
-                                <div class="feat-info-wrap">
-                                    <div class="feat-info-views">
-                                        <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">26.7K</span>
-                                    </div><!--feat-info-views-->
-                                    <div class="feat-info-comm">
-                                        <i class="fa fa-comment"></i> <span class="feat-info-text">7</span>
-                                    </div><!--feat-info-comm-->
-                                </div><!--feat-info-wrap-->
-                            </div><!--row-widget-img-->
-                            <div class="row-widget-text left relative">
-                                <span class="side-list-cat">Business</span>
-                                <p>Google’s Alphabet rollout could still be a Qwikster-like farce</p>
-                            </div><!--row-widget-text-->
-                        </a>
-                    </li>
+                    @foreach($property as $value)
+                        <li>
+                            <a href="{{ route('news.view').'/'.$value->id }}" rel="bookmark">
+                                <div class="row-widget-img left relative">
+                                    <img width="300" height="180"
+                                         src="{{ route('images.q').'?q='.$value->image }}"
+                                         class="reg-img wp-post-image" alt="">
+                                    <div class="feat-info-wrap">
+                                        <div class="feat-info-views">
+                                            <i class="fa fa-eye fa-2"></i> <span class="feat-info-text">{{ $value->view }}</span>
+                                        </div><!--feat-info-views-->
+                                    </div><!--feat-info-wrap-->
+                                </div><!--row-widget-img-->
+                                <div class="row-widget-text left relative">
+                                    <p>{{ $value->title }}</p>
+                                </div><!--row-widget-text-->
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div><!--row-widget-wrap-->
         </div>
-        <a href="#" class="inf-more-but" style="display: inline-block;">More Posts</a>
+        <a href="{{ route('news.category').'/1' }}" class="inf-more-but" style="display: inline-block;">More Posts</a>
 
-        <h3 class="side-list-title mg-30">Featured News</h3>
+        <h3 class="side-list-title mg-30">สังคม</h3>
         <aside class="related-entries">
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/simplicity-and-wordpress-popular-posts/"
-                       title="SimplicityとWordPress Popular Postsを関連づける方法">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2014/12/rope-494423_12801-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image"
-                             alt="SimplicityとWordPress Popular Postsを関連づける方法"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2014/12/rope-494423_12801-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2014/12/rope-494423_12801-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2014/12/rope-494423_12801-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
 
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/simplicity-and-wordpress-popular-posts/"
-                               class="related-entry-title-link" title="SimplicityとWordPress Popular Postsを関連づける方法">
-                                SimplicityとWordPress Popular Postsを関連づける方法 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-                        最近、メールなどでSimplicityとWordPress Popular Postsに関する質問をいくつかいただきました。 内容は、...</p>
+            @foreach($social as $value)
+                <article class="related-entry cf">
+                    <div class="related-entry-thumb">
+                        <a href="{{ route('news.view').'/'.$value->id }}"
+                           title="{{ $value->title }}">
+                            <img src="{{ route('images.q').'?q='.$value->image }}"
+                                 class="related-entry-thumb-image wp-post-image"
+                                 alt="{{ $value->subtitle }}"
+                                 sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
+                    </div>
+                    <!-- /.related-entry-thumb -->
 
-                    <footer>
-                        <p class="related-entry-read"><a
-                                    href="//wp-simplicity.com/simplicity-and-wordpress-popular-posts/">記事を読む</a></p>
-                    </footer>
+                    <div class="related-entry-content">
+                        <header>
+                            <h3 class="related-entry-title">
+                                <a href="{{ route('news.view').'/'.$value->id }}"
+                                   class="related-entry-title-link" title="{{ $value->title }}">{{ $value->title }}</a>
+                            </h3>
+                        </header>
+                        <p class="related-entry-snippet">{{ $value->subtitle }}</p>
 
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
+                        <footer>
+                            <p class="related-entry-read"><a href="{{ route('news.view').'/'.$value->id }}">เพิ่มเติม</a></p>
+                        </footer>
+
+                    </div>
+                    <!-- /.related-entry-content -->
+                </article>
+                <!-- /.elated-entry -->
+            @endforeach
+
 
             <article class="related-entry cf">
                 <div class="related-entry-thumb">
@@ -305,7 +200,7 @@
             <a href="#" class="inf-more-but" style="display: inline-block;">More Posts</a>
         </aside>
 
-        <h3 class="side-list-title mg-20">Featured News</h3>
+        <h3 class="side-list-title mg-20">เทคโนโลยี</h3>
         <aside class="related-entries">
             <article class="related-entry cf">
                 <div class="related-entry-thumb">
@@ -402,7 +297,7 @@
             <a href="#" class="inf-more-but" style="display: inline-block;">More Posts</a>
         </aside>
 
-        <h3 class="side-list-title mg-30">Featured News</h3>
+        <h3 class="side-list-title mg-30">กีฬา</h3>
         <aside class="related-entries">
             <article class="related-entry cf">
                 <div class="related-entry-thumb">
