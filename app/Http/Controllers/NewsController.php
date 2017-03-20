@@ -23,7 +23,7 @@ class NewsController extends Controller
     public function category($category)
     {
         $cat = NewsCategory::find($category);
-        $news = News::whereCategoryId($category)->get();
+        $news = News::whereCategoryId($category)->paginate(3);
 
         if($news){
             return view('news.category', ['category_news' => $news, 'category' => $cat->category]);

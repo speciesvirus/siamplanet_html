@@ -95,7 +95,7 @@
                 </ul>
             </div><!--row-widget-wrap-->
         </div>
-        <a href="{{ route('news.category').'/1' }}" class="inf-more-but" style="display: inline-block;">More Posts</a>
+        <a href="{{ route('news.category') }}/1" class="inf-more-but" style="display: inline-block;">More Posts</a>
 
         <h3 class="side-list-title mg-30">สังคม</h3>
         <aside class="related-entries">
@@ -197,199 +197,79 @@
                 <!-- /.related-entry-content -->
             </article>
             <!-- /.elated-entry -->
-            <a href="#" class="inf-more-but" style="display: inline-block;">More Posts</a>
+            <a href="{{ route('news.category') }}/4" class="inf-more-but" style="display: inline-block;">More Posts</a>
         </aside>
 
         <h3 class="side-list-title mg-20">เทคโนโลยี</h3>
         <aside class="related-entries">
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/twitter-cards/" title="Twitter Cardsへの登録方法">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2014/07/Twitter-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image" alt="Twitter Cardsへの登録方法"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2014/07/Twitter-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2014/07/Twitter-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2014/07/Twitter-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
 
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/twitter-cards/" class="related-entry-title-link"
-                               title="Twitter Cardsへの登録方法">
-                                Twitter Cardsへの登録方法 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-                        Simplicityでは、プラグインを使用せずとも、デフォルトで以下のようなTwitter Cards情報のタグが挿入されます。 ...</p>
+            @foreach($technology as $value)
+                <article class="related-entry cf">
+                    <div class="related-entry-thumb">
+                        <a href="{{ route('news.view').'/'.$value->id }}"
+                           title="{{ $value->title }}">
+                            <img src="{{ route('images.q').'?q='.$value->image }}"
+                                 class="related-entry-thumb-image wp-post-image"
+                                 alt="{{ $value->subtitle }}"
+                                 sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
+                    </div>
+                    <!-- /.related-entry-thumb -->
 
-                    <footer>
-                        <p class="related-entry-read"><a href="//wp-simplicity.com/twitter-cards/">記事を読む</a></p>
-                    </footer>
+                    <div class="related-entry-content">
+                        <header>
+                            <h3 class="related-entry-title">
+                                <a href="{{ route('news.view').'/'.$value->id }}"
+                                   class="related-entry-title-link" title="{{ $value->title }}">{{ $value->title }}</a>
+                            </h3>
+                        </header>
+                        <p class="related-entry-snippet">{{ $value->subtitle }}</p>
 
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
+                        <footer>
+                            <p class="related-entry-read"><a href="{{ route('news.view').'/'.$value->id }}">เพิ่มเติม</a></p>
+                        </footer>
+
+                    </div>
+                    <!-- /.related-entry-content -->
+                </article>
+            @endforeach
             <!-- /.elated-entry -->
-
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/simplicity1-to-2-child-theme-settings/"
-                       title="Simplicity1用の子テーマをSimplicity2で使う時の修正方法">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2015/12/pier-jetty-wooden-beach-sand-bridge-construction-1-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image"
-                             alt="Simplicity1用の子テーマをSimplicity2で使う時の修正方法"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2015/12/pier-jetty-wooden-beach-sand-bridge-construction-1-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2015/12/pier-jetty-wooden-beach-sand-bridge-construction-1-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2015/12/pier-jetty-wooden-beach-sand-bridge-construction-1-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
-
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/simplicity1-to-2-child-theme-settings/"
-                               class="related-entry-title-link" title="Simplicity1用の子テーマをSimplicity2で使う時の修正方法">
-                                Simplicity1用の子テーマをSimplicity2で使う時の修正方法 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-                        Simplicity2を公開しました。 Simplicity2の子テーマも公開しています。 ただ、Simplicity1の子テーマは、...</p>
-
-                    <footer>
-                        <p class="related-entry-read"><a
-                                    href="//wp-simplicity.com/simplicity1-to-2-child-theme-settings/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
-
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/simplicity1-to-2-customizer/"
-                       title="Simplicity1系から2に移行するときにのテーマカスタマイザーの再設定方法">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2015/12/construction-worker-concrete-hummer-vibrator-job-1-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image"
-                             alt="Simplicity1系から2に移行するときにのテーマカスタマイザーの再設定方法"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2015/12/construction-worker-concrete-hummer-vibrator-job-1-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2015/12/construction-worker-concrete-hummer-vibrator-job-1-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2015/12/construction-worker-concrete-hummer-vibrator-job-1-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
-
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/simplicity1-to-2-customizer/" class="related-entry-title-link"
-                               title="Simplicity1系から2に移行するときにのテーマカスタマイザーの再設定方法">
-                                Simplicity1系から2に移行するときにのテーマカスタマイザーの再設定方法 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-                        Simplicity2を公開しました。 Simplicity2の子テーマも公開しています。 Simplicity2では、テーマカスタマ...</p>
-
-                    <footer>
-                        <p class="related-entry-read"><a
-                                    href="//wp-simplicity.com/simplicity1-to-2-customizer/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
-            <a href="#" class="inf-more-but" style="display: inline-block;">More Posts</a>
+            <a href="{{ route('news.category') }}/2" class="inf-more-but" style="display: inline-block;">More Posts</a>
         </aside>
 
         <h3 class="side-list-title mg-30">กีฬา</h3>
         <aside class="related-entries">
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/how-to-set-big-header-image/" title="Simplicityに画面幅いっぱいのヘッダー画像を設定する方法">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2015/01/battery-cameara-canon-261-823x550-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image" alt="Simplicityに画面幅いっぱいのヘッダー画像を設定する方法"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2015/01/battery-cameara-canon-261-823x550-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2015/01/battery-cameara-canon-261-823x550-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2015/01/battery-cameara-canon-261-823x550-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
 
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/how-to-set-big-header-image/" class="related-entry-title-link"
-                               title="Simplicityに画面幅いっぱいのヘッダー画像を設定する方法">
-                                Simplicityに画面幅いっぱいのヘッダー画像を設定する方法 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-                        Simplicity1.4から、テーマカスタマイザーだけで、以下のような画面幅いっぱいのヘッダー画像を設定できるようになりました。 この...</p>
+            @foreach($sport as $value)
+                <article class="related-entry cf">
+                    <div class="related-entry-thumb">
+                        <a href="{{ route('news.view').'/'.$value->id }}"
+                           title="{{ $value->title }}">
+                            <img src="{{ route('images.q').'?q='.$value->image }}"
+                                 class="related-entry-thumb-image wp-post-image"
+                                 alt="{{ $value->subtitle }}"
+                                 sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
+                    </div>
+                    <!-- /.related-entry-thumb -->
 
-                    <footer>
-                        <p class="related-entry-read"><a
-                                    href="//wp-simplicity.com/how-to-set-big-header-image/">記事を読む</a></p>
-                    </footer>
+                    <div class="related-entry-content">
+                        <header>
+                            <h3 class="related-entry-title">
+                                <a href="{{ route('news.view').'/'.$value->id }}"
+                                   class="related-entry-title-link" title="{{ $value->title }}">{{ $value->title }}</a>
+                            </h3>
+                        </header>
+                        <p class="related-entry-snippet">{{ $value->subtitle }}</p>
 
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
+                        <footer>
+                            <p class="related-entry-read"><a href="{{ route('news.view').'/'.$value->id }}">เพิ่มเติม</a></p>
+                        </footer>
 
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/ptengine/" title="SimplicityでPtengineのアクセス解析（ヒートマップ分析）を行う方法">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2015/07/industry-vintage-old-fabric-large1-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image"
-                             alt="SimplicityでPtengineのアクセス解析（ヒートマップ分析）を行う方法"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2015/07/industry-vintage-old-fabric-large1-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2015/07/industry-vintage-old-fabric-large1-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2015/07/industry-vintage-old-fabric-large1-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
+                    </div>
+                    <!-- /.related-entry-content -->
+                </article>
+            @endforeach
 
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/ptengine/" class="related-entry-title-link"
-                               title="SimplicityでPtengineのアクセス解析（ヒートマップ分析）を行う方法">
-                                SimplicityでPtengineのアクセス解析（ヒートマップ分析）を行う方法 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-                        Simplicity1.7.7より、カスタマイザーでIDを設定することにより、Ptengineでの解析を行えるようになりました。 Pten...</p>
-
-                    <footer>
-                        <p class="related-entry-read"><a href="//wp-simplicity.com/ptengine/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
-
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/skin-parts/" title="Simplicitパーツデザインの着せ替えができる「パーツスキン」機能の使い方と仕様">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2015/07/fashion-clothes-hanger-clothes-rack-clothing-landscape1-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image"
-                             alt="Simplicitパーツデザインの着せ替えができる「パーツスキン」機能の使い方と仕様"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2015/07/fashion-clothes-hanger-clothes-rack-clothing-landscape1-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2015/07/fashion-clothes-hanger-clothes-rack-clothing-landscape1-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2015/07/fashion-clothes-hanger-clothes-rack-clothing-landscape1-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
-
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/skin-parts/" class="related-entry-title-link"
-                               title="Simplicitパーツデザインの着せ替えができる「パーツスキン」機能の使い方と仕様">
-                                Simplicitパーツデザインの着せ替えができる「パーツスキン」機能の使い方と仕様 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-                        Simplicity1.7.9でパーツスキン機能を実装しました。 以前にもスキン機能というのはありました。 パーツスキン機能も、スキン機...</p>
-
-                    <footer>
-                        <p class="related-entry-read"><a href="//wp-simplicity.com/skin-parts/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
-
-            <a href="#" class="inf-more-but" style="display: inline-block;">More Posts</a>
+            <a href="{{ route('news.category') }}/3" class="inf-more-but" style="display: inline-block;">More Posts</a>
         </aside>
 
     </div>

@@ -327,5 +327,22 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
 
+<div id="dialog" class="dialog">
+    <div class="dialog-overlay"></div>
+    <div class="dialog-content">
+        <div class="loader">
+            <ul class="hexagon-container">
+                <li class="hexagon hex_1"></li>
+                <li class="hexagon hex_2"></li>
+                <li class="hexagon hex_3"></li>
+                <li class="hexagon hex_4"></li>
+                <li class="hexagon hex_5"></li>
+                <li class="hexagon hex_6"></li>
+                <li class="hexagon hex_7"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

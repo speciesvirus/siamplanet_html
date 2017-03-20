@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\News\NewsCategory;
+use App\Models\Product\ProductType;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -32,7 +33,8 @@ class ComposerServiceProvider extends ServiceProvider
             //$view->with('categories', Categories::where('parent_id',NULL)->orderBy('id')->get());
 
             $view->with([
-                'category_name' => function($categoryId) { return $this->selectCategory($categoryId); }
+                'category_name' => function($categoryId) { return $this->selectCategory($categoryId); },
+                'product_type' => function($productTypeId) { return $this->selectProductType($productTypeId); }
             ]);
 
         });
@@ -56,6 +58,18 @@ class ComposerServiceProvider extends ServiceProvider
 
         foreach (session('category') as $value){
             if($value->id == $categoryId) return $value->category;
+        }
+
+    }
+
+    public function selectProductType($productTypeId){
+
+        if(!session('productType')){
+            session(['productType' => ProductType::get()]);
+        }
+
+        foreach (session('productType') as $value){
+            if($value->id == $productTypeId) return $value->type;
         }
 
     }

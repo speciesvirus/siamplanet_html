@@ -15,33 +15,25 @@
 
     <script src="{{ asset('resources/assets/bootstrap/dist/js/bootstrap.js', env('HTTPS')) }}"></script>
     <script>
-        function btnLoading(){
-        
-        alert('a');
-//         <div class="loading">
-//   <span class="text">Loading</span>
-//   <span class="blob1 blob"></span>
-//   <span class="blob2 blob"></span>
-//   <span class="blob3 blob"></span>
-// </div>
-    }
+
     </script>
     <script type="text/javascript">
 
         var $next = 1,
-            $last = {{ $category_news->lastPage() }};
+            $last = '{{ $category_news->lastPage() }}';
         
-        $('.inf-more-but').click(function(){
-            
-                    btnLoading();
-                    
+        $('.inf-more-but').click(function(e){
+
             var $this = $(this),
                 $list = $('.category-list');
             $next = ($list.children().last().data('page') + 1);
-            
+
+            _btnLoading($this, true);
+
             $.ajax({
                 url     : "{{ route('news.tag.autoload') }}",
                 type    : 'post',
+                async: false,
                 data : {
                     tag : '{{ $category }}',
                     page : $next
@@ -52,10 +44,11 @@
                 success : function ( json )
                 {
                     $list.append(json);
-                    console.log($next);
+
                     if($next == $last){
                         $this.remove();
                     }
+
                 },
                 error   : function ( jqXhr, json, errorThrown )
                 {
@@ -63,6 +56,8 @@
                     console.log(errors);
                 }
             });
+
+            _btnLoading($this, false);
         });
 
     </script>
@@ -102,7 +97,11 @@
                 </ul>
             </div><!--row-widget-wrap-->
         </div>
-        <a href="javascript://" class="inf-more-but" style="display: inline-block;">More Posts</a>
+
+        @if($category_news->currentPage() != $category_news->lastPage())
+            <a href="javascript://" class="inf-more-but" style="display: inline-block;">More Posts</a>
+        @endif
+
         
     </div>
     

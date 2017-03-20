@@ -182,11 +182,47 @@
         });
     });
     
-    
-    
-    
-    
-    //!* Loading
-
-
 })(jQuery);
+
+
+//!* Loading
+function _btnLoading(t, e){
+    var $html = '';
+
+    if(e == true){
+        $html = '<div class="loading">'+
+            '<span class="text">Loading</span>'+
+            '<span class="blob1 blob"></span>'+
+            '<span class="blob2 blob"></span>'+
+            '<span class="blob3 blob"></span>'+
+            '</div>';
+    }else{
+        $html = 'More Posts';
+    }
+
+
+    t.html($html);
+
+}
+
+var $dialog = $('.dialog'),
+    $overLay = $('.dialog-overlay');
+
+function _loading(e){
+
+    if(e == true){
+        showDialog();
+    }else{
+        hideDialog()
+    }
+
+}
+function showDialog(){
+    $('.dialog').addClass('show-dialog');
+    $('html').addClass('loading');
+}
+
+function hideDialog(){
+    $('.dialog').removeClass('show-dialog');
+    $('html').removeClass('loading');
+}

@@ -3,6 +3,7 @@
 namespace App\Http\ViewComposers;
 
 use App\Models\Geography;
+use App\Models\News\News;
 use App\Models\Product\Product;
 use App\Models\Product\ProductType;
 use App\Models\Province;
@@ -30,6 +31,18 @@ class NavigatorComposer
      * @return void
      */
     public function compose(View $view)
+    {
+        $view->with([
+            'navigator_geo' => $this->geo(),
+            'navigator_news' => $this->news(),
+            'navigator_product' => $this->product(),
+            'navigator_review' => $this->review(),
+            'navigator_previous' => $this->previous()
+        ]);
+
+    }
+
+    protected function geo()
     {
         $geo = DB::select("CALL `select_product_by_geo`(@p0, @p1);");
         $result = DB::select('SELECT @p0 AS `resultCode`, @p1 AS `resultMsg`;');
@@ -63,6 +76,8 @@ class NavigatorComposer
             array_push($m_type, ['id' => $t->id, 'name' => $t->type, 'arr' => $m_geo]);
         }
 
+        return $m_type;
+
 //        foreach ($geo as $v){
 //            foreach ($m_type as $t){
 //                if($v->type_id == $t->id){
@@ -78,8 +93,23 @@ class NavigatorComposer
 //                }
 //            }
 //        }
+    }
 
-        $view->with('geo', $m_type);
+    protected function news(){
+        return News::limit(5)->orderBy('id', 'desc')->get();
+    }
 
+    protected function product(){
+        return Product::where('product_type_id', '<>', 5)->limit(10)->orderBy('id', 'desc')->get();
+    }
+
+    protected function review(){
+//        return Product::leftJoin('product_images', 'product_images.product_id', '=', 'products.id')
+//        ->where('product_type_id', 5)->limit(10)->orderBy('products.id', 'desc')->groupBy('products.id')->toSql();
+        return DB::select("CALL `select_navigator_review`(10)");
+    }
+
+    protected function previous(){
+        return Product::where('product_type_id', '<>', 5)->limit(10)->orderBy('id', 'desc')->get();
     }
 }

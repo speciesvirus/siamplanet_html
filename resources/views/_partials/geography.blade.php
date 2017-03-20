@@ -5,7 +5,7 @@
 <div class="side-panel bs-docs-sidebar">
     <h3 class="side-list-title">Geography</h3>
     <ul class="bullet-list-round">
-        @foreach($geo as $t)
+        @foreach($navigator_geo as $t)
             <li>
                 {{ $t['name'] }}
                 <ul class="bullet-list-round">
