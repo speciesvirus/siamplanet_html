@@ -49,7 +49,7 @@ class NewsController extends Controller
 
     public function tag($tag)
     {
-        $news = News::Where('tag', 'like', '%'.$tag.'%')->get();
+        $news = News::Where('tag', 'like', '%'.$tag.'%')->paginate(3);
 
         if($news){
             return view('news.category', ['category_news' => $news, 'category' => $tag]);
@@ -57,7 +57,17 @@ class NewsController extends Controller
 
         return redirect()->route('news');
     }
+    
+    public function autoloadTag(Request $request)
+    {
+        $news = News::Where('tag', 'like', '%'.$request->input('tag').'%')->paginate(3, ['*'], 'page', $request->input('page'));
 
+        return view('_partials.category-list', ['category_news' => $news]);
+        // return response()->json([
+        //     'category_news' => $news
+        // ]);
+
+    }
 
 
 

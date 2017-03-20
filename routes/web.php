@@ -52,7 +52,9 @@ Route::post('/news/insert/post',
 
 
 
-
+Route::post('/news/tag/autoload',
+    ['as' => 'news.tag.autoload', 'uses' => 'NewsController@autoloadTag']
+);
 Route::get('/news',
     ['as' => 'news', 'uses' => 'NewsController@index']
 );

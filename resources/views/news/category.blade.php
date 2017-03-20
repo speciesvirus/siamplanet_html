@@ -14,9 +14,56 @@
     <link rel="stylesheet" href="{{ asset('resources/assets/css/news.css', env('HTTPS')) }}"/>
 
     <script src="{{ asset('resources/assets/bootstrap/dist/js/bootstrap.js', env('HTTPS')) }}"></script>
-
+    <script>
+        function btnLoading(){
+        
+        alert('a');
+//         <div class="loading">
+//   <span class="text">Loading</span>
+//   <span class="blob1 blob"></span>
+//   <span class="blob2 blob"></span>
+//   <span class="blob3 blob"></span>
+// </div>
+    }
+    </script>
     <script type="text/javascript">
 
+        var $next = 1,
+            $last = {{ $category_news->lastPage() }};
+        
+        $('.inf-more-but').click(function(){
+            
+                    btnLoading();
+                    
+            var $this = $(this),
+                $list = $('.category-list');
+            $next = ($list.children().last().data('page') + 1);
+            
+            $.ajax({
+                url     : "{{ route('news.tag.autoload') }}",
+                type    : 'post',
+                data : {
+                    tag : '{{ $category }}',
+                    page : $next
+                },
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                success : function ( json )
+                {
+                    $list.append(json);
+                    console.log($next);
+                    if($next == $last){
+                        $this.remove();
+                    }
+                },
+                error   : function ( jqXhr, json, errorThrown )
+                {
+                    var errors = jqXhr.responseJSON;
+                    console.log(errors);
+                }
+            });
+        });
 
     </script>
 
@@ -29,10 +76,10 @@
 
         <div id="mvp_tagrow_widget-2" class="home-widget left relative mvp_tagrow_widget">
             <div class="row-widget-wrap left relative">
-                <ul class="row-widget-list">
+                <ul class="row-widget-list category-list">
 
                     @foreach($category_news as $value)
-                        <li>
+                        <li data-page="{{ $category_news->currentPage() }}">
                             <a href="{{ route('news.view').'/'.$value['attributes']['id'] }}" rel="bookmark">
                                 <div class="row-widget-img left relative">
                                     <img width="300" height="180" src="{{ route('images.q').'?q='.$value['attributes']['image'] }}" class="reg-img wp-post-image" alt="">
@@ -55,7 +102,7 @@
                 </ul>
             </div><!--row-widget-wrap-->
         </div>
-        <a href="#" class="inf-more-but" style="display: inline-block;">More Posts</a>
+        <a href="javascript://" class="inf-more-but" style="display: inline-block;">More Posts</a>
         
     </div>
     

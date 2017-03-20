@@ -291,13 +291,15 @@
 </div>
 
 <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-<script src="{{ asset('resources/assets/js/components/jquery-1.11.3.min.js', env('HTTPS')) }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/js/components/jquery-1.11.3.min.js', env('HTTPS')) }}"></script>
 
-<script src="{{ asset('resources/assets/select2/dist/js/select2.full.min.js', env('HTTPS')) }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/select2/dist/js/select2.full.min.js', env('HTTPS')) }}"></script>
+<script type="text/javascript" src="{{ asset('resources/assets/js/functions.js', env('HTTPS')) }}"></script>
+
 @yield('script')
 <!-- this is where we put our custom functions -->
 <!-- don't forget to concatenate and minify for production -->
-<script src="{{ asset('resources/assets/js/functions.js', env('HTTPS')) }}"></script>
+
 {{--<script>$(document).ready(initPage);</script>--}}
 
 <!-- Asynchronous google analytics; this is the official snippet.
