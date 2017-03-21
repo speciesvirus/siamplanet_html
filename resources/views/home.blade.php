@@ -128,9 +128,10 @@
                 <div class="pagination__wrapper">
                     <ul class="pagination">
 
-                        @if($pagination->lastPage() > 1)
-                            <li><button class="prev" title="previous page"><a href="{{ $pagination->previousPageUrl() }}">&#10094;</a></button></li>
-                        @endif
+                        @if($pagination->lastPage() != 0)
+                            @if($pagination->lastPage() > 1)
+                                <li><button class="prev" title="previous page"><a href="{{ $pagination->previousPageUrl() }}">&#10094;</a></button></li>
+                            @endif
 
                             @for ($i = ($pagination->currentPage() - $pagination->perPage()); $i < (($pagination->currentPage() + $pagination->perPage())); $i++)
 
@@ -148,9 +149,11 @@
 
                             @endfor
 
-                            @if(($pagination->currentPage() != $pagination->lastPage()) || ($pagination->lastPage() != 0))
+                            @if(($pagination->currentPage() != $pagination->lastPage()))
                                 <li><button class="next" title="next page"><a href="{{ $pagination->nextPageUrl() }}">&#10095;</a></button></li>
                             @endif
+                        @endif
+
 
                         {{--<li><button class="prev" title="previous page">&#10094;</button></li>--}}
                         {{--<li>--}}
