@@ -148,7 +148,7 @@
 
                             @endfor
 
-                            @if($pagination->currentPage() != $pagination->lastPage())
+                            @if(($pagination->currentPage() != $pagination->lastPage()) || ($pagination->lastPage() != 0))
                                 <li><button class="next" title="next page"><a href="{{ $pagination->nextPageUrl() }}">&#10095;</a></button></li>
                             @endif
 
