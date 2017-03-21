@@ -181,6 +181,13 @@
             $(this).hide();
         });
     });
+
+    $('ul.years a.year').click(function () {
+        var $this = $(this),
+            $parent = $this.parents('ul.years');
+        $parent.find('.month').addClass('hide');
+        $this.next().removeClass('hide');
+    });
     
 })(jQuery);
 

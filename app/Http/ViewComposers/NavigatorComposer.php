@@ -39,7 +39,6 @@ class NavigatorComposer
             'navigator_review' => $this->review(),
             'navigator_previous' => $this->previous()
         ]);
-
     }
 
     protected function geo()
@@ -110,6 +109,6 @@ class NavigatorComposer
     }
 
     protected function previous(){
-        return Product::where('product_type_id', '<>', 5)->limit(10)->orderBy('id', 'desc')->get();
+        return DB::select("CALL `navigator_previous`");
     }
 }

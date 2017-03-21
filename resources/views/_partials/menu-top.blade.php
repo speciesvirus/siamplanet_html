@@ -1,9 +1,9 @@
 
 <ul class="nav-menu unstyled">
     <li><a href="{{ route('post') }}">ลงประกาศ <span class="yellow">ฟรี!</span></a></li>
-    <li><a href="#event-highlights">ที่ดิน</a></li>
-    <li><a href="#travel">บ้าน</a></li>
-    <li><a href="#schedule">คอนโด</a></li>
+    <li><a href="{{ route('home') }}?type=ที่ดิน">ที่ดิน</a></li>
+    <li><a href="{{ route('home') }}?type=บ้าน">บ้าน</a></li>
+    <li><a href="{{ route('home') }}?type=คอนโด">คอนโด</a></li>
     <li><a href="{{ route('news') }}">ข่าว</a></li>
 
     @if(Auth()->check())

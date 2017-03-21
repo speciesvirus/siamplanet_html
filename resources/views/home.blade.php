@@ -134,7 +134,7 @@
 
                             @for ($i = ($pagination->currentPage() - $pagination->perPage()); $i < (($pagination->currentPage() + $pagination->perPage())); $i++)
 
-                                @if(($i > 0) && ($i <= ($pagination->total() / $pagination->perPage()) + 1))
+                                @if(($i > 0) && ($i < ($pagination->total() / $pagination->perPage()) + 1))
                                     @if($i == $pagination->currentPage())
                                         <li>
                                             <button class="active" title="current page - page {{ $pagination->currentPage() }}">{{ $pagination->currentPage() }}</button>

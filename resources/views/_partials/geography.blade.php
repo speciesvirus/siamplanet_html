@@ -15,7 +15,7 @@
                             <ul class="bullet-list-round">
                                 @foreach($g['arr'] as $p)
                                     <li>
-                                        <a href="#">{{ $p['name'] }}</a> ({{ $p['count'] }})
+                                        <a href="{{ route('home') }}?type={{ $t['name'] }}&geo={{ $g['name'] }}&province={{ $p['name'] }}">{{ $p['name'] }}</a> ({{ $p['count'] }})
                                     </li>
                                 @endforeach
                             </ul>

@@ -35,20 +35,20 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
-        $type = $request['type'];
-        $cur_type = $type ? $type : 'all';
+//        $type = $request['type'];
+//        $cur_type = $type ? $type : 'all';
 
-        $url = URL::to('/').'?type='.$cur_type;
+        $url = URL::to('/').'?';
         $page = $request['page'];
         //$url .= $page ? '&page='.($page+1) : '&page=2';
+
         if($page){
             //$url .= '&page='.$page;
-            Paginator::currentPageResolver(function() use ($page) {
+            Paginator::currentPageResolver(function() use ($page, $request) {
                 return $page;
             });
-
         }
-        $product = Product::join('product_types', 'product_types.id', '=', 'products.product_type_id')
+        $result = Product::join('product_types', 'product_types.id', '=', 'products.product_type_id')
             ->join('product_sales', 'product_sales.id', '=', 'products.product_sale_id')
             ->join('product_units', 'product_units.id', '=', 'products.product_unit_id')
             ->leftJoin('provinces', 'provinces.id', '=', 'products.province_id')
@@ -61,11 +61,25 @@ class HomeController extends Controller
                 'product_sales.sale', 'product_units.id as unit_id', 'provinces.name as province',
                 'product_images.image', DB::raw('CONCAT(products.unit, " ", product_units.unit) as unit'),
                 'products.price', DB::raw('SUBSTRING(products.content,1,50) as content'), 'products.created_at'
-            )
-            ->orderBy('products.id')->paginate(10);
+            );
 
+        if($request->type){
+            $result->where('product_types.type', $request->type);
+            $url .= '&type='.$request->type;
+        }
+        if($request->province){
+            $result->where('provinces.name', $request->province);
+            $url .= '&province='.$request->province;
+        }
+        if($request->geo){
+            $result->leftJoin('geographies', 'geographies.id', '=', 'provinces.geo_id')
+                ->where('geographies.name', $request->geo);
+            $url .= '&geo='.$request->geo;
+        }
+
+        $product = $result->orderBy('products.id')->paginate(10);
         //dd($product);
-        //$product->withPath($url)->setPageName('page');
+        $product->withPath($url)->setPageName('page');
 
 
         return view('home', ['pagination' => $product]);

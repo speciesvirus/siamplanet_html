@@ -128,7 +128,10 @@ Route::group(['middleware' => 'auth:all'], function()
 Route::get('/{product?}',
     ['as' => 'product', 'uses' => 'HomeController@product']
 );
-Route::get('/{type?}/{page?}',
+//Route::get('/{type?}/{year?}/{month?}/{geo?}/{province?}/{geo?}',
+//    ['as' => 'home.search', 'uses' => 'HomeController@index']
+//);
+Route::get('/{type?}/{geo?}/{province?}/{year?}/{month?}/{page?}',
     ['as' => 'home.search', 'uses' => 'HomeController@index']
 );
 
