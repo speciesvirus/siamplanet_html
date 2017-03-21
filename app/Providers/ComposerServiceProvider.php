@@ -30,9 +30,9 @@ class ComposerServiceProvider extends ServiceProvider
 
         // Using Closure based composers...
         View::composer('*', function ($view) {
-            //$view->with('categories', Categories::where('parent_id',NULL)->orderBy('id')->get());
 
             $view->with([
+                'image' => function($image) { return $this->image($image); },
                 'category_name' => function($categoryId) { return $this->selectCategory($categoryId); },
                 'product_type' => function($productTypeId) { return $this->selectProductType($productTypeId); }
             ]);
@@ -48,6 +48,11 @@ class ComposerServiceProvider extends ServiceProvider
     public function register()
     {
         //
+    }
+    
+    public function image($image){
+
+        return route('images.q').'?q='.$image.'&view=1';
     }
 
     public function selectCategory($categoryId){

@@ -56,7 +56,7 @@
             @foreach($pagination->items() as $item)
                 <div class="col-md-6">
                     <div class="blog-card" data-id="{{ $item['attributes']['id'] }}">
-                        <div class="photo photo1" style="background: url({{ route('images.q').'?q='.$item['attributes']['image'] }}) center no-repeat;background-size: cover;"></div>
+                        <div class="photo photo1" style="background: url({{ $image($item['attributes']['image']) }}) center no-repeat;background-size: cover;"></div>
                         <ul class="details">
                             <li class="author"><a href="#">{{ $item['attributes']['seller'] }}</a></li>
                             <li class="phone"><a href="javascript://">กดเพื่อดูเบอร์</a></li>

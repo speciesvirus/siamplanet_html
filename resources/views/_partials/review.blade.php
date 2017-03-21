@@ -6,7 +6,7 @@
             <div class="related-entry-thumb">
                 <a href="{{ route('product').'/'.$value->id }}"
                    title="{{ $value->title }}">
-                    <img src="{{ route('images.q').'?q='.$value->image }}"
+                    <img src="{{ $image($value->image) }}"
                          class="related-entry-thumb-image wp-post-image"
                          alt="{{ $value->title }}"
                          sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>

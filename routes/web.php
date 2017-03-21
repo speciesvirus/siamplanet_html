@@ -24,7 +24,7 @@ Route::post('/join',
 //     return Storage::disk('local')->get('Images/'.$q);
 //     return response()->file(resource_path('images/'.$q));
 // });
-Route::get('/images/{q?}', [
+Route::get('/images/{q?}/{view?}', [
     'uses' => 'ImageController@index',
     'as' => 'images.q'
 ]);
