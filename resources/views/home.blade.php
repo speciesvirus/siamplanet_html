@@ -17,26 +17,24 @@
         $(document).on('click', '.pagination button', function () {
             var $this = $(this).find('a').attr('href');
             //alert($(this).find('a').attr('class'));
-            if(typeof $this != 'undefined') window.location.href = $this;
+            if (typeof $this != 'undefined') window.location.href = $this;
         });
 
         $(document).on('click', '.phone a', function () {
             var $this = $(this),
                 $id = $this.parents('.blog-card').data('id');
             $.ajax({
-                url     : "{{ route('phone.view') }}",
-                type    : "post",
-                data    : { id: $id },
+                url: "{{ route('phone.view') }}",
+                type: "post",
+                data: {id: $id},
                 dataType: "json",
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
-                success : function ( json )
-                {
+                success: function (json) {
                     $this.html(json.phone);
                 },
-                error   : function ( jqXhr, json, errorThrown )
-                {
+                error: function (jqXhr, json, errorThrown) {
                     var errors = jqXhr.responseJSON;
                     console.log(errors);
                 }
@@ -56,7 +54,8 @@
             @foreach($pagination->items() as $item)
                 <div class="col-md-6">
                     <div class="blog-card" data-id="{{ $item['attributes']['id'] }}">
-                        <div class="photo photo1" style="background: url({{ $image($item['attributes']['image']) }}) center no-repeat;background-size: cover;"></div>
+                        <div class="photo photo1"
+                             style="background: url({{ $image($item['attributes']['image']) }}) center no-repeat;background-size: cover;"></div>
                         <ul class="details">
                             <li class="author"><a href="#">{{ $item['attributes']['seller'] }}</a></li>
                             <li class="phone"><a href="javascript://">กดเพื่อดูเบอร์</a></li>
@@ -69,9 +68,14 @@
                             </li>
                         </ul>
                         <div class="description">
-                            <h1><a href="{{ route('product').'/'.$item['attributes']['id'] }}">{{ $item['attributes']['title'] }}</a></h1>
-                            <h2>{{ number_format($item['attributes']['price']) }} ฿ / {{ $item['attributes']['sale'] }} / <a href="#">{{ $item['attributes']['type'] }}</a></h2>
-                            <h3>{{ $item['attributes']['unit'] }} / {{ $cal_unit($item['attributes']['price'], $item['attributes']['unit'], $item['attributes']['unit_id']) }} ฿ : ตารางเมตร</h3>
+                            <h1>
+                                <a href="{{ route('product').'/'.$item['attributes']['id'] }}">{{ $item['attributes']['title'] }}</a>
+                            </h1>
+                            <h2>{{ number_format($item['attributes']['price']) }} ฿ / {{ $item['attributes']['sale'] }}
+                                / <a href="#">{{ $item['attributes']['type'] }}</a></h2>
+                            <h3>{{ $item['attributes']['unit'] }}
+                                / {{ $cal_unit($item['attributes']['price'], $item['attributes']['unit'], $item['attributes']['unit_id']) }}
+                                ฿ : ตารางเมตร</h3>
                             <p class="summary">{{ $item['attributes']['subtitle'] }}</p>
                             <p class="province">{{ $item['attributes']['province'] }}</p>
                             <div class="card-media-body-supporting-bottom">
@@ -79,7 +83,8 @@
                                 <span class="card-media-body-supporting-bottom-text subtle u-float-right">{{ $trans_time($item['attributes']['created_at']) }}</span>
                             </div>
                             <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
-                                <span class="card-media-body-supporting-bottom-text subtle">ดู {{ number_format($item['attributes']['view']) }} ครั้ง</span>
+                                <span class="card-media-body-supporting-bottom-text subtle">ดู {{ number_format($item['attributes']['view']) }}
+                                    ครั้ง</span>
                                 <a href="#/"
                                    class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>
                             </div>
@@ -90,47 +95,50 @@
 
 
             {{--<div class="col-md-6">--}}
-                {{--<div class="blog-card">--}}
-                    {{--<div class="photo photo1"></div>--}}
-                    {{--<ul class="details">--}}
-                        {{--<li class="author"><a href="#">Angel Real Estate Consultancy Co.,Ltd (ARE)</a></li>--}}
-                        {{--<li class="phone"><a href="#">กดเพื่อดูเบอร์</a></li>--}}
-                        {{--<li class="share">--}}
-                            {{--<ul>--}}
-                                {{--<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>--}}
-                                {{--<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>--}}
-                                {{--<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>--}}
-                            {{--</ul>--}}
-                        {{--</li>--}}
-                    {{--</ul>--}}
-                    {{--<div class="description">--}}
-                        {{--<h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>--}}
-                        {{--<h2>356,000,000 ฿ / ขาย / <a href="#">คอนโด</a></h2>--}}
-                        {{--<h3>34 ไร่ 3 งาน 100 ตารางวา / 125 ฿ : ตารางเมตร</h3>--}}
-                        {{--<p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>--}}
-                        {{--<p class="province">กรุงเทพ</p>--}}
-                        {{--<div class="card-media-body-supporting-bottom">--}}
-                            {{--<!--<span class="card-media-body-supporting-bottom-text subtle">Mezzanine, San Francisco, CA</span>-->--}}
-                            {{--<span class="card-media-body-supporting-bottom-text subtle u-float-right">1 ชั่วโมง ที่แล้ว</span>--}}
-                        {{--</div>--}}
-                        {{--<div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">--}}
-                            {{--<span class="card-media-body-supporting-bottom-text subtle">ดู 256,802 ครั้ง</span>--}}
-                            {{--<a href="#/"--}}
-                               {{--class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
+            {{--<div class="blog-card">--}}
+            {{--<div class="photo photo1"></div>--}}
+            {{--<ul class="details">--}}
+            {{--<li class="author"><a href="#">Angel Real Estate Consultancy Co.,Ltd (ARE)</a></li>--}}
+            {{--<li class="phone"><a href="#">กดเพื่อดูเบอร์</a></li>--}}
+            {{--<li class="share">--}}
+            {{--<ul>--}}
+            {{--<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>--}}
+            {{--<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>--}}
+            {{--<li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>--}}
+            {{--</ul>--}}
+            {{--</li>--}}
+            {{--</ul>--}}
+            {{--<div class="description">--}}
+            {{--<h1>Off-Plan Condo for sale in Bangkok Near Triple Station Transportation</h1>--}}
+            {{--<h2>356,000,000 ฿ / ขาย / <a href="#">คอนโด</a></h2>--}}
+            {{--<h3>34 ไร่ 3 งาน 100 ตารางวา / 125 ฿ : ตารางเมตร</h3>--}}
+            {{--<p class="summary">ขายดาวน์ คอนโดใหม่ บนถนนสาทร-นราธิวาส</p>--}}
+            {{--<p class="province">กรุงเทพ</p>--}}
+            {{--<div class="card-media-body-supporting-bottom">--}}
+            {{--<!--<span class="card-media-body-supporting-bottom-text subtle">Mezzanine, San Francisco, CA</span>-->--}}
+            {{--<span class="card-media-body-supporting-bottom-text subtle u-float-right">1 ชั่วโมง ที่แล้ว</span>--}}
+            {{--</div>--}}
+            {{--<div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">--}}
+            {{--<span class="card-media-body-supporting-bottom-text subtle">ดู 256,802 ครั้ง</span>--}}
+            {{--<a href="#/"--}}
+            {{--class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
             {{--</div>--}}
 
+            @if($pagination->lastPage() != 0)
+
+                <div class="pagination__container">
+                    <div class="pagination__wrapper">
+                        <ul class="pagination">
 
 
-            <div class="pagination__container">
-                <div class="pagination__wrapper">
-                    <ul class="pagination">
-
-                        @if($pagination->lastPage() != 0)
                             @if($pagination->lastPage() > 1)
-                                <li><button class="prev" title="previous page"><a href="{{ $pagination->previousPageUrl() }}">&#10094;</a></button></li>
+                                <li>
+                                    <button class="prev" title="previous page"><a
+                                                href="{{ $pagination->previousPageUrl() }}">&#10094;</a></button>
+                                </li>
                             @endif
 
                             @for ($i = ($pagination->currentPage() - $pagination->perPage()); $i < (($pagination->currentPage() + $pagination->perPage())); $i++)
@@ -138,11 +146,13 @@
                                 @if(($i > 0) && ($i < ($pagination->total() / $pagination->perPage()) + 1))
                                     @if($i == $pagination->currentPage())
                                         <li>
-                                            <button class="active" title="current page - page {{ $pagination->currentPage() }}">{{ $pagination->currentPage() }}</button>
+                                            <button class="active"
+                                                    title="current page - page {{ $pagination->currentPage() }}">{{ $pagination->currentPage() }}</button>
                                         </li>
                                     @else
                                         <li>
-                                            <button title="page {{ $i }}"><a href="{{ $pagination->url($i) }}">{{ $i }}</a></button>
+                                            <button title="page {{ $i }}"><a
+                                                        href="{{ $pagination->url($i) }}">{{ $i }}</a></button>
                                         </li>
                                     @endif
                                 @endif
@@ -150,39 +160,42 @@
                             @endfor
 
                             @if(($pagination->currentPage() != $pagination->lastPage()))
-                                <li><button class="next" title="next page"><a href="{{ $pagination->nextPageUrl() }}">&#10095;</a></button></li>
+                                <li>
+                                    <button class="next" title="next page"><a href="{{ $pagination->nextPageUrl() }}">
+                                            &#10095;</a></button>
+                                </li>
                             @endif
-                        @endif
 
 
-                        {{--<li><button class="prev" title="previous page">&#10094;</button></li>--}}
-                        {{--<li>--}}
+
+                            {{--<li><button class="prev" title="previous page">&#10094;</button></li>--}}
+                            {{--<li>--}}
                             {{--<button title="first page - page 1">1</button>--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
                             {{--<span>...</span>--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
                             {{--<button title="page 8">8</button>--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
                             {{--<button class="active" title="current page - page 9">9</button>--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
                             {{--<button title="page 10">10</button>--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
                             {{--<span>...</span>--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
+                            {{--</li>--}}
+                            {{--<li>--}}
                             {{--<button title="last page - page 69">69</button>--}}
-                        {{--</li>--}}
-                        {{--<li><button class="next" title="next page">&#10095;</button></li>--}}
-                    </ul>
+                            {{--</li>--}}
+                            {{--<li><button class="next" title="next page">&#10095;</button></li>--}}
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-
+            @endif
 
         </div>
     </div>
