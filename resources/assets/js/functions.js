@@ -188,6 +188,37 @@
         $parent.find('.month').addClass('hide');
         $this.next().removeClass('hide');
     });
+
+    var $search = $("form[name='search']");
+
+    $search.submit(function (e) {
+        e.preventDefault();
+        var $param = '';
+        var q = _inputName('s_keyword');
+        var type = _selectName('s_type');
+        var price = _selectName('s_price');
+        var size = _selectName('s_size');
+        var sale = _selectName('s_sale');
+        var subway = _selectName('s_subway');
+        var province = _selectName('s_province');
+        if($.trim(q)) $param += '&q='+q;
+        if(type != 'any') $param += '&type='+type;
+        if(price != 'any') $param += '&price='+price;
+        if(size != 'any') $param += '&size='+size;
+        if(sale != 'any') $param += '&sale='+sale;
+        if(subway != 'any') $param += '&subway='+subway;
+        if(province != 'any') $param += '&province='+province;
+
+        window.location.href = $search.attr('action')+'/?'+$param;
+
+        // {price?}/{size?}/{sale?}/{subway?}/{province?}/{q?}
+    });
+    function _inputName($name) {
+        return $search.find('input[name="'+ $name +'"]').val();
+    }
+    function _selectName($name) {
+        return $search.find('select[name="'+ $name +'"]').val();
+    }
     
 })(jQuery);
 

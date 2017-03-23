@@ -7,7 +7,7 @@
                     <ul class="month {{ $i != date("Y") ? 'hide' : '' }}">
                         @foreach($navigator_previous as $key => $value)
                             @if($i == $value->year)
-                                <li><a href="https://wp-simplicity.com/2016/12/">{!! $value->month !!}</a> ({{ $value->total }})</li>
+                                <li><a href="{{ route('home') }}/?previous={{ $value->year }}-{{ explode(' ',$value->month)[0] }}">{!! $value->month !!}</a> ({{ $value->total }})</li>
                             @endif
                         @endforeach
                     </ul>

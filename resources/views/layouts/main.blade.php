@@ -99,39 +99,30 @@
 
 <div class="wrapper">
 
-
     <div class="header-search clearfix">
         <div class="advance-search header-advance-search">
-            <form class="advance-search-form" action="#" method="get">
+            <form name="search" class="advance-search-form" action="{{ route('home.search') }}" method="get">
                 <div class="inline-fields clearfix">
                     <div class="option-bar property-location">
-                        {{ Form::select('s_location', $navigator_type, old('navigator_type'),[
+                        {{ Form::select('s_type', $navigator_type, $s_type,[
                                 'class' => 'search-select',
-                                'data-title' => 'Location',
+                                'data-title' => 'type',
                             ])
                          }}
                     </div>
                     <div class="option-bar property-type">
-                        <select name="s_type" id="select-property-type" class="search-select">
-                            <option value="any" selected="selected">ราคา ทั้งหมด</option>
-                            <option value="commercial"> Commercial</option>
-                            <option value="office">- Office</option>
-                            <option value="shop">- Shop</option>
-                            <option value="residential"> Residential</option>
-                            <option value="apartment">- Apartment</option>
-                            <option value="apartment-building">- Apartment Building</option>
-                            <option value="condominium">- Condominium</option>
-                            <option value="single-family">- Single Family</option>
-                            <option value="villa">- Villa</option>
-                        </select>
+                        {{ Form::select('s_price', $navigator_price, $s_price,[
+                                'class' => 'search-select',
+                                'data-title' => 'price',
+                            ])
+                         }}
                     </div>
                     <div class="option-bar property-status">
-                        <select name="s_status" id="select-status" class="search-select">
-                            <option value="any" selected="selected">ขนาด ทั้งหมด</option>
-                            <option value="for-rent"> Căn hộ</option>
-                            <option value="for-sale"> Biệt thư</option>
-                            <option value="for-sale"> Chung cư</option>
-                        </select>
+                        {{ Form::select('s_size', $navigator_size, $s_size,[
+                                'class' => 'search-select',
+                                'data-title' => 'size',
+                            ])
+                         }}
                     </div>
                     <div class="option-bar form-control-buttons">
                         <a class="hidden-fields-reveal-btn" href="#">
@@ -151,28 +142,29 @@
                 <!-- .inline-fields -->
                 <div class="hidden-fields clearfix">
                     <div class="option-bar property-bedrooms">
-                        {{ Form::select('s_sale', $navigator_sale, old('navigator_sale'),[
+                        {{ Form::select('s_sale', $navigator_sale, $s_sale,[
                                 'class' => 'search-select',
                                 'data-title' => 'Sale',
                             ])
                          }}
                     </div>
                     <div class="option-bar property-min-price">
-                        <select name="s_subway" id="select-min-price" class="search-select">
-                            <option value="any" selected="selected">บริเวณรถไฟฟ้า ทั้งหมด</option>
-                            <option value="1000">$1,000</option>
-                        </select>
+                        {{ Form::select('s_subway', $navigator_subway, $s_subway,[
+                            'class' => 'search-select',
+                            'data-title' => 'subway',
+                            ])
+                        }}
                     </div>
                     <div class="option-bar property-bathrooms">
-                        {{ Form::select('s_province', $navigator_province, old('navigator_province'),[
+                        {{ Form::select('s_province', $navigator_province, $s_province,[
                                 'class' => 'search-select',
                                 'data-title' => 'province',
                             ])
                          }}
                     </div>
                     <div class="option-bar property-keyword">
-                        <input type="text" name="s_keyword" id="keyword-txt" value="" placeholder="คำค้นหา (Keyword)"
-                               title="Please only provide digits!"/>
+                        <input type="text" name="s_keyword" id="keyword-txt" value="{{ $s_keyword }}" placeholder="คำค้นหา (Keyword)"
+                               title="Keyword"/>
                     </div>
                     {{--<div class="option-bar property-max-price">--}}
                         {{--<select name="max-price" id="select-max-price" class="search-select">--}}

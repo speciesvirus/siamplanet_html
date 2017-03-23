@@ -131,11 +131,9 @@ Route::get('/{product?}',
 //Route::get('/{type?}/{year?}/{month?}/{geo?}/{province?}/{geo?}',
 //    ['as' => 'home.search', 'uses' => 'HomeController@index']
 //);
-Route::get('/{type?}/{geo?}/{province?}/{year?}/{month?}/{page?}',
+Route::get('/{type?}/{geo?}/{province?}/{previous?}/{page?}/{price?}/{size?}/{sale?}/{subway?}/{province?}/{q?}',
     ['as' => 'home.search', 'uses' => 'HomeController@index']
 );
-
-
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], function()
 {
