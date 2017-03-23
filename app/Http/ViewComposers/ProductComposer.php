@@ -8,6 +8,7 @@
 
 namespace App\Http\ViewComposers;
 
+use App\Models\Product\ProductType;
 use Illuminate\View\View;
 
 class ProductComposer

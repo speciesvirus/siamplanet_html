@@ -5,6 +5,7 @@ namespace App\Http\ViewComposers;
 use App\Models\Geography;
 use App\Models\News\News;
 use App\Models\Product\Product;
+use App\Models\Product\ProductSale;
 use App\Models\Product\ProductType;
 use App\Models\Province;
 use Illuminate\Support\Facades\DB;
@@ -37,7 +38,14 @@ class NavigatorComposer
             'navigator_news' => $this->news(),
             'navigator_product' => $this->product(),
             'navigator_review' => $this->review(),
-            'navigator_previous' => $this->previous()
+            'navigator_previous' => $this->previous(),
+
+            'navigator_type' => $this->type(),
+            'navigator_price' => $this->price(),
+            'navigator_size' => $this->size(),
+            'navigator_sale' => $this->sale(),
+            'navigator_subway' => $this->subway(),
+            'navigator_province' => $this->province(),
         ]);
     }
 
@@ -110,5 +118,44 @@ class NavigatorComposer
 
     protected function previous(){
         return DB::select("CALL `navigator_previous`");
+    }
+
+    protected function type(){
+        $type['any'] = 'ประเภท ทั้งหมด';
+        $select = ProductType::ddl();
+        foreach($select as $key => $item){
+            $type[$item] = $item;
+        }
+        return $type;
+    }
+
+    protected function price(){
+        return ProductType::all();
+    }
+
+    protected function size(){
+        return ProductType::all();
+    }
+
+    protected function sale(){
+        $sale['any'] = 'ประกาศ ทั้งหมด';
+        $select = ProductSale::ddl();
+        foreach($select as $key => $item){
+            $sale[$item] = $item;
+        }
+        return $sale;
+    }
+
+    protected function subway(){
+        return ProductType::all();
+    }
+
+    protected function province(){
+        $province['any'] = 'จังหวัด ทั้งหมด';
+        $select = Province::ddl();
+        foreach($select as $key => $item){
+            $province[$item] = $item;
+        }
+        return $province;
     }
 }

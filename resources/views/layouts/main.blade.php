@@ -86,7 +86,7 @@
             <img alt="Brand" src="{{ asset('resources/assets/images/nainam_logo_top_300.png', env('HTTPS')) }}">
 
         </a>
-        <a href="{{ route('home') }}" id="nav-logo" title="siam planet">Nainam</a>
+        <a href="{{ route('home') }}" id="nav-logo" title="nainam">Nainam</a>
 
         {{--!!* Menu Top--}}
         @include('_partials.menu-top')
@@ -105,9 +105,11 @@
             <form class="advance-search-form" action="#" method="get">
                 <div class="inline-fields clearfix">
                     <div class="option-bar property-location">
-                        <select name="s_location" id="location" data-title="Location" class="search-select">
-                            <option value="any">ประเภท ทั้งหมด</option>
-                        </select>
+                        {{ Form::select('s_location', $navigator_type, old('navigator_type'),[
+                                'class' => 'search-select',
+                                'data-title' => 'Location',
+                            ])
+                         }}
                     </div>
                     <div class="option-bar property-type">
                         <select name="s_type" id="select-property-type" class="search-select">
@@ -149,11 +151,11 @@
                 <!-- .inline-fields -->
                 <div class="hidden-fields clearfix">
                     <div class="option-bar property-bedrooms">
-                        <select name="s_sale" id="select-bedrooms" class="search-select">
-                            <option value="any" selected="selected">ประกาศ ทั้งหมด</option>
-                            <option value="1">ขาย</option>
-                            <option value="2">เช่า</option>
-                        </select>
+                        {{ Form::select('s_sale', $navigator_sale, old('navigator_sale'),[
+                                'class' => 'search-select',
+                                'data-title' => 'Sale',
+                            ])
+                         }}
                     </div>
                     <div class="option-bar property-min-price">
                         <select name="s_subway" id="select-min-price" class="search-select">
@@ -162,19 +164,11 @@
                         </select>
                     </div>
                     <div class="option-bar property-bathrooms">
-                        <select name="s_province" id="select-bathrooms" class="search-select">
-                            <option value="any" selected="selected">จังหวัด ทั้งหมด</option>
-                            <option value="1">ประกาศเก่า</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
+                        {{ Form::select('s_province', $navigator_province, old('navigator_province'),[
+                                'class' => 'search-select',
+                                'data-title' => 'province',
+                            ])
+                         }}
                     </div>
                     <div class="option-bar property-keyword">
                         <input type="text" name="s_keyword" id="keyword-txt" value="" placeholder="คำค้นหา (Keyword)"

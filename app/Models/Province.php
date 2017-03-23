@@ -11,4 +11,9 @@ class Province extends Model
     public function geography() {
         return $this->belongsTo('App\Models\Geography');
     }
+
+    public static function ddl()
+    {
+        return Province::pluck('name', 'en');
+    }
 }
