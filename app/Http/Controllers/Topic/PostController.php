@@ -7,6 +7,8 @@ use App\Models\Product\Product;
 use App\Models\Product\ProductArea;
 use App\Models\Product\ProductFacility;
 use App\Models\Product\ProductImage;
+use App\Models\Product\ProductReview;
+use App\Models\Product\ProductReviewImage;
 use App\Models\Product\ProductSale;
 use App\Models\Product\ProductSubway;
 use App\Models\Product\ProductTag;
@@ -102,6 +104,8 @@ class PostController extends Controller
         $product->productType()->associate($type);
         $product->productSale()->associate($sale);
         $product->productUnit()->associate($unit);
+        
+        if($request->input('size_unit') == 2) $product->unit = ($request->input('size') * 4);
 
         $user = Auth::id();
         if ($user)
@@ -174,7 +178,30 @@ class PostController extends Controller
                 $subway->distance = $value['distance'];
                 $subway->lat = $value['lat'];
                 $subway->lng = $value['lng'];
-                $product->tag()->save($subway);
+                $product->subway()->save($subway);
+            }
+        }
+        
+        $arrProject = $request->input('arrProject');
+        if($arrProject){
+            foreach ($arrProject as $key => $value) {
+                $project = new ProductReview();
+                $project->name = $value['name'];
+                $project->unit = $value['size'];
+                if($value['unit'] == 2) $project->unit = ($value['size'] * 4);
+                $project->product_unit_id = $value['unit'];
+                $project->price = $value['price'];
+                $project->content = $value['content'];
+                $product->project()->save($project);
+                foreach ($arrFile as $k => $v) {
+                    if($v['type'] == 'project'){
+                        if($value['index'] == $v['id']){
+                            $image = new ProductReviewImage();
+                            $image->image = $v['image'];
+                            $project->image()->save($image);
+                        }
+                    }
+                }
             }
         }
 

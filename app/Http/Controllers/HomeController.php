@@ -60,7 +60,9 @@ class HomeController extends Controller
                 'products.seller', 'products.phone', 'products.view',
                 'product_sales.sale', 'product_units.id as unit_id', 'provinces.name as province',
                 'product_images.image', DB::raw('CONCAT(products.unit, " ", product_units.unit) as unit'),
-                'products.price', DB::raw('SUBSTRING(products.content,1,50) as content'), 'products.created_at'
+                'products.price', DB::raw('SUBSTRING(products.content,1,50) as content'),
+                DB::raw('CASE WHEN products.product_unit_id = '. 2 .' THEN (products.unit * 4) ELSE products.unit END AS unit_mm'),
+                'products.created_at'
             );
 
         if($request->q){
@@ -84,10 +86,19 @@ class HomeController extends Controller
             }
             $url .= '&price='.$request->price;
         }
-//        if($request->size){
-//            $result->where('product_types.type', $request->size);
-//            $url .= '&size='.$request->type;
-//        }
+        if($request->size){
+            $split = explode('-',$request->size);
+            if(count($split) > 1){
+                $result->where('products.unit', '>', $split[0])->where('products.unit', '<', $split[1]);
+            }else{
+                if(strpos($request->size, 'd')){
+                    $result->where('products.unit', '<', explode('d',$request->size)[0]);
+                }elseif (strpos($request->size, 'u')){
+                    $result->where('products.unit', '>', explode('u',$request->size)[0]);
+                }
+            }
+            $url .= '&size='.$request->size;
+        }
         if($request->sale){
             $result->where('product_sales.sale', $request->sale);
             $url .= '&sale='.$request->sale;
@@ -118,7 +129,6 @@ class HomeController extends Controller
         $product = $result->orderBy('products.id')->paginate(10);
         //dd($product);
         $product->withPath($url)->setPageName('page');
-
 
         return view('home', ['pagination' => $product])->with([
             's_type' => $request->type,
