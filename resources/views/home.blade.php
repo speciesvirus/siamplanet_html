@@ -73,8 +73,8 @@
                             </h1>
                             <h2>{{ number_format($item['attributes']['price']) }} ฿ / {{ $item['attributes']['sale'] }}
                                 / <a href="#">{{ $item['attributes']['type'] }}</a></h2>
-                            <h3>{{ $item['attributes']['unit'] }}
-                                / {{ $cal_unit($item['attributes']['price'], $item['attributes']['unit'], $item['attributes']['unit_id']) }}
+                            <h3>{{ $current_unit($item['attributes']['unit'], $item['attributes']['unit_id']) }} {{ $item->unit_name }}
+                                / {{ $cal_unit($item['attributes']['price'], $item['attributes']['unit']) }}
                                 ฿ : ตารางเมตร</h3>
                             <p class="summary">{{ $item['attributes']['subtitle'] }}</p>
                             <p class="province">{{ $item['attributes']['province'] }}</p>

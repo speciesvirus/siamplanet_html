@@ -104,21 +104,21 @@
             <form name="search" class="advance-search-form" action="{{ route('home.search') }}" method="get">
                 <div class="inline-fields clearfix">
                     <div class="option-bar property-location">
-                        {{ Form::select('s_type', $navigator_type, $s_type,[
+                        {{ Form::select('s_type', $navigator_type, isset($s_type) ? $s_type : '',[
                                 'class' => 'search-select',
                                 'data-title' => 'type',
                             ])
                          }}
                     </div>
                     <div class="option-bar property-type">
-                        {{ Form::select('s_price', $navigator_price, $s_price,[
+                        {{ Form::select('s_price', $navigator_price, isset($s_price) ? $s_price : '',[
                                 'class' => 'search-select',
                                 'data-title' => 'price',
                             ])
                          }}
                     </div>
                     <div class="option-bar property-status">
-                        {{ Form::select('s_size', $navigator_size, $s_size,[
+                        {{ Form::select('s_size', $navigator_size, isset($s_size) ? $s_size : '',[
                                 'class' => 'search-select',
                                 'data-title' => 'size',
                             ])
@@ -142,28 +142,28 @@
                 <!-- .inline-fields -->
                 <div class="hidden-fields clearfix">
                     <div class="option-bar property-bedrooms">
-                        {{ Form::select('s_sale', $navigator_sale, $s_sale,[
+                        {{ Form::select('s_sale', $navigator_sale, isset($s_sale) ? $s_sale : '',[
                                 'class' => 'search-select',
                                 'data-title' => 'Sale',
                             ])
                          }}
                     </div>
                     <div class="option-bar property-min-price">
-                        {{ Form::select('s_subway', $navigator_subway, $s_subway,[
+                        {{ Form::select('s_subway', $navigator_subway, isset($s_subway) ? $s_subway : '',[
                             'class' => 'search-select',
                             'data-title' => 'subway',
                             ])
                         }}
                     </div>
                     <div class="option-bar property-bathrooms">
-                        {{ Form::select('s_province', $navigator_province, $s_province,[
+                        {{ Form::select('s_province', $navigator_province, isset($s_province) ? $s_province : '',[
                                 'class' => 'search-select',
                                 'data-title' => 'province',
                             ])
                          }}
                     </div>
                     <div class="option-bar property-keyword">
-                        <input type="text" name="s_keyword" id="keyword-txt" value="{{ $s_keyword }}" placeholder="คำค้นหา (Keyword)"
+                        <input type="text" name="s_keyword" id="keyword-txt" value="{{ isset($s_keyword) ? $s_keyword : '' }}" placeholder="คำค้นหา (Keyword)"
                                title="Keyword"/>
                     </div>
                     {{--<div class="option-bar property-max-price">--}}

@@ -1,0 +1,36 @@
+body{
+    background-color: #364060;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    /* color: white; */
+    font-size: small;
+    overflow: hidden;
+    /* padding-top: 90px; */
+    /* background: rgba(0,0,0,0.5); */
+     background: #FFFFFF;
+    padding-top: inherit;
+}
+
+.form-group label{
+    margin: 0 0 .5em;
+    color: #848596;
+}
+.form-control {
+    border-radius: 9px;
+    max-width: 350px;
+}
+.side-content{
+    padding-left: 5em;
+    margin: 30px 0;
+    color: #848596;
+}
+.side-content h1{
+    color: #848596;
+}

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\News\NewsCategory;
 use App\Models\Product\ProductType;
+use App\Models\Product\ProductUnit;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -19,7 +20,10 @@ class ComposerServiceProvider extends ServiceProvider
     {
         // Using class based composers...
         View::composer(
-            ['home', 'view', 'post.post', 'post.review', 'post.product'] //*! file view .blade
+            [
+                'home', 'view', 'review', 'post.post', 'post.review', 'post.product',
+                'news.news', 'news.view', 'news.category'
+            ] //*! file view .blade
             , 'App\Http\ViewComposers\NavigatorComposer'
         );
 
@@ -34,7 +38,8 @@ class ComposerServiceProvider extends ServiceProvider
             $view->with([
                 'image' => function($image) { return $this->image($image); },
                 'category_name' => function($categoryId) { return $this->selectCategory($categoryId); },
-                'product_type' => function($productTypeId) { return $this->selectProductType($productTypeId); }
+                'product_type' => function($productTypeId) { return $this->selectProductType($productTypeId); },
+                'product_unit' => function($productUnitId) { return $this->selectProductUnit($productUnitId); }
             ]);
 
         });
@@ -75,6 +80,18 @@ class ComposerServiceProvider extends ServiceProvider
 
         foreach (session('productType') as $value){
             if($value->id == $productTypeId) return $value->type;
+        }
+
+    }
+
+    public function selectProductUnit($productUnitId){
+
+        if(!session('productUnit')){
+            session(['productUnit' => ProductUnit::get()]);
+        }
+
+        foreach (session('productUnit') as $value){
+            if($value->id == $productUnitId) return $value->unit;
         }
 
     }

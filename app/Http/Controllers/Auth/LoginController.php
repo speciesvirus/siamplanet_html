@@ -39,24 +39,19 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
-
-
     public function index()
     {
         return view('login');
     }
-
     public function login(Request $data)
     {
         $this->validator($data);
-
         if (Auth::attempt(['username' => $data['user'], 'password' => $data['pass'], 'activated' => 0], true)) {
             return redirect()->route('home');
         }
         return redirect()->back()->withInput()->with(['alert-message' => 'username or password not found!', 'code' => '1']);
         //return redirect()->route('login')->with(['alert-message' => 'username or password not found!', 'code' => '1']);
     }
-
     protected function validator(Request $data)
     {
         $rules = [
@@ -71,11 +66,8 @@ class LoginController extends Controller
             'pass.min'          => 'Password needs to have at least 6 characters',
             'pass.max'          => 'Password maximum length is 20 characters'
         ];
-
         return $this->validate($data, $rules, $messages);
     }
-
-
     /**
      * Show the application dashboard.
      *

@@ -19,7 +19,7 @@
     <div class="popup four">
         <ul>
             {{--<li><button id="cpl">Close</button></li>--}}
-            <li class=""><a href="javascript://">ข้อมูลส่วนตัว</a></li>
+            <li class=""><a href="{{ route('user.home') }}">ข้อมูลส่วนตัว</a></li>
             <li><a href="{{ route('auth.logout') }}" class="">ออกระบบ</a></li>
         </ul>
     </div>

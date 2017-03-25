@@ -59,9 +59,8 @@ class HomeController extends Controller
                 DB::raw('DISTINCT(products.id)'), 'products.title', 'products.subtitle', 'product_types.type',
                 'products.seller', 'products.phone', 'products.view',
                 'product_sales.sale', 'product_units.id as unit_id', 'provinces.name as province',
-                'product_images.image', DB::raw('CONCAT(products.unit, " ", product_units.unit) as unit'),
+                'product_images.image', 'products.unit', 'product_units.unit as unit_name',
                 'products.price', DB::raw('SUBSTRING(products.content,1,50) as content'),
-                DB::raw('CASE WHEN products.product_unit_id = '. 2 .' THEN (products.unit * 4) ELSE products.unit END AS unit_mm'),
                 'products.created_at'
             );
 

@@ -131,9 +131,6 @@ Route::get('/{product?}',
 //Route::get('/{type?}/{year?}/{month?}/{geo?}/{province?}/{geo?}',
 //    ['as' => 'home.search', 'uses' => 'HomeController@index']
 //);
-Route::get('/{type?}/{geo?}/{province?}/{previous?}/{page?}/{price?}/{size?}/{sale?}/{subway?}/{province?}/{q?}',
-    ['as' => 'home.search', 'uses' => 'HomeController@index']
-);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], function()
 {
@@ -145,7 +142,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], functi
 Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
 {
     $a = 'user.';
-    Route::get('/', ['as' => $a . 'home', 'uses' => 'UserController@getHome']);
+    Route::get('/index', ['as' => $a . 'home', 'uses' => 'UserController@index']);
+//    Route::get('/member', ['as' => $a . 'home', 'uses' => 'UserController@getHome']);
 
 });
 
@@ -161,4 +159,9 @@ Route::get('/social/redirect/{provider}', [
 Route::get('/social/handle/{provider}', [
     'as' => $s.'handle',
         'uses' => 'Auth\SocialController@getSocialHandle']
+);
+
+
+Route::get('/{type?}/{geo?}/{province?}/{previous?}/{page?}/{price?}/{size?}/{sale?}/{subway?}/{province?}/{q?}',
+    ['as' => 'home.search', 'uses' => 'HomeController@index']
 );

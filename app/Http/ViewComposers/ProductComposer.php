@@ -23,7 +23,8 @@ class ProductComposer
     {
         $view->with([
             'trans_time' => function($time) { return $this->trans_time($time); },
-            'cal_unit' => function($price, $unit, $unit_id) { return $this->cal_unit($price, $unit, $unit_id); }
+            'current_unit' => function($unit, $unit_id) { return $this->current_unit($unit, $unit_id); },
+            'cal_unit' => function($price, $unit) { return $this->cal_unit($price, $unit); }
             ]);
     }
 
@@ -69,16 +70,19 @@ class ProductComposer
         return $value.' '.$intervals[1][0].($value > 1 ? 's' : '');//.' ago'
     }
 
-    protected function cal_unit($price, $unit, $unit_id)
+    protected function cal_unit($price, $unit)
     {
-        $result = 0;
-
-        if($unit_id == 1){
-            $result = $price / $unit;
-        }elseif ($unit_id == 2){
-            $result = $price / ($unit * 4);
-        }
+        $result = $price / $unit;
         return number_format(intval($result));
+    }
+
+    protected function current_unit($unit, $unit_id)
+    {
+        $result = $unit;
+        if($unit_id == 2){
+            $result = $unit / 4;
+        }
+        return number_format($result, 2, '.', ',');
     }
 
 }

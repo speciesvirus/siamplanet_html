@@ -622,10 +622,10 @@
                            data-country="{{ number_format($product['price']) }} บาท">ราคา</a>
                     </li>
                     <li><a style="display: block;" href="#!" class="all frankrijk active"
-                           data-country="{{ $cal_unit($product['price'], $product['unit'], $product['unit_id']) }} บาท / ตารางเมตร ">ราคาเฉลี่ย</a>
+                           data-country="{{ $cal_unit($product['price'], $product['unit']) }} บาท / ตารางเมตร ">ราคาเฉลี่ย</a>
                     </li>
                     <li><a style="display: block;" href="#!" class="all"
-                           data-country="{{ number_format($product['unit'], 2, '.', ',').' '.$product['unit_name'] }}">พื้นที่</a></li>
+                           data-country="{{ $current_unit($product['unit'], $product['unit_id']) }} {{ $product['unit_name'] }}">พื้นที่</a></li>
                     <li><a style="display: block;" href="#!" class="all zwitserland" data-country="{{ $product['province'] == null ? '-' : $product['province'] }}">จังหวัด</a>
                     </li>
                 </ul>

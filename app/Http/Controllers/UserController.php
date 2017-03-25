@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product\Product;
+use App\Models\Product\ProductMessage;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,7 +16,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::find(auth()->id());
+        $product = Product::whereUserId(auth()->id())->orderBy('id', 'desc')->get();
+        $message = ProductMessage::whereProductId($product[0]->id)->get();
+
+        return view('member.home', ['user' => $user, 'user_product' => $product, 'product_message' => $message]);
     }
 
     /**
