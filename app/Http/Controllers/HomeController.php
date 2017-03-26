@@ -124,7 +124,6 @@ class HomeController extends Controller
             $url .= '&previous='.$request->previous;
         }
 
-
         $product = $result->orderBy('products.id')->paginate(10);
         //dd($product);
         $product->withPath($url)->setPageName('page');

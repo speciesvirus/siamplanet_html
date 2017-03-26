@@ -125,8 +125,6 @@
 <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 <script type="text/javascript" src="{{ asset('resources/assets/js/components/jquery-1.11.3.min.js', env('HTTPS')) }}"></script>
 
-<script type="text/javascript" src="{{ asset('resources/assets/js/app.js', env('HTTPS')) }}"></script>
-
 @yield('script')
 <!-- this is where we put our custom functions -->
 <!-- don't forget to concatenate and minify for production -->

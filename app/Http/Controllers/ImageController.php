@@ -21,6 +21,8 @@ class ImageController extends Controller
         $q = $request->input('q');
         $path = resource_path('images/'.$q);
 
+        if($request->view && $request->view == 2) $path = resource_path('images/avatar/'.$q);
+
         try{
             $file = File::get($path);
 

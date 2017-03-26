@@ -147,8 +147,6 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
 
 });
 
-
-
 //Auth::routes(['login' => 'auth.login']);
 
 $s = 'social.';
@@ -162,6 +160,21 @@ Route::get('/social/handle/{provider}', [
 );
 
 
-Route::get('/{type?}/{geo?}/{province?}/{previous?}/{page?}/{price?}/{size?}/{sale?}/{subway?}/{province?}/{q?}',
+Route::get('/{type?}/{geo?}/{province?}/{previous?}/{page?}/{price?}/{size?}/{sale?}/{subway?}/{q?}',
     ['as' => 'home.search', 'uses' => 'HomeController@index']
+);
+Route::post('/user/show/message',
+    ['as' => 'show.message', 'uses' => 'UserController@showMessage']
+);
+Route::post('/update/phone',
+    ['as' => 'update.phone', 'uses' => 'UserController@updatePhone']
+);
+Route::post('/update/message',
+    ['as' => 'update.message', 'uses' => 'UserController@updateMessage']
+);
+Route::post('/update/product',
+    ['as' => 'update.product', 'uses' => 'UserController@updateProduct']
+);
+Route::post('/update/avatar',
+    ['as' => 'update.avatar', 'uses' => 'UserController@updateAvatar']
 );

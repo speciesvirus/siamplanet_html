@@ -59,6 +59,11 @@ return [
             'root' => resource_path('images/'),//storage_path('resources/images'),
         ],
 
+        'avatar' => [
+            'driver' => 'local',
+            'root' => resource_path('images/avatar/'),
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => 'your-key',

@@ -583,6 +583,7 @@ section.main{
 .info .picture > img{
     width: 100%;
     border-radius: 50%;
+    min-height: 128px;
     z-index: 1;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
 }
@@ -606,6 +607,7 @@ section.main{
 .info .content .tags .tag > i{
     position: absolute;
     margin: 0 10px;
+    cursor: pointer;
 }
 .info .content .tags span.title{
     font-weight: bold;
@@ -617,6 +619,7 @@ section.main{
     position: absolute;
     margin: 0 10px;
     color: #FFFFFF;
+    cursor: pointer;
 }
 .info .content .message .un{
     text-decoration: underline;
@@ -636,7 +639,7 @@ section.page-below{
     padding: 20px;
     margin-bottom: 7px;
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0), 0 8px 30px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    z-index: 10;
 }
 .page-box a{
     color: #6a93ff;
@@ -654,10 +657,10 @@ section.page-below{
     font-size: 20px;
 }
 div > .page-box:nth-child(2) {
-     z-index: -1;
+     z-index: 9;
 }
 div > .page-box:nth-child(3) {
-    z-index: -2;
+    z-index: 8;
 }
 
 
@@ -1469,6 +1472,9 @@ html.loading{
 }
 ul.your-post li{
     margin-bottom: 5px;
+}
+ul.your-post li a .tt.active{
+    color: #fcd700;
 }
 h2.message-from{
     margin: 0;

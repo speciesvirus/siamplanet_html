@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Product\Product;
 use App\Models\Product\ProductMessage;
+use App\Models\Social;
 use App\Models\User;
+use App\Models\UserContact;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -16,11 +20,25 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::find(auth()->id());
-        $product = Product::whereUserId(auth()->id())->orderBy('id', 'desc')->get();
-        $message = ProductMessage::whereProductId($product[0]->id)->get();
+        $user = User::leftJoin('socials', 'socials.user_id', '=', 'users.id')
+            ->select('users.first_name', 'users.last_name','users.email', 'users.avatar', 'socials.avatar as av_social')
+            ->where('users.id', auth()->id())->first();
 
-        return view('member.home', ['user' => $user, 'user_product' => $product, 'product_message' => $message]);
+        $avatar = $user->avatar ? route('images.q').'?q='.$user->avatar.'&view=2' : ($user->av_social ? $user->av_social : route('images.q').'?q=') ;
+        $product = Product::whereUserId(auth()->id())->orderBy('id', 'desc')->get();
+
+        $message = null;
+        if(!$product->isEmpty()) $message = ProductMessage::whereProductId($product[0]->id)->get();
+
+        $contact = UserContact::first(auth()->id());
+
+        return view('member.home', [
+            'user' => $user,
+            'user_avatar' => $avatar,
+            'user_product' => $product,
+            'product_message' => $message,
+            'user_contact' => $contact
+        ]);
     }
 
     /**
@@ -88,4 +106,120 @@ class UserController extends Controller
     {
         //
     }
+
+    /**
+     * Show the application home page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updatePhone(Request $request)
+    {
+        $contact = UserContact::first(auth()->id());
+
+        if($contact){
+            $contact->phone = $request->phone;
+            $contact->save();
+            return response()->json(['message' => 'update success!'], 200);
+        }
+
+        $contact = new UserContact();
+        $contact->user_id = auth()->id();
+        $contact->phone = $request->phone;
+        $contact->sort = 1;
+        $contact->save();
+
+        return response()->json(['message' => $request->phone], 200);
+    }
+
+    /**
+     * Show the application home page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateMessage(Request $request)
+    {
+        $contact = UserContact::first(auth()->id());
+
+        if($contact){
+            $contact->message = $request->message;
+            $contact->save();
+            return response()->json(['message' => 'update success!'], 200);
+        }
+
+        $contact = new UserContact();
+        $contact->user_id = auth()->id();
+        $contact->message = $request->message;
+        $contact->sort = 1;
+        $contact->save();
+
+        return response()->json(['message' => $request->message], 200);
+    }
+
+    /**
+     * Show the application home page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showMessage(Request $request)
+    {
+        $message = ProductMessage::where('product_id', $request->messageId)->orderBy('id', 'desc')->get();
+
+        return response()->json(['message' => $message], 200);
+    }
+
+    /**
+     * Show the application home page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateProduct(Request $request)
+    {
+        $product = Product::where('id', $request->productId)->first();
+        if($product){
+            $product->status = $request->status;
+            $product->save();
+            return response()->json(['result' => 'ระบบได้รับการแจ้งจากท่านแล้ว'], 200);
+        }
+        return response()->json(['result' => 'เกิดข้อผิดพลาด!'], 200);
+    }
+
+    /**
+     * Show the application home page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateAvatar(Request $request)
+    {
+        $destinationPath = resource_path('images/avatar/');
+        $input = $request->except('_token');
+
+        foreach ($input as $key => $value) {
+            $file = $request->file($key);
+            $filename = null;
+            if($file){
+                $filename = $file->getClientOriginalName();
+                $filename = $this->getImageName($filename);
+                $upload_success = $file->move($destinationPath, $filename);
+
+                $user = User::find(auth()->id());
+                if($user){
+                    Storage::disk('avatar')->delete($user->avatar);
+                    $user->avatar = $filename;
+                    $user->save();
+
+                    return response()->json(['message' => 'update success!'], 200);
+                }
+            }
+        }
+
+        return response()->json(['result' => 'เกิดข้อผิดพลาด!'], 200);
+    }
+
+    public function getImageName($filename)
+    {
+        $timestamp = Carbon::now()->toDayDateTimeString();
+        $randomKey = str_random(5);
+        return base64_encode($filename . $timestamp . $randomKey).'.jpg';
+    }
+
 }

@@ -57,5 +57,8 @@ class User extends Authenticatable
         return $this->hasOne('App\Models\Social');
     }
 
+    public function user() {
+        return $this->hasOne('App\Models\UserContact');
+    }
 
 }
