@@ -155,32 +155,6 @@
     /*----------------------------------------------------------------------------------*/
     /*	Menu login toggle
     /*----------------------------------------------------------------------------------*/
-    var openPopupLogin  = $('#opl'),
-        overlay     = $('.overlay'),
-        popup       = $('.popup'),
-        closePopupLogin = $('#cpl');
-
-    overlay.on('click', function () {
-        $(this).fadeOut();
-        popup.removeClass('fourOpen').delay(500).promise().done(function () {
-            $(this).hide();
-        });
-    });
-
-    // Fourth Style action
-    openPopupLogin.on('click', function () {
-        overlay.fadeIn();
-        popup.show(0, function () {
-            $(this).toggleClass('fourOpen');
-        });
-    });
-
-    closePopupLogin.on('click', function () {
-        overlay.fadeOut();
-        popup.toggleClass('fourOpen').delay(500).promise().done(function () {
-            $(this).hide();
-        });
-    });
 
     $('ul.years a.year').click(function () {
         var $this = $(this),

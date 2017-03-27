@@ -101,6 +101,15 @@ Route::group(['middleware' => ['web']], function () {
 
 });
 
+Route::get('/policies/privacy',
+    ['as' => 'policies.privacy', 'uses' => 'PolicyController@privacy']
+);
+Route::get('/policies/terms',
+    ['as' => 'policies.terms', 'uses' => 'PolicyController@terms']
+);
+
+
+
 //$topic = 'topic.';
 //Route::get('/post',
 //    ['as' => $topic.'post', 'uses' => 'Topic\PostController@index']

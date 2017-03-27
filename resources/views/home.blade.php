@@ -72,7 +72,7 @@
                                 <a href="{{ route('product').'/'.$item['attributes']['id'] }}">{{ $item['attributes']['title'] }}</a>
                             </h1>
                             <h2>{{ number_format($item['attributes']['price']) }} ฿ / {{ $item['attributes']['sale'] }}
-                                / <a href="#">{{ $item['attributes']['type'] }}</a></h2>
+                                / <a href="{{ route('home') }}?type={{ $item->type }}">{{ $item['attributes']['type'] }}</a></h2>
                             <h3>{{ $current_unit($item['attributes']['unit'], $item['attributes']['unit_id']) }} {{ $item->unit_name }}
                                 / {{ $cal_unit($item['attributes']['price'], $item['attributes']['unit']) }}
                                 ฿ : ตารางเมตร</h3>

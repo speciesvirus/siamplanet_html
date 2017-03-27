@@ -7,23 +7,28 @@
     <li><a href="{{ route('news') }}">ข่าว</a></li>
 
     @if(Auth()->check())
-        <li><a href="javascript://" id="opl">{{ Auth::user()->first_name }}</a></li>
+        <li><a href="javascript://" id="opl">Hi, {{ Auth::user()->first_name }}</a>
+        <ul>
+            <div class="user-account-main" data-role="user-account-main">
+                <div class="flyout-user-signout" data-role="signout-btn" style="display: block;">
+                    <a href="{{ route('auth.logout') }}" rel="nofollow">Sign Out</a>
+                </div>
+                <ul class="flyout-quick-entry" data-role="quick-entry">
+                    <li><a href="{{ route('user.home') }}" rel="nofollow">My Account</a></li>
+                    <li><a href="{{ route('post.product') }}" rel="nofollow">ลงประกาศ</a></li>
+                    <li><a href="{{ route('post.review') }}" rel="nofollow">ลงประกาศรีวิว</a></li>
+                    <li><a href="{{ route('news') }}" rel="nofollow">ข่าว</a></li>
+                </ul>
+            </div>
+        </ul>
+
+        </li>
     @else
         <li><a href="{{ route('login') }}" class="maia-button">เข้าสู่ระบบ</a></li>
     @endif
 
 </ul>
 
-@if(Auth()->check())
-    <div class="overlay"></div>
-    <div class="popup four">
-        <ul>
-            {{--<li><button id="cpl">Close</button></li>--}}
-            <li class=""><a href="{{ route('user.home') }}">ข้อมูลส่วนตัว</a></li>
-            <li><a href="{{ route('auth.logout') }}" class="">ออกระบบ</a></li>
-        </ul>
-    </div>
-@endif
 
 
 

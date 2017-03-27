@@ -22,7 +22,7 @@ class ComposerServiceProvider extends ServiceProvider
         View::composer(
             [
                 'home', 'view', 'review', 'post.post', 'post.review', 'post.product',
-                'news.news', 'news.view', 'news.category'
+                'news.news', 'news.view', 'news.category', 'policies.privacy', 'policies.terms'
             ] //*! file view .blade
             , 'App\Http\ViewComposers\NavigatorComposer'
         );

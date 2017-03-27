@@ -40,20 +40,78 @@
     vertical-align: middle;
 }
 
+
 .nav-menu {
     margin-bottom: 0;
     float: right;
 }
 
-.nav-menu li {
+.nav-menu > li {
+    position: relative;
     float: left;
     /*text-transform: uppercase;*/
     line-height: 49px;
-    margin-left: 30px;
+    padding-left: 40px;
+    /* margin-left: 40px; */
 }
 
 .nav-menu li a {
     color: #404a6e;
+}
+ul.nav-menu li > ul {
+    display: none;
+    position: absolute;
+    right: 0;
+}
+
+ul.nav-menu li:hover > ul {
+    display: inherit;
+}
+.nav-menu li .flyout-user-signout a {
+    color: #333;
+}
+.nav-menu li > ul li a:hover {
+    text-decoration: none;
+    color: #e62e04;
+    background-color: #e8e8e8;
+}
+.nav-menu li .flyout-user-signout a:hover {
+    color: #e62e04;
+}
+
+
+.user-account-main {
+    padding-top: 15px;
+    width: 200px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #656565;
+    z-index: 12;
+    /*box-shadow: 2px 2px 2px #ccc;*/
+}
+.flyout-user-signout {
+    display: none;
+    margin: 0 20px 15px;
+    line-height: 24px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.flyout-quick-entry {
+    background-color: #f4f4f4;
+}
+.user-account-main li {
+    list-style: none;
+    margin-left: 0;
+    float: inherit;
+}
+.flyout-quick-entry li a {
+    display: block;
+    padding: 6px 0 6px 20px;
+    line-height: 22px;
+    color: #333;
+}
+.flyout-quick-entry li:first-child a {
+    background-color: #e8e8e8;
 }
 
 #main-nav .maia-button {
@@ -1507,3 +1565,4 @@ h2.message-from{
     position: relative;
     text-align: center;
 }
+

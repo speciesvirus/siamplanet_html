@@ -68,3 +68,15 @@ Breadcrumbs::register('page', function($breadcrumbs, $page)
     $breadcrumbs->parent('category', $page->category);
     $breadcrumbs->push($page->title, route('page', $page->id));
 });
+
+
+Breadcrumbs::register('policies.privacy', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Privacy', route('policies.privacy'));
+});
+Breadcrumbs::register('policies.terms', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push('Terms', route('policies.terms'));
+});

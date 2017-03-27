@@ -261,12 +261,12 @@
     <footer class="footer">
 
         <div class="container">
-            <div class="col-md-6"><span id="fsl">&copy; Copyright Siam Planet. All Rights Reserved.</span></div>
+            <div class="col-md-6"><span id="fsl">&copy; Copyright nainam. All Rights Reserved.</span></div>
             <div class="col-md-6">
                 <span id="fsr">
-                    <a class="_Gs" href="//www.google.co.th/intl/th/policies/privacy/?fg=1">ความเป็นส่วนตัว</a>
-                    <a class="_Gs" href="//www.google.co.th/intl/th/policies/terms/?fg=1">ข้อกำหนด</a>
-                    <a class="_Gs" href="//www.google.co.th/intl/th/policies/terms/?fg=1">ข้อกำหนด</a>
+                    <a class="_Gs" href="{{ route('policies.privacy') }}">ความเป็นส่วนตัว</a>
+                    <a class="_Gs" href="{{ route('policies.terms') }}">ข้อกำหนด</a>
+                    {{--<a class="_Gs" href="//www.google.co.th/intl/th/policies/terms/?fg=1">ข้อกำหนด</a>--}}
                 </span>
             </div>
 
