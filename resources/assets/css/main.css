@@ -54,11 +54,12 @@
     float: right;
 }
 
-.nav-menu li {
+.nav-menu > li {
     float: left;
-    /*text-transform: uppercase;*/
+    /* text-transform: uppercase; */
     line-height: 49px;
-    margin-left: 40px;
+    /* margin-left: 40px; */
+    padding-left: 40px;
 }
 
 .nav-menu li a {
