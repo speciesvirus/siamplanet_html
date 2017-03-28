@@ -32,7 +32,7 @@
                 'insertdatetime media table contextmenu paste code'
             ],
             toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-            content_css: '//www.tinymce.com/css/codepen.min.css'
+//            content_css: '//www.tinymce.com/css/codepen.min.css'
         });
         //        $('div#froala-editor').froalaEditor('html.get');
 

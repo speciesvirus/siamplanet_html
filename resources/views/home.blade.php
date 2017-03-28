@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Siam Planet')
+@section('title', 'Nainam')
 @section('meta')
 
 @stop
