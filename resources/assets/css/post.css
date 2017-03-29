@@ -968,3 +968,92 @@ span.input-to{
     cursor: pointer;
     color: #e32;
 }
+
+.mce-content-body.listing-details-text{
+    padding: 15px 20px;
+}
+.listing-details-text h1, .listing-details-text h2, .listing-details-text h3, .listing-details-text h4, .listing-details-text h5, .listing-details-text h6 {
+    font-weight: 200;
+    line-height: 1.4em;
+    margin: 25px 0 15px
+}
+
+.listing-details-text h1 {
+    font-size: 23px
+}
+
+.listing-details-text h2 {
+    font-size: 20px
+}
+
+.listing-details-text h3 {
+    font-size: 18px
+}
+
+.listing-details-text h4 {
+    font-size: 16px
+}
+
+.listing-details-text h5 {
+    font-size: 14px
+}
+
+.listing-details-text h6 {
+    font-size: 12px
+}
+
+.listing-details-text p {
+    margin: 5px 0
+}
+
+.listing-details-text ol, .listing-details-text ul {
+    margin-left: 15px;
+    list-style-position: outside;
+    margin-bottom: 20px
+}
+
+.listing-details-text ol li, .listing-details-text ul li {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    color: #626262
+}
+
+.listing-details-text ul {
+    list-style-type: disc
+}
+
+.listing-details-text ol {
+    list-style-type: decimal
+}
+
+.listing-details-text a[href] {
+    text-decoration: underline
+}
+
+.listing-details-text table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+    border: 1px solid #aaa
+}
+
+.listing-details-text table tr:nth-child(even) {
+    background: #FAFAFA
+}
+
+.listing-details-text table caption, .listing-details-text table td, .listing-details-text table th {
+    padding: 15px 7px;
+    font: inherit
+}
+
+.listing-details-text table th {
+    font-weight: 400;
+    color: #6E6E6E;
+    background-position: 100% 100%;
+    background-size: 2px 10px;
+    background-repeat: no-repeat
+}
+
+.listing-details-text table th:last-child {
+    background: 0 0
+}
