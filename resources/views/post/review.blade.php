@@ -600,11 +600,11 @@
 
         var allMyMarkers = [];
         var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
-        var $marker_url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
+        var $marker_url = ( is_internetExplorer11 ) ? '{{ asset('resources/assets/images/icon/cd-icon-location.png', env('HTTPS')) }}' : '{{ asset('resources/assets/images/icon/cd-icon-location_1.svg', env('HTTPS')) }}';
         var image = {
             url: $marker_url,
             // This marker is 20 pixels wide by 32 pixels high.
-            scaledSize: new google.maps.Size(20, 20)
+            scaledSize: new google.maps.Size(32, 32)
         };
 
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -616,8 +616,11 @@
 
         map.addListener('click', function(e) {
 
-            var $point = $('#select-point').val();
-            if($point == 1){
+            var $point = $('#select-point').val().split(",");
+            image.url = '{{ asset('resources/assets/images/icon', env('HTTPS')) }}' +'/'+ $point[1];
+
+            if($point[0] == 1){
+                image.scaledSize = new google.maps.Size(32, 32);
                 for (var i = 0; i < markers.length; i++) {
                     if (markers[i].id == 1) {
                         //Remove the marker from Map
@@ -634,9 +637,9 @@
 
                     }
                 }
-                image.url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
+//                image.url = $marker_url;
                 placeMarkerAndPanTo(e.latLng, map, 1);
-                arrArea.push({id : $point, key : 1, name : null, distance : 0, lat : e.latLng.lat(), lng : e.latLng.lng()});
+                arrArea.push({id : $point[0], key : 1, name : null, distance : 0, lat : e.latLng.lat(), lng : e.latLng.lng()});
 
                 //!* find province name
                 arrGeo = [];
@@ -686,7 +689,7 @@
 
 
             }else{
-
+                image.scaledSize = new google.maps.Size(25, 25);
                 var origin_area = [];
                 var destination_area = [];
 
@@ -719,9 +722,9 @@
                                     for (var j = 0; j < el['elements'].length; j++) {
 
                                         var $distance = el['elements'][j]['distance']['value'];
-                                        image.url = "http://www.freeiconspng.com/uploads/red-location-icon-map-png-4.png";
+//                                        image.url = "http://www.freeiconspng.com/uploads/red-location-icon-map-png-4.png";
                                         placeMarkerAndPanTo(e.latLng, map, uniqueId);
-                                        arrArea.push({id : $point, key : uniqueId, name : retVal, distance : $distance, lat : e.latLng.lat(), lng : e.latLng.lng()});
+                                        arrArea.push({id : $point[0], key : uniqueId, name : retVal, distance : $distance, lat : e.latLng.lat(), lng : e.latLng.lng()});
                                         uniqueId++;
 
                                     }
