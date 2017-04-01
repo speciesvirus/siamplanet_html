@@ -11,7 +11,8 @@
         "laravel/socialite": "^3.0",
         "laravelcollective/html": "^5.3.0",
         "nesbot/carbon": "^1.22",
-        "davejamesmiller/laravel-breadcrumbs": "^3.0"
+        "davejamesmiller/laravel-breadcrumbs": "^3.0",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -302,24 +302,69 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 100%;
+    width: calc(100% - 200px);
+    height: 92%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: none;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.google-maps{
+    width: 100% !important;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    height: 100% !important;
 }
 
 .map-legend {
-    background: rgba(11, 130, 135, 0.8);
-    /* box-sizing: border-box; */
-    /* font-family: 'Roboto Slab', serif; */
-    height: 100%;
-    /* overflow: scroll; */
-    /* padding: 2.5% 0; */
+    /*background: rgba(11, 130, 135, 0.8);*/
+    /*height: 100%;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0;*/
+    /*width: 150px;*/
+    /*z-index: 6;*/
+
+    background: whitesmoke;
     position: absolute;
     top: 0;
     right: 0;
-    /* width: 35%; */
-    width: 150px;
-    z-index: 6;
+    width: 200px;
+    padding: 10px 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: inset 1px 1px 0 white;
+    height: 92%;
 }
+.map-legend > ul{
+    margin: 0 auto;
+    padding: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 5px 5px 0 5px;
+}
+.map-legend > ul li {
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.05);
 
+    padding: 5px 10px 5px 15px;
+    border: 1px solid #CCC;
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+    margin-bottom: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.map-legend > ul li.active {
+    background-image: linear-gradient( 90deg, #FFD32E 5px, #EEE 5px, #EEE 6px, transparent 11px);
+}
 .map-legend > div {
     border-bottom: 1px dashed #13caba;
     color: #1de79d;
@@ -379,7 +424,7 @@
 
 @media only screen and (min-width: 768px) {
     #cd-zoom-in, #cd-zoom-out {
-        margin-left: 50px;
+        margin-left: 35px;
     }
 }
 
@@ -391,7 +436,7 @@
 
 @media only screen and (min-width: 768px) {
     #cd-zoom-in {
-        margin-top: 50px;
+        margin-top: 35px;
     }
 }
 

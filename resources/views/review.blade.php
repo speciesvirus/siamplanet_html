@@ -117,446 +117,457 @@
     <!--<script src="//api.tiles.mapbox.com/mapbox.js/v1.5.2/mapbox.js"></script>-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjr8I22XjxkcgiX6Fgb4Ct_F0-dQ2xgJo"></script>
     <!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
-    <script type="text/javascript">
 
-        var $geo = [];
-        var geojsonFeature = {
-            "type": "FeatureCollection",
-            "features": [
-                    @if(!$product_area->isEmpty())
-                    @foreach($product_area as $item)
-                {
-                    "type": "Feature",
-                    "properties": {
-                        "head": "",
-                        "title": "{{ $item['attributes']['area'] }}",
-                        "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
-                        "description": "{{ $item['attributes']['area'] }}",
-                        "gallery": []
-                    },
-                    "geometry": {
-                        "type": "Point",
-                        "coordinates": [{{ $item['attributes']['lat'] }}, {{ $item['attributes']['lng'] }}]
-                    }
-                },
-                @endforeach
-                @endif
-            ]
-        };
+    @if(!$product_area->isEmpty())
 
+        <script type="text/javascript">
 
-        //        var geojsonFeature = {
-        //            "type": "FeatureCollection",
-        //            "features": [{
-        //                "type": "Feature",
-        //                "properties": {
-        //                    "head": "",
-        //                    "title": "คอนโดมิเนียม เดอะคีย์สาทร-ราชพฤกษ์",
-        //                    "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
-        //                    "description": "<p>First-year students on our BA programmes may have the chance to visit Leeds city centre, where we look at shopping areas and regeneration along the waterfront.</P><p>The trip gives us a chance to compare areas like the Victoria Quarter, Kirkgate Market and the Corn Exchange and discuss how they are branded to attract shoppers.</p><p> We also visit Holbeck Urban Village, which calls itself a “pioneer of urban regeneration”, and Urban Splash’s development in Saxton to explore the issue of gentrification.</p><p>During fieldwork in Leeds you may also have the chance to study:</p> <ul> <li>Clarence Dock and the Royal Armouries</li> <li>Developments near the Centenary Bridge</li> <li>The village of Saltaire, north of Bradford</li> </ul> <p>Field study like this develops important skills of observation, critique and policy analysis, as well as leading into later human geography modules.</p>",
-        //                    "gallery": []
-        //                },
-        //                "geometry": {
-        //                    "type": "Point",
-        //                    "coordinates": [13.7146687, 100.4654378]
-        //                }
-        //            },
-        //                {
-        //                    "type": "Feature",
-        //                    "properties": {
-        //                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Scarborough_Header.jpg",
-        //                        "title": "Wutthakat BTS Station",
-        //                        "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
-        //                        "description": "<p>In October our first-year physical geography students join staff for an &quot;ice-breaker&quot; field weekend in Scarborough. The trip helps students make friends and teach them the basic skills they’ll need as physical geographers.</p><p>During the first day we tour the countryside to look at geology, glaciation and how the beautiful landscape of the North Yorkshire Moors was formed.</p><p>We make stops at:</p> <ul> <li>Scarp edges at the wolds near Market Weighton</li> <li>Millingtondale</li> <li>The Hole of Horcrum</li> <li>Newtondale</li> </ul> <p>At these stops the students work in small groups to investigate the landscape, discuss ideas of how individual landforms developed and discuss their ideas with a member of staff. This is physical geography at its most traditional, but the approaches and thinking that underpin this work are excellent preparation for the students later in their degree.</p><p> On the second day students work in small groups to explore the land at Jugger Howe. They measure hill slopes and soil saturation as well as investigating the amount of vegetation cover.</p>",
-        //                        "gallery": [
-        //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_1.jpg"],
-        //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_2.jpg"],
-        //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_4.jpg"],
-        //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_5.jpg"],
-        //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_8.jpg"]
-        //                        ]
-        //                    },
-        //                    "geometry": {
-        //                        "type": "Point",
-        //                        "coordinates": [13.7146391, 100.4654378]
-        //                    }
-        //                },
-        //                {
-        //                    "type": "Feature",
-        //                    "properties": {
-        //                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Scarborough_Header.jpg",
-        //                        "title": "วัดนาคปรก",
-        //                        "icon": "https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png",
-        //                        "description": "<p>In October our first-year physical geography students join staff for an &quot;ice-breaker&quot; field weekend in Scarborough. The trip helps students make friends and teach them the basic skills they’ll need as physical geographers.</p><p>During the first day we tour the countryside to look at geology, glaciation and how the beautiful landscape of the North Yorkshire Moors was formed.</p><p>We make stops at:</p> <ul> <li>Scarp edges at the wolds near Market Weighton</li> <li>Millingtondale</li> <li>The Hole of Horcrum</li> <li>Newtondale</li> </ul> <p>At these stops the students work in small groups to investigate the landscape, discuss ideas of how individual landforms developed and discuss their ideas with a member of staff. This is physical geography at its most traditional, but the approaches and thinking that underpin this work are excellent preparation for the students later in their degree.</p><p> On the second day students work in small groups to explore the land at Jugger Howe. They measure hill slopes and soil saturation as well as investigating the amount of vegetation cover.</p>",
-        //                        "gallery": [
-        //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_1.jpg"],
-        //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_2.jpg"],
-        //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_4.jpg"],
-        //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_5.jpg"],
-        //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_8.jpg"]
-        //                        ]
-        //                    },
-        //                    "geometry": {
-        //                        "type": "Point",
-        //                        "coordinates": [13.7150131, 100.4653149]
-        //                    }
-        //                }
-        //            ]
-        //        };
+            var $geo = [];
+            var geojsonFeature = {
+                "type": "FeatureCollection",
+                "features": [
+                        @foreach($product_area as $item){
+                        "type": "Feature",
+                        "properties": {
+                            "head": "",
+                            "distance": "{{ number_format(($item->distance / 1000), 2, '.', ',') }} km",
+                            "icon": "{{ asset('resources/assets/images/icon', env('HTTPS')).'/'.$item->image }}",
+                            "description": "{{ $item['attributes']['area'] }}",
+                            "gallery": []
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [{{ $item['attributes']['lat'] }}, {{ $item['attributes']['lng'] }}]
+                        }
+                    },@endforeach
 
-
-
-        var allMyMarkers = [];
-
-        //set your google maps parameters
-        var $latitude = geojsonFeature.features[0].geometry.coordinates[0],
-            $longitude = geojsonFeature.features[0].geometry.coordinates[1],
-            $map_zoom = 17;
-
-
-        //google map custom marker icon - .png fallback for IE11
-        var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
-        var $marker_url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
-
-        //define the basic color of your map, plus a value for saturation and brightness
-        var $main_color = '#2d313f',
-            $saturation = -20,
-            $brightness = 5;
-
-        //we define here the style of the map
-        var style = [
-            {
-                //set saturation for the labels on the map
-                elementType: "labels",
-                stylers: [
-                    {saturation: $saturation}
                 ]
-            },
-            {	//poi stands for point of interest - don't show these lables on the map
-                featureType: "poi",
-                elementType: "labels",
-                stylers: [
-                    {visibility: "off"}
-                ]
-            },
-            {
-                //don't show highways lables on the map
-                featureType: 'road.highway',
-                elementType: 'labels',
-                stylers: [
-                    {visibility: "off"}
-                ]
-            },
-            {
-                //don't show local road lables on the map
-                featureType: "road.local",
-                elementType: "labels.icon",
-                stylers: [
-                    {visibility: "off"}
-                ]
-            },
-            {
-                //don't show arterial road lables on the map
-                featureType: "road.arterial",
-                elementType: "labels.icon",
-                stylers: [
-                    {visibility: "off"}
-                ]
-            },
-            {
-                //don't show road lables on the map
-                featureType: "road",
-                elementType: "geometry.stroke",
-                stylers: [
-                    {visibility: "off"}
-                ]
-            },
-            //style different elements on the map
-            {
-                featureType: "transit",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "poi",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "poi.government",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "poi.sport_complex",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "poi.attraction",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "poi.business",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "transit",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "transit.station",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "landscape",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-
-            },
-            {
-                featureType: "road",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "road.highway",
-                elementType: "geometry.fill",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            },
-            {
-                featureType: "water",
-                elementType: "geometry",
-                stylers: [
-                    {hue: $main_color},
-                    {visibility: "on"},
-                    {lightness: $brightness},
-                    {saturation: $saturation}
-                ]
-            }
-        ];
-
-        //set google map options
-        var map_options = {
-            center: new google.maps.LatLng($latitude, $longitude),
-            zoom: $map_zoom,
-            panControl: false,
-            zoomControl: false,
-            mapTypeControl: false,
-            streetViewControl: false,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            scrollwheel: false,
-            styles: style,
-        }
-        //inizialize the map
-        var image = {
-            url: $marker_url,
-            // This marker is 20 pixels wide by 32 pixels high.
-            scaledSize: new google.maps.Size(30, 30)
-
-        };
-
-        var map = new google.maps.Map(document.getElementById('map'), map_options);
-        //add a custom marker to the map
-//        var marker = new google.maps.Marker({
-//            position: new google.maps.LatLng($latitude, $longitude),
-//            map: map,
-//            visible: true,
-//            icon: image,
-//        });
-
-        var iconBase = $marker_url;
-        var icons = {
-            parking: {
-                icon: $marker_url
-            },
-            library: {
-                icon: $marker_url
-            },
-            info: {
-                icon: $marker_url
-            }
-        };
-
-        var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true}); //!*({suppressMarkers: true}) don't show marker
-        var directionsService = new google.maps.DirectionsService;
-        directionsDisplay.setMap(map);
-
-        function addMarker(feature, featureID) {
-
-            var image = {
-                url: feature.properties.icon,
-                // This marker is 20 pixels wide by 32 pixels high.
-                scaledSize: new google.maps.Size(20, 20)
             };
 
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(feature.geometry.coordinates[0], feature.geometry.coordinates[1]),
-                icon: image,
-                map: map,
-                id: featureID
-            });
 
-            $('#map-legend').append('<div class="poi">' + feature.properties.title + '</div>');
+            //        var geojsonFeature = {
+            //            "type": "FeatureCollection",
+            //            "features": [{
+            //                "type": "Feature",
+            //                "properties": {
+            //                    "head": "",
+            //                    "title": "คอนโดมิเนียม เดอะคีย์สาทร-ราชพฤกษ์",
+            //                    "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
+            //                    "description": "<p>First-year students on our BA programmes may have the chance to visit Leeds city centre, where we look at shopping areas and regeneration along the waterfront.</P><p>The trip gives us a chance to compare areas like the Victoria Quarter, Kirkgate Market and the Corn Exchange and discuss how they are branded to attract shoppers.</p><p> We also visit Holbeck Urban Village, which calls itself a “pioneer of urban regeneration”, and Urban Splash’s development in Saxton to explore the issue of gentrification.</p><p>During fieldwork in Leeds you may also have the chance to study:</p> <ul> <li>Clarence Dock and the Royal Armouries</li> <li>Developments near the Centenary Bridge</li> <li>The village of Saltaire, north of Bradford</li> </ul> <p>Field study like this develops important skills of observation, critique and policy analysis, as well as leading into later human geography modules.</p>",
+            //                    "gallery": []
+            //                },
+            //                "geometry": {
+            //                    "type": "Point",
+            //                    "coordinates": [13.7146687, 100.4654378]
+            //                }
+            //            },
+            //                {
+            //                    "type": "Feature",
+            //                    "properties": {
+            //                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Scarborough_Header.jpg",
+            //                        "title": "Wutthakat BTS Station",
+            //                        "icon": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png",
+            //                        "description": "<p>In October our first-year physical geography students join staff for an &quot;ice-breaker&quot; field weekend in Scarborough. The trip helps students make friends and teach them the basic skills they’ll need as physical geographers.</p><p>During the first day we tour the countryside to look at geology, glaciation and how the beautiful landscape of the North Yorkshire Moors was formed.</p><p>We make stops at:</p> <ul> <li>Scarp edges at the wolds near Market Weighton</li> <li>Millingtondale</li> <li>The Hole of Horcrum</li> <li>Newtondale</li> </ul> <p>At these stops the students work in small groups to investigate the landscape, discuss ideas of how individual landforms developed and discuss their ideas with a member of staff. This is physical geography at its most traditional, but the approaches and thinking that underpin this work are excellent preparation for the students later in their degree.</p><p> On the second day students work in small groups to explore the land at Jugger Howe. They measure hill slopes and soil saturation as well as investigating the amount of vegetation cover.</p>",
+            //                        "gallery": [
+            //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_1.jpg"],
+            //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_2.jpg"],
+            //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_4.jpg"],
+            //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_5.jpg"],
+            //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_8.jpg"]
+            //                        ]
+            //                    },
+            //                    "geometry": {
+            //                        "type": "Point",
+            //                        "coordinates": [13.7146391, 100.4654378]
+            //                    }
+            //                },
+            //                {
+            //                    "type": "Feature",
+            //                    "properties": {
+            //                        "head": "http://www2.hull.ac.uk/science/images/mapbox/headers/Scarborough_Header.jpg",
+            //                        "title": "วัดนาคปรก",
+            //                        "icon": "https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png",
+            //                        "description": "<p>In October our first-year physical geography students join staff for an &quot;ice-breaker&quot; field weekend in Scarborough. The trip helps students make friends and teach them the basic skills they’ll need as physical geographers.</p><p>During the first day we tour the countryside to look at geology, glaciation and how the beautiful landscape of the North Yorkshire Moors was formed.</p><p>We make stops at:</p> <ul> <li>Scarp edges at the wolds near Market Weighton</li> <li>Millingtondale</li> <li>The Hole of Horcrum</li> <li>Newtondale</li> </ul> <p>At these stops the students work in small groups to investigate the landscape, discuss ideas of how individual landforms developed and discuss their ideas with a member of staff. This is physical geography at its most traditional, but the approaches and thinking that underpin this work are excellent preparation for the students later in their degree.</p><p> On the second day students work in small groups to explore the land at Jugger Howe. They measure hill slopes and soil saturation as well as investigating the amount of vegetation cover.</p>",
+            //                        "gallery": [
+            //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_1.jpg"],
+            //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_2.jpg"],
+            //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_4.jpg"],
+            //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_5.jpg"],
+            //                            ["http://www2.hull.ac.uk/science/images/mapbox/scarborough/Scarborough_8.jpg"]
+            //                        ]
+            //                    },
+            //                    "geometry": {
+            //                        "type": "Point",
+            //                        "coordinates": [13.7150131, 100.4653149]
+            //                    }
+            //                }
+            //            ]
+            //        };
 
-            allMyMarkers.push(marker);
-        }
 
 
-        for (var i = 0, jsonFeature; jsonFeature = geojsonFeature.features[i]; i++) {
-            addMarker(jsonFeature, i);
-        }
+            var allMyMarkers = [];
 
-        $('.poi').on('click', function () {
+            //set your google maps parameters
 
-            var $title = $(this).html(),
-                $lat = '',
-                $lng = '';
+            var $latitude = geojsonFeature.features[0].geometry.coordinates[0],
+                $longitude = geojsonFeature.features[0].geometry.coordinates[1],
+                $map_zoom = 17;
+
+
+            //google map custom marker icon - .png fallback for IE11
+            var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
+            var $marker_url = ( is_internetExplorer11 ) ? 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png' : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location_1.svg';
+
+            //define the basic color of your map, plus a value for saturation and brightness
+            var $main_color = '#2d313f',
+                $saturation = -20,
+                $brightness = 5;
+
+            //we define here the style of the map
+            var style = [
+                {
+                    //set saturation for the labels on the map
+                    elementType: "labels",
+                    stylers: [
+                        {saturation: $saturation}
+                    ]
+                },
+                {	//poi stands for point of interest - don't show these lables on the map
+                    featureType: "poi",
+                    elementType: "labels",
+                    stylers: [
+                        {visibility: "off"}
+                    ]
+                },
+                {
+                    //don't show highways lables on the map
+                    featureType: 'road.highway',
+                    elementType: 'labels',
+                    stylers: [
+                        {visibility: "off"}
+                    ]
+                },
+                {
+                    //don't show local road lables on the map
+                    featureType: "road.local",
+                    elementType: "labels.icon",
+                    stylers: [
+                        {visibility: "off"}
+                    ]
+                },
+                {
+                    //don't show arterial road lables on the map
+                    featureType: "road.arterial",
+                    elementType: "labels.icon",
+                    stylers: [
+                        {visibility: "off"}
+                    ]
+                },
+                {
+                    //don't show road lables on the map
+                    featureType: "road",
+                    elementType: "geometry.stroke",
+                    stylers: [
+                        {visibility: "off"}
+                    ]
+                },
+                //style different elements on the map
+                {
+                    featureType: "transit",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        {hue: $main_color},
+                        {visibility: "on"},
+                        {lightness: $brightness},
+                        {saturation: $saturation}
+                    ]
+                },
+                {
+                    featureType: "poi",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        {hue: $main_color},
+                        {visibility: "on"},
+                        {lightness: $brightness},
+                        {saturation: $saturation}
+                    ]
+                },
+                {
+                    featureType: "poi.government",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        {hue: $main_color},
+                        {visibility: "on"},
+                        {lightness: $brightness},
+                        {saturation: $saturation}
+                    ]
+                },
+                {
+                    featureType: "poi.sport_complex",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        {hue: $main_color},
+                        {visibility: "on"},
+                        {lightness: $brightness},
+                        {saturation: $saturation}
+                    ]
+                },
+                {
+                    featureType: "poi.attraction",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        {hue: $main_color},
+                        {visibility: "on"},
+                        {lightness: $brightness},
+                        {saturation: $saturation}
+                    ]
+                },
+                {
+                    featureType: "poi.business",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        {hue: $main_color},
+                        {visibility: "on"},
+                        {lightness: $brightness},
+                        {saturation: $saturation}
+                    ]
+                },
+                {
+                    featureType: "transit",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        {hue: $main_color},
+                        {visibility: "on"},
+                        {lightness: $brightness},
+                        {saturation: $saturation}
+                    ]
+                },
+                {
+                    featureType: "transit.station",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        {hue: $main_color},
+                        {visibility: "on"},
+                        {lightness: $brightness},
+                        {saturation: $saturation}
+                    ]
+                },
+                {
+                    featureType: "landscape",
+                    stylers: [
+                        {hue: $main_color},
+                        {visibility: "on"},
+                        {lightness: $brightness},
+                        {saturation: $saturation}
+                    ]
+
+                },
+                {
+                    featureType: "road",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        {hue: $main_color},
+                        {visibility: "on"},
+                        {lightness: $brightness},
+                        {saturation: $saturation}
+                    ]
+                },
+                {
+                    featureType: "road.highway",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        {hue: $main_color},
+                        {visibility: "on"},
+                        {lightness: $brightness},
+                        {saturation: $saturation}
+                    ]
+                },
+                {
+                    featureType: "water",
+                    elementType: "geometry",
+                    stylers: [
+                        {hue: $main_color},
+                        {visibility: "on"},
+                        {lightness: $brightness},
+                        {saturation: $saturation}
+                    ]
+                }
+            ];
+
+            //set google map options
+            var map_options = {
+                center: new google.maps.LatLng($latitude, $longitude),
+                zoom: $map_zoom,
+                panControl: false,
+                zoomControl: false,
+                mapTypeControl: false,
+                streetViewControl: false,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                scrollwheel: false,
+                styles: style,
+            }
+            //inizialize the map
+            var image = {
+                url: $marker_url,
+                // This marker is 20 pixels wide by 32 pixels high.
+                scaledSize: new google.maps.Size(30, 30)
+
+            };
+
+            var map = new google.maps.Map(document.getElementById('map'), map_options);
+            //add a custom marker to the map
+            //        var marker = new google.maps.Marker({
+            //            position: new google.maps.LatLng($latitude, $longitude),
+            //            map: map,
+            //            visible: true,
+            //            icon: image,
+            //        });
+
+            var iconBase = $marker_url;
+            var icons = {
+                parking: {
+                    icon: $marker_url
+                },
+                library: {
+                    icon: $marker_url
+                },
+                info: {
+                    icon: $marker_url
+                }
+            };
+
+            var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true}); //!*({suppressMarkers: true}) don't show marker
+            var directionsService = new google.maps.DirectionsService;
+            directionsDisplay.setMap(map);
+
+            function addMarker(feature, featureID) {
+
+                var image = {
+                    url: feature.properties.icon,
+                    // This marker is 20 pixels wide by 32 pixels high.
+                    scaledSize: new google.maps.Size(20, 20)
+                };
+
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(feature.geometry.coordinates[0], feature.geometry.coordinates[1]),
+                    icon: image,
+                    map: map,
+                    id: featureID
+                });
+
+                $('#map-legend > ul').append('<li class="ng-scope ng-binding point" data-title="' + feature.properties.title + '"><p>' + feature.properties.title + '</p><p>ระยะทาง : ' + feature.properties.distance + '</p></li>');
+
+                allMyMarkers.push(marker);
+            }
+
 
             for (var i = 0, jsonFeature; jsonFeature = geojsonFeature.features[i]; i++) {
-                if (jsonFeature.properties.title === $title) {
-                    $lat = jsonFeature.geometry.coordinates[0];
-                    $lng = jsonFeature.geometry.coordinates[1];
-                    map.panTo(new google.maps.LatLng($lat, $lng));
-                }
+                addMarker(jsonFeature, i);
             }
 
-            var selectedID = $(this).attr('id');
-            toggleBounce($(".poi").index(this));
+            $('#map-legend > ul li:first-child').addClass('active');
 
-            calculateAndDisplayRoute(directionsService, directionsDisplay, $lat, $lng);
+            $('.point').on('click', function () {
 
-        });
+                $('.point').removeClass('active');
+                $(this).addClass('active');
 
-        function calculateAndDisplayRoute(directionsService, directionsDisplay, lat, lng) {
-            var selectedMode = 'DRIVING'; // DRIVING,WALKING,BICYCLING,TRANSIT
-            directionsService.route({
-                origin: {lat: $latitude, lng: $longitude},  // Haight.
-                destination: {lat: lat, lng: lng},  // Ocean Beach.
-                // Note that Javascript allows us to access the constant
-                // using square brackets and a string value as its
-                // "property."
-                travelMode: google.maps.TravelMode[selectedMode]
-            }, function(response, status) {
-                if (status == 'OK') {
-                    if($latitude == lat) directionsDisplay.setOptions({ preserveViewport: true });
-                    else directionsDisplay.setOptions({ preserveViewport: false });
-                    directionsDisplay.setDirections(response);
-                    new google.maps.Marker({
-                        position: null,
-                        map: map,
-                        icon: null,
-                        title: null
-                    });
-                } else {
-                    window.alert('Directions request failed due to ' + status);
-                }
-            });
-        }
+                var $title = $(this).html(),
+                    $lat = '',
+                    $lng = '';
 
-        function toggleBounce(selectedID) {
-
-            // loop through our array & check with marker has same ID with the text
-            for (var j = 0; j < allMyMarkers.length; j++) {
-                if (allMyMarkers[j].id == selectedID) {
-                    if (allMyMarkers[j].getAnimation() != null) {
-                        allMyMarkers[j].setAnimation(null);
-                    } else {
-                        allMyMarkers[j].setAnimation(google.maps.Animation.BOUNCE);
-                        map.setCenter(allMyMarkers[j].getPosition());
+                for (var i = 0, jsonFeature; jsonFeature = geojsonFeature.features[i]; i++) {
+                    if (jsonFeature.properties.title == $title) {
+                        $lat = jsonFeature.geometry.coordinates[0];
+                        $lng = jsonFeature.geometry.coordinates[1];
+                        map.panTo(new google.maps.LatLng($lat, $lng));
                     }
-                    break; // stop continue looping
                 }
+
+                var selectedID = $(this).attr('id');
+                toggleBounce($(".point").index(this));
+
+                calculateAndDisplayRoute(directionsService, directionsDisplay, $lat, $lng);
+
+            });
+
+            function calculateAndDisplayRoute(directionsService, directionsDisplay, lat, lng) {
+                var selectedMode = 'DRIVING'; // DRIVING,WALKING,BICYCLING,TRANSIT
+                directionsService.route({
+                    origin: {lat: $latitude, lng: $longitude},  // Haight.
+                    destination: {lat: lat, lng: lng},  // Ocean Beach.
+                    // Note that Javascript allows us to access the constant
+                    // using square brackets and a string value as its
+                    // "property."
+                    travelMode: google.maps.TravelMode[selectedMode]
+                }, function(response, status) {
+                    if (status == 'OK') {
+                        if($latitude == lat) directionsDisplay.setOptions({ preserveViewport: true });
+                        else directionsDisplay.setOptions({ preserveViewport: false });
+                        directionsDisplay.setDirections(response);
+                        new google.maps.Marker({
+                            position: null,
+                            map: map,
+                            icon: null,
+                            title: null
+                        });
+                    } else {
+                        window.alert('Directions request failed due to ' + status);
+                    }
+                });
             }
-        } // end toggleBounce
+
+            function toggleBounce(selectedID) {
+
+                // loop through our array & check with marker has same ID with the text
+                for (var j = 0; j < allMyMarkers.length; j++) {
+                    if (allMyMarkers[j].id == selectedID) {
+                        if (allMyMarkers[j].getAnimation() != null) {
+                            allMyMarkers[j].setAnimation(null);
+                        } else {
+                            allMyMarkers[j].setAnimation(google.maps.Animation.BOUNCE);
+                            map.setCenter(allMyMarkers[j].getPosition());
+                        }
+                        //break;
+                    }else{
+                        allMyMarkers[j].setAnimation(null);
+                    }
+                }
+            } // end toggleBounce
 
 
-        // google.maps.event.addListener(map, 'click', function( event ){
-        //   alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
-        // });
+            // google.maps.event.addListener(map, 'click', function( event ){
+            //   alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
+            // });
 
-        //add custom buttons for the zoom-in/zoom-out on the map
-        function CustomZoomControl(controlDiv, map) {
-            //grap the zoom elements from the DOM and insert them in the map
-            var controlUIzoomIn = document.getElementById('cd-zoom-in'),
-                controlUIzoomOut = document.getElementById('cd-zoom-out');
-            controlDiv.appendChild(controlUIzoomIn);
-            controlDiv.appendChild(controlUIzoomOut);
+            //add custom buttons for the zoom-in/zoom-out on the map
+            function CustomZoomControl(controlDiv, map) {
+                //grap the zoom elements from the DOM and insert them in the map
+                var controlUIzoomIn = document.getElementById('cd-zoom-in'),
+                    controlUIzoomOut = document.getElementById('cd-zoom-out');
+                controlDiv.appendChild(controlUIzoomIn);
+                controlDiv.appendChild(controlUIzoomOut);
 
-            // Setup the click event listeners and zoom-in or out according to the clicked element
-            google.maps.event.addDomListener(controlUIzoomIn, 'click', function () {
-                map.setZoom(map.getZoom() + 1)
-            });
-            google.maps.event.addDomListener(controlUIzoomOut, 'click', function () {
-                map.setZoom(map.getZoom() - 1)
-            });
-        }
+                // Setup the click event listeners and zoom-in or out according to the clicked element
+                google.maps.event.addDomListener(controlUIzoomIn, 'click', function () {
+                    map.setZoom(map.getZoom() + 1)
+                });
+                google.maps.event.addDomListener(controlUIzoomOut, 'click', function () {
+                    map.setZoom(map.getZoom() - 1)
+                });
+            }
 
-        var zoomControlDiv = document.createElement('div');
-        var zoomControl = new CustomZoomControl(zoomControlDiv, map);
+            var zoomControlDiv = document.createElement('div');
+            var zoomControl = new CustomZoomControl(zoomControlDiv, map);
 
-        //insert the zoom div on the top left of the map
-        map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
+            //insert the zoom div on the top left of the map
+            map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
 
-    </script>
+        </script>
+
+    @endif
+
 
     @foreach($product_review as $key => $value)
         <script type="text/javascript">

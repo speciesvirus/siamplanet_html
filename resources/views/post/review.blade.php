@@ -366,6 +366,15 @@
 
         });
 
+        function _inValid($check) {
+
+            if($check){
+                alert('โปรดใส่ข้อมูลให้ครบถ้วน.');
+                _loading(false);
+            }
+
+            return $check;
+        }
 
 
         var form = $("#post-form");
@@ -373,6 +382,7 @@
         form.submit(function (e) {
             e.preventDefault();
 
+            _loading(true);
             arrFacility = [];
             $('.form-group').removeClass('has-error').find('span.help-inline').html('');
             $('#file-upload-form').parents('.form-group').removeClass('has-error').find('span.help-inline').html('');
@@ -389,7 +399,7 @@
                 {
 
                     pushProject(inputProjectValidate());
-
+                    var $return = false;
                     var $value = $('#id_label_multiple').val();
                     if($value != null){
                         $value = $value.toString();
@@ -400,6 +410,21 @@
                             arrFacility.push({id:value, file:$fac_file});
                         });
                     }
+
+                    for (var i = 0; i < tinymce.editors.length; i++)
+                    {
+                        //console.log("Editor id:", tinymce.editors[i].id);
+                        if(!tinymce.get(tinymce.editors[i].id).getContent().trim()){
+                            $('#'+tinymce.editors[i].id).parents('.form-group').addClass('has-error').find('span.help-inline').html('The content field is required.');
+                            $return = true;
+                        }
+                    }
+                    if(arrImage.length < 1){
+                        $('#file-upload-form').parents('.form-group').addClass('has-error').find('span.help-inline').html('image is required');
+                        $return = true;
+                    }
+
+                    if(_inValid($return)) return false;
 
                     uploadFiles();
 
@@ -412,25 +437,25 @@
                         $('input[name="'+key+'"]').parents('.form-group').addClass('has-error').find('span.help-inline').html(value);
                     });
 
+                    for (var i = 0; i < tinymce.editors.length; i++)
+                    {
+                        //console.log("Editor id:", tinymce.editors[i].id);
+                        if(!tinymce.get(tinymce.editors[i].id).getContent().trim()){
+                            $('#'+tinymce.editors[i].id).parents('.form-group').addClass('has-error').find('span.help-inline').html('The content field is required.');
+                        }
+                    }
+                    if(arrImage.length < 1){
+                        $('#file-upload-form').parents('.form-group').addClass('has-error').find('span.help-inline').html('image is required');
+                    }
+
                     pushProject(inputProjectValidate());
 
-
-
+                    return _inValid(true);
                 }
             });
 
 
-            for (var i = 0; i < tinymce.editors.length; i++)
-            {
-                //console.log("Editor id:", tinymce.editors[i].id);
-                if(!tinymce.get(tinymce.editors[i].id).getContent().trim()){
-                    $('#'+tinymce.editors[i].id).parents('.form-group').addClass('has-error').find('span.help-inline').html('The content field is required.');
-                }
-            }
-            if(arrImage.length < 1){
-                $('#file-upload-form').parents('.form-group').addClass('has-error').find('span.help-inline').html('image is required');
-                return false;
-            }
+
 
         });
         
@@ -525,6 +550,7 @@
                 },
                 error   : function ( jqXhr, json, errorThrown ){
                     console.log(jqXhr);
+                    alert("พบข้อบกพร่องของระบบ : 'กรุณาติดต่อทีมงาน'");
                 }
             });
         }
@@ -572,8 +598,9 @@
                 },
                 success : function ( json )
                 {
-                    console.log('result : ', json);
-
+                    //console.log('result : ', json);
+                    if(json.code != 0) alert(json.message);
+                    else window.location.href = '{{ route('product') }}'+'/'+json.product;
                 },
                 error   : function ( jqXhr, json, errorThrown )
                 {
@@ -584,7 +611,7 @@
                     //     $('input[name="'+key+'"]').parents('.form-group').addClass('has-error').find('span.help-inline').html(value);
                     // });
                     console.log(jqXhr);
-
+                    alert("พบข้อบกพร่องของระบบ : 'กรุณาติดต่อทีมงาน'");
                 }
             });
 
@@ -638,7 +665,7 @@
                     }
                 }
 //                image.url = $marker_url;
-                placeMarkerAndPanTo(e.latLng, map, 1);
+                placeMarkerAndPanTo(e.latLng, map, 1, $('input[name="topic"]').val());
                 arrArea.push({id : $point[0], key : 1, name : null, distance : 0, lat : e.latLng.lat(), lng : e.latLng.lng()});
 
                 //!* find province name
@@ -723,7 +750,7 @@
 
                                         var $distance = el['elements'][j]['distance']['value'];
 //                                        image.url = "http://www.freeiconspng.com/uploads/red-location-icon-map-png-4.png";
-                                        placeMarkerAndPanTo(e.latLng, map, uniqueId);
+                                        placeMarkerAndPanTo(e.latLng, map, uniqueId, retVal);
                                         arrArea.push({id : $point[0], key : uniqueId, name : retVal, distance : $distance, lat : e.latLng.lat(), lng : e.latLng.lng()});
                                         uniqueId++;
 
@@ -788,7 +815,7 @@
 
         }
 
-        function placeMarkerAndPanTo(latLng, map, key) {
+        function placeMarkerAndPanTo(latLng, map, key, name) {
             // var marker = new google.maps.Marker({
             //   position: latLng,
             //   map: map,
@@ -811,8 +838,7 @@
 
             //Attach click event handler to the marker.
             google.maps.event.addListener(marker, "click", function (e) {
-                var content = 'Latitude: ' + location.lat() + '<br />Longitude: ' + location.lng();
-                content += "<br /><input type = 'button' value = 'Delete' onclick = 'DeleteMarker(" + marker.id + ");' value = 'Delete' />";
+                var content = "<p>" + name + " : <a href='javascript:DeleteMarker(" + marker.id + ")'>ลบคลิก</a></p>";
                 var infoWindow = new google.maps.InfoWindow({
                     content: content
                 });

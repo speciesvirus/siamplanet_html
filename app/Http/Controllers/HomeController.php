@@ -157,7 +157,7 @@ class HomeController extends Controller
             $facility = ProductProductFacility::selectOnProduct($p->id);
             $image = ProductImage::selectOnProduct($p->id);
             $area = ProductProductArea::selectOnProduct($p->id);
-//dd($product);
+//dd($area);
 
             $param = [
                 'product' => $product[0]['attributes'],

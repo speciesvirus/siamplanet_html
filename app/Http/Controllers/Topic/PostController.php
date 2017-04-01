@@ -19,6 +19,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 
 class PostController extends Controller
@@ -57,6 +58,25 @@ class PostController extends Controller
     public function image(Request $request)
     {
 
+//        $destinationPath = resource_path('images/');
+//        $input = $request->except('_token');
+//        $image_encrypted = [];
+//
+//        foreach ($input as $key => $value) {
+//            $file = $request->file($key);
+//            $filename = null;
+//            if($file){
+//                $filename = $file->getClientOriginalName();
+//                $filename = $this->getImageName($filename);
+//                $upload_success = $file->move($destinationPath, $filename);
+//            }
+//            array_push($image_encrypted, ['index' => $key, 'name' => $filename]);
+//        }
+//
+//        return response()->json(['images' => $image_encrypted] , 200);
+
+
+
         $destinationPath = resource_path('images/');
         $input = $request->except('_token');
         $image_encrypted = [];
@@ -66,11 +86,19 @@ class PostController extends Controller
             $filename = null;
             if($file){
                 $filename = $file->getClientOriginalName();
+                $img = Image::make($file->getRealPath());
+
                 $filename = $this->getImageName($filename);
-                $upload_success = $file->move($destinationPath, $filename);
+                $img->resize(100, 100, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath.$filename);
+
+//                $filename = $this->getImageName($filename);
+//                $upload_success = $file->move($destinationPath, $filename);
             }
             array_push($image_encrypted, ['index' => $key, 'name' => $filename]);
         }
+
 
         return response()->json(['images' => $image_encrypted] , 200);
 
@@ -146,7 +174,10 @@ class PostController extends Controller
         $product->tag()->save($tag);
 
         $arrFile = $request->input('arrFile');
-        if(!$arrFile) return response()->json("Image not found!" , 200);
+        if(!$arrFile) {
+            $product->delete();
+            return response()->json(["code" => "-1", "message" => "Image not found!"], 200);
+        }
 
         foreach ($arrFile as $key => $value) {
             $sort = ( $key + 1 );
@@ -205,7 +236,7 @@ class PostController extends Controller
             }
         }
 
-        return response()->json("success." , 200);
+        return response()->json(["code" => "0", "message" => "success.", "product" => $product->id] , 200);
         //return response()->json($aa , 200);
 
 
@@ -235,7 +266,7 @@ class PostController extends Controller
             'size_unit'          => 'required',
             'price'              => 'required|numeric',
 //            'pimg1'              => 'required|image|nullable',
-            'content'            => 'required|min:6',
+//            'content'            => 'required|min:6',
             'seller'             => 'required',
             'phone'              => 'required|numeric|min:9|digits_between:9,10',
         ];
@@ -252,8 +283,8 @@ class PostController extends Controller
             'size_unit.required'  => 'size unit is required',
             'price.required'      => 'price is required',
             'price.numeric'       => 'sale need to have numeric',
-            'content.required'    => 'content is required',
-            'content.min'         => 'content needs to have more characters',
+//            'content.required'    => 'content is required',
+//            'content.min'         => 'content needs to have more characters',
         ];
 
         return $this->validate($data, $rules, $messages);
@@ -269,7 +300,7 @@ class PostController extends Controller
             'size'               => 'required|numeric',
             'size_unit'          => 'required',
             'price'              => 'required|numeric',
-            'content'            => 'required|min:6',
+            //'content'            => 'required|min:6',
             'seller'             => 'required',
             'phone'              => 'required|numeric|min:9|digits_between:9,10',
         ];
@@ -286,8 +317,8 @@ class PostController extends Controller
             'size_unit.required'  => 'size unit is required',
             'price.required'      => 'price is required',
             'price.numeric'       => 'sale need to have numeric',
-            'content.required'    => 'content is required',
-            'content.min'         => 'content needs to have more characters',
+//            'content.required'    => 'content is required',
+//            'content.min'         => 'content needs to have more characters',
         ];
 
         return response()->json($this->validate($request, $rules, $messages), 200);
