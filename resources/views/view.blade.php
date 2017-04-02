@@ -110,6 +110,32 @@
         });
 
 
+        $( window ).resize(function() {
+            init();
+        });
+
+        $(function () {
+            init();
+        });
+
+        function init() {
+            var $this = $(window),
+                $width = $this.width();
+
+            if($width <= 749){
+                var value = $width - 30;
+                var valueHeight = Math.round((value/16)*9);
+                var styles = {
+                    width : value,
+                    height: valueHeight,
+                    margin: '0 auto'
+                };
+                $('.project-screen .slick-slide img').css(styles);
+            }else{
+                $('.project-screen .slick-slide img').removeAttr( 'style' );
+            }
+        }
+
     </script>
 
     <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
@@ -930,24 +956,7 @@
         </div>
         
         <div class="bs-docs-section social-section">
-            <ul class="social">
-                <li class="social-twitter">
-                  <a href="http://twitter.com" title="Twitter" target="_blank"><i class="fa fa-twitter icon-2x" aria-hidden="true">&nbsp;</i></a>
-                </li>
-                <li class="social-facebook">
-                  <a href="http://www.facebook.com" title="Facebook" target="_blank"><i class="fa fa-facebook icon-2x">&nbsp;</i></a></li>
-                <li class="social-pinterest">
-                  <a href="http://www.pinterest.com" title="Pinterest" target="_blank"><i class="fa fa-pinterest-p icon-2x">&nbsp;</i>
-                  </a>
-                </li>
-                <li class="social-google">
-                  <a href="http://www.youtube.com" title="Google+" target="_blank"><i class="fa fa-google-plus icon-2x">&nbsp;</i></a>
-                 </li>
-                <li class="social-linkedin">
-                  <a href="http://www.pinterest.com" title="Pinterest" target="_blank"><i class="fa fa-linkedin icon-2x">&nbsp;</i>
-                  </a>
-                </li>
-            </ul>
+            @include('_partials.social-share')
         </div>
 
         <div class="bs-docs-section fb-comments-section">

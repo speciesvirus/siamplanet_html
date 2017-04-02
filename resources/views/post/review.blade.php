@@ -93,8 +93,7 @@
 
                 // Process all File objects
                 for (var i = 0, f; f = files[i]; i++) {
-                    parseFile(f);
-                    uploadFile(f);
+                    if(uploadFile(f)) parseFile(f);
                 }
             }
 
@@ -178,13 +177,14 @@
             // }
 
             function uploadFile(file) {
-
+                var size = false;
                 var xhr = new XMLHttpRequest(),
                     // pBar = document.getElementById('file-progress'),
-                    fileSizeLimit = 1024; // In MB
+                    fileSizeLimit = 1; // In MB
                 if (xhr.upload) {
                     // Check if file is less than x MB
                     if (file.size <= fileSizeLimit * 1024 * 1024) {
+                        size = true;
                         // Progress bar
                         // pBar.style.display = 'inline';
                         // xhr.upload.addEventListener('loadstart', setProgressMaxValue, false);
@@ -207,9 +207,11 @@
                         // xhr.setRequestHeader('Content-Type', 'multipart/form-data');
                         // xhr.send(file);
                     } else {
-                        output('Please upload a smaller file (< ' + fileSizeLimit + ' MB).');
+                        alert('Please upload a smaller file (< ' + fileSizeLimit + ' MB).')
+//                        output('Please upload a smaller file (< ' + fileSizeLimit + ' MB).');
                     }
                 }
+                return size;
             }
 
             // Check for the various File API support.

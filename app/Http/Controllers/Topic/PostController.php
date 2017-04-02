@@ -89,9 +89,10 @@ class PostController extends Controller
                 $img = Image::make($file->getRealPath());
 
                 $filename = $this->getImageName($filename);
-                $img->resize(100, 100, function ($constraint) {
+                $img->resize(848, 452, function ($constraint) {
                     $constraint->aspectRatio();
-                })->save($destinationPath.$filename);
+                })->save($destinationPath.$filename, 85);
+                $img->destroy();
 
 //                $filename = $this->getImageName($filename);
 //                $upload_success = $file->move($destinationPath, $filename);

@@ -178,6 +178,14 @@ class HomeController extends Controller
                 return view('review', $param);
             }
 
+
+            //!* social
+            $param['social'] = collect([
+                'thumbnails' => route('images.q').'?q='.$image[0]->image,
+                'title' => $product[0]->title,
+                'des' => $product[0]->subtitle,
+            ]);
+            //dd($param);
             return view('view', $param);
         }
 

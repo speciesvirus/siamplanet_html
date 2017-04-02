@@ -19,9 +19,31 @@
 
 .slick-slide img {
     margin: auto;
-    max-height: 395px;
+    max-height: 384px;
+
+}
+@media (min-width: 768px){
+    .slick-slide img {
+        /*width: 720px;*/
+        max-height: 384px;
+    }
+}
+@media (min-width: 992px){
+    .slick-slide img {
+        max-height: 372px;
+    }
+}
+@media (min-width: 1200px){
+    .slick-slide img {
+        max-height: 100%;
+    }
+
+
 }
 
+
+
+/*max-height: 372px;*/
 .project-strip {
     padding: 15px 15px 10px;
     height: 80px !important;
