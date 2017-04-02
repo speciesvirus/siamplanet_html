@@ -14,7 +14,7 @@
                     <a href="{{ route('auth.logout') }}" rel="nofollow">Sign Out</a>
                 </div>
                 <ul class="flyout-quick-entry" data-role="quick-entry">
-                    <li><a href="{{ route('user.home') }}" rel="nofollow">My Account</a></li>
+                    <li><a href="{{ route('user.home') }}" rel="nofollow">ข้อมูลส่วนตัว</a></li>
                     <li><a href="{{ route('post.product') }}" rel="nofollow">ลงประกาศ</a></li>
                     <li><a href="{{ route('post.review') }}" rel="nofollow">ลงประกาศรีวิว</a></li>
                     <li><a href="{{ route('news') }}" rel="nofollow">ข่าว</a></li>

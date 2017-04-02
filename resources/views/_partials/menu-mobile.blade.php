@@ -13,7 +13,7 @@
             <div class="fly-side-wrap">
                 <ul class="fly-bottom-soc left relative">
                     <li class="fb-soc">
-                        <a href="http://www.facebook.com/envato" target="_blank">
+                        <a href="https://www.facebook.com/nainamofficial/" target="_blank">
                             <i class="fa fa-facebook-square fa-2"></i>
                         </a>
                     </li>
@@ -33,7 +33,7 @@
                         </a>
                     </li>
                     <li class="goog-soc">
-                        <a href="https://plus.google.com/+envato/posts" target="_blank">
+                        <a href="https://plus.google.com/u/0/communities/104195046153097388094" target="_blank">
                             <i class="fa fa-google-plus fa-2"></i>
                         </a>
                     </li>
@@ -62,32 +62,18 @@
         </div>
         <ul class="nav navbar-nav">
 
-            <li class="">
-                <a href="/รวมประกาศขาย" title="ประกาศขายอสังหาริมทรัพย์ในประเทศไทย" class="main-nav-a">ขาย</a>
-            </li>
-            <li class="">
-                <a href="/รวมประกาศให้เช่า" title="ประกาศเช่าอสังหาริมทรัพย์ในประเทศไทย"
-                   class="main-nav-a">เช่า</a>
-            </li>
-            <li class="">
-                <a href="/โครงการ-คอนโด" title="คอนโดในประเทศไทย" class="main-nav-a">โครงการคอนโด</a>
-            </li>
-            <li class="">
-                <a href="/รวมโครงการใหม่" title="โครงการใหม่ในประเทศไทย" class="main-nav-a">โครงการใหม่</a>
-            </li>
-            <li class="">
-                <a href="/อสังหาฯ-เชิงพาณิชย์" title="อสังหาริมทรัพย์เชิงพาณิชย์"
-                   class="main-nav-a">เชิงพาณิชย์</a>
-            </li>
-            <li class="">
-                <a href="/ข่าวอสังหาริมทรัพย์-บทความ" title="ข้อมูลตลาดอสังหาริมทรัพย์ในประเทศไทย"
-                   class="main-nav-a">ข่าว</a>
-            </li>
+            <li><a class="main-nav-a" href="{{ route('post') }}">ลงประกาศ <span class="yellow">ฟรี!</span></a></li>
+            <li><a class="main-nav-a" href="{{ route('home') }}?type=ที่ดิน">ที่ดิน</a></li>
+            <li><a class="main-nav-a" href="{{ route('home') }}?type=บ้าน">บ้าน</a></li>
+            <li><a class="main-nav-a" href="{{ route('home') }}?type=คอนโด">คอนโด</a></li>
+            <li><a class="main-nav-a" href="{{ route('news') }}" title="ข้อมูลตลาดอสังหาริมทรัพย์ในประเทศไทย">ข่าว</a></li>
 
             @if(Auth()->check())
-                <li class="li-section li-user">{{ Auth::user()->first_name }}</li>
-                <li class=""><a href="javascript://">ข้อมูลส่วนตัว</a></li>
+                <li class="li-section li-user">Hi, {{ Auth::user()->first_name }}</li>
+                <li class=""><a href="{{ route('user.home') }}">ข้อมูลส่วนตัว</a></li>
                 <li><a href="{{ route('auth.logout') }}" class="">ออกระบบ</a></li>
+            @else
+                <li><a href="{{ route('login') }}" class="li-section li-user">เข้าสู่ระบบ</a></li>
             @endif
 
         </ul>

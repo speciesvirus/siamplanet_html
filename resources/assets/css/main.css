@@ -217,9 +217,9 @@ h1#header {
     cursor: pointer;
     display: inline-block;
     font-size: 5px;
-    height: 4em;
+    height: 35px;
     position: relative;
-    width: 4em;
+    width: 3em;
     -webkit-tap-highlight-color: transparent;
     -moz-transition: all 200ms ease-in-out;
     -o-transition: all 200ms ease-in-out;
@@ -234,7 +234,7 @@ h1#header {
     -webkit-border-radius: 2em;
     border-radius: 2em;
     backface-visibility: hidden;
-    height: 0.8em;
+    height: 0.3em;
     position: absolute;
     -moz-transition: all 200ms ease-in-out;
     -o-transition: all 200ms ease-in-out;
@@ -254,11 +254,11 @@ h1#header {
 }
 
 .menu1 span:nth-child(2) {
-    top: 2.2em;
+    top: 1.8em;
 }
 
 .menu1 span:nth-child(3) {
-    top: 3.4em;
+    top: 2.6em;
 }
 
 .menu1.open span:nth-child(1) {
@@ -277,17 +277,19 @@ h1#header {
 }
 
 .menu1.open span:nth-child(3) {
-    -moz-transform: rotate(-40deg) translate(0.8em, -0.8em);
-    -ms-transform: rotate(-40deg) translate(0.8em, -0.8em);
-    -webkit-transform: rotate(-40deg) translate(0.8em, -0.8em);
-    transform: rotate(-40deg) translate(0.8em, -0.8em);
+    -moz-transform: rotate(-40deg) translate(0.3em, -0.3em);
+    -ms-transform: rotate(-40deg) translate(0.3em, -0.3em);
+    -webkit-transform: rotate(-40deg) translate(0.3em, -0.3em);
+    transform: rotate(-40deg) translate(0.3em, -0.3em);
 }
-
-/*!
- * Animated navicon credit to @hugo - http://codepen.io/hugo/pen/LmJsf
- * My fork (attached as an external resource):
- * http://codepen.io/jreece/pen/fIdqg
-*/
+.menu1.open{
+    height: 40px;
+}
+    /*!
+     * Animated navicon credit to @hugo - http://codepen.io/hugo/pen/LmJsf
+     * My fork (attached as an external resource):
+     * http://codepen.io/jreece/pen/fIdqg
+    */
 .menu {
     position: fixed;
     overflow-y: auto;

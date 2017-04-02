@@ -32,6 +32,11 @@ class ComposerServiceProvider extends ServiceProvider
             , 'App\Http\ViewComposers\ProductComposer'
         );
 
+        View::composer(
+            ['news.category', 'news.view']
+            , 'App\Http\ViewComposers\NewsComposer'
+        );
+
         // Using Closure based composers...
         View::composer('*', function ($view) {
 

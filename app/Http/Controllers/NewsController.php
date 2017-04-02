@@ -41,7 +41,16 @@ class NewsController extends Controller
             $news->view = $view;
             $news->save();
 
-            return view('news.view', ['news' => $news]);
+            $param = [
+                'news' => $news,
+                'social' => collect([
+                    'thumbnails' => route('images.q').'?q='.$news->image,
+                    'title' => $news->title,
+                    'des' => $news->subtitle,
+                ])
+            ];
+
+            return view('news.view', $param);
         }
 
         return redirect()->route('news');
