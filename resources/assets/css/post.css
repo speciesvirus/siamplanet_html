@@ -606,18 +606,18 @@
     font-size: 1.2em;
 }
 /* Social Page Buttons */
-ul.social {
+ul.social-share {
   list-style-type: none;
 }
 
-ul.social li {
+ul.social-share li {
   display: inline-block;
   margin: 0 .25em;
   vertical-align:  top;
   text-align: center;
 }
 
-ul.social li a {
+ul.social-share li a {
   /*color: #222222 !important;*/
   color: #fff;
   /*background: #292929;*/
@@ -638,7 +638,7 @@ ul.social li a {
   transition: background 0.15s ease-in-out, color 0.25s ease-in-out;
 }
 
-ul.social li a:hover {
+ul.social-share li a:hover {
   background: #252525;
   -o-transition: background 0.15s ease-in-out;
   -webkit-transition: background 0.15s ease-in-out, color 0.25s ease-in-out;
@@ -646,51 +646,51 @@ ul.social li a:hover {
   transition: background 0.15s ease-in-out,    color 0.25s ease-in-out;
 }
 
-ul.social li a, ul.social-list li a i {
+ul.social-share li a, ul.social-list li a i {
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1), -1px -1px 1px rgba(0, 0, 0, 0.7) !important;
 }
 
-ul.social li a:hover, ul.social-list li a i:hover {
+ul.social-share li a:hover, ul.social-list li a i:hover {
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1), -1px -1px 1px rgba(0, 0, 0, 0.7) !important;
 }
 
-ul.social li.social-twitter a {
+ul.social-share li.social-twitter a {
   /*padding: 15px 0px 0px 10px;*/
 }
 
-ul.social li.social-twitter a:hover {
+ul.social-share li.social-twitter a:hover {
   color: #39A9D9 !important;
 }
 
-ul.social li.social-facebook a {
+ul.social-share li.social-facebook a {
   /*padding: 14px 9px 0px 16px;*/
 }
 
-ul.social li.social-facebook a:hover {
+ul.social-share li.social-facebook a:hover {
   color: #4148C7 !important;
 }
 
-ul.social li.social-pinterest a {
+ul.social-share li.social-pinterest a {
   /*padding: 14px 9px 0px 16px;*/
 }
 
-ul.social li.social-pinterest a:hover {
+ul.social-share li.social-pinterest a:hover {
   color: #B33434 !important;
 }
 
-ul.social li.social-google a {
+ul.social-share li.social-google a {
   padding: 9px 9px 0px 8px;
 }
 
-ul.social li.social-google a:hover {
+ul.social-share li.social-google a:hover {
   color: #E74736 !important;
 }
 
-ul.social li.social-linkedin a {
+ul.social-share li.social-linkedin a {
     padding: 9px 6px 0px 10px;
 }
 
-ul.social li.social-linkedin a:hover {
+ul.social-share li.social-linkedin a:hover {
   color: #1d87be !important;
 }
 

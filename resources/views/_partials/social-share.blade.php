@@ -1,4 +1,4 @@
-<ul class="social">
+<ul class="social-share">
     <li class="social-twitter">
         <a href="https://twitter.com/intent/tweet?text={{ $social['title'] }}&url={{ request()->url() }}"
            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,height=420,width=550');return false;"

@@ -220,6 +220,8 @@
 
         @include('_partials.facebook-page')
 
+        @include('_partials.social-follow')
+        
     </div>
 
 @stop

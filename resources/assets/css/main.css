@@ -2352,3 +2352,94 @@ html.loading{
 .maia-article p{
     margin: 0 0 10px;
 }
+
+
+
+
+/* Social Page Buttons */
+ul.social-follow {
+  list-style-type: none;
+  margin: 15px 0;
+  font-size: 15px;
+}
+
+ul.social-follow li {
+  display: inline-block;
+  margin: 0 .25em;
+  vertical-align:  top;
+}
+
+ul.social-follow li a {
+  color: #222222 !important;
+  /*background: #292929;*/
+  display: block;
+  padding: 12px 9px 0px 9px;
+width: 30px;
+height: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  /*-moz-box-shadow: inset 1px 1px 3px #222,  1px 1px 3px #393939;*/
+  /*-ms-box-shadow: inset 1px 1px 3px #222,  1px 1px 3px #393939;*/
+  /*box-shadow: inset 1px 1px 3px #222,  1px 1px 3px #393939;*/
+  -o-transition: background 0.25s ease-in-out;
+  -webkit-transition: background 0.15s ease-in-out, color 0.25s ease-in-out;
+  -moz-transition: background 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out, color 0.25s ease-in-out;
+}
+
+ul.social-follow li a:hover {
+  /*background: #252525;*/
+  -o-transition: background 0.15s ease-in-out;
+  -webkit-transition: background 0.15s ease-in-out, color 0.25s ease-in-out;
+  -moz-transition: background 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out,    color 0.25s ease-in-out;
+}
+
+ul.social-follow li a, ul.social-list li a i {
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1), -1px -1px 1px rgba(0, 0, 0, 0.7) !important;
+}
+
+ul.social-follow li a:hover, ul.social-list li a i:hover {
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1), -1px -1px 1px rgba(0, 0, 0, 0.7) !important;
+}
+
+ul.social-follow li.social-twitter a {
+  padding: 6px 0px 0px 10px;
+}
+
+ul.social-follow li.social-twitter a:hover {
+  color: #39A9D9 !important;
+}
+
+ul.social-follow li.social-facebook a {
+  padding: 6px 9px 0px 11px;
+}
+
+ul.social-follow li.social-facebook a:hover {
+  color: #4148C7 !important;
+}
+
+ul.social-follow li.social-pinterest a {
+  padding: 6px 9px 0px 11px;
+}
+
+ul.social-follow li.social-pinterest a:hover {
+  color: #B33434 !important;
+}
+
+ul.social-follow li.social-google a {
+  padding: 6px 9px 0px 8px;
+}
+
+ul.social-follow li.social-google a:hover {
+  color: #E74736 !important;
+}
+
+ul.social-follow li.social-linkedin a {
+    padding: 5px 6px 0px 10px;
+}
+
+ul.social-follow li.social-linkedin a:hover {
+  color: #1d87be !important;
+}
