@@ -6,3 +6,5 @@
                     href="https://www.facebook.com/nainamofficial/">Nainam</a></blockquote>
     </div>
 </div>
+
+@include('_partials.social-follow')

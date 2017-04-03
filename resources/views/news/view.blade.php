@@ -96,8 +96,7 @@
                         <li>
                             <a href="{{ route('news.view').'/'.$value->id }}" rel="bookmark">
                                 <div class="row-widget-img left relative">
-                                    <img width="300" height="180"
-                                         src="{{ route('images.q').'?q='.$value->image }}"
+                                    <img src="{{ route('images.q').'?q='.$value->image }}"
                                          class="reg-img wp-post-image" alt="">
                                     <div class="feat-info-wrap">
                                         <div class="feat-info-views">

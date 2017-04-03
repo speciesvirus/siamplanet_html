@@ -324,7 +324,7 @@
                 <div class="container">
                     <div class="info clearfix">
                         <div class="picture">
-                            <img src="{!! str_replace('https:', '', $user_avatar) !!}">
+                            <img src="{!! str_replace('https:', 'http:', $user_avatar) !!}">
                             <div class="fbTimelineProfilePicSelector _23fv">
                                 <div class="_156n _23fw" data-ft="{&quot;tn&quot;:&quot;+B&quot;}">
                                     <a class="_156p" href="#" rel="dialog" role="button" id="u_jsonp_2_9">

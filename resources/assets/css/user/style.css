@@ -116,13 +116,21 @@ body {
 		margin-bottom: 75px;
 	}
 	.footer {
-		height: 65px;
+		height: 150px;
+		line-height: 25px;
+		padding-top: 98px;
 	}
 	.footer div div{
 		text-align: center;
 	}
 	#fsr {
-		 float: none;
+		float: none;
+	}
+	.footer .ft-m-h{
+		display: none;
+	}
+	.footer .ft-m-s{
+		display: block;
 	}
 }
 

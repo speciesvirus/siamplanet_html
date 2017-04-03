@@ -210,9 +210,9 @@ h1#header {
     cursor: pointer;
     display: inline-block;
     font-size: 5px;
-    height: 4em;
+    height: 35px;
     position: relative;
-    width: 4em;
+    width: 25px;
     -webkit-tap-highlight-color: transparent;
     -moz-transition: all 200ms ease-in-out;
     -o-transition: all 200ms ease-in-out;
@@ -222,12 +222,12 @@ h1#header {
 
 .menu1 span, .menu2 span, .menu3 span, .menu4 span, .menu5 span, .menu6 span {
     display: block;
-    background: #fff;
+    background: #003561;
     -moz-border-radius: 2em;
     -webkit-border-radius: 2em;
     border-radius: 2em;
     backface-visibility: hidden;
-    height: 0.8em;
+    height: 2px;
     position: absolute;
     -moz-transition: all 200ms ease-in-out;
     -o-transition: all 200ms ease-in-out;
@@ -243,22 +243,22 @@ h1#header {
 }
 
 .menu1 span:nth-child(1) {
-    top: 1em;
+    top: 13px;
 }
 
 .menu1 span:nth-child(2) {
-    top: 2.2em;
+    top: 19px;
 }
 
 .menu1 span:nth-child(3) {
-    top: 3.4em;
+    top: 25px;
 }
 
 .menu1.open span:nth-child(1) {
-    -moz-transform: rotate(40deg) translate(0.9em, 0.9em);
-    -ms-transform: rotate(40deg) translate(0.9em, 0.9em);
-    -webkit-transform: rotate(40deg) translate(0.9em, 0.9em);
-    transform: rotate(40deg) translate(0.9em, 0.9em);
+    -moz-transform: rotate(40deg) translate(2px, 8px);
+    -ms-transform: rotate(40deg) translate(2px, 8px);
+    -webkit-transform: rotate(40deg) translate(2px, 8px);
+    transform: rotate(40deg) translate(2px, 8px);
 }
 
 .menu1.open span:nth-child(2) {
@@ -270,12 +270,14 @@ h1#header {
 }
 
 .menu1.open span:nth-child(3) {
-    -moz-transform: rotate(-40deg) translate(0.8em, -0.8em);
-    -ms-transform: rotate(-40deg) translate(0.8em, -0.8em);
-    -webkit-transform: rotate(-40deg) translate(0.8em, -0.8em);
-    transform: rotate(-40deg) translate(0.8em, -0.8em);
+    -moz-transform: rotate(-40deg) translate(0, -6px);
+    -ms-transform: rotate(-40deg) translate(0, -6px);
+    -webkit-transform: rotate(-40deg) translate(0, -6px);
+    transform: rotate(-40deg) translate(0, -6px);
 }
-
+.menu1.open{
+    height: 40px;
+}
 /*!
  * Animated navicon credit to @hugo - http://codepen.io/hugo/pen/LmJsf
  * My fork (attached as an external resource):
@@ -370,6 +372,7 @@ h1#header {
 
 #main-nav .container .navigation, #main-nav .container .toggle-menu-container {
     display: none;
+    margin-top: 3px;
 }
 .navbar-nav {
     -webkit-backface-visibility: hidden;
@@ -472,6 +475,7 @@ ul.fly-bottom-soc li.rss-soc a:hover {
     #main-nav .container .toggle-menu-container {
         display: table-cell;
         vertical-align: middle;
+        float: right;
     }
     .navbar-nav > li.li-user{
         padding: 10px 0;

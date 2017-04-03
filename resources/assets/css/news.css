@@ -19,6 +19,7 @@
 }
 #feat-top-wrap .feat-wide5-main {
     height: 370px;
+    margin-bottom: 1px;
 }
 @media screen and (max-width: 768px) {
     #feat-top-wrap .feat-wide5-main, #feat-wide-wrap .feat-wide5-main {
@@ -144,6 +145,7 @@ ul.row-widget-list li {
     overflow: hidden;
     position: relative;
     width: 100%;
+    min-height: 150px;
 }
 .row-widget-text {
     float: left;
@@ -292,3 +294,18 @@ span.feat-caption {
     width: 30%;
 }
 a:hover {color: #C03;}
+
+
+@media screen and (max-width: 398px) {
+    ul.row-widget-list {
+        float: left;
+        margin-left: inherit;
+        width: 100%;
+    }
+    ul.row-widget-list li {
+        float: left;
+        margin-left: inherit;
+        margin-bottom: 25px;
+        width: 100%;
+    }
+}

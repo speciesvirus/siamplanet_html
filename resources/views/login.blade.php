@@ -62,9 +62,9 @@
 
             <div class="div-join">
 
-                <h1 class="top-header">Join</h1>
 
                 <form id="girisyap" name="signup_form" method="post"  action="{{ route('join') }}">
+                    <h1 class="top-header">Join</h1>
                     {{ csrf_field() }}
                     <div>
                         <div class="col-md-6">

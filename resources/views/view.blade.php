@@ -136,6 +136,40 @@
             }
         }
 
+
+        $(document).on('click', '#submit-notice', function () {
+
+            var $value = $('input[name="_notice"]:checked').val(),
+                $id = $(this).data('id');
+            if (confirm("คุณต้องการแจ้งหรือไม่!")) {
+                $.ajax({
+                    url     : "{{ route('update.product') }}",
+                    type    : 'post',
+                    data : {
+                        productId : $id,
+                        status : $value
+                    },
+                    dataType: "json",
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    success : function ( json )
+                    {
+                        alert(json.result);
+                        _loading(false);
+                        $('.dialog-content').removeClass('bgw').html(_loadingHTML());
+                    },
+                    error   : function ( jqXhr, json, errorThrown )
+                    {
+                        var errors = jqXhr.responseJSON;
+                        console.log(errors);
+                    }
+                });
+            }
+
+
+        });
+
     </script>
 
     <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
@@ -597,7 +631,7 @@
     <div class="col-md-9">
 
         <h1 class="entry-title">{{ $product['subtitle'] }}</h1>
-
+        <a class="product-notice" data-id="{{ $product['id'] }}" href="javascript://">แจ้งประกาศไม่เหมาะสม</a>
         <div class="section section-project">
             <div class="project-carousel">
 
@@ -833,15 +867,17 @@
             <div class="bs-docs-section map-section">
                 <h2>พื้นที่รอบข้าง</h2>
                 <div class="map-section-container">
+                    <div id="map"></div>
+                    <div id="cd-zoom-in"></div>
+                    <div id="cd-zoom-out"></div>
                     <div class="map-legend" id="map-legend">
                         <ul>
 
                         </ul>
                     </div>
-                    <div id="map"></div>
-                    <div id="cd-zoom-in"></div>
-                    <div id="cd-zoom-out"></div>
                 </div>
+
+                <div class="clearfix"></div>
             </div>
         @endif
 

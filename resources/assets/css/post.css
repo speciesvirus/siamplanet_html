@@ -315,7 +315,7 @@
 .map-section {
     /*position: relative;*/
     /*height: 589px;*/
-    height: 389px;
+    /*height: 389px;*/
     position: relative;
     overflow: hidden;
 }
@@ -325,7 +325,7 @@
     top: 0;
     bottom: 0;
     width: calc(100% - 200px);
-    height: 92%;
+    height: 100%;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-right: none;
     -moz-border-radius-topleft: 5px;
@@ -361,7 +361,7 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     box-shadow: inset 1px 1px 0 white;
-    height: 92%;
+    height: 100%;
 }
 .map-legend > ul{
     margin: 0 auto;
@@ -933,6 +933,7 @@ height: 21px;
 .fc-input{
     position: relative;
     float: left;
+    margin-bottom: 25px;
 }
 .fc-d .control-label{
     text-align: left;
@@ -995,7 +996,8 @@ height: 21px;
     box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
     color: #fff;
     /*margin: 3em auto;*/
-    max-width: 60em;
+    max-width: 398px;
+    margin: 0 auto;
     padding: 1em;
 
     -webkit-transition: all 0.2s;
@@ -1022,7 +1024,11 @@ h2.entry-title {
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
 .post-des{
-    margin: 20px;
+    max-width: 398px;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 39px;
+
 }
 .post-des > ul{
     margin: 0 20px;
@@ -1149,3 +1155,69 @@ span.input-to{
 .listing-details-text table th:last-child {
     background: 0 0
 }
+
+
+
+.form-group-last{
+    margin-bottom: 35px;
+}
+#map {
+    position: relative;
+    padding-bottom: 55%;
+    height: 0;
+    overflow: hidden;
+}
+#map iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+@media screen and (max-width: 768px){
+    #map {
+        position: relative;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        /*border-right: inherit;*/
+        border-bottom: none;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+        -moz-border-radius-bottomleft: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 0;
+    }
+    .map-legend {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        padding: 10px 5px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        -moz-border-radius-topright: 0;
+        -moz-border-radius-bottomleft: 5px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 5px;
+        box-shadow: inset 1px 1px 0 white;
+        height: 100%;
+        max-height: 215px;
+    }
+}
+
+
+@media (max-width: 991px){
+    .l-m-3{
+        width: 100%;
+    }
+    .m-no-margin{
+        margin-bottom: 0;
+    }
+    .block-unit {
+        padding: 15px 15px 10px;
+    }
+}
+

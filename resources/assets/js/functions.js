@@ -193,10 +193,64 @@
     function _selectName($name) {
         return $search.find('select[name="'+ $name +'"]').val();
     }
-    
+
+
+
+    var $dc = $('.dialog-content'),
+        $notice = $('.product-notice');
+
+    $notice.click(function () {
+        var $product = $notice.data('id');
+        var $html = '<div class="funkyradio">'+
+            '<div class="funkyradio-danger">'+
+            '<input type="radio" name="_notice" id="radio1" value="F"/>'+
+            '<label for="radio1">เนื้อหาของประกาศไม่เป็นความจริง</label>'+
+            '</div>'+
+            '<div class="funkyradio-danger">'+
+            '<input type="radio" name="_notice" id="radio2" value="R"/>'+
+            '<label for="radio2">เนื้อหาของประกาศไม่เหมาะสม</label>'+
+            '</div>'+
+            '<div class="funkyradio-danger">'+
+            '<input type="radio" name="_notice" id="radio3" value="U"/>'+
+            '<label for="radio3">ข้อมูลผู้ประกาศไม่เป็นจริง</label>'+
+            '</div><br>'+
+            '<input type="submit" id="submit-notice" class="btn btn-primary" data-id="'+$product+'" value="แจ้งประกาศ">'+
+            '&nbsp'+
+            '<a href="#" class="btn btn-default close-dailog" role="button">ยกเลิก</a>'+
+            '</div>';
+        $('.dialog-content').addClass('bgw').html($html);
+        _loading(true);
+    });
+
+    $(document).on('click', '.close-dailog', function () {
+        _loading(false);
+        $('.dialog-content').removeClass('bgw').html('');
+        setTimeout(intoLoading(), 2000);
+
+    });
+
+    function intoLoading() {
+        $('.dialog-content').removeClass('bgw').html(_loadingHTML());
+    }
+
 })(jQuery);
 
 
+function _loadingHTML() {
+    var $loading = '<div class="loader">'+
+        '<ul class="hexagon-container">'+
+        '<li class="hexagon hex_1"></li>'+
+        '<li class="hexagon hex_2"></li>'+
+        '<li class="hexagon hex_3"></li>'+
+        '<li class="hexagon hex_4"></li>'+
+        '<li class="hexagon hex_5"></li>'+
+        '<li class="hexagon hex_6"></li>'+
+        '<li class="hexagon hex_7"></li>'+
+        '</ul>'+
+        '</div>';
+
+    return $loading;
+}
 //!* Loading
 function _btnLoading(t, e){
     var $html = '';

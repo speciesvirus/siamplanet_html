@@ -111,6 +111,66 @@
         });
 
 
+        $( window ).resize(function() {
+            init();
+        });
+
+        $(function () {
+            init();
+        });
+
+        function init() {
+            var $this = $(window),
+                $width = $this.width();
+
+            if($width <= 749){
+                var value = $width - 30;
+                var valueHeight = Math.round((value/16)*9);
+                var styles = {
+                    width : value,
+                    height: valueHeight,
+                    margin: '0 auto'
+                };
+                $('.project-screen .slick-slide img').css(styles);
+            }else{
+                $('.project-screen .slick-slide img').removeAttr( 'style' );
+            }
+        }
+
+
+        $(document).on('click', '#submit-notice', function () {
+
+            var $value = $('input[name="_notice"]:checked').val(),
+                $id = $(this).data('id');
+            if (confirm("คุณต้องการแจ้งหรือไม่!")) {
+                $.ajax({
+                    url     : "{{ route('update.product') }}",
+                    type    : 'post',
+                    data : {
+                        productId : $id,
+                        status : $value
+                    },
+                    dataType: "json",
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    success : function ( json )
+                    {
+                        alert(json.result);
+                        _loading(false);
+                        $('.dialog-content').removeClass('bgw').html(_loadingHTML());
+                    },
+                    error   : function ( jqXhr, json, errorThrown )
+                    {
+                        var errors = jqXhr.responseJSON;
+                        console.log(errors);
+                    }
+                });
+            }
+
+
+        });
+
     </script>
 
     <!--<link rel="stylesheet prefetch" href="//api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css">-->
@@ -760,7 +820,7 @@
 @section('first-content')
     <div class="col-md-9">
         <h1 class="entry-title">{{ $product['subtitle'] }}</h1>
-
+        <a class="product-notice" data-id="{{ $product['id'] }}" href="javascript://">แจ้งประกาศไม่เหมาะสม</a>
         <div class="section section-project">
             <div class="project-carousel">
 

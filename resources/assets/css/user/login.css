@@ -34,3 +34,50 @@ body{
 .side-content h1{
     color: #848596;
 }
+
+@media (max-width: 768px) {
+    .div-login, .div-login  {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .div-join {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .div-join > form {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .side-content {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 989px){
+    .wrapper {
+        margin-bottom: 75px;
+    }
+    .footer {
+        height: 60px;
+        line-height: 25px;
+        padding-top: 5px;
+    }
+    .footer div div{
+        text-align: center;
+    }
+    #fsr {
+        float: none;
+    }
+    .footer .ft-m-h{
+        display: none;
+    }
+    .footer .ft-m-s{
+        display: block;
+    }
+}
+@media (max-width: 991px){
+    .side-content {
+         padding-left: 0;
+    }
+}
