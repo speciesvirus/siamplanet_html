@@ -11,6 +11,11 @@ class UserMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    /**
+     * The order instance.
+     *
+     * @var Event
+     */
     public $event;
 
     /**
@@ -30,9 +35,12 @@ class UserMail extends Mailable
      */
     public function build()
     {
-        return $this->from('info@nainam.com', 'Your Application')
-            ->subject('Event Reminder')
+        return $this->from('info@nainam.com', 'Nainam')
+            ->subject('Hi '.$this->event['user']->first_name.'!, Please confirm your email address.')
             ->view('emails.user.activated')
-            ->with(['title' => $this->event]);
+            ->with([
+                'email' => $this->event['user']->email,
+                'token' => $this->event['user']->token
+            ]);
     }
 }

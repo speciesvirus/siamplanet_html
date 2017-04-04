@@ -2,20 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\User;
-use App\Mail\UserMail;
 use App\Models\Product\Product;
 use App\Models\Product\ProductImage;
 use App\Models\Product\ProductProductArea;
 use App\Models\Product\ProductProductFacility;
-use App\Models\Product\ProductProject;
-use App\Models\Product\ProductProjectImage;
 use App\Models\Product\ProductReview;
 use App\Models\Product\ProductReviewImage;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 
 class HomeController extends Controller
@@ -37,11 +32,6 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-
-        $to = ['chittapuu@gmail.com']; // Empty array
-
-        Mail::to($to)->send(new UserMail('5555'));
-
 //        $type = $request['type'];
 //        $cur_type = $type ? $type : 'all';
 

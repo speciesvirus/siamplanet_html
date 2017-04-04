@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Mail\UserMail;
 use App\Models\Role;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -110,9 +112,26 @@ class RegisterController extends Controller
     protected function register(Request $data)
     {
         $this->validator($data);
-        Auth::login($this->create($data), true);
+        $user = $this->create($data);
+
+        if($user){
+            Auth::login($user, true);
+            Mail::to($user->email)->send(new UserMail([
+                'event' => 'activated',
+                'user' => $user
+            ]));
+        }
+
         return redirect('/');
     }
 
-
+    protected function activated(Request $data)
+    {
+        $user = User::where('email', $data->email)->where('token', $data->token)->first();
+        if($user){
+            $user->activated = 1;
+            $user->save();
+        }
+        return redirect('/');
+    }
 }

@@ -39,7 +39,9 @@ Route::get('/test', function() {
    return view('test');
 });
 
-
+Route::get('/u/a/{email?}/{token?}',
+    ['as' => 'user.activated', 'uses' => 'Auth\RegisterController@activated']
+);
 
 // *! test
 Route::get('/news/insert',
