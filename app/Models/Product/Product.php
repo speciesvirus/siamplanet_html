@@ -74,7 +74,7 @@ class Product extends Model
                 'products.seller', 'products.phone', 'products.view', 'products.project',
                 'product_sales.sale', 'product_units.id as unit_id', 'provinces.name as province',
                 'products.unit', 'products.complete', 'product_units.unit as unit_name',
-                'users.id as user_id', 'users.email',
+                'users.id as user_id', 'users.email', 'products.status',
                 //DB::raw('CONCAT(products.unit, " ", product_units.unit) as unit'),
                 'products.price', 'products.content', 'products.created_at'
             )->where('products.id', $product)->get();

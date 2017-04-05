@@ -111,6 +111,7 @@
         // text in an anchor, then reattach it.
         var subUl = $(this).remove();
         parentLi.wrapInner('<a/>').find('a').click(function() {
+            $(this).parent().toggleClass('open');
             // Make the anchor toggle the leaf display.
             subUl.toggle();
         });
@@ -213,7 +214,12 @@
             '<div class="funkyradio-danger">'+
             '<input type="radio" name="_notice" id="radio3" value="U"/>'+
             '<label for="radio3">ข้อมูลผู้ประกาศไม่เป็นจริง</label>'+
-            '</div><br>'+
+            '</div>' +
+            '<div class="funkyradio-danger">'+
+            '<input type="radio" name="_notice" id="radio4" value="S"/>'+
+            '<label for="radio4">ประกาศนี้ขายหรือมีผู้อื่นเช่าแล้ว</label>'+
+            '</div>' +
+            '<br>'+
             '<input type="submit" id="submit-notice" class="btn btn-primary" data-id="'+$product+'" value="แจ้งประกาศ">'+
             '&nbsp'+
             '<a href="#" class="btn btn-default close-dailog" role="button">ยกเลิก</a>'+

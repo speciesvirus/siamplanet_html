@@ -107,7 +107,7 @@ class NavigatorComposer
     }
 
     protected function product(){
-        return Product::where('product_type_id', '<>', 5)->limit(10)->orderBy('id', 'desc')->get();
+        return Product::where('product_type_id', '<>', config('global.review.type.id'))->limit(10)->orderBy('id', 'desc')->get();
     }
 
     protected function review(){

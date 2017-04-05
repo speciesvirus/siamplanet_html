@@ -630,7 +630,7 @@
 
     <div class="col-md-9">
 
-        <h1 class="entry-title">{{ $product['subtitle'] }}</h1>
+        <h1 class="entry-title t-st-{{ $product['status'] }}">{{ $product['subtitle'] }}</h1>
         <a class="product-notice" data-id="{{ $product['id'] }}" href="javascript://">แจ้งประกาศไม่เหมาะสม</a>
         <div class="section section-project">
             <div class="project-carousel">
@@ -642,6 +642,7 @@
                         <a href="javascript://" class="next-button-slick arrow right"></a>
                     </div>
                 </div>
+
                 <div class="project-screen">
                     @foreach($product_img as $image)
                         <div class="project">

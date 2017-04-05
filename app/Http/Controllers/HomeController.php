@@ -54,7 +54,7 @@ class HomeController extends Controller
             })
             ->select(
                 DB::raw('DISTINCT(products.id)'), 'products.title', 'products.subtitle', 'product_types.type',
-                'products.seller', 'products.phone', 'products.view',
+                'products.seller', 'products.phone', 'products.view', 'products.status',
                 'product_sales.sale', 'product_units.id as unit_id', 'provinces.name as province',
                 'product_images.image', 'products.unit', 'product_units.unit as unit_name',
                 'products.price', DB::raw('SUBSTRING(products.content,1,50) as content'),
@@ -121,7 +121,7 @@ class HomeController extends Controller
             $url .= '&previous='.$request->previous;
         }
 
-        $product = $result->orderBy('products.id')->paginate(10);
+        $product = $result->orderBy('products.created_at', 'desc')->paginate(10);
         //dd($product);
         $product->withPath($url)->setPageName('page');
 
@@ -169,7 +169,7 @@ class HomeController extends Controller
             ];
 
 
-            if($p->product_type_id === 9){
+            if($p->product_type_id === config('global.review.type.id')){
                 $review = ProductReview::selectOnProduct($p->id);
                 $reviewId = [];
                 foreach ($review as $key => $value){

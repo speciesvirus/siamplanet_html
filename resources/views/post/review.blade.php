@@ -462,7 +462,7 @@
         });
         
         function inputProjectValidate() {
-            if($('select[name="type"]').val() == 5){
+            if($('select[name="type"]').val() == '{{ config('global.review.type.id') }}'){
                 var $c = true;
                 $('.block-unit input, .block-unit textarea').each(function () {
                     var $this = $(this);
@@ -991,6 +991,7 @@
 @stop
 
 @section('first-content')
+
     <div class="col-md-9">
         <h1 class="entry-title">ลงประกาศรีวิว</h1>
 
@@ -1026,7 +1027,7 @@
                 <div class="form-group hidden">
                     <label class="col-xs-6 col-sm-3 control-label">ประเภท</label>
                     <div class="col-md-5">
-                        {{ Form::select('type', $type, 9, ['class' => 'form-control input-md'])  }}
+                        {{ Form::select('type', $type, config('global.review.type.id'), ['class' => 'form-control input-md'])  }}
                     </div>
                 </div>
 
@@ -1117,8 +1118,30 @@
                 </div>
 
             </div>
-            
-                <div class="form-horizontal">
+
+            <div class="form-horizontal">
+                <fieldset>
+
+                    <!-- Form Name -->
+                    <h3 class="side-list-title">Review</h3>
+
+                    <div class="form-group">
+                        <label class="col-xs-6 col-sm-3 control-label required" for="edit">ช้อความ</label>
+                        <div class="col-md-4">
+                            <!--<textarea id="edit" name="content"></textarea>-->
+
+                            <textarea id="content" name="content" class="u_content"></textarea>
+                            <span class="help-inline">{{ $errors->has('content') ? $errors->first('content') : '' }}</span>
+                        </div>
+
+                    </div>
+
+
+                </fieldset>
+            </div>
+
+
+            <div class="form-horizontal">
                     <h3 class="side-list-title">ผังโครงการ และข้อมูลโครงการของโครงการนี้</h3>
 
                     <div class="block-unit nm">
@@ -1206,26 +1229,7 @@
 
                 </div>
 
-            <div class="form-horizontal">
-                <fieldset>
 
-                    <!-- Form Name -->
-                    <h3 class="side-list-title">Review</h3>
-
-                    <div class="form-group">
-                        <label class="col-xs-6 col-sm-3 control-label required" for="edit">ช้อความ</label>
-                        <div class="col-md-4">
-                            <!--<textarea id="edit" name="content"></textarea>-->
-
-                            <textarea id="content" name="content" class="u_content"></textarea>
-                            <span class="help-inline">{{ $errors->has('content') ? $errors->first('content') : '' }}</span>
-                        </div>
-
-                    </div>
-
-
-                </fieldset>
-            </div>
 
             <div class="form-horizontal">
                 <h3 class="side-list-title">ข้อมูลเพิ่มเติม</h3>

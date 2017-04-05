@@ -1,7 +1,19 @@
 @extends('layouts.main')
 @section('title', 'Nainam')
 @section('meta')
+    <meta name="keywords" content="nainam, ที่ดิน, คอนโด, ขายที่ดิน, ขายคอนโด, ขายบ้าน, อสังหาริมทรัพย์, บ้าน, รีวิวคอนโด, รีวิวโครงการ, ข่าว">
+    <meta name="description" content="">
+    <meta property="article:author" content="nainam" />
+    <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
 
+    <meta name="twitter:creator" content="@nainam">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+
+    <!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
+    <meta property="og:title" content="nainam"/>
+    <meta property="og:description" content=""/>
+    <meta property="og:image" content=""/>
 @stop
 
 @section('source')
@@ -54,6 +66,7 @@
             @foreach($pagination->items() as $item)
                 <div class="col-md-6">
                     <div class="blog-card" data-id="{{ $item['attributes']['id'] }}">
+                        {!! $item->status == config('global.sold_out') ? '<a class="sold_out" href="javascript://">Sold out</a>' : '' !!}
                         <div class="photo photo1"
                              style="background: url({{ $image($item['attributes']['image']) }}) center no-repeat;background-size: cover;"></div>
                         <ul class="details">
@@ -83,10 +96,12 @@
                                 <span class="card-media-body-supporting-bottom-text subtle u-float-right">{{ $trans_time($item['attributes']['created_at']) }}</span>
                             </div>
                             <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
-                                <span class="card-media-body-supporting-bottom-text subtle">ดู {{ number_format($item['attributes']['view']) }}
-                                    ครั้ง</span>
-                                <a href="#/"
-                                   class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>
+                                {{--<span class="card-media-body-supporting-bottom-text subtle">ดู {{ number_format($item['attributes']['view']) }}--}}
+                                    {{--ครั้ง</span>--}}
+                                <a href="{{ route('product').'/'.$item['attributes']['id'] }}" class="card-media-body-supporting-bottom-text u-float-right">
+                                    ดู {{ number_format($item['attributes']['view']) }} ครั้ง
+                                </a>
+                                {{--<a href="#/" class="card-media-body-supporting-bottom-text card-favorite-link u-float-right"></a>--}}
                             </div>
                         </div>
                     </div>

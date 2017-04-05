@@ -260,7 +260,8 @@
         var $eventSelect = $("#id_label_multiple");
 
         $eventSelect.select2({
-            placeholder: "Select a state"
+            placeholder: "Select Facilities",
+            val: null
         });
         //        $eventSelect.on("select2:open", function (e) { log("select2:open", e); });
         //        $eventSelect.on("select2:close", function (e) { log("select2:close", e); });

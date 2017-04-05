@@ -47,7 +47,7 @@ class PostController extends Controller
         //$unit = ProductUnit::where('active', 'A')->orderBy('sort')->pluck('unit', 'id');
         return view('post.product')->with([
             'unit' => ProductUnit::ddl(),
-            'type' => ProductType::ddl(),
+            'type' => ProductType::ddl_not_id(config('global.review.type.id')),
             'sale' => ProductSale::ddl(),
             'area' => ProductArea::ddl(),
             'facility' => ProductFacility::ddl()
@@ -119,7 +119,7 @@ class PostController extends Controller
         $product = new Product();
         $product->title = $request->input('topic');
         $product->subtitle = $request->input('topic_des');
-        $product->unit = $request->input('size');
+//        $product->unit = $request->input('size');
         $product->price = $request->input('price');
         $product->project = $request->input('project');
         $product->complete = $request->input('year');
@@ -134,7 +134,7 @@ class PostController extends Controller
         $product->productSale()->associate($sale);
         $product->productUnit()->associate($unit);
 
-        $product->unit = cal_unit($request->input('size'), $request->input('size_unit'));
+        $product->unit = $this->cal_unit($request->input('size'), $request->input('size_unit'));
 
         $user = Auth::id();
         if ($user)
@@ -219,8 +219,7 @@ class PostController extends Controller
             foreach ($arrProject as $key => $value) {
                 $project = new ProductReview();
                 $project->name = $value['name'];
-                $project->unit = $value['size'];
-                $project->unit = cal_unit($value['unit'], $value['size']);
+                $project->unit = $this->cal_unit($value['size'], $value['unit']);
                 $project->product_unit_id = $value['unit'];
                 $project->price = $value['price'];
                 $project->content = $value['content'];
@@ -326,19 +325,16 @@ class PostController extends Controller
     }
     
     protected function cal_unit($size, $unit){
-        
-        $favcolor = "red";
         switch ($unit) {
-            case 2:
+            case config('global.unit.type.sq_w'):
                 $size = $size * 4;
                 break;
-            case 3:
+            case config('global.unit.type.rai'):
                 $size = $size * 1600;
                 break;
             default:
-                $size;
-            
-            return $size;
+                $size = $size*1;
         }
+        return $size;
     }
 }

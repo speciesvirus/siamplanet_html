@@ -311,7 +311,16 @@
     -webkit-transition: none;
     transition: none;
 }
-
+.review-unit-content{
+    margin: 20px 0;
+}
+.review-unit-content h1{
+    font-size: 18px;
+}
+.review-unit-content span.r-t{
+    display: inline-block;
+    width: 70px;
+}
 .map-section {
     /*position: relative;*/
     /*height: 589px;*/
@@ -443,7 +452,12 @@
 .no-touch #cd-zoom-in:hover, .no-touch #cd-zoom-out:hover {
     background-color: #d36868;
 }
-
+.map-legend p{
+    font-size: 13px;
+}
+.m-l-distance{
+    font-size: 11px;
+}
 @media only screen and (min-width: 768px) {
     #cd-zoom-in, #cd-zoom-out {
         margin-left: 35px;
@@ -1220,4 +1234,6 @@ span.input-to{
         padding: 15px 15px 10px;
     }
 }
+
+
 

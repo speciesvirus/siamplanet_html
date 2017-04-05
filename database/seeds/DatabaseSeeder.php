@@ -16,36 +16,36 @@ class DatabaseSeeder extends Seeder
 
         //DB::table('roles')->delete();
 
-        // App\Models\Role::create([
-        //     'name'   => 'user'
-        // ]);
+         App\Models\Role::create([
+             'name'   => 'user'
+         ]);
 
-        // App\Models\Role::create([
-        //     'name'   => 'administrator'
-        // ]);
+         App\Models\Role::create([
+             'name'   => 'administrator'
+         ]);
 
-//        $adminRole = \App\Models\Role::whereName('administrator')->first();
-//        $userRole = \App\Models\Role::whereName('user')->first();
-//
-//        $user = \App\Models\User::create(array(
-//            'first_name'    => 'John',
-//            'last_name'     => 'Doe',
-//            'email'         => 'j.doe@codingo.me',
-//            'password'      => Hash::make('password'),
-//            'token'         => str_random(64),
-//            'activated'     => true
-//        ));
-//        $user->assignRole($adminRole);
-//
-//        $user = \App\Models\User::create(array(
-//            'first_name'    => 'Jane',
-//            'last_name'     => 'Doe',
-//            'email'         => 'jane.doe@codingo.me',
-//            'password'      => Hash::make('janesPassword'),
-//            'token'         => str_random(64),
-//            'activated'     => true
-//        ));
-//        $user->assignRole($userRole);
+        $adminRole = \App\Models\Role::whereName('administrator')->first();
+        $userRole = \App\Models\Role::whereName('user')->first();
+
+        $user = \App\Models\User::create(array(
+            'first_name'    => 'John',
+            'last_name'     => 'Doe',
+            'email'         => 'j.doe@codingo.me',
+            'password'      => Hash::make('password'),
+            'token'         => str_random(64),
+            'activated'     => true
+        ));
+        $user->assignRole($adminRole);
+
+        $user = \App\Models\User::create(array(
+            'first_name'    => 'Jane',
+            'last_name'     => 'Doe',
+            'email'         => 'jane.doe@codingo.me',
+            'password'      => Hash::make('janesPassword'),
+            'token'         => str_random(64),
+            'activated'     => true
+        ));
+        $user->assignRole($userRole);
 
 
 //        $faker = Faker::create();

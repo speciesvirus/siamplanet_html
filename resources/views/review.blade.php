@@ -190,6 +190,7 @@
                         "type": "Feature",
                         "properties": {
                             "head": "",
+                            "title": "{{ $item['attributes']['area'] }}",
                             "distance": "{{ number_format(($item->distance / 1000), 2, '.', ',') }} km",
                             "icon": "{{ asset('resources/assets/images/icon', env('HTTPS')).'/'.$item->image }}",
                             "description": "{{ $item['attributes']['area'] }}",
@@ -506,7 +507,7 @@
                 var image = {
                     url: feature.properties.icon,
                     // This marker is 20 pixels wide by 32 pixels high.
-                    scaledSize: new google.maps.Size(20, 20)
+                    scaledSize: new google.maps.Size(32, 32)
                 };
 
                 var marker = new google.maps.Marker({
@@ -516,7 +517,7 @@
                     id: featureID
                 });
 
-                $('#map-legend > ul').append('<li class="ng-scope ng-binding point" data-title="' + feature.properties.title + '"><p>' + feature.properties.title + '</p><p>ระยะทาง : ' + feature.properties.distance + '</p></li>');
+                $('#map-legend > ul').append('<li class="ng-scope ng-binding point" data-title="' + feature.properties.title + '"><p>' + feature.properties.title + '</p><p class="m-l-distance">ระยะทาง : ' + feature.properties.distance + '</p></li>');
 
                 allMyMarkers.push(marker);
             }
@@ -525,7 +526,6 @@
             for (var i = 0, jsonFeature; jsonFeature = geojsonFeature.features[i]; i++) {
                 addMarker(jsonFeature, i);
             }
-
             $('#map-legend > ul li:first-child').addClass('active');
 
             $('.point').on('click', function () {
@@ -533,7 +533,7 @@
                 $('.point').removeClass('active');
                 $(this).addClass('active');
 
-                var $title = $(this).html(),
+                var $title = $(this).data('title'),
                     $lat = '',
                     $lng = '';
 
@@ -544,8 +544,7 @@
                         map.panTo(new google.maps.LatLng($lat, $lng));
                     }
                 }
-
-                var selectedID = $(this).attr('id');
+                //var selectedID = $(this).attr('id');
                 toggleBounce($(".point").index(this));
 
                 calculateAndDisplayRoute(directionsService, directionsDisplay, $lat, $lng);
@@ -595,7 +594,6 @@
                     }
                 }
             } // end toggleBounce
-
 
             // google.maps.event.addListener(map, 'click', function( event ){
             //   alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
@@ -1079,11 +1077,10 @@
 
                 </div>
 
-                <div>
+                <div class="review-unit-content">
                     <h1>{{ $value['attributes']['name'] }}</h1>
-                    <p>{{ number_format($value['attributes']['price']) }} บาท
-                        | {{ $current_unit($value['unit'], $value['unit_id']) }} {{ $value['attributes']['unit_type'] }}</p>
-
+                    <p><span class="r-t">ราคา</span> : {{ number_format($value['attributes']['price']) }} บาท</p>
+                    <p><span class="r-t">ขนาดพื้นที่</span> : {{ $current_unit($value['unit'], $value['unit_id']) }} {{ $value['attributes']['unit_type'] }}</p>
                     <blockquote class="series-list">
                         {!! $value['attributes']['content'] !!}
                     </blockquote>
@@ -1098,7 +1095,9 @@
             <div class="bs-docs-section map-section">
                 <h2>พื้นที่รอบข้าง</h2>
                 <div class="map-section-container">
-                    <div class="map-legend" id="map-legend"></div>
+                    <div class="map-legend" id="map-legend">
+                        <ul></ul>
+                    </div>
                     <div id="map"></div>
                     <div id="cd-zoom-in"></div>
                     <div id="cd-zoom-out"></div>

@@ -78,11 +78,18 @@ class ProductComposer
 
     protected function current_unit($unit, $unit_id)
     {
-        $result = $unit;
-        if($unit_id == 2){
-            $result = $unit / 4;
+        switch ($unit_id) {
+            case config('global.unit.type.sq_w'):
+                $unit = $unit / 4;
+                break;
+            case config('global.unit.type.rai'):
+                $unit = $unit / 1600;
+                break;
+            default:
+                $unit = $unit*1;
         }
-        return number_format($result, 2, '.', ',');
+
+        return number_format($unit, 2, '.', ',');
     }
 
 }

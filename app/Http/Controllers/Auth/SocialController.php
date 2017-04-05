@@ -49,7 +49,8 @@ class SocialController extends Controller
         $email = $user->email;
 
         if (!$user->email) {
-            $email = 'missing' . str_random(10);
+            return route('login')->with(['alert-message' => 'facebook email does not exist!', 'code' => '1']);
+            //$email = 'missing' . str_random(10);
         }
 
         if (!empty($userCheck)) {

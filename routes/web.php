@@ -150,7 +150,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], functi
 
 });
 
-Route::group(['prefix' => 'user', 'middleware' => 'auth:user'], function()
+Route::group(['prefix' => 'user', 'middleware' => 'auth:all'], function()
 {
     $a = 'user.';
     Route::get('/index', ['as' => $a . 'home', 'uses' => 'UserController@index']);

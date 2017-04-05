@@ -43,6 +43,14 @@
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#003561">
 
+    <link rel="shortlink" href="{{ request()->url() }}">
+    <meta property="fb:app_id" content="693544830831851">
+    <meta property="og:url" content="{{ request()->url() }}" />
+    <meta name="twitter:url" content="{{ request()->url() }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@nainamofficial">
+
 @yield('meta')
 <!-- Use Iconifyer to generate all the favicons and touch icons you need: http://iconifier.net -->
     <link rel="shortcut icon" href="{{ asset('resources/assets/images/favicon_32.png', env('HTTPS')) }}"/>
@@ -62,19 +70,6 @@
     <!-- This is a minimized, base version of Modernizr. (http://modernizr.com)
           You will need to create new builds to get the detects you need. -->
     <script src="{{ asset('resources/assets/js/components/modernizr-3.2.0.base.js', env('HTTPS')) }}"></script>
-
-
-<!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
-    <meta name="twitter:card" content="">
-    <meta name="twitter:site" content="">
-    <meta name="twitter:title" content="">
-    <meta name="twitter:description" content="">
-    <meta name="twitter:url" content="">
-    <!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
-    <meta property="og:title" content=""/>
-    <meta property="og:description" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:image" content=""/>
 
 </head>
 
