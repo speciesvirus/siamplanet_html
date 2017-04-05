@@ -1,7 +1,19 @@
 @extends('layouts.main')
-@section('title', 'Siam Planet')
+@section('title', 'Nainam - terms')
 @section('meta')
+    <meta name="keywords" content="คอนโด บ้านเดี่ยว ทาวน์เฮ้าส์ ขายบ้าน บ้านมือสอง บ้านใหม่ โครงการใหม่ คอนโดใหม่ ข่าว">
+    <meta name="description" content="nainam.com - รวบรวม คอนโด บ้านเดี่ยว ทาวน์เฮ้าส์ ขายบ้าน บ้านมือสอง ครบถ้วนและอัพเดทที่สุด พร้อมแผนที่ทุกประกาศ สไตล์คุณ">
+    <meta property="article:author" content="nainam" />
+    <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
 
+    <meta name="twitter:creator" content="@nainam">
+    <meta name="twitter:title" content="Nainam">
+    <meta name="twitter:description" content="Nainam | รวบรวม ที่ดิน บ้าน คอนโด ทาวน์เฮ้าส์ อื่นๆ ครบถ้วน ทุกทำเลท ออกแบบได้สไตล์คุณ">
+
+    <!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
+    <meta property="og:title" content="nainam"/>
+    <meta property="og:description" content="Nainam | รวบรวม ที่ดิน บ้าน คอนโด ทาวน์เฮ้าส์ อื่นๆ ครบถ้วน ทุกทำเลท ออกแบบได้สไตล์คุณ"/>
+    <meta property="og:image" content="{{ asset('resources/assets/images/nainam_logo_top_blue_300.png', env('HTTPS')) }}"/>
 @stop
 
 @section('source')

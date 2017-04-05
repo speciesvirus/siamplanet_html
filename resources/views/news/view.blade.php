@@ -1,7 +1,19 @@
 @extends('layouts.main')
-@section('title', 'Siam Planet')
+@section('title', $news['attributes']['title'])
 @section('meta')
+    <meta name="keywords" content="คอนโด บ้านเดี่ยว ทาวน์เฮ้าส์ ขายบ้าน บ้านมือสอง บ้านใหม่ โครงการใหม่ คอนโดใหม่ ข่าว">
+    <meta name="description" content="nainam.com - รวบรวม คอนโด บ้านเดี่ยว ทาวน์เฮ้าส์ ขายบ้าน บ้านมือสอง ครบถ้วนและอัพเดทที่สุด พร้อมแผนที่ทุกประกาศ สไตล์คุณ">
+    <meta property="article:author" content="nainam" />
 
+    <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
+    <meta name="twitter:creator" content="@nainam">
+    <meta name="twitter:title" content="{{ $news->title }}">
+    <meta name="twitter:description" content="{{ mb_substr(strip_tags($news->content),0,110, 'UTF-8') }}">
+
+    <!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
+    <meta property="og:title" content="{{ $news->title }}"/>
+    <meta property="og:description" content="{{ mb_substr(strip_tags($news->content),0,110, 'UTF-8') }}"/>
+    <meta property="og:image" content="{{ $image($news->image) }}"/>
 @stop
 
 @section('source')
@@ -28,11 +40,11 @@
         <h1 class="entry-title">{{ $news['attributes']['title'] }}</h1>
 
         <div id="post-feat-img" class="left relative">
-            <img src="{{ route('images.q').'?q='.$news['attributes']['image'] }}"
+            <img src="{{ $image($news->image) }}"
                  class="attachment- size- wp-post-image" alt="">
             <div class="post-feat-text">
 				    <span class="post-excerpt left">
-				        <p>{{ $news['attributes']['subtitle'] }}</p>
+				        <p>{{ $news->subtitle }}</p>
                     </span>
                 {{--<span class="feat-caption">Photo: Shutterstock</span>--}}
             </div>

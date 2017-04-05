@@ -1,7 +1,19 @@
 @extends('layouts.main')
-@section('title', 'Siam Planet')
+@section('title', $product['title'])
 @section('meta')
+    <meta name="keywords" content="คอนโด บ้านเดี่ยว ทาวน์เฮ้าส์ ขายบ้าน บ้านมือสอง บ้านใหม่ โครงการใหม่ คอนโดใหม่ ข่าว">
+    <meta name="description" content="nainam.com - รวบรวม คอนโด บ้านเดี่ยว ทาวน์เฮ้าส์ ขายบ้าน บ้านมือสอง ครบถ้วนและอัพเดทที่สุด พร้อมแผนที่ทุกประกาศ สไตล์คุณ">
+    <meta property="article:author" content="nainam" />
 
+    <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
+    <meta name="twitter:creator" content="@nainam">
+    <meta name="twitter:title" content="{{ $product['title'] }}">
+    <meta name="twitter:description" content="{{ mb_substr(strip_tags($product['content']),0,110, 'UTF-8') }}">
+
+    <!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
+    <meta property="og:title" content="{{ $product['title'] }}"/>
+    <meta property="og:description" content="{{ mb_substr(strip_tags($product['content']),0,110, 'UTF-8') }}"/>
+    <meta property="og:image" content="{{ $image($product_img[0]->image) }}"/>
 @stop
 
 @section('source')

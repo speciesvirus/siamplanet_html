@@ -1,7 +1,19 @@
 @extends('layouts.main')
-@section('title', 'Siam Planet')
+@section('title', 'Nainam - news')
 @section('meta')
+    <meta name="keywords" content="คอนโด บ้านเดี่ยว ทาวน์เฮ้าส์ ขายบ้าน บ้านมือสอง บ้านใหม่ โครงการใหม่ คอนโดใหม่ ข่าว">
+    <meta name="description" content="nainam.com - รวบรวม คอนโด บ้านเดี่ยว ทาวน์เฮ้าส์ ขายบ้าน บ้านมือสอง ครบถ้วนและอัพเดทที่สุด พร้อมแผนที่ทุกประกาศ สไตล์คุณ">
+    <meta property="article:author" content="nainam" />
+    <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
 
+    <meta name="twitter:creator" content="@nainam">
+    <meta name="twitter:title" content="Nainam">
+    <meta name="twitter:description" content="Nainam | รวบรวม ที่ดิน บ้าน คอนโด ทาวน์เฮ้าส์ อื่นๆ ครบถ้วน ทุกทำเลท ออกแบบได้สไตล์คุณ">
+
+    <!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
+    <meta property="og:title" content="nainam"/>
+    <meta property="og:description" content="Nainam | รวบรวม ที่ดิน บ้าน คอนโด ทาวน์เฮ้าส์ อื่นๆ ครบถ้วน ทุกทำเลท ออกแบบได้สไตล์คุณ"/>
+    <meta property="og:image" content="{{ asset('resources/assets/images/nainam_logo_top_blue_300.png', env('HTTPS')) }}"/>
 @stop
 
 @section('source')
@@ -131,72 +143,6 @@
                 <!-- /.elated-entry -->
             @endforeach
 
-
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/searchform-style/" title="Simplicity検索ボックスのスタイルいろいろ">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2014/08/magnifying-glass-13622534633G4-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image" alt="Simplicity検索ボックスのスタイルいろいろ"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2014/08/magnifying-glass-13622534633G4-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2014/08/magnifying-glass-13622534633G4-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2014/08/magnifying-glass-13622534633G4-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
-
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/searchform-style/" class="related-entry-title-link"
-                               title="Simplicity検索ボックスのスタイルいろいろ">
-                                Simplicity検索ボックスのスタイルいろいろ </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-
-
-                        Simplicity20140828から、ブログの検索窓のスタイルをテーマカスタマイザーから変更できるようにしました。 Wor...
-
-                    </p>
-
-                    <footer>
-                        <p class="related-entry-read"><a href="//wp-simplicity.com/searchform-style/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
-
-            <article class="related-entry cf">
-                <div class="related-entry-thumb">
-                    <a href="//wp-simplicity.com/go-to-top-custum/" title="Simplicityでトップへ戻るボタンに画像を使用する方法">
-                        <img src="//wp-simplicity.com/wp-content/uploads/2015/04/73e8b3abc0b9635c0f2af539836f20201-100x100.jpg"
-                             class="related-entry-thumb-image wp-post-image" alt="Simplicityでトップへ戻るボタンに画像を使用する方法"
-                             srcset="//wp-simplicity.com/wp-content/uploads/2015/04/73e8b3abc0b9635c0f2af539836f20201-300x300.jpg 300w, //wp-simplicity.com/wp-content/uploads/2015/04/73e8b3abc0b9635c0f2af539836f20201-100x100.jpg 100w, //wp-simplicity.com/wp-content/uploads/2015/04/73e8b3abc0b9635c0f2af539836f20201-150x150.jpg 150w"
-                             sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
-                </div>
-                <!-- /.related-entry-thumb -->
-
-                <div class="related-entry-content">
-                    <header>
-                        <h3 class="related-entry-title">
-                            <a href="//wp-simplicity.com/go-to-top-custum/" class="related-entry-title-link"
-                               title="Simplicityでトップへ戻るボタンに画像を使用する方法">
-                                Simplicityでトップへ戻るボタンに画像を使用する方法 </a></h3>
-                    </header>
-                    <p class="related-entry-snippet">
-
-
-                        Simplicityデフォルトでは、記事をスクロールなどすると、画面右下に以下のような「トップへ戻るボタン」が表示されます。 ...
-
-                    </p>
-
-                    <footer>
-                        <p class="related-entry-read"><a href="//wp-simplicity.com/go-to-top-custum/">記事を読む</a></p>
-                    </footer>
-
-                </div>
-                <!-- /.related-entry-content -->
-            </article>
-            <!-- /.elated-entry -->
             <a href="{{ route('news.category') }}/4" class="inf-more-but" style="display: inline-block;">More Posts</a>
         </aside>
 

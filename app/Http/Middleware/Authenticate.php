@@ -28,7 +28,8 @@ class Authenticate
         {
             return $next($request);
         }
-        if( auth()->guest() || !$this->hasRole($role))
+        //if( auth()->guest() || !$this->hasRole($role))
+        if(!$this->hasRole($role))
         {
             abort(503);
         }

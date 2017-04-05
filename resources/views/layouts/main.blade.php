@@ -43,10 +43,10 @@
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#003561">
 
-    <link rel="shortlink" href="{{ request()->url() }}">
+    <link rel="shortlink" href="{{ request()->getUri() }}">
     <meta property="fb:app_id" content="693544830831851">
-    <meta property="og:url" content="{{ request()->url() }}" />
-    <meta name="twitter:url" content="{{ request()->url() }}">
+    <meta property="og:url" content="{{ request()->getUri() }}" />
+    <meta name="twitter:url" content="{{ request()->getUri() }}">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@nainamofficial">

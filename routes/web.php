@@ -44,12 +44,17 @@ Route::get('/u/a/{email?}/{token?}',
 );
 
 // *! test
-Route::get('/news/insert',
-    ['as' => 'news.insert', 'uses' => 'NewsController@insert']
-);
-Route::post('/news/insert/post',
-    ['as' => 'news.insert.post', 'uses' => 'NewsController@post_insert']
-);
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:administrator'], function()
+{
+    Route::get('/news/insert',
+        ['as' => 'news.insert', 'uses' => 'NewsController@insert']
+    );
+    Route::post('/news/insert/post',
+        ['as' => 'news.insert.post', 'uses' => 'NewsController@post_insert']
+    );
+});
+
 // *! test
 
 
