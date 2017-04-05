@@ -169,7 +169,7 @@ class HomeController extends Controller
             ];
 
 
-            if($p->product_type_id === 5){
+            if($p->product_type_id === 9){
                 $review = ProductReview::selectOnProduct($p->id);
                 $reviewId = [];
                 foreach ($review as $key => $value){

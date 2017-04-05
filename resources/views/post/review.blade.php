@@ -1026,7 +1026,7 @@
                 <div class="form-group hidden">
                     <label class="col-xs-6 col-sm-3 control-label">ประเภท</label>
                     <div class="col-md-5">
-                        {{ Form::select('type', $type, 5, ['class' => 'form-control input-md'])  }}
+                        {{ Form::select('type', $type, 9, ['class' => 'form-control input-md'])  }}
                     </div>
                 </div>
 

@@ -39,8 +39,7 @@ class UserMail extends Mailable
             ->subject('Hi '.$this->event['user']->first_name.'!, Please confirm your email address.')
             ->view('emails.user.activated')
             ->with([
-                'email' => $this->event['user']->email,
-                'token' => $this->event['user']->token
+                'activated' => route('user.activated').urldecode ('?email='.$this->event['user']->email.'&token='.$this->event['user']->token)
             ]);
     }
 }

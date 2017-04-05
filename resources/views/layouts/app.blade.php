@@ -107,7 +107,7 @@
     <footer class="footer">
 
         <div class="container">
-            <div class="col-md-6 ft-m-h"><span id="fsl">&copy; Copyright nainam. All Rights Reserved.</span></div>
+            <div class="col-md-6 ft-m-h"><span id="fsl">&copy; Copyright nainam. All rights reserved.</span></div>
             <div class="col-md-6">
                 <span id="fsr">
                     <a target="_blank" class="_Gs" href="https://m.me/nainamofficial/">ส่งความคิดเห็น</a>
@@ -116,7 +116,7 @@
                     {{--<a class="_Gs" href="//www.google.co.th/intl/th/policies/terms/?fg=1">ข้อกำหนด</a>--}}
                 </span>
             </div>
-            <div class="col-md-6 ft-m-s"><span id="fsl">&copy; Copyright nainam. All Rights Reserved.</span></div>
+            <div class="col-md-6 ft-m-s"><span id="fsl">&copy; Copyright nainam. All rights reserved.</span></div>
         </div>
 
     </footer>

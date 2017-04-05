@@ -15,8 +15,8 @@
                 <form name="login-form" class="login-form" method="POST" action="{{ route('user.login') }}">
                     {{ csrf_field() }}
                     <div class="header">
-                        <h1 class="top-header">Login Form</h1>
-                        <span>Fill out the form below to login to my super awesome imaginary control panel.</span>
+                        <h1 class="top-header">Login</h1>
+                        <span>กรอกแบบฟอร์มด้านล่างเพื่อเข้าสู่ระบบ</span>
                         <div class="login-social">
                             <div class="form-group">
                                 <a class="enlace facebook" href="{{ route('social.redirect', 'facebook') }}">facebook</a>
@@ -54,8 +54,14 @@
                 </form>
 
                 <div class="side-content">
-                    <h1>One account is all you need</h1>
-                    <p>One free account gets you into everything Google.</p>
+                    <h1>สิทธิประโยชน์สำหรับสมาชิกกับเรา</h1>
+                    <ul>
+                        <li>ท่านสมาชิกได้รับสิทธิพิเศษมากมาย</li>
+                        <li>จัดการประกาศของเองได้</li>
+                        <li>รับทราบโปรโมชั่นพิเศษ และข่าวสาร</li>
+                        <li>สามารถเข้าร่วมกิจกรรมต่างๆ</li>
+                        <li>สิทธิพิเศษอื่นๆ อีกมากมาย *เฉพาะสมาชิกเท่านั้น</li>
+                    </ul>
                 </div>
 
             </div>
@@ -64,7 +70,7 @@
 
 
                 <form id="girisyap" name="signup_form" method="post"  action="{{ route('join') }}">
-                    <h1 class="top-header">Join</h1>
+                    <h1 class="top-header">Sing up</h1>
                     {{ csrf_field() }}
                     <div>
                         <div class="col-md-6">
@@ -112,9 +118,9 @@
 
 
 
-                    <p class="agree">เมื่อคลิก สร้างบัญชีผู้ใช้ แสดงว่าคุณยินยอมตาม <a href="/legal/terms" id="terms-link" target="_blank" rel="nofollow">ข้อกำหนด</a>
-                        และคุณได้อ่าน <a href="/about/privacy" id="privacy-link" target="_blank" rel="nofollow">นโยบายข้อมูล</a> ของเราแล้ว
-                        รวมถึง <a href="/policies/cookies/" id="cookie-use-link" target="_blank" rel="nofollow">การใช้คุกกี้</a> </p>
+                    <p class="agree">เมื่อคลิก สร้างบัญชีผู้ใช้ แสดงว่าคุณยินยอมตาม <a href="{{ route('policies.terms') }}" id="terms-link" target="_blank" rel="nofollow">ข้อกำหนด</a>
+                        และคุณได้อ่าน <a href="{{ route('policies.privacy') }}" id="privacy-link" target="_blank" rel="nofollow">นโยบายข้อมูล</a> ของเราแล้ว
+                        รวมถึง <a href="{{ route('policies.privacy') }}" id="cookie-use-link" target="_blank" rel="nofollow">การใช้คุกกี้</a> </p>
 
                     <button type="submit" class="join-btn">Create an account </button>
 

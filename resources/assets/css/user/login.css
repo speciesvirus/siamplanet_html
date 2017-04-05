@@ -34,7 +34,10 @@ body{
 .side-content h1{
     color: #848596;
 }
-
+.side-content ul{
+    padding-left: 20px;
+    list-style-type: circle;
+}
 @media (max-width: 768px) {
     .div-login, .div-login  {
         width: 100%;

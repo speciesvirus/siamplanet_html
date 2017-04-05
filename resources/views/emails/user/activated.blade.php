@@ -84,14 +84,14 @@
                                             <tbody>
                                             <tr>
                                                 <td align="center" style="padding:0 35px 0 35px">
-                                                    <a href="{{ route('user.activated') }}/{{ $email }}/{{ $token }}"
+                                                    <a href="{{ $activated }}"
                                                        style="text-decoration:none;display:block" target="_blank">
                                                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
                                                             <tbody>
                                                             <tr>
                                                                 <td align="center"
                                                                     style="padding:14px 20px 14px 20px;background-color:#003561;border-radius:4px">
-                                                                    <a href="{{ route('user.activated') }}/{{ $email }}/{{ $token }}"
+                                                                    <a href="{{ $activated }}"
                                                                        style="font-weight:bold;font-size:18px;line-height:22px;color:#ffffff;text-decoration:none;display:block;text-align:center;max-width:400px;overflow:hidden;text-overflow:ellipsis"
                                                                        target="_blank">
                                                                         Confirm your email

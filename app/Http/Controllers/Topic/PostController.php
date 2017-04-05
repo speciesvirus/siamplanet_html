@@ -133,8 +133,8 @@ class PostController extends Controller
         $product->productType()->associate($type);
         $product->productSale()->associate($sale);
         $product->productUnit()->associate($unit);
-        
-        if($request->input('size_unit') == 2) $product->unit = ($request->input('size') * 4);
+
+        $product->unit = cal_unit($request->input('size'), $request->input('size_unit'));
 
         $user = Auth::id();
         if ($user)
@@ -220,7 +220,7 @@ class PostController extends Controller
                 $project = new ProductReview();
                 $project->name = $value['name'];
                 $project->unit = $value['size'];
-                if($value['unit'] == 2) $project->unit = ($value['size'] * 4);
+                $project->unit = cal_unit($value['unit'], $value['size']);
                 $project->product_unit_id = $value['unit'];
                 $project->price = $value['price'];
                 $project->content = $value['content'];
@@ -323,5 +323,22 @@ class PostController extends Controller
         ];
 
         return response()->json($this->validate($request, $rules, $messages), 200);
+    }
+    
+    protected function cal_unit($size, $unit){
+        
+        $favcolor = "red";
+        switch ($unit) {
+            case 2:
+                $size = $size * 4;
+                break;
+            case 3:
+                $size = $size * 1600;
+                break;
+            default:
+                $size;
+            
+            return $size;
+        }
     }
 }

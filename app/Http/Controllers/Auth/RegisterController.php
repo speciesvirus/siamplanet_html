@@ -122,7 +122,7 @@ class RegisterController extends Controller
             ]));
         }
 
-        return redirect('/');
+        return redirect()->route('home');
     }
 
     protected function activated(Request $data)
@@ -132,6 +132,6 @@ class RegisterController extends Controller
             $user->activated = 1;
             $user->save();
         }
-        return redirect('/');
+        return redirect()->route('login');
     }
 }

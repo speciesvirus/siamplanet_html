@@ -885,6 +885,7 @@ p.agree{
     font-size: 13px;
     width: 316px;
     margin-top: 20px;
+    text-indent: 20px;
 }
 p.agree a{
     color: #6f99ff;
