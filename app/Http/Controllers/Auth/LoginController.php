@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,11 +46,15 @@ class LoginController extends Controller
     }
     public function login(Request $data)
     {
+
         $this->validator($data);
-        if (Auth::attempt(['username' => $data['user'], 'password' => $data['pass'], 'activated' => 0], true)) {
+
+        $user = User::where('username', $data->user)->first();
+        if($user->activated != 1) return redirect()->back()->withInput()->with(['alert-message' => 'Open your email and click the link to activate your account.', 'code' => '1']);
+        if (Auth::attempt(['username' => $data['user'], 'password' => $data['pass'], 'activated' => 1], true)) {
             return redirect()->route('home');
         }
-        return redirect()->back()->withInput()->with(['alert-message' => 'username or password not found!', 'code' => '1']);
+        return redirect()->back()->withInput()->with(['alert-message' => 'Username or Password not found!', 'code' => '1']);
         //return redirect()->route('login')->with(['alert-message' => 'username or password not found!', 'code' => '1']);
     }
     protected function validator(Request $data)

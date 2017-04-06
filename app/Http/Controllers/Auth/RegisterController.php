@@ -115,7 +115,7 @@ class RegisterController extends Controller
         $user = $this->create($data);
 
         if($user){
-            Auth::login($user, true);
+            //Auth::login($user, true);
             Mail::to($user->email)->send(new UserMail([
                 'event' => 'activated',
                 'user' => $user

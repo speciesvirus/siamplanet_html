@@ -6,6 +6,7 @@ use App\Models\News\News;
 use App\Models\News\NewsCategory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
@@ -94,8 +95,8 @@ class NewsController extends Controller
         $news->content = $request->input('content');
 
         $news->category_id = $request->input('category');
-        $news->user_id = 4;
-        $news->tag = strtoupper ($request->input('tag'));
+        $news->user_id = Auth::id();
+        $news->tag = mb_strtoupper($request->input('tag'), 'UTF-8');
 
         $destinationPath = resource_path('images/');
         $file = $request->file('image');

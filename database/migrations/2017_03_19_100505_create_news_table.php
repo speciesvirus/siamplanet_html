@@ -22,7 +22,7 @@ class CreateNewsTable extends Migration
             $table->integer('category_id')->unsigned()->index();
             $table->foreign('category_id')->references('id')->on('news_categories')->onDelete('no action');
             $table->integer('sort')->unsigned()->nullable();
-            $table->string('tag')->nullable();
+            $table->text('tag')->nullable();
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('no action');
             $table->integer('view')->default(0);

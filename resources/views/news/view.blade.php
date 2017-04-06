@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title', $news['attributes']['title'])
 @section('meta')
-    <meta name="keywords" content="คอนโด บ้านเดี่ยว ทาวน์เฮ้าส์ ขายบ้าน บ้านมือสอง บ้านใหม่ โครงการใหม่ คอนโดใหม่ ข่าว">
+    <meta name="keywords" content="{{ str_replace( ',', '', $news->tag ) }}">
     <meta name="description" content="nainam.com - รวบรวม คอนโด บ้านเดี่ยว ทาวน์เฮ้าส์ ขายบ้าน บ้านมือสอง ครบถ้วนและอัพเดทที่สุด พร้อมแผนที่ทุกประกาศ สไตล์คุณ">
     <meta property="article:author" content="nainam" />
 

@@ -43,15 +43,17 @@ class SocialController extends Controller
 
         $user = Socialite::driver( $provider )->user();
 
+        // check email duplicate
+        if (!$user->email) {
+            return redirect()->back()->withInput()->with(['alert-message' => 'facebook email does not exist!', 'code' => '1']);
+//            $email = 'missing' . str_random(10);
+        }
+
         //Check is this email present
         $userCheck = User::where('email', '=', $user->email)->first();
 
         $email = $user->email;
 
-        if (!$user->email) {
-            return redirect()->back()->withInput()->with(['alert-message' => 'facebook email does not exist!', 'code' => '1']);
-//            $email = 'missing' . str_random(10);
-        }
 
         if (!empty($userCheck)) {
 
@@ -82,6 +84,7 @@ class SocialController extends Controller
 
                 $newSocialUser->password = bcrypt(str_random(16));
                 $newSocialUser->token = str_random(64);
+                //$newSocialUser->activated = 1;
                 $newSocialUser->save();
 
                 $socialData = new Social();
