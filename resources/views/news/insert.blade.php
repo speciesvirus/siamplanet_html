@@ -24,7 +24,9 @@
 <!-- This is a minimized, base version of Modernizr. (http://modernizr.com)
           You will need to create new builds to get the detects you need. -->
     <script src="{{ asset('resources/assets/js/components/modernizr-3.2.0.base.js', env('HTTPS')) }}"></script>
-
+<script src="/vendor/laravel-filemanager/js/lfm.js"></script>
+<link rel="stylesheet" href="/vendor/laravel-filemanager/css/cropper.min.css">
+<link rel="stylesheet" href="/vendor/laravel-filemanager/css/lfm.css">
 </head>
 
 <body>
@@ -80,69 +82,7 @@
                     <div class="col-md-5">
                         <!--<textarea id="edit" name="content"></textarea>-->
 
-                        <textarea id="content" name="content">
-                                  <p style="text-align: center;">
-                                    <img title="TinyMCE Logo" src="//www.tinymce.com/images/glyph-tinymce@2x.png"
-                                         alt="TinyMCE Logo" width="110" height="97"/>
-                                  </p>
-
-                                  <h1 style="text-align: center;">Welcome to the TinyMCE editor demo!</h1>
-
-                                  <p>
-                                    Please try out the features provided in this basic example.<br>
-                                    Note that any <strong>MoxieManager</strong> file and image management functionality in this example is part of our commercial offering – the demo is to show the integration.
-                                  </p>
-
-                                  <h2>Got questions or need help?</h2>
-
-                                  <ul>
-                                    <li>Our <a href="http://www.tinymce.com/docs/">documentation</a> is a great resource for learning how to configure TinyMCE.</li>
-                                    <li>Have a specific question? Visit the <a href="http://community.tinymce.com/forum/"
-                                                                               target="_blank">Community Forum</a>.</li>
-                                    <li>We also offer enterprise grade support as part of <a href="www.tinymce.com/pricing">TinyMCE Enterprise</a>.</li>
-                                  </ul>
-
-                                  <h2>A simple table to play with</h2>
-
-                                  <table style="text-align: center;">
-                                    <thead>
-                                      <tr>
-                                        <th>Product</th>
-                                        <th>Cost</th>
-                                        <th>Really?</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td>TinyMCE</td>
-                                        <td>Free</td>
-                                        <td>YES!</td>
-                                      </tr>
-                                      <tr>
-                                        <td>Plupload</td>
-                                        <td>Free</td>
-                                        <td>YES!</td>
-                                      </tr>
-                                    </tbody>
-                                  </table>
-
-                                  <h2>Found a bug?</h2>
-
-                                  <p>
-                                    If you think you have found a bug please create an issue on the <a
-                                              href="https://github.com/tinymce/tinymce/issues">GitHub repo</a> to report it to the developers.
-                                  </p>
-
-                                  <h2>Finally ...</h2>
-
-                                  <p>
-                                    Don't forget to check out our other product <a href="http://www.plupload.com"
-                                                                                   target="_blank">Plupload</a>, your ultimate upload solution featuring HTML5 upload support.
-                                  </p>
-                                  <p>
-                                    Thanks for supporting TinyMCE! We hope it helps you and your users create great content.<br>All the best from the TinyMCE team.
-                                  </p>
-                                </textarea>
+                        <textarea id="content" name="content"></textarea>
 
                     </div>
                 </div>
@@ -182,25 +122,51 @@
 <script src="{{ asset('resources/assets/js/components/jquery-1.11.3.min.js', env('HTTPS')) }}"></script>
 <script src="{{ asset('resources/assets/tinymce/tinymce.jquery.min.js', env('HTTPS')) }}"></script>
 <script type="text/javascript">
-    tinymce.init({
-        selector: '#content',
-        body_class: 'listing-details-text',
-        height: 500,
-        menubar: false,
-        plugins: [
+
+    
+    var editor_config = {
+    path_absolute : "/",
+    selector: "#content",
+    body_class: 'listing-details-text',
+    height: 500,
+    menubar: false,
+    plugins: [
             'advlist autolink lists link image charmap print preview anchor',
             'searchreplace visualblocks code fullscreen',
             'insertdatetime media table contextmenu paste code textcolor colorpicker'
-        ],
-        toolbar_items_size: 'small',
-        toolbar: 'newdocument styleselect fontsizeselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify |  forecolor backcolor | table bullist numlist outdent indent | link image media  | code preview ',
-        content_css: [
+    ],
+    toolbar_items_size: 'small',
+    toolbar: "newdocument styleselect fontsizeselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify |  forecolor backcolor | table bullist numlist outdent indent | link image media  | code preview ",
+    relative_urls: false,
+    file_browser_callback : function(field_name, url, type, win) {
+      var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+      var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
+
+      var cmsURL = editor_config.path_absolute + 'laravel-filemanager?field_name=' + field_name;
+      if (type == 'image') {
+        cmsURL = cmsURL + "&type=Images";
+      } else {
+        cmsURL = cmsURL + "&type=Files";
+      }
+
+      tinyMCE.activeEditor.windowManager.open({
+        file : cmsURL,
+        title : 'Filemanager',
+        width : x * 0.8,
+        height : y * 0.8,
+        resizable : "yes",
+        close_previous : "no"
+      });
+    },
+            content_css: [
             '{{ asset('resources/assets/bootstrap/dist/css/bootstrap.min.css', env('HTTPS')) }}',
             '{{ asset('resources/assets/css/reset.css', env('HTTPS')) }}',
             '{{ asset('resources/assets/css/style.css', env('HTTPS')) }}',
             '{{ asset('resources/assets/css/post.css', env('HTTPS')) }}'
-        ]
-    });
+        ],
+  };
+
+  tinymce.init(editor_config);
 </script>
 
 

@@ -139,7 +139,7 @@ ul.row-widget-list li {
     width: 30.7460112117%;
 }
 .row-widget-img {
-    background: #000;
+    /*background: #000;*/
     line-height: 0;
     margin-bottom: 15px;
     overflow: hidden;
@@ -241,6 +241,10 @@ a.inf-more-but:hover {
     position: relative;
     /*width: 94.1348973607%;*/
 }
+#content-area img{
+    max-width: 100% !important;
+      height: auto !important;
+}
 .post-tags {
     float: left;
     font-size: .75rem;
@@ -296,6 +300,17 @@ span.feat-caption {
 a:hover {color: #C03;}
 
 
+@media screen and (max-width: 991px) {
+    h1.entry-title {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 500px) {
+    span.post-excerpt p, #content-main span.post-excerpt p {
+        font-size: 0.8rem;
+    }
+}
+
 @media screen and (max-width: 398px) {
     ul.row-widget-list {
         float: left;
@@ -309,3 +324,5 @@ a:hover {color: #C03;}
         width: 100%;
     }
 }
+
+

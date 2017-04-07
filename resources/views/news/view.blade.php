@@ -14,6 +14,29 @@
     <meta property="og:title" content="{{ $news->title }}"/>
     <meta property="og:description" content="{{ mb_substr(strip_tags($news->content),0,110, 'UTF-8') }}"/>
     <meta property="og:image" content="{{ $image($news->image) }}"/>
+    
+    <meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="จับตากระแสระลอกครั้งใหม่ U CAN CAN U ? | BrandBuffet">
+<meta property="og:description" content="UBEER เพิ่มความแรงต่อเนื่องด้วยการออกเบียร์กระป๋องเข้าสู่ตลาดด้วย Design ง่ายๆแต่ Shock เล่นกันง่ายๆแต่โคตรโดน สะท้อนจุดยืนของแบรนด์ที่มีตัวตนชัดเจน UCAN พร้อมวางขายแล้ววันนี้ที่ 7-11 ทั่วประเทศ">
+<meta property="og:url" content="http://www.brandbuffet.in.th/2017/04/ubeer-can-launch-7eleven/">
+<meta property="og:site_name" content="Brand Buffet">
+<meta property="article:publisher" content="https://www.facebook.com/brandbuffet">
+<meta property="article:author" content="http://www.facebook.com/brandbuffet">
+<meta property="article:tag" content="UBEER">
+<meta property="article:tag" content="กระป๋อง">
+<meta property="article:tag" content="ยูเบียร์">
+<meta property="article:tag" content="สิงห์">
+<meta property="article:tag" content="เบียรสิงห์">
+<meta property="article:section" content="Advertorial">
+<meta property="article:published_time" content="2017-04-04T00:58:43+07:00">
+<meta property="article:modified_time" content="2017-04-04T11:36:34+07:00">
+<meta property="og:updated_time" content="2017-04-04T11:36:34+07:00">
+<meta property="fb:admins" content="10203695474528790">
+<meta property="fb:admins" content="524995360">
+<meta property="og:image" content="http://www.brandbuffet.in.th/wp-content/uploads/2017/04/ubeer-can-cover.jpg">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="500">
 @stop
 
 @section('source')
@@ -36,7 +59,7 @@
 
 @section('first-content')
 
-    <div class="col-md-9">
+    <div class="col-md-9 clearfix">
         <h1 class="entry-title">{{ $news['attributes']['title'] }}</h1>
 
         <div id="post-feat-img" class="left relative">
