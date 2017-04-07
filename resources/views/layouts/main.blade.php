@@ -45,9 +45,12 @@
 
     <link rel="shortlink" href="{{ request()->getUri() }}">
     <meta property="fb:app_id" content="693544830831851">
+    <meta property="og:locale" content="th_TH">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Nainam">
     <meta property="og:url" content="{{ request()->getUri() }}" />
-    <meta name="twitter:url" content="{{ request()->getUri() }}">
 
+    <meta name="twitter:url" content="{{ request()->getUri() }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@nainamofficial">
 

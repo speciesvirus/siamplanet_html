@@ -34,7 +34,7 @@
 
     <style>
         .page section:nth-child(2) {
-            margin-top: 2px;
+            margin-top: 1px;
         }
     </style>
 
@@ -119,8 +119,7 @@
                            title="{{ $value->title }}">
                             <img src="{{ route('images.q').'?q='.$value->image }}"
                                  class="related-entry-thumb-image wp-post-image"
-                                 alt="{{ $value->subtitle }}"
-                                 sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
+                                 alt="{{ $value->subtitle }}"> </a>
                     </div>
                     <!-- /.related-entry-thumb -->
 
@@ -156,8 +155,7 @@
                            title="{{ $value->title }}">
                             <img src="{{ route('images.q').'?q='.$value->image }}"
                                  class="related-entry-thumb-image wp-post-image"
-                                 alt="{{ $value->subtitle }}"
-                                 sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
+                                 alt="{{ $value->subtitle }}"> </a>
                     </div>
                     <!-- /.related-entry-thumb -->
 
@@ -192,8 +190,7 @@
                            title="{{ $value->title }}">
                             <img src="{{ route('images.q').'?q='.$value->image }}"
                                  class="related-entry-thumb-image wp-post-image"
-                                 alt="{{ $value->subtitle }}"
-                                 sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"> </a>
+                                 alt="{{ $value->subtitle }}"> </a>
                     </div>
                     <!-- /.related-entry-thumb -->
 
