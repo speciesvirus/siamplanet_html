@@ -98,22 +98,41 @@ class NewsController extends Controller
         $news->user_id = Auth::id();
         $news->tag = mb_strtoupper($request->input('tag'), 'UTF-8');
 
-        $destinationPath = resource_path('images/');
+        $destinationPath = $path = base_path('photos/shares/news');
         $file = $request->file('image');
-        $filename = null;
         if($file){
-            $filename = $file->getClientOriginalName();
-            $filename = $this->getImageName($filename);
+            $filename = $this->getNewName($file);
             $upload_success = $file->move($destinationPath, $filename);
             $news->image = $filename;
         }
         $news->save();
 
     }
-    public function getImageName($filename)
+
+    private function getNewName($file)
     {
-        $timestamp = Carbon::now()->toDayDateTimeString();
-        $randomKey = str_random(5);
-        return base64_encode($filename . $timestamp . $randomKey).'.jpg';
+        $new_filename = $this->translateFromUtf8(trim(pathinfo($file->getClientOriginalName(), 8)));
+
+        if (config('lfm.rename_file') === true) {
+            $new_filename = uniqid();
+        } elseif (config('lfm.alphanumeric_filename') === true) {
+            $new_filename = preg_replace('/[^A-Za-z0-9\-\']/', '_', $new_filename);
+        }
+
+        return $new_filename . '.' . $file->getClientOriginalExtension();
+    }
+
+    public function translateFromUtf8($input)
+    {
+        if ($this->isRunningOnWindows()) {
+            $input = iconv('UTF-8', 'BIG5', $input);
+        }
+
+        return $input;
+    }
+
+    public function isRunningOnWindows()
+    {
+        return strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
     }
 }
