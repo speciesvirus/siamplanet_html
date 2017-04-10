@@ -13,15 +13,21 @@ class ImageController extends Controller
      *
      * @param  Request  $request
      * @param  string  $q
-     * @param  int  $view
+     * @param  string  $view
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
         $q = $request->input('q');
-        $path = resource_path('images/'.$q);
+        $path = base_path('photos/product/'.$q);
 
-        if($request->view && $request->view == 2) $path = resource_path('images/avatar/'.$q);
+        if($request->view){
+            if($request->view == 'avatar'){
+                $path = base_path('photos/avatar/'.$q);
+            }elseif ($request->view == 'news'){
+                $path = base_path('photos/shares/news/'.$q);
+            }
+        }
 
         try{
             $file = File::get($path);
@@ -34,11 +40,10 @@ class ImageController extends Controller
             return $response;
         }
         catch(\Exception $e){
-            //return redirect()->route('home');
-            $view = $request->input('view');
-            if($view == null || $view == 1) return redirect(route('images.q').'?q=no_image_available.jpg');
+            //$view = $request->input('view');
+            return redirect(route('images.q').'?q=no_image_available.jpg');
 
-            return redirect()->route('home');
+            //return redirect()->route('home');
         }
 
     }

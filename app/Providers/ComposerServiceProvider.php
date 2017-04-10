@@ -42,6 +42,7 @@ class ComposerServiceProvider extends ServiceProvider
 
             $view->with([
                 'image' => function($image) { return $this->image($image); },
+                'news_image' => function($image) { return $this->newsImage($image); },
                 'category_name' => function($categoryId) { return $this->selectCategory($categoryId); },
                 'product_type' => function($productTypeId) { return $this->selectProductType($productTypeId); },
                 'product_unit' => function($productUnitId) { return $this->selectProductUnit($productUnitId); }
@@ -62,7 +63,12 @@ class ComposerServiceProvider extends ServiceProvider
     
     public function image($image){
 
-        return route('images.q').'?q='.$image.'&view=1';
+        return route('images.q').'?q='.$image.'&view=p';
+    }
+
+    public function newsImage($image){
+
+        return route('images.q').'?q='.$image.'&view=news';
     }
 
     public function selectCategory($categoryId){

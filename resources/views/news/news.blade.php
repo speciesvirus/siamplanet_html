@@ -53,7 +53,7 @@
                         {{--http://www.mvpthemes.com/flexmag/only-three-players-have-a-winning-record-against-rafael-nadal/--}}
                         <a href="{{ route('news.view').'/'.$value->id }}" rel="bookmark">
                             <div class="feat-wide5-img left relative">
-                                <img src="{{ route('images.q').'?q='.$value->image }}"
+                                <img src="{{ $news_image($value->image) }}"
                                      class="unlazy reg-img wp-post-image">
                             </div><!--feat-wide5-img-->
                             <div class="feat-wide5-text">
@@ -89,7 +89,7 @@
                         <li>
                             <a href="{{ route('news.view').'/'.$value->id }}" rel="bookmark">
                                 <div class="row-widget-img left relative">
-                                    <img src="{{ route('images.q').'?q='.$value->image }}"
+                                    <img src="{{ $news_image($value->image) }}"
                                          class="reg-img wp-post-image" alt="">
                                     <div class="feat-info-wrap">
                                         <div class="feat-info-views">
@@ -117,7 +117,7 @@
                     <div class="related-entry-thumb">
                         <a href="{{ route('news.view').'/'.$value->id }}"
                            title="{{ $value->title }}">
-                            <img src="{{ route('images.q').'?q='.$value->image }}"
+                            <img src="{{ $news_image($value->image) }}"
                                  class="related-entry-thumb-image wp-post-image"
                                  alt="{{ $value->subtitle }}"> </a>
                     </div>
@@ -153,7 +153,7 @@
                     <div class="related-entry-thumb">
                         <a href="{{ route('news.view').'/'.$value->id }}"
                            title="{{ $value->title }}">
-                            <img src="{{ route('images.q').'?q='.$value->image }}"
+                            <img src="{{ $news_image($value->image) }}"
                                  class="related-entry-thumb-image wp-post-image"
                                  alt="{{ $value->subtitle }}"> </a>
                     </div>
@@ -188,7 +188,7 @@
                     <div class="related-entry-thumb">
                         <a href="{{ route('news.view').'/'.$value->id }}"
                            title="{{ $value->title }}">
-                            <img src="{{ route('images.q').'?q='.$value->image }}"
+                            <img src="{{ $news_image($value->image) }}"
                                  class="related-entry-thumb-image wp-post-image"
                                  alt="{{ $value->subtitle }}"> </a>
                     </div>

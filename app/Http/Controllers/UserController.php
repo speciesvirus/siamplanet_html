@@ -24,7 +24,7 @@ class UserController extends Controller
             ->select('users.first_name', 'users.last_name','users.email', 'users.avatar', 'socials.avatar as av_social')
             ->where('users.id', auth()->id())->first();
 
-        $avatar = $user->avatar ? route('images.q').'?q='.$user->avatar.'&view=2' : ($user->av_social ? $user->av_social : route('images.q').'?q=') ;
+        $avatar = $user->avatar ? route('images.q').'?q='.$user->avatar.'&view=avatar' : ($user->av_social ? $user->av_social : route('images.q').'?q=') ;
         $product = Product::whereUserId(auth()->id())->orderBy('id', 'desc')->get();
 
         $message = null;
@@ -190,15 +190,14 @@ class UserController extends Controller
      */
     public function updateAvatar(Request $request)
     {
-        $destinationPath = resource_path('images/avatar/');
+        $destinationPath = base_path('photos/avatar/');
         $input = $request->except('_token');
 
         foreach ($input as $key => $value) {
             $file = $request->file($key);
             $filename = null;
             if($file){
-                $filename = $file->getClientOriginalName();
-                $filename = $this->getImageName($filename);
+                $filename = $this->getNewName($file);
                 $upload_success = $file->move($destinationPath, $filename);
 
                 $user = User::find(auth()->id());
@@ -215,11 +214,17 @@ class UserController extends Controller
         return response()->json(['result' => 'เกิดข้อผิดพลาด!'], 200);
     }
 
-    public function getImageName($filename)
+    private function getNewName($file)
     {
-        $timestamp = Carbon::now()->toDayDateTimeString();
-        $randomKey = str_random(5);
-        return base64_encode($filename . $timestamp . $randomKey).'.jpg';
+        $new_filename = $this->translateFromUtf8(trim(pathinfo($file->getClientOriginalName(), 8)));
+
+        if (config('lfm.rename_file') === true) {
+            $new_filename = uniqid();
+        } elseif (config('lfm.alphanumeric_filename') === true) {
+            $new_filename = preg_replace('/[^A-Za-z0-9\-\']/', '_', $new_filename);
+        }
+
+        return $new_filename . '.' . $file->getClientOriginalExtension();
     }
 
 }

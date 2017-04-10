@@ -56,12 +56,17 @@ return [
 
         'images' => [
             'driver' => 'local',
-            'root' => resource_path('images/'),//storage_path('resources/images'),
+            'root' => base_path('photos/product/'),//storage_path('resources/images'),
         ],
 
         'avatar' => [
             'driver' => 'local',
-            'root' => resource_path('images/avatar/'),
+            'root' => base_path('photos/avatar/'),//resource_path('images/avatar/')
+        ],
+
+        'newsImages' => [
+            'driver' => 'local',
+            'root' => base_path('photos/shares/news/'),
         ],
 
         's3' => [

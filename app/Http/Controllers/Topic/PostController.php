@@ -19,6 +19,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 
@@ -77,7 +78,7 @@ class PostController extends Controller
 
 
 
-        $destinationPath = resource_path('images/');
+        $destinationPath = Storage::disk('images');
         $input = $request->except('_token');
         $image_encrypted = [];
 

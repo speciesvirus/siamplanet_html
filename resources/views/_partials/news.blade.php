@@ -9,7 +9,7 @@
                     <div class="new-entry-thumb">
                         <a href="{{ route('news.view').'/'.$value->id }}" class="new-entry-image"
                            title="{{ $value->title }}"><img
-                                    src="{{ route('images.q').'?q='.$value->image }}"
+                                    src="{{ $news_image($value->image) }}"
                                     class="attachment-thumb100 size-thumb100 wp-post-image"
                                     alt="{{ $value->title }}"
                                     sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"></a>
