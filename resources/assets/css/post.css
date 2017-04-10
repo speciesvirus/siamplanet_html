@@ -99,7 +99,7 @@
 
 
 .select2-container--default .select2-selection--multiple {
-    height: 34px;
+    /*height: 34px;*/
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
@@ -122,6 +122,10 @@
 }
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
     margin-top: 0;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    margin-bottom: 5px;
 }
 /*.arrow:hover.left {*/
 /*left: -.2rem;*/
@@ -947,6 +951,7 @@ height: 21px;
 .fc-input{
     position: relative;
     float: left;
+    clear: both;
     margin-bottom: 25px;
 }
 .fc-d .control-label{
