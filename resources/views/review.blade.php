@@ -13,7 +13,9 @@
     <!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
     <meta property="og:title" content="{{ $product['title'] }}"/>
     <meta property="og:description" content="{{ mb_substr(strip_tags($product['content']),0,110, 'UTF-8') }}"/>
-    <meta property="og:image" content="{{ $image($product_img[0]->image) }}"/>
+    <meta property="og:image" content="{{ asset('photos/product/'.$product_img[0]->image) }}"/>
+    <meta property="og:image:width" content="{{ getimagesize($image($product_img[0]->image))[0] }}"/>
+    <meta property="og:image:height" content="{{ getimagesize($image($product_img[0]->image))[1] }}"/>
 @stop
 
 @section('source')
