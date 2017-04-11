@@ -138,6 +138,7 @@ ul.row-widget-list li {
     overflow: hidden;
     position: relative;
     width: 100%;
+    max-height: 173px;
     /*min-height: 150px;*/
 }
 .row-widget-text {

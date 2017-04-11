@@ -5,7 +5,7 @@
            title="Twitter" target="_blank"><i class="fa fa-twitter icon-2x" aria-hidden="true">&nbsp;</i></a>
     </li>
     <li class="social-facebook">
-        <a href="http://www.facebook.com/sharer.php?s=100&p[title]={{ $social['title'] }}&p[summary]={{ $social['des'] }}&p[url]={{ request()->url() }}&p[images][0]={{ $social['thumbnails'] }},"
+        <a href="http://www.facebook.com/sharer.php?u={{ request()->url() }}"
            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,height=350,width=520');return false;"
            title="Facebook" target="_blank"><i class="fa fa-facebook icon-2x">&nbsp;</i></a>
     </li>

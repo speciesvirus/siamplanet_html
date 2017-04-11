@@ -262,7 +262,7 @@
 /*}*/
 .check .check-icon {
     position: absolute;
-    z-index: 3;
+    /*z-index: 3;*/
     top: 35%;
     left: 28%;
     width: 45%;
@@ -1223,6 +1223,9 @@ span.input-to{
         border-bottom-left-radius: 5px;
         box-shadow: inset 1px 1px 0 white;
         height: 100%;
+        /*max-height: 215px;*/
+    }
+    .map-legend > ul {
         max-height: 215px;
     }
 }

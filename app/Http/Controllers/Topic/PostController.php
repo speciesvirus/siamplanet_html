@@ -78,7 +78,7 @@ class PostController extends Controller
 
 
 
-        $destinationPath = Storage::disk('images');
+        $destinationPath = Storage::disk('images')->getDriver()->getAdapter()->getPathPrefix();
         $input = $request->except('_token');
         $image_encrypted = [];
 
@@ -86,10 +86,8 @@ class PostController extends Controller
             $file = $request->file($key);
             $filename = null;
             if($file){
-                $filename = $file->getClientOriginalName();
                 $img = Image::make($file->getRealPath());
-
-                $filename = $this->getImageName($filename);
+                $filename = $this->getImageName($file);
                 $img->resize(848, 452, function ($constraint) {
                     $constraint->aspectRatio();
                 })->save($destinationPath.$filename, 85);
@@ -106,13 +104,19 @@ class PostController extends Controller
 
     }
 
-    public function getImageName($filename)
+    public function getImageName($file)
     {
-        $timestamp = Carbon::now()->toDayDateTimeString();
-        $randomKey = str_random(5);
-        return base64_encode($filename . $timestamp . $randomKey).'.jpg';
-    }
+        $new_filename = $this->translateFromUtf8(trim(pathinfo($file->getClientOriginalName(), 8)));
 
+        if (config('lfm.rename_file') === true) {
+            $new_filename = uniqid();
+        } elseif (config('lfm.alphanumeric_filename') === true) {
+            $new_filename = preg_replace('/[^A-Za-z0-9\-\']/', '_', $new_filename);
+        }
+
+        return $new_filename . '.jpg';
+    }
+    
     public function post(Request $request)
     {
         $this->validator($request);
