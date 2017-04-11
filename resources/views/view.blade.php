@@ -642,7 +642,7 @@
 
     <div class="col-md-9">
 
-        <h1 class="entry-title t-st-{{ $product['status'] }}">{{ $product['subtitle'] }}</h1>
+        <h1 class="entry-title t-st-{{ $product['status'] }}">{{ $product['title'] }}</h1>
         <a class="product-notice" data-id="{{ $product['id'] }}" href="javascript://">แจ้งประกาศไม่เหมาะสม</a>
         <div class="section section-project">
             <div class="project-carousel">
@@ -850,14 +850,14 @@
                             {{--</li>--}}
                             {{--</div>--}}
 
-                                @if(count($product_facility) > 5)
-                                    <div class="show-more">
-                                        <a href="javascript://" data-toggle="collapse" data-target=".toggle">
-                                            <span class="show-less">ดูเพิ่มเติม</span>
-                                            <i class="fa fa-chevron-circle-down" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                @endif
+                                {{--@if(count($product_facility) > 5)--}}
+                                    {{--<div class="show-more">--}}
+                                        {{--<a href="javascript://" data-toggle="collapse" data-target=".toggle">--}}
+                                            {{--<span class="show-less">ดูเพิ่มเติม</span>--}}
+                                            {{--<i class="fa fa-chevron-circle-down" aria-hidden="true"></i>--}}
+                                        {{--</a>--}}
+                                    {{--</div>--}}
+                                {{--@endif--}}
 
 
 
@@ -940,8 +940,7 @@
                     <div class="col-md-9">
                         <ul class="features-list">
                             <li class="list-item one-column features-item">
-                                <p>If you have any question or remarks about Trefecta, fill in your details below, and we will contact you
-                                    as soon as possible.<br></p>
+                                <p>หากคุณมีคำถามโปรดกรอกรายละเอียดด้านล่างและเราจะติดต่อคุณโดยเร็วที่สุด</p>
                             </li>
                         </ul>
                     </div>

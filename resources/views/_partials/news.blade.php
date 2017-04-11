@@ -11,8 +11,7 @@
                            title="{{ $value->title }}"><img
                                     src="{{ $news_image($value->image) }}"
                                     class="attachment-thumb100 size-thumb100 wp-post-image"
-                                    alt="{{ $value->title }}"
-                                    sizes="(max-width: 100px) 100vw, 100px" height="100" width="100"></a>
+                                    alt="{{ $value->title }}"></a>
                     </div><!-- /.new-entry-thumb -->
 
                     <div class="new-entry-content">

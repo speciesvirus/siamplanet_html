@@ -19,8 +19,8 @@
     <meta property="og:title" content="{{ $news->title }}"/>
     <meta property="og:description" content="{{ mb_substr(strip_tags($news->content),0,110, 'UTF-8') }}"/>
     <meta property="og:image" content="{{ asset('photos/shares/news/'.$news->image) }}"/>
-    <meta property="og:image:width" content="{{ getimagesize(asset('photos/shares/news/'.$news->image))[0] }}"/>
-    <meta property="og:image:height" content="{{ getimagesize(asset('photos/shares/news/'.$news->image))[1] }}"/>
+    <meta property="og:image:width" content="{{ getimagesize($news_image($news->image))[0] }}"/>
+    <meta property="og:image:height" content="{{ getimagesize($news_image($news->image))[1] }}"/>
     
 @stop
 

@@ -74,7 +74,7 @@
                     {{ csrf_field() }}
                     <div>
                         <div class="col-md-6">
-                            <div class="row" style="margin-right: -10px">
+                            <div class="row row-first-name">
                                 <div class="form-group {{ $errors->has('first_name') ? 'has-error' : '' }}">
                                     <label for="exampleInputEmail1"><strong>Name</strong></label>
                                     <input name="first_name" type="text" class="form-control" placeholder="ชื่อ" value="{{ old('first_name') }}">
@@ -83,9 +83,9 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="row" style="margin-left: -10px">
+                            <div class="row row-last-name">
                                 <div class="form-group {{ $errors->has('last_name') ? 'has-error' : '' }}">
-                                    <label for="exampleInputEmail1">&nbsp</label>
+                                    <label for="exampleInputEmail1" class="lb-last-name">&nbsp</label>
                                     <input name="last_name" type="text" class="form-control" placeholder="นามสกุล" value="{{ old('last_name') }}">
                                     <span class="help-inline">{{ $errors->has('last_name') ? $errors->first('last_name') : '' }}</span>
                                 </div>

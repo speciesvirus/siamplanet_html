@@ -38,6 +38,12 @@ body{
     padding-left: 20px;
     list-style-type: circle;
 }
+.row-first-name{
+    margin-right: -10px;
+}
+.row-last-name{
+    margin-left: -10px;
+}
 @media (max-width: 768px) {
     .div-login, .div-login  {
         width: 100%;
@@ -82,5 +88,14 @@ body{
 @media (max-width: 991px){
     .side-content {
          padding-left: 0;
+    }
+    .row-first-name{
+        margin-right: -15px;
+    }
+    .row-last-name{
+        margin-left: -15px;
+    }
+    .lb-last-name{
+        display: none;
     }
 }
