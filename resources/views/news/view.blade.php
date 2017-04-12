@@ -12,15 +12,15 @@
 
     <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
     <meta name="twitter:creator" content="@nainam">
-    <meta name="twitter:title" content="{{ $news->title }}">
-    <meta name="twitter:description" content="{{ mb_substr(strip_tags($news->content),0,110, 'UTF-8') }}">
+    <meta name="twitter:title" content="{{ $social['title'] }}">
+    <meta name="twitter:description" content="{{ mb_substr(strip_tags($social['des']),0,110, 'UTF-8') }}">
 
     <!-- Facebook (and some others) use the Open Graph protocol: see http://ogp.me/ for details -->
-    <meta property="og:title" content="{{ $news->title }}"/>
-    <meta property="og:description" content="{{ mb_substr(strip_tags($news->content),0,110, 'UTF-8') }}"/>
-    <meta property="og:image" content="{{ asset('photos/shares/news/'.$news->image) }}"/>
-    <meta property="og:image:width" content="{{ getimagesize($news_image($news->image))[0] }}"/>
-    <meta property="og:image:height" content="{{ getimagesize($news_image($news->image))[1] }}"/>
+    <meta property="og:title" content="{{ $social['title'] }}"/>
+    <meta property="og:description" content="{{ mb_substr(strip_tags($social['des']),0,110, 'UTF-8') }}"/>
+    <meta property="og:image" content="{{ $social['thumbnails'] }}"/>
+    <meta property="og:image:width" content="{{ getimagesize($social['thumbnails'])[0] }}"/>
+    <meta property="og:image:height" content="{{ getimagesize($social['thumbnails'])[1] }}"/>
     
 @stop
 

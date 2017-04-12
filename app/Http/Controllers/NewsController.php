@@ -7,6 +7,8 @@ use App\Models\News\NewsCategory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class NewsController extends Controller
 {
@@ -45,7 +47,8 @@ class NewsController extends Controller
             $param = [
                 'news' => $news,
                 'social' => collect([
-                    'thumbnails' => route('images.q').'?q='.$news->image.'&view=news',
+//                    'thumbnails' => route('images.q').'?q='.$news->image.'&view=news',
+                    'thumbnails' => asset('photos/shares/news/'.$news->image),
                     'title' => $news->title,
                     'des' => $news->subtitle,
                 ])
@@ -104,6 +107,7 @@ class NewsController extends Controller
             $filename = $this->getNewName($file);
             $upload_success = $file->move($destinationPath, $filename);
             $news->image = $filename;
+
         }
         $news->save();
 
