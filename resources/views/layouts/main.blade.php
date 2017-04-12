@@ -19,14 +19,12 @@
 
     <!-- Important stuff for SEO, don't neglect. (And don't dupicate values across your site!) -->
     <title>@yield('title')</title>
-    <meta name="author" content=""/>
-    <meta name="description" content=""/>
 
     <!-- Don't forget to set your site up: http://google.com/webmasters -->
-    <meta name="google-site-verification" content=""/>
+    <meta name="google-site-verification" content="gBboO71O0fRrsusEwGLSPVk48jEwGaWfKO_LbOtsVe8" />
 
     <!-- Who owns the content of this site? -->
-    <meta name="Copyright" content=""/>
+    <meta name="Copyright" content="nainam"/>
 
     <!--  Mobile Viewport
     http://j.mp/mobileviewport & http://davidbcalhoun.com/2010/viewport-metatag
@@ -35,7 +33,6 @@
     maximum-scale = 1.0 retains dimensions instead of zooming in if page width < device width (wrong for most sites)
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
 
     <meta name="theme-color" content="#003561">
     <!-- Windows Phone -->
@@ -69,11 +66,6 @@
 
     <!-- Lea Verou's prefixfree (http://leaverou.github.io/prefixfree/), lets you use un-prefixed properties in your CSS files -->
     {{--<script src="{{ asset('resources/assets/prefixfree/prefixfree.min.js', env('HTTPS')) }}"></script>--}}
-
-    <!-- This is a minimized, base version of Modernizr. (http://modernizr.com)
-          You will need to create new builds to get the detects you need. -->
-    <script src="{{ asset('resources/assets/js/components/modernizr-3.2.0.base.js', env('HTTPS')) }}"></script>
-
 </head>
 
 <body>

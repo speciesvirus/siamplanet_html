@@ -164,7 +164,8 @@
             '{{ asset('resources/assets/css/reset.css', env('HTTPS')) }}',
             '{{ asset('resources/assets/css/style.css', env('HTTPS')) }}',
             '{{ asset('resources/assets/css/post.css', env('HTTPS')) }}'
-        ]
+        ],
+        extended_valid_elements: "iframe[class|src|frameborder=0|alt|title|width|height|align|name]"
     };
 
     tinymce.init(editor_config);

@@ -45,7 +45,7 @@ class NewsController extends Controller
             $param = [
                 'news' => $news,
                 'social' => collect([
-                    'thumbnails' => route('images.q').'?q='.$news->image,
+                    'thumbnails' => route('images.q').'?q='.$news->image.'&view=news',
                     'title' => $news->title,
                     'des' => $news->subtitle,
                 ])

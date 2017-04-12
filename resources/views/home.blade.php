@@ -74,9 +74,15 @@
                             <li class="phone"><a href="javascript://">กดเพื่อดูเบอร์</a></li>
                             <li class="share">
                                 <ul>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                    <li><a href="http://www.facebook.com/sharer.php?u={{ route('home').'/'.$item['attributes']['id'] }}"
+                                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,height=350,width=520');return false;"
+                                       title="Facebook" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://twitter.com/intent/tweet?text={{ $item['attributes']['title'] }}&url={{ route('home').'/'.$item['attributes']['id'] }}"
+                                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,height=420,width=550');return false;"
+                                       title="Twitter" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="https://plus.google.com/share?url={{ route('home').'/'.$item['attributes']['id'] }}"
+                                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,height=600,width=600');return false;"
+                                       title="Google+" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a></li>
                                 </ul>
                             </li>
                         </ul>
