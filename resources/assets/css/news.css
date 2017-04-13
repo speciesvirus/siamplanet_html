@@ -234,6 +234,7 @@ a.inf-more-but:hover {
     padding: 30px 2.93255131965%;
     position: relative;
     /*width: 94.1348973607%;*/
+    width: 100%;
 }
 #content-area img{
     max-width: 100% !important;
@@ -251,7 +252,7 @@ a.inf-more-but:hover {
 .social-sharing-top, .social-sharing-bot {
     float: left;
     position: relative;
-    text-align: center;
+    /*text-align: center;*/
     width: 100%;
 }
 .social-sharing-top, .social-sharing-bot {

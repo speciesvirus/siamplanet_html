@@ -2574,7 +2574,14 @@ ul.social-follow li.social-linkedin a:hover {
   color: #1d87be !important;
 }
 
-
+.fb-comments-section{
+    clear: both;
+    margin-top: 15px;
+    border: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px;
+    padding: 32px;
+}
 .fb_iframe_widget {
     margin: 15px 0;
 }
@@ -2588,7 +2595,8 @@ ul.social-follow li.social-linkedin a:hover {
 
 @media screen and (max-width: 989px){
     .fb-comments-section{
-        margin: 25px;
+        padding: 5px;
+        /*margin: 25px;*/
     }
 }
 

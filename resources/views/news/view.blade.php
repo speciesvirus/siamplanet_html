@@ -85,6 +85,9 @@
                     @include('_partials.social-share')
                 </div><!--social-sharing-bot-->
 
+                <div class="bs-docs-section fb-comments-section">
+                    <div class="fb-comments" data-href="{{ request()->url() }}" data-numposts="5"></div>
+                </div>
 
             </div><!--content-main-->
 
