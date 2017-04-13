@@ -58,6 +58,7 @@
 
 .project-strip .slick-slide img {
     width: 80px;
+    max-height: 45px;
 }
 
 .project-strip .slick-current {

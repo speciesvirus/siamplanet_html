@@ -109,6 +109,78 @@
         </div>
         <a href="{{ route('news.category') }}/1" class="inf-more-but" style="display: inline-block;">More Posts</a>
 
+        <h3 class="side-list-title mg-30">ตกแต่ง</h3>
+        <aside class="related-entries">
+
+            @foreach($decorate as $value)
+                <article class="related-entry cf">
+                    <div class="related-entry-thumb">
+                        <a href="{{ route('news.view').'/'.$value->id }}"
+                           title="{{ $value->title }}">
+                            <img src="{{ $news_image($value->image) }}"
+                                 class="related-entry-thumb-image wp-post-image"
+                                 alt="{{ $value->subtitle }}"> </a>
+                    </div>
+                    <!-- /.related-entry-thumb -->
+
+                    <div class="related-entry-content">
+                        <header>
+                            <h3 class="related-entry-title">
+                                <a href="{{ route('news.view').'/'.$value->id }}"
+                                   class="related-entry-title-link" title="{{ $value->title }}">{{ $value->title }}</a>
+                            </h3>
+                        </header>
+                        <p class="related-entry-snippet">{{ $value->subtitle }}</p>
+
+                        <footer>
+                            <p class="related-entry-read"><a href="{{ route('news.view').'/'.$value->id }}">เพิ่มเติม</a></p>
+                        </footer>
+
+                    </div>
+                    <!-- /.related-entry-content -->
+                </article>
+                <!-- /.elated-entry -->
+            @endforeach
+
+            <a href="{{ route('news.category') }}/6" class="inf-more-but" style="display: inline-block;">More Posts</a>
+        </aside>
+
+        <h3 class="side-list-title mg-30">ท่องเที่ยว</h3>
+        <aside class="related-entries">
+
+            @foreach($travel as $value)
+                <article class="related-entry cf">
+                    <div class="related-entry-thumb">
+                        <a href="{{ route('news.view').'/'.$value->id }}"
+                           title="{{ $value->title }}">
+                            <img src="{{ $news_image($value->image) }}"
+                                 class="related-entry-thumb-image wp-post-image"
+                                 alt="{{ $value->subtitle }}"> </a>
+                    </div>
+                    <!-- /.related-entry-thumb -->
+
+                    <div class="related-entry-content">
+                        <header>
+                            <h3 class="related-entry-title">
+                                <a href="{{ route('news.view').'/'.$value->id }}"
+                                   class="related-entry-title-link" title="{{ $value->title }}">{{ $value->title }}</a>
+                            </h3>
+                        </header>
+                        <p class="related-entry-snippet">{{ $value->subtitle }}</p>
+
+                        <footer>
+                            <p class="related-entry-read"><a href="{{ route('news.view').'/'.$value->id }}">เพิ่มเติม</a></p>
+                        </footer>
+
+                    </div>
+                    <!-- /.related-entry-content -->
+                </article>
+                <!-- /.elated-entry -->
+            @endforeach
+
+            <a href="{{ route('news.category') }}/5" class="inf-more-but" style="display: inline-block;">More Posts</a>
+        </aside>
+
         <h3 class="side-list-title mg-30">สังคม</h3>
         <aside class="related-entries">
 
@@ -178,6 +250,41 @@
             @endforeach
             <!-- /.elated-entry -->
             <a href="{{ route('news.category') }}/2" class="inf-more-but" style="display: inline-block;">More Posts</a>
+        </aside>
+
+        <h3 class="side-list-title mg-20">ภาพยนตร์</h3>
+        <aside class="related-entries">
+
+            @foreach($movie as $value)
+                <article class="related-entry cf">
+                    <div class="related-entry-thumb">
+                        <a href="{{ route('news.view').'/'.$value->id }}"
+                           title="{{ $value->title }}">
+                            <img src="{{ $news_image($value->image) }}"
+                                 class="related-entry-thumb-image wp-post-image"
+                                 alt="{{ $value->subtitle }}"> </a>
+                    </div>
+                    <!-- /.related-entry-thumb -->
+
+                    <div class="related-entry-content">
+                        <header>
+                            <h3 class="related-entry-title">
+                                <a href="{{ route('news.view').'/'.$value->id }}"
+                                   class="related-entry-title-link" title="{{ $value->title }}">{{ $value->title }}</a>
+                            </h3>
+                        </header>
+                        <p class="related-entry-snippet">{{ $value->subtitle }}</p>
+
+                        <footer>
+                            <p class="related-entry-read"><a href="{{ route('news.view').'/'.$value->id }}">เพิ่มเติม</a></p>
+                        </footer>
+
+                    </div>
+                    <!-- /.related-entry-content -->
+                </article>
+        @endforeach
+        <!-- /.elated-entry -->
+            <a href="{{ route('news.category') }}/7" class="inf-more-but" style="display: inline-block;">More Posts</a>
         </aside>
 
         <h3 class="side-list-title mg-30">กีฬา</h3>

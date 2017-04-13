@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\News\NewsCategory;
 use App\Models\Product\ProductType;
 use App\Models\Product\ProductUnit;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -72,15 +73,13 @@ class ComposerServiceProvider extends ServiceProvider
     }
 
     public function selectCategory($categoryId){
-
+        //Cookie::queue("category", NewsCategory::get(), 720, null, route('home'));
         if(!session('category')){
             session(['category' => NewsCategory::get()]);
         }
-
         foreach (session('category') as $value){
             if($value->id == $categoryId) return $value->category;
         }
-
     }
 
     public function selectProductType($productTypeId){

@@ -16,10 +16,13 @@ class NewsController extends Controller
     {
         return view('news.news')->with([
             'news_top' => News::limit(4)->orderBy('id', 'desc')->get(),
-            'property' => News::whereCategoryId(1)->limit(3)->get(),
-            'social' => News::whereCategoryId(4)->limit(3)->get(),
-            'technology' => News::whereCategoryId(2)->limit(3)->get(),
-            'sport' => News::whereCategoryId(3)->limit(3)->get(),
+            'property' => News::whereCategoryId(1)->orderBy('id', 'desc')->limit(3)->get(),
+            'social' => News::whereCategoryId(4)->orderBy('id', 'desc')->limit(3)->get(),
+            'technology' => News::whereCategoryId(2)->orderBy('id', 'desc')->limit(3)->get(),
+            'sport' => News::whereCategoryId(3)->orderBy('id', 'desc')->limit(3)->get(),
+            'decorate' => News::whereCategoryId(6)->orderBy('id', 'desc')->limit(3)->get(),
+            'travel' => News::whereCategoryId(5)->orderBy('id', 'desc')->limit(3)->get(),
+            'movie' => News::whereCategoryId(7)->orderBy('id', 'desc')->limit(3)->get(),
         ]);
     }
 
