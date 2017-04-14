@@ -705,7 +705,7 @@ section:first-child {
     border-radius: 3px;
     box-shadow: 0 3px 7px -3px rgba(0, 0, 0, 0.3);
     border: 1px solid #ddd;
-    margin: 0 auto 1.6%;
+    margin: 0 auto 8px;
     overflow: hidden;
     position: relative;
     font-size: 14px;
