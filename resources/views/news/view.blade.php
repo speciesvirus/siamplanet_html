@@ -7,7 +7,7 @@
     <meta property="article:publisher" content="https://www.facebook.com/nainamofficial">
     <meta property="article:author" content="http://www.facebook.com/nainamofficial">
     @foreach(explode(',', $news->tag) as $key => $info)
-        <meta property="article:tag" content="{{ trim($info) }}">
+    <meta property="article:tag" content="{{ trim($info) }}">
     @endforeach
 
     <!-- Twitter: see https://dev.twitter.com/docs/cards/types/summary-card for details -->
@@ -21,7 +21,7 @@
     <meta property="og:image" content="{{ $social['thumbnails'] }}"/>
     <meta property="og:image:width" content="{{ getimagesize($social['thumbnails'])[0] }}"/>
     <meta property="og:image:height" content="{{ getimagesize($social['thumbnails'])[1] }}"/>
-    
+
 @stop
 
 @section('source')
@@ -44,15 +44,15 @@
 
 @section('first-content')
 
-    <div class="col-md-9 clearfix">
-        <h1 class="entry-title">{{ $news['attributes']['title'] }}</h1>
+    <div class="col-md-9 clearfix" itemscope itemtype="http://schema.org/news" >
+        <h1 class="entry-title" itemprop="name">{{ $news['attributes']['title'] }}</h1>
 
         <div id="post-feat-img" class="left relative">
-            <img src="{{ $news_image($news->image) }}"
+            <img src="{{ $news_image($news->image) }}" itemprop="image"
                  class="attachment- size- wp-post-image" alt="">
             <div class="post-feat-text">
 				    <span class="post-excerpt left">
-				        <p>{{ $news->subtitle }}</p>
+				        <p itemprop="description">{{ $news->subtitle }}</p>
                     </span>
                 {{--<span class="feat-caption">Photo: Shutterstock</span>--}}
             </div>
