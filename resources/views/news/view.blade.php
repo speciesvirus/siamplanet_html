@@ -19,8 +19,10 @@
     <meta property="og:title" content="{{ $social['title'] }}"/>
     <meta property="og:description" content="{{ mb_substr(strip_tags($social['des']),0,110, 'UTF-8') }}"/>
     <meta property="og:image" content="{{ $social['thumbnails'] }}"/>
-    <meta property="og:image:width" content="{{ getimagesize($social['thumbnails'])[0] }}"/>
-    <meta property="og:image:height" content="{{ getimagesize($social['thumbnails'])[1] }}"/>
+    {{--<meta property="og:image:width" content="{{ getimagesize($social['thumbnails'])[0] }}"/>--}}
+    {{--<meta property="og:image:height" content="{{ getimagesize($social['thumbnails'])[1] }}"/>--}}
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
 
 @stop
 
