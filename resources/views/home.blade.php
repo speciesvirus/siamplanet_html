@@ -14,6 +14,8 @@
     <meta property="og:title" content="nainam"/>
     <meta property="og:description" content="Nainam | รวบรวม ที่ดิน บ้าน คอนโด ทาวน์เฮ้าส์ อื่นๆ ครบถ้วน ทุกทำเลท ออกแบบได้สไตล์คุณ"/>
     <meta property="og:image" content="{{ asset('resources/assets/images/nainam_logo_top_blue_300.png', env('HTTPS')) }}"/>
+    <meta property="og:image:width" content="{{ getimagesize(asset('resources/assets/images/nainam_logo_top_blue_300.png', env('HTTPS')))[0] }}"/>
+    <meta property="og:image:height" content="{{ getimagesize(asset('resources/assets/images/nainam_logo_top_blue_300.png', env('HTTPS')))[1] }}"/>
 @stop
 
 @section('source')
